@@ -411,10 +411,10 @@ document.getElementById("interestpayed").value = round((monthly * payments) - pr
 
 //energy related 
         document.getElementById("energyprice").value = energypricepercountry[document.getElementById("series11Select").value];
-        document.getElementById("powercostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000));
-        document.getElementById("powercosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("Ultra").value);
-        document.getElementById("coolingcostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000));
-        document.getElementById("coolingcosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("Ultra").value);
+        document.getElementById("powercostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("series7quantity").value);
+        document.getElementById("powercosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("series7quantity").value*document.getElementById("Ultra").value);
+        document.getElementById("coolingcostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("series7quantity").value);
+        document.getElementById("coolingcosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("series7quantity").value*document.getElementById("Ultra").value);
         document.getElementById("powerandcoolingcostsperyear").value = Math.round(document.getElementById("powercostsperyear").value)+Math.round(document.getElementById("coolingcostsperyear").value);
         document.getElementById("powerandcoolingcosts").value = Math.round(document.getElementById("powercosts").value)+Math.round(document.getElementById("coolingcosts").value);
 
@@ -510,7 +510,7 @@ diff1 = ((al1 / 100) * Math.PI*2*10).toFixed(2);
 ctx1.clearRect(0, 0, cw1, ch1);
 ctx1.lineWidth = 7;
 ctx1.fillStyle = '#09F';
-ctx1.strokeStyle = 'red';
+ctx1.strokeStyle = '#09F';
 ctx1.font="14px bebas"
 ctx1.textAlign = 'center';
 ctx1.fillText(al1.toFixed(2)+'%', cw1*.5, ch1*.5+2, cw1);
@@ -536,7 +536,7 @@ diff2 = ((al2 / 100) * Math.PI*2*10).toFixed(2);
 ctx2.clearRect(0, 0, cw2, ch2);
 ctx2.lineWidth = 7;
 ctx2.fillStyle = '#09F';
-ctx2.strokeStyle = 'red';
+ctx2.strokeStyle = '#09F';
 ctx2.font="14px bebas"
 ctx2.textAlign = 'center';
 ctx2.fillText(al2.toFixed(2)+'%', cw2*.5, ch2*.5+2, cw2);
@@ -562,7 +562,7 @@ diff3 = ((al3 / 100) * Math.PI*2*10).toFixed(2);
 ctx3.clearRect(0, 0, cw3, ch3);
 ctx3.lineWidth = 7;
 ctx3.fillStyle = '#09F';
-ctx3.strokeStyle = 'red';
+ctx3.strokeStyle = '#09F';
 ctx3.font="14px bebas"
 ctx3.textAlign = 'center';
 ctx3.fillText(al3.toFixed(2)+'%', cw3*.5, ch3*.5+2, cw3);
