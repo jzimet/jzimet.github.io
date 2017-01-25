@@ -40,6 +40,8 @@ canvas#mycanvas {border: solid gray 1px}
 
 <form name ="iaas">
 
+run();
+
 <fieldset><legend>capex, revenue and Cisco capital</legend>
 
 <!--
@@ -226,13 +228,40 @@ function regularDeposit(payment,freq,rate,periods)
 </select>
 </label>
 </td>
+<td>
+<label> Select Country:<select id="series11Select" onchange="run()">
+                <script>
+                        countryname = ["Bulgaria", "Serbia", "Croatia", "Montenegro", "Macedonia", "Albania", "Romania", "Turkey", "Slovenia", "Bosnia", "Austria", "Belgium", "Cyprus", "Czech", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "netherland", "Poland", "Portugal", "Slovakia", "Spain", "Swedeen", "United Kingdom"];
+                        energypricepercountry = ["0.10", "0.07", "0.15", "0.11", "0.09", "0.12", "0.11", "0.14", "0.16", "0.11", "0.27", "0.31", "0.32", "0.20", "0.41", "0.14", "0.21", "0.19", "0.35", "0.18", "0.22", "0.28", "0.30", "0.18", "0.17", "0.23", "0.23", "0.29", "0.20", "0.25", "0.24", "0.27", "0.27", "0.21"];
+
+                        for (i = 0; i < countryname.length; i++) {
+                                document.write("<option value=" + i + ">" + countryname[i] + ":" + energypricepercountry[i] + "usd/kwh" + "</option>");
+                        }
+                </script>
+</select> Price : <output id="energyprice"></output> usd/kwh</label>
+<script>
+//function myRun11() {
+//        document.getElementById("energyprice").value = energypricepercountry[document.getElementById("series11Select").value];
+//        document.getElementById("powercostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000));
+//        document.getElementById("powercosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("Ultra").value);
+//        document.getElementById("coolingcostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000));
+//        document.getElementById("coolingcosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("Ultra").value);
+//        document.getElementById("powerandcoolingcostsperyear").value = Math.round(document.getElementById("powercostsperyear").value)+Math.round(document.getElementById("coolingcostsperyear").value);
+//        document.getElementById("powerandcoolingcosts").value = Math.round(document.getElementById("powercosts").value)+Math.round(document.getElementById("coolingcosts").value);
+//}
+</script>
+</td>
 </tr>
 <tr>
 <td>
 <label>Total Cost:<input type="text" id="totalcapex" style="width: 4em"></label>
 </td>
 <td>
+<label>Power Costs per Year :<output id="powercostsperyear"></output></label>
+<label>Toatal Power Costs :<output id="powercosts"></output></label>
+<!--
 <meter id="totalcapexprogress" value="0" max ="100"></meter>
+-->
 </td>
 </tr>
 <tr>
@@ -240,7 +269,11 @@ function regularDeposit(payment,freq,rate,periods)
 <label>Total Revenue:<input type="text" id="totalrevenue" style="width: 4em"></label>
 </td>
 <td>
+<label>Cooling  Costs per Year :<output id="coolingcostsperyear"></output></label>
+<label>Total Cooling  Costs :<output id="coolingcosts"></output></label>
+<!--
 <meter id="totalrevenueprogress" value="0" max ="100"></meter>
+-->
 </td>
 </tr>
 <tr>
@@ -248,8 +281,11 @@ function regularDeposit(payment,freq,rate,periods)
 <label>Revenue - Cost :<input type="text" id="cashflow" style="width: 4em"></label>
 </td>
 <td>
+<label>Power + Cooling Costs per Year :<output id="powerandcoolingcostsperyear"></output></label>
+<label>Total Power + Cooling Costs :<output id="powerandcoolingcosts"></output></label>
+<!--
 <meter id="totalcapex-revenueprogress" value="0" max ="100"></meter>
-</td>
+-->
 </tr>
 <tr>
 <td colspan="2">
@@ -358,9 +394,9 @@ document.getElementById("cashflow").value= document.getElementById("totalrevenue
 document.getElementById("iaasprogress").value= 100*document.getElementById("iaasrevenue").value/document.getElementById("totalrevenue").value;
 document.getElementById("draasprogress").value= 100*document.getElementById("draasrevenue").value/document.getElementById("totalrevenue").value;
 document.getElementById("haasprogress").value= 100*document.getElementById("haasrevenue").value/document.getElementById("totalrevenue").value;
-document.getElementById("totalcapexprogress").value= document.getElementById("totalcapex").value;
-document.getElementById("totalrevenueprogress").value= 100*document.getElementById("totalrevenue").value;
-document.getElementById("totalcapex-revenueprogress").value= 100*document.getElementById("cashflow").value;
+//document.getElementById("totalcapexprogress").value= document.getElementById("totalcapex").value;
+//document.getElementById("totalrevenueprogress").value= 100*document.getElementById("totalrevenue").value;
+//document.getElementById("totalcapex-revenueprogress").value= 100*document.getElementById("cashflow").value;
 
 //calculation
 principal = document.getElementById("totalcapex").value;
@@ -373,6 +409,14 @@ document.getElementById("annuity").value = a;
 document.getElementById("paymentwithinterest").value = round(monthly * payments);
 document.getElementById("interestpayed").value = round((monthly * payments) - principal);
 
+//energy related 
+        document.getElementById("energyprice").value = energypricepercountry[document.getElementById("series11Select").value];
+        document.getElementById("powercostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000));
+        document.getElementById("powercosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("Ultra").value);
+        document.getElementById("coolingcostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000));
+        document.getElementById("coolingcosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("Ultra").value);
+        document.getElementById("powerandcoolingcostsperyear").value = Math.round(document.getElementById("powercostsperyear").value)+Math.round(document.getElementById("coolingcostsperyear").value);
+        document.getElementById("powerandcoolingcosts").value = Math.round(document.getElementById("powercosts").value)+Math.round(document.getElementById("coolingcosts").value);
 
 document.getElementById("iaassmallgrowthlabel").value = document.getElementById("iaassmallgrowth").value;
 
@@ -821,7 +865,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 <img src="architecture.png" align="middle" width="300" height="500">
 </td>
 <td>
-<input type = "checkbox" id = "series1checkbox" onchange="myRun1()">wanedge
+<input type = "checkbox" id = "series1checkbox" checked onchange="myRun1()">wanedge
         <select id="series1Select" onchange="myRun1()">
                 <script>
                         series1name = ["ASR1001-X", "ASR1002-X", "ASR-1004", "ASR1006", "ASR1001", "ASR1002", "ASR1013", "CISCO1912", "CISCO2901", "CISCO4321", "IR829", "ASR9006", "ASR9904", "CSR10M", "CSR100M", "CSR1GB", "CSR2.5GB", "CSR10GB"];
@@ -840,11 +884,11 @@ if (al3 >= document.getElementById("haasprogress").value) {
 <label>Quantity: <input id="series1quantity" style="width: 4em" type="number" value="1" step="1" onchange="myRun1()"></label>
 </td>
 <td>
-Discount: <input id="series1discount" style="width: 4em" type="range" min="0" max="100" step="10" value="45" onchange="myRun1()">
+Discount: <input id="series1discount" style="width: 4em" type="range" min="0" max="100" step="10" value="0" onchange="myRun1()">
 <input type="text" id="series1disp" style="width: 4em">
 </td>
 <td>
-<input type="number" id="series1total" style="width: 4em" value="0">
+<input type="number" id="series1total" style="width: 4em" value="100">
 <script>
 function myRun1() {
         document.getElementById("series1gpl").value = series1price[document.getElementById("series1Select").value];
