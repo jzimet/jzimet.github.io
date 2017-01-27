@@ -214,15 +214,11 @@ function regularDeposit(payment,freq,rate,periods)
 
 <table>
 <td>
-	<table>
-	<td>
-	<fieldset><legend>capex, power, cooling  and revenue</legend>
-		<table>
-		<tr>
-		<td>
-		<label for="Ultra">Select Years:
-		</td>
-		<td>
+<table><td><fieldset><legend>capex and revenue</legend>
+<table>
+<tr>
+<td>
+<label for="Ultra">Select Years:
 		<select id="Ultra" onchange="run()">
 	     		<option value="1">1</option>
 	     		<option value="2">2</option>
@@ -237,16 +233,12 @@ function regularDeposit(payment,freq,rate,periods)
 		<tr>
 		<td>
 		<label>Total Cost:
-		</td>
-		<td>
 		<input type="text" id="totalcapex" style="width: 4em"></label>
 		</td>
 		</tr>
 		<tr>
 		<td>
 		<label>Total Revenue:
-		</td>
-		<td>
 		<input type="text" id="totalrevenue" style="width: 4em"></label>
 		</td>
 		<td>
@@ -254,14 +246,33 @@ function regularDeposit(payment,freq,rate,periods)
 		<tr>
 		<td>
 		<label>Revenue - Cost :
-		</td>
-		<td>
 		<input type="text" id="cashflow" style="width: 4em"></label>
+		</td>
+                <td>
+		<tr>
+		<td>
+		<canvas id="can" width="400" height="150" style="border:1px dashed #CCC;"></canvas>
 		</td>
 		</tr>
 		<tr>
-		<td colspan="2">
-		<canvas id="can" width="400" height="150" style="border:1px dashed #CCC;"></canvas>
+		<td>
+                <label>RAM required Y1: <input type="text" id="totalramrequiredyear1" style="width: 4em"></label>
+                <label>RAM purchased: <input type="text" id="totalrampurchased" style="width: 4em"></label>
+                <label>RAM required TCO: <input type="text" id="totalramrequiredduringtcoperiod" style="width: 4em"></label>
+                </td>
+                </tr>
+		<tr>
+		<td>
+                <label>Cores required Y1: <input type="text" id="totalcorerequiredyear1" style="width: 4em"></label>
+                <label>Cores purchased: <input type="text" id="totalcorepurchased" style="width: 4em"></label>
+                <label>Cores required TCO: <input type="text" id="totalcorerequiredduringtcoperiod" style="width: 4em"></label>
+                </td>
+		</tr>
+		<tr>
+		<td>
+                <label>servers purchased Y1: <input type="text" id="totalserverspurchased" style="width: 4em"></label>
+                <label>servers required TCO: <input type="text" id="totalserversrequiredduringtcoperiod" style="width: 4em"></label>
+                <label>servers missing: <input type="text" id="serverstobepurchased" style="width: 4em"></label>
 		</td>
 		</tr>
 		</table>
@@ -512,8 +523,27 @@ document.getElementById("haasmediumgrowthlabel").value = document.getElementById
 document.getElementById("haaslargegrowth").value = document.getElementById("iaassmallgrowth").value;
 document.getElementById("haaslargegrowthlabel").value = document.getElementById("iaassmallgrowth").value;
 
-//bar chart https://www.youtube.com/watch?v=_RISuMNWpKo
 
+//ram and core
+
+document.getElementById("totalramrequiredyear1").value = (document.getElementById("smallram").value * document.getElementById("smallquantity").value + document.getElementById("mediumram").value * document.getElementById("mediumquantity").value +document.getElementById("largeram").value * document.getElementById("largequantity").value+document.getElementById("haassmallram").value * document.getElementById("haassmallquantity").value + document.getElementById("haasmediumram").value * document.getElementById("haasmediumquantity").value +document.getElementById("haaslargeram").value * document.getElementById("haaslargequantity").value);
+
+document.getElementById("totalcorerequiredyear1").value = (document.getElementById("smallcpu").value * document.getElementById("smallquantity").value + document.getElementById("mediumcpu").value * document.getElementById("mediumquantity").value +document.getElementById("largecpu").value * document.getElementById("largequantity").value+document.getElementById("haassmallcpu").value * document.getElementById("haassmallquantity").value + document.getElementById("haasmediumcpu").value * document.getElementById("haasmediumquantity").value +document.getElementById("haaslargecpu").value * document.getElementById("haaslargequantity").value);
+
+document.getElementById("totalramrequiredduringtcoperiod").value = Math.ceil(document.getElementById("totalramrequiredyear1").value * Math.pow(1.2, document.getElementById("Ultra").value));
+document.getElementById("totalcorerequiredduringtcoperiod").value = Math.ceil(document.getElementById("totalcorerequiredyear1").value * Math.pow(1.2, document.getElementById("Ultra").value));
+
+document.getElementById("totalrampurchased").value = document.getElementById("series7quantity").value*2*64;
+document.getElementById("totalcorepurchased").value = document.getElementById("series7quantity").value*2*12;
+
+document.getElementById("totalserverspurchased").value = document.getElementById("series7quantity").value;
+document.getElementById("totalserversrequiredduringtcoperiod").value = Math.ceil(document.getElementById("totalramrequiredduringtcoperiod").value / (series7memory[document.getElementById("series7Select").value]));
+document.getElementById("serverstobepurchased").value = Math.ceil(document.getElementById("totalserversrequiredduringtcoperiod").value-document.getElementById("totalserverspurchased").value);
+
+
+
+
+//bar chart https://www.youtube.com/watch?v=_RISuMNWpKo
 
 var canvas = document.getElementById("can");
 var ctx = canvas.getContext("2d");
@@ -767,6 +797,17 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<table>
 			<tr>
 			<td>
+                        <label>S:<input id="smallindraassmall" style="width: 2em" type="number" min="0" max = "10" step = "1" value="1" onchange="run()"></label>
+                        </td>
+			<td>
+                        <label>M:<input id="mediumindraassmall" style="width: 2em" type="number" min="0" max = "10" step = "1" value="1" onchange="run()"></label>
+                        </td>
+			<td>
+                        <label>L:<input id="largeindraassmall" style="width: 2em" type="number" min="0" max = "10" step = "1" value="1" onchange="run()"></label>
+                        </td>
+                        </tr>
+			<tr>
+			<td>
 			<label>price:<input id="draassmallprice" style="width: 4em" type = "number" min="0" max="1000" step="1" value="143"i onchange="run()"></label>
 			</td>
 			<td>	
@@ -775,7 +816,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth: 0<input id="draassmallgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draassmallgrowthlabel"></output>%</label>
+                        <label>Growth: 0<input id="draassmallgrowth" style="width: 9em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draassmallgrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>
@@ -786,6 +827,17 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<table>
 			<tr>
 			<td>
+			<label>S:<input id="smallindraasmedium" style="width: 2em" type="number" min="0" max = "10" step = "1" value="1" onchange="run()"></label>
+                        </td>
+                        <td>
+                        <label>M:<input id="mediumindraasmedium" style="width: 2em" type="number" min="0" max = "10" step = "1" value="1" onchange="run()"></label>
+                        </td>
+                        <td>
+                        <label>L:<input id="largeindraasmedium" style="width: 2em" type="number" min="0" max = "10" step = "1" value="1" onchange="run()"></label>
+                        </td>
+                        </tr>
+                        <tr>
+			<td>
 			<label>price:<input id="draasmediumprice" style="width: 4em" type = "number" min="0" max="1000" step="1" value ="106" onchange="run()"></label>
 			</td>
 			<td>
@@ -794,7 +846,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth:<input id="draasmediumgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draasmediumgrowthlabel"></output>%</label>
+                        <label>Growth:<input id="draasmediumgrowth" style="width: 9em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draasmediumgrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>	
@@ -805,6 +857,17 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<table>
 			<tr>
 			<td>
+			<label>S:<input id="smallindraaslarge" style="width: 2em" type="number" min="0" max = "10" step = "1" value="1" onchange="run()"></label>
+                        </td>
+                        <td>
+                        <label>M:<input id="mediumindraaslarge" style="width: 2em" type="number" min="0" max = "10" step = "1" value="1" onchange="run()"></label>
+                        </td>
+                        <td>
+                        <label>L:<input id="largeindraaslarge" style="width: 2em" type="number" min="0" max = "10" step = "1" value="1" onchange="run()"></label>
+                        </td>
+                        </tr>
+                        <tr>
+			<td>
 			<label>price:<input id="draaslargeprice" style="width: 4em" type = "number" min="0" max="1000" step="1" value="97" onchange="run()"></label>
 			</td>
 			<td>
@@ -813,7 +876,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth:<input id="draaslargegrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draaslargegrowthlabel"></output>%</label>
+                        <label>Growth:<input id="draaslargegrowth" style="width: 9em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draaslargegrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>
@@ -1147,10 +1210,11 @@ function myRun6() {
         <select id="series7Select" onchange="myRun7()">
                 <script>
                         series7name = ["8-core blade", "10-core blade", "14-core blade", "12-core blade", "6-core blade", "4-core blade", "16-core blade", "18-core rack", "8-core rack", "10-core rack"];
-                        series7speed = ["64GB", "128GB", "256GB", "256GB", "256GB", "256GB", "256GB", "256GB", "128GB", "64GB"];
+                        series7memory = ["64", "128", "256", "256", "256", "256", "256", "256", "128", "64"];
+                        series7core = ["8", "10", "14", "12", "6", "4", "16", "18", "8", "10"];
                         series7price = ["9562", "13913", "23882", "19282", "21932", "18687", "21642", "28550", "9576", "6000"];
                         for (i = 0; i < series7name.length; i++) {
-                                document.write("<option value=" + i + ">" + series7name[i] + ":" + series7speed[i] + ":" + series7price[i] + "</option>");
+                                document.write("<option value=" + i + ">" + series7name[i] + ":" + series7memory[i] + "GB:" + series7price[i] + "</option>");
                         }
                 </script>
         `</select>
