@@ -38,7 +38,7 @@ canvas#mycanvas {border: solid gray 1px}
 <form name="cashflow">
 <fieldset><legend>created by JZ </legend>
 
-		<img src="captain_harlock.png" align="bottom" width="50" height="50">
+		<img src="captain_harlock.png" align="center" width="50" height="50">
 </form>
 
 <form name ="iaas">
@@ -214,165 +214,232 @@ function regularDeposit(payment,freq,rate,periods)
 
 <table>
 <td>
-<table><td><fieldset><legend>capex and revenue</legend>
-<table>
-<tr>
-<td>
-<label for="Ultra">Select Years:
-<select id="Ultra" onchange="run()">  <!--http://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript-->
-     <option value="1">1</option>
-     <option value="2">2</option>
-     <option value="3">3</option>
-     <option value="4">4</option>     
-     <option value="5">5</option>     
-     <option value="6">6</option>     
-</select>
-</label>
-</td>
-<td>
-<label> Select Country:<select id="series11Select" onchange="run()">
-                <script>
+	<table>
+	<td>
+	<fieldset><legend>capex, power, cooling  and revenue</legend>
+		<table>
+		<tr>
+		<td>
+		<label for="Ultra">Select Years:
+		</td>
+		<td>
+		<select id="Ultra" onchange="run()">
+	     		<option value="1">1</option>
+	     		<option value="2">2</option>
+	     		<option value="3">3</option>
+	     		<option value="4">4</option>     
+	     		<option value="5">5</option>     
+	     		<option value="6">6</option>     
+		</select>
+		</label>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<label>Total Cost:
+		</td>
+		<td>
+		<input type="text" id="totalcapex" style="width: 4em"></label>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<label>Total Revenue:
+		</td>
+		<td>
+		<input type="text" id="totalrevenue" style="width: 4em"></label>
+		</td>
+		<td>
+		</tr>
+		<tr>
+		<td>
+		<label>Revenue - Cost :
+		</td>
+		<td>
+		<input type="text" id="cashflow" style="width: 4em"></label>
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2">
+		<canvas id="can" width="400" height="150" style="border:1px dashed #CCC;"></canvas>
+		</td>
+		</tr>
+		</table>
+	</fieldset>
+	</td>
+	</table>
+	</td>
+	<td>
+	<table>
+	<td>
+	<fieldset><legend>Power and Cooling (make sure to select servers)</legend>
+		<table>
+		<tr>
+                <td colspan="2">
+                <label for="series11Select">Select Country:
+                <select id="series11Select" onchange="run()">
+                        <script>
                         countryname = ["Bulgaria", "Serbia", "Croatia", "Montenegro", "Macedonia", "Albania", "Romania", "Turkey", "Slovenia", "Bosnia", "Austria", "Belgium", "Cyprus", "Czech", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "netherland", "Poland", "Portugal", "Slovakia", "Spain", "Swedeen", "United Kingdom"];
                         energypricepercountry = ["0.10", "0.07", "0.15", "0.11", "0.09", "0.12", "0.11", "0.14", "0.16", "0.11", "0.27", "0.31", "0.32", "0.20", "0.41", "0.14", "0.21", "0.19", "0.35", "0.18", "0.22", "0.28", "0.30", "0.18", "0.17", "0.23", "0.23", "0.29", "0.20", "0.25", "0.24", "0.27", "0.27", "0.21"];
 
                         for (i = 0; i < countryname.length; i++) {
                                 document.write("<option value=" + i + ">" + countryname[i] + ":" + energypricepercountry[i] + "usd/kwh" + "</option>");
                         }
-                </script>
-</select> Price : <output id="energyprice"></output> usd/kwh</label>
-<script>
-//function myRun11() {
-//        document.getElementById("energyprice").value = energypricepercountry[document.getElementById("series11Select").value];
-//        document.getElementById("powercostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000));
-//        document.getElementById("powercosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("Ultra").value);
-//        document.getElementById("coolingcostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000));
-//        document.getElementById("coolingcosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("Ultra").value);
-//        document.getElementById("powerandcoolingcostsperyear").value = Math.round(document.getElementById("powercostsperyear").value)+Math.round(document.getElementById("coolingcostsperyear").value);
-//        document.getElementById("powerandcoolingcosts").value = Math.round(document.getElementById("powercosts").value)+Math.round(document.getElementById("coolingcosts").value);
-//}
-</script>
-</td>
-</tr>
-<tr>
-<td>
-<label>Total Cost:<input type="text" id="totalcapex" style="width: 4em"></label>
-</td>
-<td>
-<label>Power Costs per Year :<output id="powercostsperyear"></output></label>
-<label>Toatal Power Costs :<output id="powercosts"></output></label>
-<!--
-<meter id="totalcapexprogress" value="0" max ="100"></meter>
--->
-</td>
-</tr>
-<tr>
-<td>
-<label>Total Revenue:<input type="text" id="totalrevenue" style="width: 4em"></label>
-</td>
-<td>
-<label>Cooling  Costs per Year :<output id="coolingcostsperyear"></output></label>
-<label>Total Cooling  Costs :<output id="coolingcosts"></output></label>
-<!--
-<meter id="totalrevenueprogress" value="0" max ="100"></meter>
--->
-</td>
-</tr>
-<tr>
-<td>
-<label>Revenue - Cost :<input type="text" id="cashflow" style="width: 4em"></label>
-</td>
-<td>
-<label>Power + Cooling Costs per Year :<output id="powerandcoolingcostsperyear"></output></label>
-<label>Total Power + Cooling Costs :<output id="powerandcoolingcosts"></output></label>
-<!--
-<meter id="totalcapex-revenueprogress" value="0" max ="100"></meter>
--->
-</tr>
-<tr>
-<td colspan="2">
-<!--
-<canvas id="myCanvasGraph" width="578" height="200" style="border:1px dashed #CCC;"></canvas>
--->
-<canvas id="can" width="400" height="150" style="border:1px dashed #CCC;"></canvas>
-</td>
-</tr>
-</table>
-</fieldset></td></table>
-</td>
-<td>
-<table><td><fieldset><legend>Cisco Capital</legend>
-<table>
-<tr>
-<td>
-<label>Annual Interest: <input type="text" id="annualinterest" value="2" style="width: 2em" onchange="run();">%</label>
-</td>
-</tr>
-<tr>
-<td>
-<label>Loan Period in years: <input type="text" id="loanperiodinyears" value="2" style="width: 2em" onchange="run();">Years</label>
-</td>
-</tr>
-<tr>
-<td>
-<label>annuity: <input type="text" id="annuity" style="width: 4em"></label>
-</td>
-</tr>
-<tr>
-<td>
-<label>Payment with interest: <input type="text" id="paymentwithinterest" style="width: 4em"></label>
-</td>
-</tr>
-<tr>
-<td>
-<label>Total Interest: <input type="text" id="interestpayed" style="width: 4em"></label>
-</td>
-</tr>
-</table>
-</fieldset></td></table>
-</td>
-<td>
-<table>
-<td>
-<fieldset><legend>revenue</legend>
-<table>
-<tr>
-<td>
-<label>Iaas revenue :<input type="number" id="iaasrevenue" style="width: 4em"></label>
-</td>
-<td>
-<meter id="iaasprogress" value="0" max ="100"></meter>
-</td>
-<td>
-<canvas id="mycanvas1" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
-</td>
-</tr>
-<tr>
-<td>
-<label>DRaaS revenue:<input type="number" id="draasrevenue" style="width: 4em"></label>
-</td>
-<td>
-<meter id="draasprogress" value="0" max ="100"></meter>
-</td>
-<td>
-<canvas id="mycanvas2" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
-</td>
-</tr>
-<tr>
-<td>
-<label>HaaS revenue:<input type="number" id="haasrevenue" style="width: 4em"></label>
-</td>
-<td>
-<meter id="haasprogress" value="0" max ="100"></meter>
-</td>
-<td>
-<canvas id="mycanvas3" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
-</td>
-</tr>
-</table>
-</fieldset>
-</td>
-</table>
-</td>
+                        </script>
+                </select>
+		</td>
+		<td colspan="2">
+		 Price : <output id="energyprice"></output> usd/kwh
+		</label>
+                </td>
+		</tr>
+		<tr>
+		<td>
+		<label>Power Costs per Year :
+		</td>
+		<td>
+		<output id="powercostsperyear"></output></label>
+                </td>
+		<td>
+		<label>Total Power Costs :
+		</td>
+		<td>
+		<output id="powercosts"></output></label>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <label>Cooling Costs per Year:
+		</td>
+		<td>
+		<output id="coolingcostsperyear"></output></label>
+		</td>
+		<td>
+                <label>Total Cooling  Costs :
+		</td>
+		<td>
+		<output id="coolingcosts"></output></label>
+                </td>
+                </tr>
+		<tr>
+		<td>
+		<label>Power and Cooling Costs per Year :
+		</td>
+		<td>
+		<output id="powerandcoolingcostsperyear"></output></label>
+		</td>
+		<td>
+                <label>Total Power and Cooling Costs :
+		</td>
+		<td>
+		<output id="powerandcoolingcosts"></output></label>
+		</td>
+		</tr>
+		</table>
+	</fieldset>
+	</td>
+	</table>
+	<table>
+	<td>
+	<fieldset><legend>Cisco Capital</legend>
+		<table>
+		<tr>
+		<td>
+		<label>Annual Interest: 
+		</td>
+		<td>
+		<input type="text" id="annualinterest" value="2" style="width: 2em" onchange="run();">%</label>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<label>Loan Period in years: 
+		</td>
+		<td>
+		<input type="text" id="loanperiodinyears" value="2" style="width: 2em" onchange="run();">Years</label>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<label>annuity: 
+		</td>
+		<td>
+		<input type="text" id="annuity" style="width: 4em"></label>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<label>Payment with interest: 
+		</td>
+		<td>
+		<input type="text" id="paymentwithinterest" style="width: 4em"></label>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<label>Total Interest: 
+		</td>
+		<td>
+		<input type="text" id="interestpayed" style="width: 4em"></label>
+		</td>
+		</tr>
+		</table>
+	</fieldset>
+	</td>
+	</table>
+	</td>
+	<td>
+	<table>
+	<td>
+	<fieldset><legend>revenue</legend>
+		<table>
+		<tr>
+		<td>
+		<label>Iaas revenue :
+		</td>
+		<td>
+		<input type="number" id="iaasrevenue" style="width: 4em"></label>
+		</td>
+		<td>
+		<meter id="iaasprogress" value="0" max ="100"></meter>
+		</td>
+		<td>
+		<canvas id="mycanvas1" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<label>DRaaS revenue:
+		</td>
+		<td>
+		<input type="number" id="draasrevenue" style="width: 4em"></label>
+		</td>
+		<td>
+		<meter id="draasprogress" value="0" max ="100"></meter>
+		</td>
+		<td>
+		<canvas id="mycanvas2" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<label>HaaS revenue:
+		</td>
+		<td>
+		<input type="number" id="haasrevenue" style="width: 4em"></label>
+		</td>
+		<td>
+		<meter id="haasprogress" value="0" max ="100"></meter>
+		</td>
+		<td>
+		<canvas id="mycanvas3" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
+		</td>
+		</tr>
+		</table>
+	</fieldset>
+	</td>
+	</table>
+	</td>
 </table>
 </fieldset>
 
@@ -412,10 +479,10 @@ document.getElementById("interestpayed").value = round((monthly * payments) - pr
 
 //energy related 
         document.getElementById("energyprice").value = energypricepercountry[document.getElementById("series11Select").value];
-        document.getElementById("powercostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("series7quantity").value);
-        document.getElementById("powercosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("series7quantity").value*document.getElementById("Ultra").value);
-        document.getElementById("coolingcostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("series7quantity").value);
-        document.getElementById("coolingcosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("series7quantity").value*document.getElementById("Ultra").value);
+        document.getElementById("powercostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("series7quantity").value*series7checkbox.checked);
+        document.getElementById("powercosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("series7quantity").value*series7checkbox.checked*document.getElementById("Ultra").value);
+        document.getElementById("coolingcostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("series7quantity").value*series7checkbox.checked);
+        document.getElementById("coolingcosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("series7quantity").value*series7checkbox.checked*document.getElementById("Ultra").value);
         document.getElementById("powerandcoolingcostsperyear").value = Math.round(document.getElementById("powercostsperyear").value)+Math.round(document.getElementById("coolingcostsperyear").value);
         document.getElementById("powerandcoolingcosts").value = Math.round(document.getElementById("powercosts").value)+Math.round(document.getElementById("coolingcosts").value);
 
@@ -617,7 +684,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
 			<tr>
 			<td colspan="2">
-			<label>Growth: 0<input id="iaassmallgrowth" style="width: 6em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="iaassmallgrowthlabel"></output>%</label>
+			<label>Growth: 0<input id="iaassmallgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="iaassmallgrowthlabel"></output>%</label>
 			</td>
 			</tr>
 			</table>
@@ -643,7 +710,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth:<input id="iaasmediumgrowth" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="iaasmediumgrowthlabel"></output>%</label>
+                        <label>Growth:<input id="iaasmediumgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="iaasmediumgrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>
@@ -670,7 +737,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth:<input id="iaaslargegrowth" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="iaaslargegrowthlabel"></output>%</label>
+                        <label>Growth:<input id="iaaslargegrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="iaaslargegrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>
@@ -708,7 +775,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth: 0<input id="draassmallgrowth" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draassmallgrowthlabel"></output>%</label>
+                        <label>Growth: 0<input id="draassmallgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draassmallgrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>
@@ -727,7 +794,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth:<input id="draasmediumgrowth" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draasmediumgrowthlabel"></output>%</label>
+                        <label>Growth:<input id="draasmediumgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draasmediumgrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>	
@@ -746,7 +813,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth:<input id="draaslargegrowth" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draaslargegrowthlabel"></output>%</label>
+                        <label>Growth:<input id="draaslargegrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draaslargegrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>
@@ -792,7 +859,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth:<input id="haassmallgrowth" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="haassmallgrowthlabel"></output>%</label>
+                        <label>Growth:<input id="haassmallgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="haassmallgrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>
@@ -819,7 +886,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth:<input id="haasmediumgrowth" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="haasmediumgrowthlabel"></output>%</label>
+                        <label>Growth:<input id="haasmediumgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="haasmediumgrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>	
@@ -846,7 +913,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			</tr>
                         <tr>
                         <td colspan="2">
-                        <label>Growth:<input id="haaslargegrowth" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="haaslargegrowthlabel"></output>%</label>
+                        <label>Growth:<input id="haaslargegrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="haaslargegrowthlabel"></output>%</label>
                         </td>
 			</tr>
 			</table>`
