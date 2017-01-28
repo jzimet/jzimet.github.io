@@ -229,52 +229,132 @@ function regularDeposit(payment,freq,rate,periods)
 		</select>
 		</label>
 		</td>
-		</tr>
-		<tr>
 		<td>
 		<label>Total Cost:
+		</td>
+		<td>
 		<input type="text" id="totalcapex" style="width: 4em"></label>
 		</td>
 		</tr>
 		<tr>
 		<td>
+		</td>
+		<td>
 		<label>Total Revenue:
+		</td>
+		<td>
 		<input type="text" id="totalrevenue" style="width: 4em"></label>
 		</td>
 		<td>
 		</tr>
 		<tr>
 		<td>
+		</td>
+		<td>
 		<label>Revenue - Cost :
+		</td>
+		<td>
 		<input type="text" id="cashflow" style="width: 4em"></label>
 		</td>
                 <td>
 		<tr>
-		<td>
+		<td colspan="5">
 		<canvas id="can" width="400" height="150" style="border:1px dashed #CCC;"></canvas>
+<!--		<canvas id="can2" width="400" height="150" style="border:1px dashed #CCC;"></canvas> -->
 		</td>
 		</tr>
 		<tr>
+		<th>
+		Title
+		</th>
+		<th>
+		Purchased
+		</th>
+		<th>
+		Y1
+		</th>
+		<th>
+		Y2
+		</th>
+		<th>
+		Y3
+		</th>	
+		<th>
+		Y4
+		</th>
+		<th>
+		Y5
+		</th>
+		</tr>
+		<tr>
 		<td>
-                <label>RAM required Y1: <input type="text" id="totalramrequiredyear1" style="width: 4em"></label>
-                <label>RAM purchased: <input type="text" id="totalrampurchased" style="width: 4em"></label>
-                <label>RAM required TCO: <input type="text" id="totalramrequiredduringtcoperiod" style="width: 4em"></label>
+		RAM 
+		</td>
+		<td>
+		<input type="text" id="totalrampurchasedyear1" style="width: 4em">
+		</td>
+		<td>
+		<input type="text" id="totalramrequiredyear1" style="width: 4em">
+		</td>
+		<td>
+		<input type="text" id="totalramrequiredyear2" style="width: 4em">
+		</td>
+		<td>
+		<input type="text" id="totalramrequiredyear3" style="width: 4em">
+		</td>
+		<td>
+		<input type="text" id="totalramrequiredyear4" style="width: 4em">
+		</td>
+		<td>
+		<input type="text" id="totalramrequiredyear5" style="width: 4em">
+		</td>	
+		</tr>
+                <tr>
+		<td>
+		Core 
+                </td>
+		<td>
+		<input type="text" id="totalcorepurchasedyear1" style="width: 4em">		
+		</td>
+                <td>
+                <input type="text" id="totalcorerequiredyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="totalcorerequiredyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="totalcorerequiredyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="totalcorerequiredyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="totalcorerequiredyear5" style="width: 4em">
                 </td>
                 </tr>
-		<tr>
-		<td>
-                <label>Cores required Y1: <input type="text" id="totalcorerequiredyear1" style="width: 4em"></label>
-                <label>Cores purchased: <input type="text" id="totalcorepurchased" style="width: 4em"></label>
-                <label>Cores required TCO: <input type="text" id="totalcorerequiredduringtcoperiod" style="width: 4em"></label>
+                <tr>
+                <td>
+                Servers 
                 </td>
-		</tr>
-		<tr>
 		<td>
-                <label>servers purchased Y1: <input type="text" id="totalserverspurchased" style="width: 4em"></label>
-                <label>servers required TCO: <input type="text" id="totalserversrequiredduringtcoperiod" style="width: 4em"></label>
-                <label>servers missing: <input type="text" id="serverstobepurchased" style="width: 4em"></label>
+		<input type="text" id="totalserverpurchasedyear1" style="width: 4em">
 		</td>
-		</tr>
+                <td>
+                <input type="text" id="totalserverrequiredyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="totalserverrequiredyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="totalserverrequiredyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="totalserverrequiredyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="totalserverrequiredyear5" style="width: 4em">
+                </td>
+                </tr>
 		</table>
 	</fieldset>
 	</td>
@@ -460,6 +540,7 @@ function run() {
 
 //calculate iaas, draas, haas and total revenue    
 document.getElementById("iaasrevenue").value = document.getElementById("Ultra").value*(document.getElementById("smallprice").value*document.getElementById("smallquantity").value+document.getElementById("mediumprice").value*document.getElementById("mediumquantity").value+document.getElementById("largeprice").value*document.getElementById("largequantity").value);
+
 document.getElementById("draasrevenue").value = document.getElementById("Ultra").value*(document.getElementById("draassmallprice").value*document.getElementById("draassmallquantity").value+document.getElementById("draasmediumprice").value*document.getElementById("draasmediumquantity").value+document.getElementById("draaslargeprice").value*document.getElementById("draaslargequantity").value);
 document.getElementById("haasrevenue").value = document.getElementById("Ultra").value*(document.getElementById("haassmallprice").value*document.getElementById("haassmallquantity").value+document.getElementById("haasmediumprice").value*document.getElementById("haasmediumquantity").value+document.getElementById("haaslargeprice").value*document.getElementById("haaslargequantity").value);
 
@@ -526,24 +607,50 @@ document.getElementById("haaslargegrowthlabel").value = document.getElementById(
 
 //ram and core
 
-document.getElementById("totalramrequiredyear1").value = (document.getElementById("smallram").value * document.getElementById("smallquantity").value + document.getElementById("mediumram").value * document.getElementById("mediumquantity").value +document.getElementById("largeram").value * document.getElementById("largequantity").value+document.getElementById("haassmallram").value * document.getElementById("haassmallquantity").value + document.getElementById("haasmediumram").value * document.getElementById("haasmediumquantity").value +document.getElementById("haaslargeram").value * document.getElementById("haaslargequantity").value);
+document.getElementById("totalramrequiredyear1").value = document.getElementById("smallram").value * document.getElementById("smallquantity").value + document.getElementById("mediumram").value * document.getElementById("mediumquantity").value + document.getElementById("largeram").value *document.getElementById("largequantity").value + document.getElementById("haassmallram").value * document.getElementById("haassmallquantity").value + document.getElementById("haasmediumram").value * document.getElementById("haasmediumquantity").value + document.getElementById("haaslargeram").value * document.getElementById("haaslargequantity").value;
 
 document.getElementById("totalcorerequiredyear1").value = (document.getElementById("smallcpu").value * document.getElementById("smallquantity").value + document.getElementById("mediumcpu").value * document.getElementById("mediumquantity").value +document.getElementById("largecpu").value * document.getElementById("largequantity").value+document.getElementById("haassmallcpu").value * document.getElementById("haassmallquantity").value + document.getElementById("haasmediumcpu").value * document.getElementById("haasmediumquantity").value +document.getElementById("haaslargecpu").value * document.getElementById("haaslargequantity").value);
 
-document.getElementById("totalramrequiredduringtcoperiod").value = Math.ceil(document.getElementById("totalramrequiredyear1").value * Math.pow(1.2, document.getElementById("Ultra").value));
-document.getElementById("totalcorerequiredduringtcoperiod").value = Math.ceil(document.getElementById("totalcorerequiredyear1").value * Math.pow(1.2, document.getElementById("Ultra").value));
+document.getElementById("totalramrequiredyear2").value=Math.round(document.getElementById("totalramrequiredyear1").value*1.2);
+document.getElementById("totalramrequiredyear3").value=Math.round(document.getElementById("totalramrequiredyear2").value*1.2);
+document.getElementById("totalramrequiredyear4").value=Math.round(document.getElementById("totalramrequiredyear3").value*1.2);
+document.getElementById("totalramrequiredyear5").value=Math.round(document.getElementById("totalramrequiredyear4").value*1.2);
 
-document.getElementById("totalrampurchased").value = document.getElementById("series7quantity").value*2*64;
-document.getElementById("totalcorepurchased").value = document.getElementById("series7quantity").value*2*12;
+document.getElementById("totalcorerequiredyear2").value=Math.round(document.getElementById("totalcorerequiredyear1").value*1.2);
+document.getElementById("totalcorerequiredyear3").value=Math.round(document.getElementById("totalcorerequiredyear2").value*1.2);
+document.getElementById("totalcorerequiredyear4").value=Math.round(document.getElementById("totalcorerequiredyear3").value*1.2);
+document.getElementById("totalcorerequiredyear5").value=Math.round(document.getElementById("totalcorerequiredyear4").value*1.2);
 
-document.getElementById("totalserverspurchased").value = document.getElementById("series7quantity").value;
-document.getElementById("totalserversrequiredduringtcoperiod").value = Math.ceil(document.getElementById("totalramrequiredduringtcoperiod").value / (series7memory[document.getElementById("series7Select").value]));
-document.getElementById("serverstobepurchased").value = Math.ceil(document.getElementById("totalserversrequiredduringtcoperiod").value-document.getElementById("totalserverspurchased").value);
+document.getElementById("totalrampurchasedyear1").value = series7memory[document.getElementById("series7Select").value];
+document.getElementById("totalcorepurchasedyear1").value = series7core[document.getElementById("series7Select").value]*2;
+document.getElementById("totalserverpurchasedyear1").value = document.getElementById("series7quantity").value;
+
+document.getElementById("totalserverrequiredyear1").value = Math.round(document.getElementById("totalramrequiredyear1").value/series7memory[document.getElementById("series7Select").value] - document.getElementById("totalserverpurchasedyear1").value);
+document.getElementById("totalserverrequiredyear2").value = Math.round(document.getElementById("totalramrequiredyear2").value/series7memory[document.getElementById("series7Select").value] - document.getElementById("totalserverrequiredyear1").value - document.getElementById("totalserverpurchasedyear1").value);
+document.getElementById("totalserverrequiredyear3").value = Math.round(document.getElementById("totalramrequiredyear3").value/series7memory[document.getElementById("series7Select").value] - document.getElementById("totalserverrequiredyear2").value - document.getElementById("totalserverrequiredyear1").value-document.getElementById("totalserverpurchasedyear1").value);
+document.getElementById("totalserverrequiredyear4").value = Math.round(document.getElementById("totalramrequiredyear4").value/series7memory[document.getElementById("series7Select").value] - document.getElementById("totalserverrequiredyear3").value-document.getElementById("totalserverrequiredyear2").value - document.getElementById("totalserverrequiredyear1").value-document.getElementById("totalserverpurchasedyear1").value);
+document.getElementById("totalserverrequiredyear5").value = Math.round(document.getElementById("totalramrequiredyear5").value/series7memory[document.getElementById("series7Select").value]-document.getElementById("totalserverrequiredyear4").value-document.getElementById("totalserverrequiredyear3").value-document.getElementById("totalserverrequiredyear2").value - document.getElementById("totalserverrequiredyear1").value-document.getElementById("totalserverpurchasedyear1").value);
 
 
+//var capacity = [document.getElementById("totalserverrequiredyear1").value, document.getElementById("totalserverrequiredyear2").value, document.getElementById("totalserverrequiredyear3").value, document.getElementById("totalserverrequiredyear4").value, document.getElementById("totalserverrequiredyear5").value];
+
+//var canvas2 = document.getElementById("can2");
+//var ctx2 = canvas2.getContext("2d");
 
 
-//bar chart https://www.youtube.com/watch?v=_RISuMNWpKo
+//var width = 50;
+//var currX = 50;
+//var base = 200;
+//ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+//ctx2.fillStyle = 'green';
+//for (var i=0; i< capacity.length;i++) {
+//var h = capacity[i];
+//ctx2.fillRect(currX,canvas2.height/2 - h,width,h);
+//ctx2.fillText(capacity[i].toFixed(2),currX+width/4,canvas2.height*3/4);
+//ctx2.fillText(i,currX+width/3,canvas2.height*6/7);
+//currX += width + 10;
+//}
+
 
 var canvas = document.getElementById("can");
 var ctx = canvas.getContext("2d");
