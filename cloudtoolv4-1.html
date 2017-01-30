@@ -685,7 +685,7 @@ function regularDeposit(payment,freq,rate,periods)
 		<label>Iaas revenue :
 		</td>
 		<td>
-		<input type="number" id="iaasrevenue" style="width: 4em"></label>
+		<input type="number" id="iaasrevenue" style="width: 8em"></label>
 		</td>
 		<td>
 		<meter id="iaasprogress" value="0" max ="100"></meter>
@@ -699,7 +699,7 @@ function regularDeposit(payment,freq,rate,periods)
 		<label>DRaaS revenue:
 		</td>
 		<td>
-		<input type="number" id="draasrevenue" style="width: 4em"></label>
+		<input type="number" id="draasrevenue" style="width: 8em"></label>
 		</td>
 		<td>
 		<meter id="draasprogress" value="0" max ="100"></meter>
@@ -713,7 +713,7 @@ function regularDeposit(payment,freq,rate,periods)
 		<label>HaaS revenue:
 		</td>
 		<td>
-		<input type="number" id="haasrevenue" style="width: 4em"></label>
+		<input type="number" id="haasrevenue" style="width: 8em"></label>
 		</td>
 		<td>
 		<meter id="haasprogress" value="0" max ="100"></meter>
@@ -837,8 +837,8 @@ document.getElementById("draasrevenuemedium").value = Math.round(document.getEle
 
 document.getElementById("draasrevenuelarge").value = Math.round(document.getElementById("draaslargeprice").value*document.getElementById("draaslargequantity").value*(Math.round(document.getElementById("smallindraaslarge").value)+Math.round(document.getElementById("mediumindraaslarge").value)+Math.round(document.getElementById("largeindraaslarge").value)));
 
-document.getElementById("draasrevenue").value=Math.round(document.getElementById("draasrevenuesmall").value)+Math.round(document.getElementById("draasrevenuemedium").value)+Math.round(document.getElementById("draasrevenuelarge").value)*12*Math.pow((1+document.getElementById("iaassmallgrowth"
-).value/100),document.getElementById("Ultra").value);
+document.getElementById("draasrevenue").value=Math.round(document.getElementById("draasrevenuesmall").value)+Math.round(document.getElementById("draasrevenuemedium").value)+Math.round(document.getElementById("draasrevenuelarge").value*12*Math.pow((1+document.getElementById("iaassmallgrowth"
+).value/100),document.getElementById("Ultra").value));
 
 document.getElementById("draasrevenueyear1").value=Math.round(document.getElementById("draasrevenue").value/Math.pow((1+document.getElementById("iaassmallgrowth").value/100),document.getElementById("Ultra").value));
 document.getElementById("draasrevenueyear2").value=Math.round(document.getElementById("draasrevenueyear1").value*(1+document.getElementById("iaassmallgrowth").value/100));
@@ -850,7 +850,7 @@ document.getElementById("draasrevenueyear5").value=Math.round(document.getElemen
 
 //iaas revenue
 
-document.getElementById("iaasrevenue").value = Math.round(document.getElementById("smallprice").value)*Math.round(document.getElementById("smallquantity").value)+Math.round(document.getElementById("mediumprice").value)*Math.round(document.getElementById("mediumquantity").value)+Math.round(document.getElementById("largeprice").value)*Math.round(document.getElementById("largequantity").value)*12*Math.pow((1+document.getElementById("iaassmallgrowth").value/100),document.getElementById("Ultra").value);
+document.getElementById("iaasrevenue").value = Math.round(document.getElementById("smallprice").value)*Math.round(document.getElementById("smallquantity").value)+Math.round(document.getElementById("mediumprice").value)*Math.round(document.getElementById("mediumquantity").value)+Math.round(document.getElementById("largeprice").value)*Math.round(document.getElementById("largequantity").value*12*Math.pow((1+document.getElementById("iaassmallgrowth").value/100),document.getElementById("Ultra").value));
 
 
 document.getElementById("iaasrevenueyear1").value=Math.round(document.getElementById("iaasrevenue").value/Math.pow((1+document.getElementById("iaassmallgrowth").value/100),document.getElementById("Ultra").value));
