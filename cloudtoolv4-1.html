@@ -237,6 +237,9 @@ function regularDeposit(payment,freq,rate,periods)
 		<label>Total Cost:
 		</td>
 		<td>
+                <input type="text" id="test" style="width: 4em"></label>
+                </td>
+		<td>
 		<input type="text" id="totalcapex" style="width: 4em"></label>
 		</td>
 		</tr>
@@ -900,18 +903,38 @@ interest = document.getElementById("annualinterest").value / 100 / 12;
 payments = document.getElementById("Ultra").value * 12;
 //payments = document.getElementById("loanperiodinyears").value * 12;
 x = Math.pow(1 + interest, payments);
-monthly = round((principal*x*interest)/(x-1));
-a = monthly;
-document.getElementById("annuity").value = a;
-document.getElementById("paymentwithinterest").value = round(monthly * payments);
-document.getElementById("interestpayed").value = round((monthly * payments) - principal);
+monthly = Math.round((principal*x*interest)/(x-1));
+//a = monthly;
+document.getElementById("annuity").value = Math.round((principal*x*interest)/(x-1));
+document.getElementById("paymentwithinterest").value = Math.round(monthly * payments);
+document.getElementById("interestpayed").value = Math.round((monthly * payments) - principal);
 
+
+document.getElementById("test").value = document.getElementById("Ultra").value;
+
+switch (document.getElementById("Ultra").value) {
+	case 1:
+document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
+	case 2:
+document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
+document.getElementById("annuityyear2").value=Math.round(document.getElementById("annuity").value*12);
+	case 3:
+document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
+document.getElementById("annuityyear2").value=Math.round(document.getElementById("annuity").value*12);
+document.getElementById("annuityyear3").value=Math.round(document.getElementById("annuity").value*12);
+	case 4:
+document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
+document.getElementById("annuityyear2").value=Math.round(document.getElementById("annuity").value*12);
+document.getElementById("annuityyear3").value=Math.round(document.getElementById("annuity").value*12);
+document.getElementById("annuityyear4").value=Math.round(document.getElementById("annuity").value*12);
+	default:
 document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear2").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear3").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear4").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear5").value=Math.round(document.getElementById("annuity").value*12);
 
+}
 
 
 //cashflow - annuity
