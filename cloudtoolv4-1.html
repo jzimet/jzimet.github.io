@@ -225,13 +225,12 @@ function regularDeposit(payment,freq,rate,periods)
 		<tr>
 		<td><table><tr><td><fieldset><legend> capex and revenue </legend><table><tr><td>
 			<label for="Ultra">Select Years:
-				<select id="Ultra" onchange="run()">
+				<select id="Ultra" value="5" onchange="run()">
 	     				<option value="1">1</option>
 	     				<option value="2">2</option>
 	     				<option value="3">3</option>
 	     				<option value="4">4</option>     
 	     				<option value="5">5</option>     
-<!--	     				<option value="6">6</option>     -->
 				</select>
 			</label>
 		</td><td><label>Calculation for : <output id="test"></output> years </label></td>
@@ -377,7 +376,7 @@ function regularDeposit(payment,freq,rate,periods)
 			<tr>
 			<td colspan="7">
 				<canvas id="can" width="400" height="150" style="border:1px dashed #CCC;"></canvas>
-		<!--		<canvas id="can2" width="400" height="150" style="border:1px dashed #CCC;"></canvas> -->
+				<canvas id="can2" width="400" height="150" style="border:1px dashed #CCC;"></canvas>
 			</td>
 			</tr>
 			<tr>
@@ -1008,13 +1007,14 @@ document.getElementById("haasprogress").value= 100*document.getElementById("haas
 var canvas = document.getElementById("can");
 var ctx = canvas.getContext("2d");
 
-var itemName=["Y1", "Y2", "Y3"];
-var scores = [(document.getElementById("totalrevenue").value-document.getElementById("totalcapex").value)/1000,((document.getElementById("totalrevenue").value)*1.20-document.getElementById("totalcapex").value)/1000 , ((document.getElementById("totalrevenue").value)*1.44-document.getElementById("totalcapex").value)/1000];
+var itemName=["Y1", "Y2", "Y3", "Y4", "Y5"];
+//var scores = [(document.getElementById("totalrevenue").value-document.getElementById("totalcapex").value)/1000,((document.getElementById("totalrevenue").value)*1.20-document.getElementById("totalcapex").value)/1000 , ((document.getElementById("totalrevenue").value)*1.44-document.getElementById("totalcapex").value)/1000];
+var scores = [document.getElementById("cashflowyear1").value/1000,document.getElementById("cashflowyear2").value/1000, document.getElementById("cashflowyear3").value/1000,document.getElementById("cashflowyear4").value/1000,document.getElementById("cashflowyear5").value/1000];
 
-for (var i=0; i< document.getElementById("Ultra").value;i++) {
-itemName[i] = i+1;
-scores[i]= ((document.getElementById("totalrevenue").value*(i+1)*(document.getElementById("iaassmallgrowth").value/100))-document.getElementById("totalcapex").value)/1000;
-}
+//for (var i=0; i< document.getElementById("Ultra").value;i++) {
+//itemName[i] = i+1;
+//scores[i]= ((document.getElementById("totalrevenue").value*(i+1)*(document.getElementById("iaassmallgrowth").value/100))-document.getElementById("totalcapex").value)/1000;
+//}
 
 var width = 50;
 var currX = 50;
@@ -1027,9 +1027,34 @@ ctx.fillRect(currX,canvas.height/2 - h,width,h);
 //ctx.fillText(itemName[i],currX,canvas.height-(h*1.20));
 //ctx.fillText(scores[i].toFixed(2),currX,canvas.height-(h*1.20));
 ctx.fillText(scores[i].toFixed(2),currX+width/4,canvas.height*3/4);
-ctx.fillText("Y"+ itemName[i],currX+width/3,canvas.height*6/7);
+//ctx.fillText("Y"+ itemName[i],currX+width/3,canvas.height*6/7);
+ctx.fillText(itemName[i],currX+width/3,canvas.height*6/7);
 currX += width + 10;
 }
+
+
+
+
+var canvas2 = document.getElementById("can2");
+var ctx2 = canvas2.getContext("2d");
+
+var itemName2=["Y1", "Y2", "Y3", "Y4", "Y5"];
+var scores2 = [document.getElementById("cashflowannuityyear1").value/1000,document.getElementById("cashflowannuityyear2").value/1000, document.getElementById("cashflowannuityyear3").value/1000,document.getElementById("cashflowannuityyear4").value/1000,document.getElementById("cashflowannuityyear5").value/1000];
+
+var width2 = 50;
+var currX2 = 50;
+var base2 = 200;
+ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+ctx2.fillStyle = 'blue';
+for (var j=0; j< scores2.length;j++) {
+var h2 = scores2[j];
+ctx2.fillRect(currX2,canvas2.height/2 - h2,width2,h2);
+ctx2.fillText(scores2[j].toFixed(2),currX2+width2/4,canvas2.height*3/4);
+//ctx2.fillText("Y"+ itemName2[j],currX2+width2/3,canvas2.height*6/7);
+ctx2.fillText(itemName2[j],currX2+width2/3,canvas2.height*6/7);
+currX2 += width2 + 10;
+}
+
 
 //piechart http://jsfiddle.net/hvYkM/1/
 
