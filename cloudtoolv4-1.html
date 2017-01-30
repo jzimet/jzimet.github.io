@@ -214,7 +214,9 @@ function regularDeposit(payment,freq,rate,periods)
 
 <table>
 <td>
-<table><td><fieldset><legend>capex and revenue</legend>
+<table>
+<td>
+<fieldset><legend>capex and revenue</legend>
 <table>
 <tr>
 <td>
@@ -229,6 +231,8 @@ function regularDeposit(payment,freq,rate,periods)
 		</select>
 		</label>
 		</td>
+		<tr>
+		</tr>
 		<td>
 		<label>Total Cost:
 		</td>
@@ -238,27 +242,22 @@ function regularDeposit(payment,freq,rate,periods)
 		</tr>
 		<tr>
 		<td>
-		</td>
-		<td>
 		<label>Total Revenue:
 		</td>
 		<td>
 		<input type="text" id="totalrevenue" style="width: 4em"></label>
 		</td>
-		<td>
 		</tr>
 		<tr>
 		<td>
-		</td>
-		<td>
 		<label>Revenue - Cost :
-		</td>
+		</td> 
 		<td>
 		<input type="text" id="cashflow" style="width: 4em"></label>
 		</td>
-                <td>
+		</tr>
 		<tr>
-		<td colspan="5">
+		<td colspan="7">
 		<canvas id="can" width="400" height="150" style="border:1px dashed #CCC;"></canvas>
 <!--		<canvas id="can2" width="400" height="150" style="border:1px dashed #CCC;"></canvas> -->
 		</td>
@@ -288,7 +287,7 @@ function regularDeposit(payment,freq,rate,periods)
 		</tr>
 		<tr>
 		<td>
-		RAM 
+		RAM required
 		</td>
 		<td>
 		<input type="text" id="totalrampurchasedyear1" style="width: 4em">
@@ -311,7 +310,7 @@ function regularDeposit(payment,freq,rate,periods)
 		</tr>
                 <tr>
 		<td>
-		Core 
+		Core required
                 </td>
 		<td>
 		<input type="text" id="totalcorepurchasedyear1" style="width: 4em">		
@@ -334,7 +333,7 @@ function regularDeposit(payment,freq,rate,periods)
                 </tr>
                 <tr>
                 <td>
-                Servers 
+                Server required
                 </td>
 		<td>
 		<input type="text" id="totalserverpurchasedyear1" style="width: 4em">
@@ -355,6 +354,203 @@ function regularDeposit(payment,freq,rate,periods)
                 <input type="text" id="totalserverrequiredyear5" style="width: 4em">
                 </td>
                 </tr>
+		<tr>
+		<td>
+		IaaS Revenue                
+                </td>
+                <td>
+                </td>
+                <td>
+                <input type="text" id="iaasrevenueyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="iaasrevenueyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="iaasrevenueyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="iaasrevenueyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="iaasrevenueyear5" style="width: 4em">
+                </td>
+		</tr>
+                <tr>
+                <td>
+                DraaS revenue
+                </td>
+                <td>
+                </td>
+                <td>
+                <input type="text" id="draasrevenueyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="draasrevenueyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="draasrevenueyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="draasrevenueyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="draasrevenueyear5" style="width: 4em">
+                </td>
+		</tr>
+                <tr>
+                <td>
+                HaaS revenue
+                </td>
+                <td>
+                </td>
+                <td>
+                <input type="text" id="haasrevenueyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="haasrevenueyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="haasrevenueyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="haasrevenueyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="haasrevenueyear5" style="width: 4em">
+                </td>
+		</tr>
+                <tr>
+                <td>
+		CAPEX                
+                </td>
+                <td>
+                </td>
+                <td>
+                <input type="text" id="capexyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="capexyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="capexyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="capexyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="capexyear5" style="width: 4em">
+                </td>
+		</tr>
+                <tr>
+                <td>
+                Annuity 
+                </td>
+                <td>
+                </td>
+                <td>
+                <input type="text" id="annuityyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="annuityyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="annuityyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="annuityyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="annuityyear5" style="width: 4em">
+                </td>
+		</tr>
+                <tr>
+                <td>
+		Power Costs                
+                </td>
+                <td>
+                </td>
+                <td>
+                <input type="text" id="powercostsyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="powercostsyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="powercostsyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="powercostsyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="powercostsyear5" style="width: 4em">
+                </td>
+		</tr>
+                <tr>
+                <td>
+		Cooling Costs                
+                </td>
+                <td>
+                </td>
+                <td>
+                <input type="text" id="coolingcostsyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="coolingcostsyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="coolingcostsyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="coolingcostsyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="coolingcostsyear5" style="width: 4em">
+                </td>
+		</tr>
+                <tr>
+                <td>
+		Revenue - Cost(CAPEX)                
+                </td>
+                <td>
+                </td>
+                <td>
+                <input type="text" id="cashflowyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="cashflowyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="cashflowyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="cashflowyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="cashflowyear5" style="width: 4em">
+                </td>
+		</tr>
+                <tr>
+                <td>
+                Revenue - Cost(annuity)
+                </td>
+                <td>
+                </td>
+                <td>
+                <input type="text" id="cashflowannuityyear1" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="cashflowannuityyear2" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="cashflowannuityyear3" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="cashflowannuityyear4" style="width: 4em">
+                </td>
+                <td>
+                <input type="text" id="cashflowannuityyear5" style="width: 4em">
+                </td>
 		</table>
 	</fieldset>
 	</td>
@@ -538,45 +734,28 @@ function regularDeposit(payment,freq,rate,periods)
 
 function run() {
 
-//calculate iaas, draas, haas and total revenue    
-document.getElementById("iaasrevenue").value = document.getElementById("Ultra").value*(document.getElementById("smallprice").value*document.getElementById("smallquantity").value+document.getElementById("mediumprice").value*document.getElementById("mediumquantity").value+document.getElementById("largeprice").value*document.getElementById("largequantity").value);
-
-document.getElementById("draasrevenue").value = document.getElementById("Ultra").value*(document.getElementById("draassmallprice").value*document.getElementById("draassmallquantity").value+document.getElementById("draasmediumprice").value*document.getElementById("draasmediumquantity").value+document.getElementById("draaslargeprice").value*document.getElementById("draaslargequantity").value);
-document.getElementById("haasrevenue").value = document.getElementById("Ultra").value*(document.getElementById("haassmallprice").value*document.getElementById("haassmallquantity").value+document.getElementById("haasmediumprice").value*document.getElementById("haasmediumquantity").value+document.getElementById("haaslargeprice").value*document.getElementById("haaslargequantity").value);
-
-//calculate capex, revenue and cashflow
-document.getElementById("totalcapex").value = series1total.valueAsNumber+series2total.valueAsNumber+series3total.valueAsNumber+series4total.valueAsNumber+series5total.valueAsNumber+series6total.valueAsNumber+series7total.valueAsNumber+series8total.valueAsNumber+series9total.valueAsNumber+series10total.valueAsNumber;
-//calculate cashflow as revenue - capex
-document.getElementById("totalrevenue").value= iaasrevenue.valueAsNumber+draasrevenue.valueAsNumber+haasrevenue.valueAsNumber;
-document.getElementById("cashflow").value= document.getElementById("totalrevenue").value-document.getElementById("totalcapex").value;
-
-//iaas, draas and haas percentage compared to total revenue
-document.getElementById("iaasprogress").value= 100*document.getElementById("iaasrevenue").value/document.getElementById("totalrevenue").value;
-document.getElementById("draasprogress").value= 100*document.getElementById("draasrevenue").value/document.getElementById("totalrevenue").value;
-document.getElementById("haasprogress").value= 100*document.getElementById("haasrevenue").value/document.getElementById("totalrevenue").value;
-//document.getElementById("totalcapexprogress").value= document.getElementById("totalcapex").value;
-//document.getElementById("totalrevenueprogress").value= 100*document.getElementById("totalrevenue").value;
-//document.getElementById("totalcapex-revenueprogress").value= 100*document.getElementById("cashflow").value;
-
-//calculation
-principal = document.getElementById("totalcapex").value;
-interest = document.getElementById("annualinterest").value / 100 / 12;
-payments = document.getElementById("loanperiodinyears").value * 12;
-x = Math.pow(1 + interest, payments);
-monthly = round((principal*x*interest)/(x-1));
-a = monthly;
-document.getElementById("annuity").value = a;
-document.getElementById("paymentwithinterest").value = round(monthly * payments);
-document.getElementById("interestpayed").value = round((monthly * payments) - principal);
 
 //energy related 
-        document.getElementById("energyprice").value = energypricepercountry[document.getElementById("series11Select").value];
-        document.getElementById("powercostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("series7quantity").value*series7checkbox.checked);
-        document.getElementById("powercosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("series7quantity").value*series7checkbox.checked*document.getElementById("Ultra").value);
-        document.getElementById("coolingcostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("series7quantity").value*series7checkbox.checked);
-        document.getElementById("coolingcosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("series7quantity").value*series7checkbox.checked*document.getElementById("Ultra").value);
-        document.getElementById("powerandcoolingcostsperyear").value = Math.round(document.getElementById("powercostsperyear").value)+Math.round(document.getElementById("coolingcostsperyear").value);
-        document.getElementById("powerandcoolingcosts").value = Math.round(document.getElementById("powercosts").value)+Math.round(document.getElementById("coolingcosts").value);
+document.getElementById("energyprice").value = energypricepercountry[document.getElementById("series11Select").value];
+document.getElementById("powercostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("series7quantity").value);
+document.getElementById("powercosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*(740/1000)*document.getElementById("series7quantity").value*document.getElementById("Ultra").value);
+document.getElementById("coolingcostsperyear").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("series7quantity").value);
+document.getElementById("coolingcosts").value = Math.round(energypricepercountry[document.getElementById("series11Select").value]*365*24*1686*(0.293/1000)*document.getElementById("series7quantity").value*document.getElementById("Ultra").value);
+document.getElementById("powerandcoolingcostsperyear").value = Math.round(document.getElementById("powercostsperyear").value)+Math.round(document.getElementById("coolingcostsperyear").value);
+document.getElementById("powerandcoolingcosts").value = Math.round(document.getElementById("powercosts").value)+Math.round(document.getElementById("coolingcosts").value);
+
+
+document.getElementById("powercostsyear1").value=Math.round(document.getElementById("powercostsperyear").value);
+document.getElementById("powercostsyear2").value=Math.round(document.getElementById("powercostsperyear").value);
+document.getElementById("powercostsyear3").value=Math.round(document.getElementById("powercostsperyear").value);
+document.getElementById("powercostsyear4").value=Math.round(document.getElementById("powercostsperyear").value);
+document.getElementById("powercostsyear5").value=Math.round(document.getElementById("powercostsperyear").value);
+
+document.getElementById("coolingcostsyear1").value=Math.round(document.getElementById("coolingcostsperyear").value);
+document.getElementById("coolingcostsyear2").value=Math.round(document.getElementById("coolingcostsperyear").value);
+document.getElementById("coolingcostsyear3").value=Math.round(document.getElementById("coolingcostsperyear").value);
+document.getElementById("coolingcostsyear4").value=Math.round(document.getElementById("coolingcostsperyear").value);
+document.getElementById("coolingcostsyear5").value=Math.round(document.getElementById("coolingcostsperyear").value);
 
 document.getElementById("iaassmallgrowthlabel").value = document.getElementById("iaassmallgrowth").value;
 
@@ -607,19 +786,35 @@ document.getElementById("haaslargegrowthlabel").value = document.getElementById(
 
 //ram and core
 
-document.getElementById("totalramrequiredyear1").value = document.getElementById("smallram").value * document.getElementById("smallquantity").value + document.getElementById("mediumram").value * document.getElementById("mediumquantity").value + document.getElementById("largeram").value *document.getElementById("largequantity").value + document.getElementById("haassmallram").value * document.getElementById("haassmallquantity").value + document.getElementById("haasmediumram").value * document.getElementById("haasmediumquantity").value + document.getElementById("haaslargeram").value * document.getElementById("haaslargequantity").value;
 
-document.getElementById("totalcorerequiredyear1").value = (document.getElementById("smallcpu").value * document.getElementById("smallquantity").value + document.getElementById("mediumcpu").value * document.getElementById("mediumquantity").value +document.getElementById("largecpu").value * document.getElementById("largequantity").value+document.getElementById("haassmallcpu").value * document.getElementById("haassmallquantity").value + document.getElementById("haasmediumcpu").value * document.getElementById("haasmediumquantity").value +document.getElementById("haaslargecpu").value * document.getElementById("haaslargequantity").value);
+//draas ram
+document.getElementById("ramindraassmall").value=(document.getElementById("smallram").value * document.getElementById("smallindraassmall").value+document.getElementById("mediumram").value * document.getElementById("mediumindraassmall").value+document.getElementById("largeram").value * document.getElementById("largeindraassmall").value)* document.getElementById("draassmallquantity").value;
+document.getElementById("ramindraasmedium").value=(document.getElementById("smallram").value * document.getElementById("smallindraasmedium").value+document.getElementById("mediumram").value * document.getElementById("mediumindraasmedium").value+document.getElementById("largeram").value * document.getElementById("largeindraasmedium").value)* document.getElementById("draasmediumquantity").value;
+document.getElementById("ramindraaslarge").value=(document.getElementById("smallram").value * document.getElementById("smallindraaslarge").value+document.getElementById("mediumram").value * document.getElementById("mediumindraaslarge").value+document.getElementById("largeram").value * document.getElementById("largeindraaslarge").value)* document.getElementById("draaslargequantity").value;
 
-document.getElementById("totalramrequiredyear2").value=Math.round(document.getElementById("totalramrequiredyear1").value*1.2);
-document.getElementById("totalramrequiredyear3").value=Math.round(document.getElementById("totalramrequiredyear2").value*1.2);
-document.getElementById("totalramrequiredyear4").value=Math.round(document.getElementById("totalramrequiredyear3").value*1.2);
-document.getElementById("totalramrequiredyear5").value=Math.round(document.getElementById("totalramrequiredyear4").value*1.2);
+//draas core
+document.getElementById("coreindraassmall").value=(document.getElementById("smallcpu").value * document.getElementById("smallindraassmall").value+document.getElementById("mediumcpu").value * document.getElementById("mediumindraassmall").value+document.getElementById("largecpu").value * document.getElementById("largeindraassmall").value)* document.getElementById("draassmallquantity").value;
+document.getElementById("coreindraasmedium").value=(document.getElementById("smallcpu").value * document.getElementById("smallindraasmedium").value+document.getElementById("mediumcpu").value * document.getElementById("mediumindraasmedium").value+document.getElementById("largecpu").value * document.getElementById("largeindraasmedium").value)* document.getElementById("draasmediumquantity").value;
+document.getElementById("coreindraaslarge").value=(document.getElementById("smallcpu").value * document.getElementById("smallindraaslarge").value+document.getElementById("mediumcpu").value * document.getElementById("mediumindraaslarge").value+document.getElementById("largecpu").value * document.getElementById("largeindraaslarge").value)* document.getElementById("draaslargequantity").value;
 
-document.getElementById("totalcorerequiredyear2").value=Math.round(document.getElementById("totalcorerequiredyear1").value*1.2);
-document.getElementById("totalcorerequiredyear3").value=Math.round(document.getElementById("totalcorerequiredyear2").value*1.2);
-document.getElementById("totalcorerequiredyear4").value=Math.round(document.getElementById("totalcorerequiredyear3").value*1.2);
-document.getElementById("totalcorerequiredyear5").value=Math.round(document.getElementById("totalcorerequiredyear4").value*1.2);
+//ram in all services
+document.getElementById("totalramrequiredyear1").value = document.getElementById("smallram").value * document.getElementById("smallquantity").value + document.getElementById("mediumram").value * document.getElementById("mediumquantity").value + document.getElementById("largeram").value *document.getElementById("largequantity").value + document.getElementById("haassmallram").value * document.getElementById("haassmallquantity").value + document.getElementById("haasmediumram").value * document.getElementById("haasmediumquantity").value + document.getElementById("haaslargeram").value * document.getElementById("haaslargequantity").value + Math.round(document.getElementById("ramindraassmall").value) + Math.round(document.getElementById("ramindraasmedium").value) + Math.round(document.getElementById("ramindraaslarge").value);
+
+//core in all services
+document.getElementById("totalcorerequiredyear1").value = document.getElementById("smallcpu").value * document.getElementById("smallquantity").value + document.getElementById("mediumcpu").value * document.getElementById("mediumquantity").value +document.getElementById("largecpu").value * document.getElementById("largequantity").value+document.getElementById("haassmallcpu").value * document.getElementById("haassmallquantity").value + document.getElementById("haasmediumcpu").value * document.getElementById("haasmediumquantity").value +document.getElementById("haaslargecpu").value * document.getElementById("haaslargequantity").value + Math.round(document.getElementById("coreindraassmall").value) + Math.round(document.getElementById("coreindraasmedium").value) + Math.round(document.getElementById("coreindraaslarge").value);
+
+
+//document.getElementById("totalramrequiredyear2").value=document.getElementById("totalramrequiredyear1").value*Math.pow((1+document.getElementById("iaassmallgrowth").value/100),document.getElementById("Ultra").value);
+
+document.getElementById("totalramrequiredyear2").value=Math.round(document.getElementById("totalramrequiredyear1").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("totalramrequiredyear3").value=Math.round(document.getElementById("totalramrequiredyear2").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("totalramrequiredyear4").value=Math.round(document.getElementById("totalramrequiredyear3").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("totalramrequiredyear5").value=Math.round(document.getElementById("totalramrequiredyear4").value*(1+document.getElementById("iaassmallgrowth").value/100));
+
+document.getElementById("totalcorerequiredyear2").value=Math.round(document.getElementById("totalcorerequiredyear1").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("totalcorerequiredyear3").value=Math.round(document.getElementById("totalcorerequiredyear2").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("totalcorerequiredyear4").value=Math.round(document.getElementById("totalcorerequiredyear3").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("totalcorerequiredyear5").value=Math.round(document.getElementById("totalcorerequiredyear4").value*(1+document.getElementById("iaassmallgrowth").value/100));
 
 document.getElementById("totalrampurchasedyear1").value = series7memory[document.getElementById("series7Select").value];
 document.getElementById("totalcorepurchasedyear1").value = series7core[document.getElementById("series7Select").value]*2;
@@ -632,7 +827,136 @@ document.getElementById("totalserverrequiredyear4").value = Math.round(document.
 document.getElementById("totalserverrequiredyear5").value = Math.round(document.getElementById("totalramrequiredyear5").value/series7memory[document.getElementById("series7Select").value]-document.getElementById("totalserverrequiredyear4").value-document.getElementById("totalserverrequiredyear3").value-document.getElementById("totalserverrequiredyear2").value - document.getElementById("totalserverrequiredyear1").value-document.getElementById("totalserverpurchasedyear1").value);
 
 
+//calculate iaas, draas, haas and total revenue
+
+//draas revenue
+
+document.getElementById("draasrevenuesmall").value = Math.round(document.getElementById("draassmallprice").value*document.getElementById("draassmallquantity").value*(Math.round(document.getElementById("smallindraassmall").value)+Math.round(document.getElementById("mediumindraassmall").value)+Math.round(document.getElementById("largeindraassmall").value)));
+
+document.getElementById("draasrevenuemedium").value = Math.round(document.getElementById("draasmediumprice").value*document.getElementById("draasmediumquantity").value*(Math.round(document.getElementById("smallindraasmedium").value)+Math.round(document.getElementById("mediumindraasmedium").value)+Math.round(document.getElementById("largeindraasmedium").value)));
+
+document.getElementById("draasrevenuelarge").value = Math.round(document.getElementById("draaslargeprice").value*document.getElementById("draaslargequantity").value*(Math.round(document.getElementById("smallindraaslarge").value)+Math.round(document.getElementById("mediumindraaslarge").value)+Math.round(document.getElementById("largeindraaslarge").value)));
+
+document.getElementById("draasrevenue").value=Math.round(document.getElementById("draasrevenuesmall").value)+Math.round(document.getElementById("draasrevenuemedium").value)+Math.round(document.getElementById("draasrevenuelarge").value)*12*Math.pow((1+document.getElementById("iaassmallgrowth"
+).value/100),document.getElementById("Ultra").value);
+
+document.getElementById("draasrevenueyear1").value=Math.round(document.getElementById("draasrevenue").value/Math.pow((1+document.getElementById("iaassmallgrowth").value/100),document.getElementById("Ultra").value));
+document.getElementById("draasrevenueyear2").value=Math.round(document.getElementById("draasrevenueyear1").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("draasrevenueyear3").value=Math.round(document.getElementById("draasrevenueyear2").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("draasrevenueyear4").value=Math.round(document.getElementById("draasrevenueyear3").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("draasrevenueyear5").value=Math.round(document.getElementById("draasrevenueyear4").value*(1+document.getElementById("iaassmallgrowth").value/100));
+
 //var capacity = [document.getElementById("totalserverrequiredyear1").value, document.getElementById("totalserverrequiredyear2").value, document.getElementById("totalserverrequiredyear3").value, document.getElementById("totalserverrequiredyear4").value, document.getElementById("totalserverrequiredyear5").value];
+
+//iaas revenue
+
+document.getElementById("iaasrevenue").value = Math.round(document.getElementById("smallprice").value)*Math.round(document.getElementById("smallquantity").value)+Math.round(document.getElementById("mediumprice").value)*Math.round(document.getElementById("mediumquantity").value)+Math.round(document.getElementById("largeprice").value)*Math.round(document.getElementById("largequantity").value)*12*Math.pow((1+document.getElementById("iaassmallgrowth").value/100),document.getElementById("Ultra").value);
+
+
+document.getElementById("iaasrevenueyear1").value=Math.round(document.getElementById("iaasrevenue").value/Math.pow((1+document.getElementById("iaassmallgrowth").value/100),document.getElementById("Ultra").value));
+document.getElementById("iaasrevenueyear2").value=Math.round(document.getElementById("iaasrevenueyear1").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("iaasrevenueyear3").value=Math.round(document.getElementById("iaasrevenueyear2").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("iaasrevenueyear4").value=Math.round(document.getElementById("iaasrevenueyear3").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("iaasrevenueyear5").value=Math.round(document.getElementById("iaasrevenueyear4").value*(1+document.getElementById("iaassmallgrowth").value/100));
+
+
+//haasrevenue
+document.getElementById("haasrevenue").value = Math.round(document.getElementById("haassmallprice").value*document.getElementById("haassmallquantity").value+document.getElementById("haasmediumprice").value*document.getElementById("haasmediumquantity").value+document.getElementById("haaslargeprice").value*document.getElementById("haaslargequantity").value*12*Math.pow((1+document.getElementById("iaassmallgrowth").value/100),document.getElementById("Ultra").value));
+
+document.getElementById("haasrevenueyear1").value=Math.round(document.getElementById("haasrevenue").value/Math.pow((1+document.getElementById("iaassmallgrowth").value/100),document.getElementById("Ultra").value));
+document.getElementById("haasrevenueyear2").value=Math.round(document.getElementById("haasrevenueyear1").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("haasrevenueyear3").value=Math.round(document.getElementById("haasrevenueyear2").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("haasrevenueyear4").value=Math.round(document.getElementById("haasrevenueyear3").value*(1+document.getElementById("iaassmallgrowth").value/100));
+document.getElementById("haasrevenueyear5").value=Math.round(document.getElementById("haasrevenueyear4").value*(1+document.getElementById("iaassmallgrowth").value/100));
+
+//total revenue iaas + draas + haas
+document.getElementById("totalrevenue").value= Math.round(iaasrevenue.valueAsNumber+draasrevenue.valueAsNumber+haasrevenue.valueAsNumber);
+
+//total capex
+document.getElementById("totalcapex").value = series1total.valueAsNumber+series2total.valueAsNumber+series3total.valueAsNumber+series4total.valueAsNumber+series5total.valueAsNumber+series6total.valueAsNumber+series7total.valueAsNumber+series8total.valueAsNumber+series9total.valueAsNumber+series10total.valueAsNumber;
+
+document.getElementById("capexyear1").value=Math.round(document.getElementById("totalcapex").value);
+
+//calculate cashflow as total revenue - total capex
+document.getElementById("cashflow").value= document.getElementById("totalrevenue").value-document.getElementById("totalcapex").value;
+
+
+document.getElementById("cashflowyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("capexyear1").value)-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
+
+document.getElementById("cashflowyear2").value=Math.round(document.getElementById("iaasrevenueyear2").value)+Math.round(document.getElementById("draasrevenueyear2").value)+Math.round(document.getElementById("haasrevenueyear2").value)-Math.round(document.getElementById("capexyear2").value)-Math.round(document.getElementById("powercostsyear2").value)-Math.round(document.getElementById("coolingcostsyear2").value);
+
+document.getElementById("cashflowyear3").value=Math.round(document.getElementById("iaasrevenueyear3").value)+Math.round(document.getElementById("draasrevenueyear3").value)+Math.round(document.getElementById("haasrevenueyear3").value)-Math.round(document.getElementById("capexyear3").value)-Math.round(document.getElementById("powercostsyear3").value)-Math.round(document.getElementById("coolingcostsyear3").value);
+
+document.getElementById("cashflowyear4").value=Math.round(document.getElementById("iaasrevenueyear4").value)+Math.round(document.getElementById("draasrevenueyear4").value)+Math.round(document.getElementById("haasrevenueyear4").value)-Math.round(document.getElementById("capexyear4").value)-Math.round(document.getElementById("powercostsyear4").value)-Math.round(document.getElementById("coolingcostsyear4").value);
+
+document.getElementById("cashflowyear5").value=Math.round(document.getElementById("iaasrevenueyear5").value)+Math.round(document.getElementById("draasrevenueyear5").value)+Math.round(document.getElementById("haasrevenueyear5").value)-Math.round(document.getElementById("capexyear5").value)-Math.round(document.getElementById("powercostsyear5").value)-Math.round(document.getElementById("coolingcostsyear5").value);
+
+
+
+//calculation for annuity
+principal = document.getElementById("totalcapex").value;
+document.getElementById("loanperiodinyears").value = document.getElementById("Ultra").value;
+interest = document.getElementById("annualinterest").value / 100 / 12;
+payments = document.getElementById("Ultra").value * 12;
+//payments = document.getElementById("loanperiodinyears").value * 12;
+x = Math.pow(1 + interest, payments);
+monthly = round((principal*x*interest)/(x-1));
+a = monthly;
+document.getElementById("annuity").value = a;
+document.getElementById("paymentwithinterest").value = round(monthly * payments);
+document.getElementById("interestpayed").value = round((monthly * payments) - principal);
+
+document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
+document.getElementById("annuityyear2").value=Math.round(document.getElementById("annuity").value*12);
+document.getElementById("annuityyear3").value=Math.round(document.getElementById("annuity").value*12);
+document.getElementById("annuityyear4").value=Math.round(document.getElementById("annuity").value*12);
+document.getElementById("annuityyear5").value=Math.round(document.getElementById("annuity").value*12);
+
+
+
+//cashflow - annuity
+
+switch (Math.round(document.getElementById("Ultra").value)) {
+	case 1:
+	document.getElementById("cashflowannuityyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("annuityyear1").value)*1-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
+	case 2:
+document.getElementById("cashflowannuityyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("annuityyear1").value)-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
+document.getElementById("cashflowannuityyear2").value=Math.round(document.getElementById("iaasrevenueyear2").value)+Math.round(document.getElementById("draasrevenueyear2").value)+Math.round(document.getElementById("haasrevenueyear2").value)-Math.round(document.getElementById("annuityyear2").value)-Math.round(document.getElementById("powercostsyear2").value)-Math.round(document.getElementById("coolingcostsyear2").value);
+	case 3:
+document.getElementById("cashflowannuityyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("annuityyear1").value)-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
+document.getElementById("cashflowannuityyear2").value=Math.round(document.getElementById("iaasrevenueyear2").value)+Math.round(document.getElementById("draasrevenueyear2").value)+Math.round(document.getElementById("haasrevenueyear2").value)-Math.round(document.getElementById("annuityyear2").value)-Math.round(document.getElementById("powercostsyear2").value)-Math.round(document.getElementById("coolingcostsyear2").value);
+document.getElementById("cashflowannuityyear3").value=Math.round(document.getElementById("iaasrevenueyear3").value)+Math.round(document.getElementById("draasrevenueyear3").value)+Math.round(document.getElementById("haasrevenueyear3").value)-Math.round(document.getElementById("annuityyear3").value)-Math.round(document.getElementById("powercostsyear3").value)-Math.round(document.getElementById("coolingcostsyear3").value);
+	case 4:
+document.getElementById("cashflowannuityyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("annuityyear1").value)-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
+document.getElementById("cashflowannuityyear2").value=Math.round(document.getElementById("iaasrevenueyear2").value)+Math.round(document.getElementById("draasrevenueyear2").value)+Math.round(document.getElementById("haasrevenueyear2").value)-Math.round(document.getElementById("annuityyear2").value)-Math.round(document.getElementById("powercostsyear2").value)-Math.round(document.getElementById("coolingcostsyear2").value);
+document.getElementById("cashflowannuityyear3").value=Math.round(document.getElementById("iaasrevenueyear3").value)+Math.round(document.getElementById("draasrevenueyear3").value)+Math.round(document.getElementById("haasrevenueyear3").value)-Math.round(document.getElementById("annuityyear3").value)-Math.round(document.getElementById("powercostsyear3").value)-Math.round(document.getElementById("coolingcostsyear3").value);
+document.getElementById("cashflowannuityyear4").value=Math.round(document.getElementById("iaasrevenueyear4").value)+Math.round(document.getElementById("draasrevenueyear4").value)+Math.round(document.getElementById("haasrevenueyear4").value)-Math.round(document.getElementById("annuityyear4").value)-Math.round(document.getElementById("powercostsyear4").value)-Math.round(document.getElementById("coolingcostsyear4").value);
+	default:
+document.getElementById("cashflowannuityyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("annuityyear1").value)-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
+document.getElementById("cashflowannuityyear2").value=Math.round(document.getElementById("iaasrevenueyear2").value)+Math.round(document.getElementById("draasrevenueyear2").value)+Math.round(document.getElementById("haasrevenueyear2").value)-Math.round(document.getElementById("annuityyear2").value)-Math.round(document.getElementById("powercostsyear2").value)-Math.round(document.getElementById("coolingcostsyear2").value);
+document.getElementById("cashflowannuityyear3").value=Math.round(document.getElementById("iaasrevenueyear3").value)+Math.round(document.getElementById("draasrevenueyear3").value)+Math.round(document.getElementById("haasrevenueyear3").value)-Math.round(document.getElementById("annuityyear3").value)-Math.round(document.getElementById("powercostsyear3").value)-Math.round(document.getElementById("coolingcostsyear3").value);
+document.getElementById("cashflowannuityyear4").value=Math.round(document.getElementById("iaasrevenueyear4").value)+Math.round(document.getElementById("draasrevenueyear4").value)+Math.round(document.getElementById("haasrevenueyear4").value)-Math.round(document.getElementById("powercostsyear4").value)-Math.round(document.getElementById("coolingcostsyear4").value);
+document.getElementById("cashflowannuityyear5").value=Math.round(document.getElementById("iaasrevenueyear5").value)+Math.round(document.getElementById("draasrevenueyear5").value)+Math.round(document.getElementById("haasrevenueyear5").value)-Math.round(document.getElementById("annuityyear5").value)-Math.round(document.getElementById("powercostsyear5").value)-Math.round(document.getElementById("coolingcostsyear5").value);
+
+}
+
+
+//document.getElementById("cashflowannuityyear3").value=Math.round(document.getElementById("iaasrevenueyear3").value)+Math.round(document.getElementById("draasrevenueyear3").value)+Math.round(document.getElementById("haasrevenueyear3").value)-Math.round(document.getElementById("annuityyear3").value)*0-Math.round(document.getElementById("powercostsyear3").value)-Math.round(document.getElementById("coolingcostsyear3").value);
+
+//document.getElementById("cashflowannuityyear4").value=Math.round(document.getElementById("iaasrevenueyear4").value)+Math.round(document.getElementById("draasrevenueyear4").value)+Math.round(document.getElementById("haasrevenueyear4").value)-Math.round(document.getElementById("annuityyear4").value)*0-Math.round(document.getElementById("powercostsyear4").value)-Math.round(document.getElementById("coolingcostsyear4").value);
+
+//document.getElementById("cashflowannuityyear5").value=Math.round(document.getElementById("iaasrevenueyear5").value)+Math.round(document.getElementById("draasrevenueyear5").value)+Math.round(document.getElementById("haasrevenueyear5").value)-Math.round(document.getElementById("annuityyear5").value)*0-Math.round(document.getElementById("powercostsyear5").value)-Math.round(document.getElementById("coolingcostsyear5").value);
+
+
+
+//iaas, draas and haas percentage compared to total revenue
+document.getElementById("iaasprogress").value= 100*document.getElementById("iaasrevenue").value/document.getElementById("totalrevenue").value;
+document.getElementById("draasprogress").value= 100*document.getElementById("draasrevenue").value/document.getElementById("totalrevenue").value;
+document.getElementById("haasprogress").value= 100*document.getElementById("haasrevenue").value/document.getElementById("totalrevenue").value;
+//document.getElementById("totalcapexprogress").value= document.getElementById("totalcapex").value;
+//document.getElementById("totalrevenueprogress").value= 100*document.getElementById("totalrevenue").value;
+//document.getElementById("totalcapex-revenueprogress").value= 100*document.getElementById("cashflow").value;
+
 
 //var canvas2 = document.getElementById("can2");
 //var ctx2 = canvas2.getContext("2d");
@@ -808,19 +1132,19 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<label>ram:<input id="smallram" style="width: 4em" type = "number" min="2" max="1000" step="2" value ="4"></label>
 			</td>
 			<td>
-			<label>cpu:<input id="smallcpu" style="width: 4em" type = "number" min="1" max="4" step="1" value ="2"></label>
+			<label>core:<input id="smallcpu" style="width: 2em" type = "number" min="1" max="4" step="1" value ="2"></label>
 			</td>
 			</tr>
 			<tr>
 			<td>
-			<label>price:<input id="smallprice" style="width: 4em" type = "number" min="1" max="1000" step="1" value ="20" onchange="run()"></label>
+			<label>price:<input id="smallprice" style="width: 4em" type = "number" min="0" max="1000" step="1" value ="20" onchange="run()"></label>
 			</td>
 			<td>
-			<label>quantity:<input id="smallquantity" style="width: 4em" type = "number" min="1" max="1000" step="1" value="5" onchange="run()"></label>
+			<label>quantity:<input id="smallquantity" style="width: 2em" type = "number" min="0" max="1000" step="1" value="5" onchange="run()"></label>
 			</td>
 			</tr>
 			<tr>
-			<td colspan="2">
+			<td>
 			<label>Growth: 0<input id="iaassmallgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="iaassmallgrowthlabel"></output>%</label>
 			</td>
 			</tr>
@@ -835,18 +1159,18 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<label>ram:<input id="mediumram" style="width: 4em" type = "number" min="2" max="1000" step="2" value ="16"></label>
 			</td>
 			<td>
-			<label>cpu:<input id="mediumcpu" style="width: 4em" type = "number" min="1" max="4" step="1" value ="2" ></label><br/>
+			<label>core:<input id="mediumcpu" style="width: 2em" type = "number" min="1" max="4" step="1" value ="2" ></label><br/>
 			</td>
 			</tr>
 			<td>
-			<label>price:<input id="mediumprice" style="width: 4em" type = "number" min="1" max="1000" step="1" value ="25" onchange="run()"></label>
+			<label>price:<input id="mediumprice" style="width: 4em" type = "number" min="0" max="1000" step="1" value ="25" onchange="run()"></label>
 			</td>
 			<td>
-			<label>quantity:<input id="mediumquantity" style="width: 4em" type = "number" min="1" max="1000" step="1" value ="2" onchange="run()"></label>
+			<label>quantity:<input id="mediumquantity" style="width: 2em" type = "number" min="0" max="1000" step="1" value ="2" onchange="run()"></label>
 			</td>
 			</tr>
                         <tr>
-                        <td colspan="2">
+                        <td>
                         <label>Growth:<input id="iaasmediumgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="iaasmediumgrowthlabel"></output>%</label>
                         </td>
 			</tr>
@@ -861,19 +1185,19 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<label>ram:<input id="largeram" style="width: 4em" type = "number" min="2" max="1000" step="2" value ="32"></label>
 			</td>
 			<td>
-			<label>cpu:<input id="largecpu" style="width: 4em" type = "number" min="1" max="4" step="1" value ="2"></label><br/>
+			<label>core:<input id="largecpu" style="width: 2em" type = "number" min="1" max="4" step="1" value ="2"></label><br/>
 			</td>
 			</tr>
 			<tr>
 			<td>
-			<label>price:<input id="largeprice" style="width: 4em" type = "number" min="1" max="1000" step="1" value ="30" onchange="run()"></label>
+			<label>price:<input id="largeprice" style="width: 4em" type = "number" min="0" max="1000" step="1" value ="30" onchange="run()"></label>
 			</td>
 			<td>
-			<label>quantity:<input id="largequantity" style="width: 4em" type = "number" min="1" max="1000" step="1" value ="3" onchange="run()"></label>
+			<label>quantity:<input id="largequantity" style="width: 2em" type = "number" min="0" max="1000" step="1" value ="3" onchange="run()"></label>
 			</td>
 			</tr>
                         <tr>
-                        <td colspan="2">
+                        <td>
                         <label>Growth:<input id="iaaslargegrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="iaaslargegrowthlabel"></output>%</label>
                         </td>
 			</tr>
@@ -915,16 +1239,27 @@ if (al3 >= document.getElementById("haasprogress").value) {
                         </tr>
 			<tr>
 			<td>
-			<label>price:<input id="draassmallprice" style="width: 4em" type = "number" min="0" max="1000" step="1" value="143"i onchange="run()"></label>
+			<label>price:<input id="draassmallprice" style="width: 4em" type = "number" min="0" max="1000" step="1" value="143" onchange="run()"></label>
 			</td>
-			<td>	
-			<label>quantity:<input id="draassmallquantity" style="width: 4em" type = "number" min="0" max="1000" step="1" value ="3" onchange="run()"></label>
+			<td colspan="2">	
+			<label>quantity:<input id="draassmallquantity" style="width: 2em" type = "number" min="0" max="1000" step="1" value ="1" onchange="run()"></label>
+			</td>
+			<td>
 			</td>
 			</tr>
                         <tr>
-                        <td colspan="2">
-                        <label>Growth: 0<input id="draassmallgrowth" style="width: 9em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draassmallgrowthlabel"></output>%</label>
+                        <td>
+                        <label>Growth: 0<input id="draassmallgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draassmallgrowthlabel"></output>%</label>
                         </td>
+			<td>
+			<label>RAM:<input id="ramindraassmall" style="width: 4em" type="number"></label>
+			</td>
+			<td>
+			<label>core:<input id="coreindraassmall" style="width: 2em" type="number"></label>
+			</td>
+			<td>
+			<label>rev:<input id="draasrevenuesmall" style="width: 5em" type="number"></label>
+                        </td>				
 			</tr>
 			</table>
 		</fieldset>
@@ -947,13 +1282,24 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<td>
 			<label>price:<input id="draasmediumprice" style="width: 4em" type = "number" min="0" max="1000" step="1" value ="106" onchange="run()"></label>
 			</td>
+			<td colspan="2">
+			<label>quantity:<input id="draasmediumquantity" style="width: 2em" type = "number" min="0" max="1000" step="1" value ="1" onchange="run()"></label>
+			</td>
 			<td>
-			<label>quantity:<input id="draasmediumquantity" style="width: 4em" type = "number" min="0" max="1000" step="1" value ="2" onchange="run()"></label>
 			</td>
 			</tr>
                         <tr>
-                        <td colspan="2">
-                        <label>Growth:<input id="draasmediumgrowth" style="width: 9em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draasmediumgrowthlabel"></output>%</label>
+                        <td>
+                        <label>Growth:<input id="draasmediumgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draasmediumgrowthlabel"></output>%</label>
+                        </td>
+                        <td>
+                        <label>RAM:<input id="ramindraasmedium" style="width: 2em" type="number"></label>
+                        </td>
+                        <td>
+                        <label>core:<input id="coreindraasmedium" style="width: 2em" type="number"></label>
+                        </td>
+			<td>
+                        <label>rev:<input id="draasrevenuemedium" style="width: 5em" type="number"></label>
                         </td>
 			</tr>
 			</table>	
@@ -972,18 +1318,29 @@ if (al3 >= document.getElementById("haasprogress").value) {
                         <td>
                         <label>L:<input id="largeindraaslarge" style="width: 2em" type="number" min="0" max = "10" step = "1" value="1" onchange="run()"></label>
                         </td>
+			<td>
+			</td>
                         </tr>
                         <tr>
 			<td>
 			<label>price:<input id="draaslargeprice" style="width: 4em" type = "number" min="0" max="1000" step="1" value="97" onchange="run()"></label>
 			</td>
-			<td>
-			<label>quantity:<input id="draaslargequantity" style="width: 4em" type = "number" min="0" max="1000" step="1" value="1" onchange="run()"></label>
+			<td colspan="2">
+			<label>quantity:<input id="draaslargequantity" style="width: 2em" type = "number" min="0" max="1000" step="1" value="1" onchange="run()"></label>
 			</td>
 			</tr>
                         <tr>
-                        <td colspan="2">
-                        <label>Growth:<input id="draaslargegrowth" style="width: 9em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draaslargegrowthlabel"></output>%</label>
+                        <td>
+                        <label>Growth:<input id="draaslargegrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="draaslargegrowthlabel"></output>%</label>
+                        </td>
+			<td>
+                        <label>RAM:<input id="ramindraaslarge" style="width: 2em" type="number"></label>
+                        </td>
+                        <td>
+                        <label>core:<input id="coreindraaslarge" style="width: 2em" type="number"></label>
+                        </td>
+			<td>
+                        <label>rev:<input id="draasrevenuelarge" style="width: 5em" type="number"></label>
                         </td>
 			</tr>
 			</table>
@@ -1016,7 +1373,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<label>ram:<input id="haassmallram" style="width: 4em" type = "number" min="2" max="1000" step="2" value="128"></label>
                         </td>
 			<td>
-			<label>cpu:<input id="haassmallcpu" style="width: 4em" type = "number" min="1" max="4" step="1" value="2"></label><br/>
+			<label>core:<input id="haassmallcpu" style="width: 2em" type = "number" min="1" max="4" step="1" value="2"></label><br/>
                         </td>
 			</tr>
 			<tr>
@@ -1024,11 +1381,11 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<label>price:<input id="haassmallprice" style="width: 4em" type = "number" min="0" max="5000" step="1" value ="1595" onchange="run()"></label>
                         </td>
 			<td>
-			<label>quantity:<input id="haassmallquantity" style="width: 4em" type = "number" min="0" max="1000" step="1" value="1" onchange="run()"></label>
+			<label>quantity:<input id="haassmallquantity" style="width: 2em" type = "number" min="0" max="1000" step="1" value="1" onchange="run()"></label>
 			</td>
 			</tr>
                         <tr>
-                        <td colspan="2">
+                        <td>
                         <label>Growth:<input id="haassmallgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="haassmallgrowthlabel"></output>%</label>
                         </td>
 			</tr>
@@ -1043,7 +1400,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<label>ram:<input id="haasmediumram" style="width: 4em" type = "number" min="2" max="1000" step="2" value = "256"></label>
                         </td>
 			<td>
-			<label>cpu:<input id="haasmediumcpu" style="width: 4em" type = "number" min="1" max="4" step="1" value="2"></label><br/>
+			<label>core:<input id="haasmediumcpu" style="width: 2em" type = "number" min="1" max="4" step="1" value="2"></label><br/>
                         </td>
 			</tr>
 			<tr>
@@ -1051,11 +1408,11 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<label>price:<input id="haasmediumprice" style="width: 4em" type = "number" min="0" max="5000" step="1" value = "2395" onchange="run()"></label>
                         </td>
 			<td>
-			<label>quantity:<input id="haasmediumquantity" style="width: 4em" type = "number" min="0" max="1000" step="1" value="1" onchange="run()"></label>
+			<label>quantity:<input id="haasmediumquantity" style="width: 2em" type = "number" min="0" max="1000" step="1" value="1" onchange="run()"></label>
 			</td>
 			</tr>
                         <tr>
-                        <td colspan="2">
+                        <td>
                         <label>Growth:<input id="haasmediumgrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="haasmediumgrowthlabel"></output>%</label>
                         </td>
 			</tr>
@@ -1070,7 +1427,7 @@ if (al3 >= document.getElementById("haasprogress").value) {
 			<label>ram:<input id="haaslargeram" style="width: 4em" type = "number" min="2" max="1000" step="2" value = "512"></label>
 			</td>
 			<td>
-                        <label>cpu:<input id="haaslargecpu" style="width: 4em" type = "number" min="1" max="4" step="1" value ="2"></label><br/>
+                        <label>core:<input id="haaslargecpu" style="width: 2em" type = "number" min="1" max="4" step="1" value ="2"></label><br/>
 			</td>
 			</tr>
 			<tr>
@@ -1078,11 +1435,11 @@ if (al3 >= document.getElementById("haasprogress").value) {
                         <label>price:<input id="haaslargeprice" style="width: 4em" type = "number" min="0" max="5000" step="1" value ="3595" onchange="run()"></label>
 			</td>
 			<td>
-                        <label>quantity:<input id="haaslargequantity" style="width: 4em" type = "number" min="0" max="1000" step="1" value="1" onchange="run()"></label>
+                        <label>quantity:<input id="haaslargequantity" style="width: 2em" type = "number" min="0" max="1000" step="1" value="1" onchange="run()"></label>
 			</td>
 			</tr>
                         <tr>
-                        <td colspan="2">
+                        <td>
                         <label>Growth:<input id="haaslargegrowth" style="width: 7em" type="range" min="0" max = "100" step = "10" value="20" onchange="run()"><output id="haaslargegrowthlabel"></output>%</label>
                         </td>
 			</tr>
