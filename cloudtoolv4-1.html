@@ -213,529 +213,538 @@ function regularDeposit(payment,freq,rate,periods)
 </script>
 
 <table>
-<td>
-<table>
-<td>
-<fieldset><legend>capex and revenue</legend>
-<table>
 <tr>
 <td>
-<label for="Ultra">Select Years:
-		<select id="Ultra" onchange="run()">
-	     		<option value="1">1</option>
-	     		<option value="2">2</option>
-	     		<option value="3">3</option>
-	     		<option value="4">4</option>     
-	     		<option value="5">5</option>     
-	     		<option value="6">6</option>     
-		</select>
-		</label>
-		</td>
-		<tr>
-		</tr>
-		<td>
-		<label>Total Cost:
-		</td>
-		<td>
-                <input type="text" id="test" style="width: 4em"></label>
-                </td>
-		<td>
-		<input type="text" id="totalcapex" style="width: 4em"></label>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label>Total Revenue:
-		</td>
-		<td>
-		<input type="text" id="totalrevenue" style="width: 4em"></label>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label>Revenue - Cost :
-		</td> 
-		<td>
-		<input type="text" id="cashflow" style="width: 4em"></label>
-		</td>
-		</tr>
-		<tr>
-		<td colspan="7">
-		<canvas id="can" width="400" height="150" style="border:1px dashed #CCC;"></canvas>
-<!--		<canvas id="can2" width="400" height="150" style="border:1px dashed #CCC;"></canvas> -->
-		</td>
-		</tr>
-		<tr>
-		<th>
-		Title
-		</th>
-		<th>
-		Purchased
-		</th>
-		<th>
-		Y1
-		</th>
-		<th>
-		Y2
-		</th>
-		<th>
-		Y3
-		</th>	
-		<th>
-		Y4
-		</th>
-		<th>
-		Y5
-		</th>
-		</tr>
-		<tr>
-		<td>
-		RAM required
-		</td>
-		<td>
-		<input type="text" id="totalrampurchasedyear1" style="width: 4em">
-		</td>
-		<td>
-		<input type="text" id="totalramrequiredyear1" style="width: 4em">
-		</td>
-		<td>
-		<input type="text" id="totalramrequiredyear2" style="width: 4em">
-		</td>
-		<td>
-		<input type="text" id="totalramrequiredyear3" style="width: 4em">
-		</td>
-		<td>
-		<input type="text" id="totalramrequiredyear4" style="width: 4em">
-		</td>
-		<td>
-		<input type="text" id="totalramrequiredyear5" style="width: 4em">
-		</td>	
-		</tr>
-                <tr>
-		<td>
-		Core required
-                </td>
-		<td>
-		<input type="text" id="totalcorepurchasedyear1" style="width: 4em">		
-		</td>
-                <td>
-                <input type="text" id="totalcorerequiredyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="totalcorerequiredyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="totalcorerequiredyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="totalcorerequiredyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="totalcorerequiredyear5" style="width: 4em">
-                </td>
-                </tr>
-                <tr>
-                <td>
-                Server required
-                </td>
-		<td>
-		<input type="text" id="totalserverpurchasedyear1" style="width: 4em">
-		</td>
-                <td>
-                <input type="text" id="totalserverrequiredyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="totalserverrequiredyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="totalserverrequiredyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="totalserverrequiredyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="totalserverrequiredyear5" style="width: 4em">
-                </td>
-                </tr>
-		<tr>
-		<td>
-		IaaS Revenue                
-                </td>
-                <td>
-                </td>
-                <td>
-                <input type="text" id="iaasrevenueyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="iaasrevenueyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="iaasrevenueyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="iaasrevenueyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="iaasrevenueyear5" style="width: 4em">
-                </td>
-		</tr>
-                <tr>
-                <td>
-                DraaS revenue
-                </td>
-                <td>
-                </td>
-                <td>
-                <input type="text" id="draasrevenueyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="draasrevenueyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="draasrevenueyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="draasrevenueyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="draasrevenueyear5" style="width: 4em">
-                </td>
-		</tr>
-                <tr>
-                <td>
-                HaaS revenue
-                </td>
-                <td>
-                </td>
-                <td>
-                <input type="text" id="haasrevenueyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="haasrevenueyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="haasrevenueyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="haasrevenueyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="haasrevenueyear5" style="width: 4em">
-                </td>
-		</tr>
-                <tr>
-                <td>
-		CAPEX                
-                </td>
-                <td>
-                </td>
-                <td>
-                <input type="text" id="capexyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="capexyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="capexyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="capexyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="capexyear5" style="width: 4em">
-                </td>
-		</tr>
-                <tr>
-                <td>
-                Annuity 
-                </td>
-                <td>
-                </td>
-                <td>
-                <input type="text" id="annuityyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="annuityyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="annuityyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="annuityyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="annuityyear5" style="width: 4em">
-                </td>
-		</tr>
-                <tr>
-                <td>
-		Power Costs                
-                </td>
-                <td>
-                </td>
-                <td>
-                <input type="text" id="powercostsyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="powercostsyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="powercostsyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="powercostsyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="powercostsyear5" style="width: 4em">
-                </td>
-		</tr>
-                <tr>
-                <td>
-		Cooling Costs                
-                </td>
-                <td>
-                </td>
-                <td>
-                <input type="text" id="coolingcostsyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="coolingcostsyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="coolingcostsyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="coolingcostsyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="coolingcostsyear5" style="width: 4em">
-                </td>
-		</tr>
-                <tr>
-                <td>
-		Revenue - Cost(CAPEX)                
-                </td>
-                <td>
-                </td>
-                <td>
-                <input type="text" id="cashflowyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="cashflowyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="cashflowyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="cashflowyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="cashflowyear5" style="width: 4em">
-                </td>
-		</tr>
-                <tr>
-                <td>
-                Revenue - Cost(annuity)
-                </td>
-                <td>
-                </td>
-                <td>
-                <input type="text" id="cashflowannuityyear1" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="cashflowannuityyear2" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="cashflowannuityyear3" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="cashflowannuityyear4" style="width: 4em">
-                </td>
-                <td>
-                <input type="text" id="cashflowannuityyear5" style="width: 4em">
-                </td>
-		</table>
-	</fieldset>
-	</td>
-	</table>
-	</td>
-	<td>
+
 	<table>
+	<tr>
 	<td>
-	<fieldset><legend>Power and Cooling (make sure to select servers)</legend>
+	<fieldset><legend>capex, revenue, power and cooling and annuity </legend>
+
 		<table>
 		<tr>
-                <td colspan="2">
-                <label for="series11Select">Select Country:
-                <select id="series11Select" onchange="run()">
-                        <script>
-                        countryname = ["Bulgaria", "Serbia", "Croatia", "Montenegro", "Macedonia", "Albania", "Romania", "Turkey", "Slovenia", "Bosnia", "Austria", "Belgium", "Cyprus", "Czech", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "netherland", "Poland", "Portugal", "Slovakia", "Spain", "Swedeen", "United Kingdom"];
+		<td><table><tr><td><fieldset><legend> capex and revenue </legend><table><tr><td>
+			<label for="Ultra">Select Years:
+				<select id="Ultra" onchange="run()">
+	     				<option value="1">1</option>
+	     				<option value="2">2</option>
+	     				<option value="3">3</option>
+	     				<option value="4">4</option>     
+	     				<option value="5">5</option>     
+<!--	     				<option value="6">6</option>     -->
+				</select>
+			</label>
+		</td><td><label>Calculation for : <output id="test"></output> years </label></td>
+		</tr>
+
+		<tr>
+		<td>
+			<label>Total Equipment Cost :<input type="text" id="totalcapex" style="width: 4em"></label>
+		</td>
+		</tr>
+
+                <tr>
+                <td>
+                        <label>Total Revenue:<input type="text" id="totalrevenue" style="width: 4em"></label>
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                        <label>Revenue - Equipment Cost :<input type="text" id="cashflow" style="width: 4em"></label>
+                </td>
+                </tr>
+		
+		</table></fieldset></tr></td></table>
+		<tr>	
+                <td><table><tr><td><fieldset><legend> power and cooling </legend><table><tr><td colspan="3">
+                        <label for="series11Select">Select Country:
+                                <select id="series11Select" onchange="run()">
+                                        <script>
+                                                countryname = ["Bulgaria", "Serbia", "Croatia", "Montenegro", "Macedonia", "Albania", "Romania", "Turkey", "Slovenia", "Bosnia", "Austria", "Belgium", "Cyprus", "Czech", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "netherland", "Poland", "Portugal", "Slovakia", "Spain", "Swedeen", "United Kingdom"];
                         energypricepercountry = ["0.10", "0.07", "0.15", "0.11", "0.09", "0.12", "0.11", "0.14", "0.16", "0.11", "0.27", "0.31", "0.32", "0.20", "0.41", "0.14", "0.21", "0.19", "0.35", "0.18", "0.22", "0.28", "0.30", "0.18", "0.17", "0.23", "0.23", "0.29", "0.20", "0.25", "0.24", "0.27", "0.27", "0.21"];
 
-                        for (i = 0; i < countryname.length; i++) {
-                                document.write("<option value=" + i + ">" + countryname[i] + ":" + energypricepercountry[i] + "usd/kwh" + "</option>");
-                        }
-                        </script>
-                </select>
-		</td>
-		<td colspan="2">
-		 Price : <output id="energyprice"></output> usd/kwh
-		</label>
+                                                for (i = 0; i < countryname.length; i++) {
+                                                document.write("<option value=" + i + ">" + countryname[i] + ":" + energypricepercountry[i] + "usd/kwh" + "</option>");
+                                                }
+                                        </script>
+                                </select>
                 </td>
 		</tr>
-		<tr>
+
+
+                <tr>
+                <th>
+                        <label>Price : <output id="energyprice"></output> usd/kwh</label>
+                </th>
+		<th>
+			Per Year
+		</th>
+		<th>
+			Total
+		</th>
+                </tr>
+
+                <tr>
 		<td>
-		<label>Power Costs per Year :
+			 Power Costs
 		</td>
 		<td>
-		<output id="powercostsperyear"></output></label>
+                        <label><output id="powercostsperyear"></output></label>
+                </td>
+                <td>
+                        <label><output id="powercosts"></output></label>
+                </td>
+                </tr>
+
+
+                <tr>
+		<td>
+                         Cooling Costs
                 </td>
 		<td>
-		<label>Total Power Costs :
-		</td>
-		<td>
-		<output id="powercosts"></output></label>
+                        <label><output id="coolingcostsperyear"></output></label>
+                </td>
+                <td>
+                        <label><output id="coolingcosts"></output></label>
                 </td>
                 </tr>
                 <tr>
                 <td>
-                <label>Cooling Costs per Year:
-		</td>
-		<td>
-		<output id="coolingcostsperyear"></output></label>
-		</td>
-		<td>
-                <label>Total Cooling  Costs :
-		</td>
-		<td>
-		<output id="coolingcosts"></output></label>
+                         Power and Cooling Costs
+                </td>
+
+                <td>
+                        <label><output id="powerandcoolingcostsperyear"></output></label>
+                </td>
+                <td>
+                        <label><output id="powerandcoolingcosts"></output></label>
                 </td>
                 </tr>
+
+		</table></fieldset></tr></td></table>
+		
 		<tr>
-		<td>
-		<label>Power and Cooling Costs per Year :
-		</td>
-		<td>
-		<output id="powerandcoolingcostsperyear"></output></label>
-		</td>
-		<td>
-                <label>Total Power and Cooling Costs :
-		</td>
-		<td>
-		<output id="powerandcoolingcosts"></output></label>
-		</td>
-		</tr>
-		</table>
+		<td><table><tr><td><fieldset><legend> annuity </legend><table><tr><td>
+                	<label>Annual Interest:<input type="text" id="annualinterest" value="2" style="width: 2em" onchange="run();">%</label>
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                	<label>Loan Period in years:<input type="text" id="loanperiodinyears" value="2" style="width: 2em" onchange="run();">Years</label>
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                	<label>annuity: <input type="text" id="annuity" style="width: 4em"></label>
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                	<label>Payment with interest:<input type="text" id="paymentwithinterest" style="width: 4em"></label>
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                	<label>Total Interest:<input type="text" id="interestpayed" style="width: 4em"></label>
+                </td>
+                </tr>
+
+		</table></fieldset></tr></td></table>
+
+
+        	</table>
 	</fieldset>
 	</td>
+	</tr>
 	</table>
+</td>
+
+
+
+<td>
 	<table>
+	<tr>
 	<td>
-	<fieldset><legend>Cisco Capital</legend>
+	<fieldset>
+	<legend> Graph </legend>
 		<table>
-		<tr>
-		<td>
-		<label>Annual Interest: 
-		</td>
-		<td>
-		<input type="text" id="annualinterest" value="2" style="width: 2em" onchange="run();">%</label>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label>Loan Period in years: 
-		</td>
-		<td>
-		<input type="text" id="loanperiodinyears" value="2" style="width: 2em" onchange="run();">Years</label>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label>annuity: 
-		</td>
-		<td>
-		<input type="text" id="annuity" style="width: 4em"></label>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label>Payment with interest: 
-		</td>
-		<td>
-		<input type="text" id="paymentwithinterest" style="width: 4em"></label>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label>Total Interest: 
-		</td>
-		<td>
-		<input type="text" id="interestpayed" style="width: 4em"></label>
-		</td>
-		</tr>
+
+			<tr>
+			<td colspan="7">
+				<canvas id="can" width="400" height="150" style="border:1px dashed #CCC;"></canvas>
+		<!--		<canvas id="can2" width="400" height="150" style="border:1px dashed #CCC;"></canvas> -->
+			</td>
+			</tr>
+			<tr>
+			<th>
+			Title
+			</th>
+			<th>
+			Purchased
+			</th>
+			<th>
+			Y1
+			</th>
+			<th>
+			Y2
+			</th>
+			<th>
+			Y3
+			</th>	
+			<th>
+			Y4
+			</th>
+			<th>
+			Y5
+			</th>
+			</tr>
+			<tr>
+			<td>
+			RAM required
+			</td>
+			<td>
+				<input type="text" id="totalrampurchasedyear1" style="width: 4em">
+			</td>
+			<td>
+				<input type="text" id="totalramrequiredyear1" style="width: 4em">
+			</td>
+			<td>
+				<input type="text" id="totalramrequiredyear2" style="width: 4em">
+			</td>
+			<td>
+				<input type="text" id="totalramrequiredyear3" style="width: 4em">
+			</td>
+			<td>
+				<input type="text" id="totalramrequiredyear4" style="width: 4em">
+			</td>
+			<td>
+				<input type="text" id="totalramrequiredyear5" style="width: 4em">
+			</td>	
+			</tr>
+                	<tr>
+			<td>
+				Core required
+                	</td>
+			<td>
+				<input type="text" id="totalcorepurchasedyear1" style="width: 4em">		
+			</td>
+                	<td>
+                		<input type="text" id="totalcorerequiredyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="totalcorerequiredyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="totalcorerequiredyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="totalcorerequiredyear4" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="totalcorerequiredyear5" style="width: 4em">
+                	</td>
+                	</tr>
+                	<tr>
+                	<td>
+               	 		Server required
+                	</td>
+			<td>
+				<input type="text" id="totalserverpurchasedyear1" style="width: 4em">
+			</td>
+                	<td>
+                		<input type="text" id="totalserverrequiredyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="totalserverrequiredyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="totalserverrequiredyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="totalserverrequiredyear4" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="totalserverrequiredyear5" style="width: 4em">
+                	</td>
+                	</tr>
+			<tr>
+			<td>
+				IaaS Revenue                
+                	</td>
+                	<td>
+                	</td>
+                	<td>
+                		<input type="text" id="iaasrevenueyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="iaasrevenueyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="iaasrevenueyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="iaasrevenueyear4" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="iaasrevenueyear5" style="width: 4em">
+                	</td>
+			</tr>
+                	<tr>
+                	<td>
+                		DraaS revenue
+                	</td>
+                	<td>
+                	</td>
+                	<td>
+                		<input type="text" id="draasrevenueyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="draasrevenueyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="draasrevenueyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="draasrevenueyear4" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="draasrevenueyear5" style="width: 4em">
+                	</td>
+			</tr>
+                	<tr>
+                	<td>
+                		HaaS revenue
+                	</td>
+                	<td>
+                	</td>
+                	<td>
+                		<input type="text" id="haasrevenueyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="haasrevenueyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="haasrevenueyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="haasrevenueyear4" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="haasrevenueyear5" style="width: 4em">
+                	</td>
+			</tr>
+                	<tr>
+                	<td>
+				CAPEX                
+                	</td>
+                	<td>
+                	</td>
+                	<td>
+                		<input type="text" id="capexyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="capexyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="capexyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="capexyear4" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="capexyear5" style="width: 4em">
+                	</td>
+			</tr>
+                	<tr>
+                	<td>
+                		Annuity 
+                	</td>
+                	<td>
+                	</td>
+                	<td>
+                		<input type="text" id="annuityyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="annuityyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="annuityyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="annuityyear4" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="annuityyear5" style="width: 4em">
+                	</td>
+			</tr>
+                	<tr>
+                	<td>
+				Power Costs                
+                	</td>
+                	<td>
+                	</td>
+                	<td>
+                		<input type="text" id="powercostsyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="powercostsyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="powercostsyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="powercostsyear4" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="powercostsyear5" style="width: 4em">
+                	</td>
+			</tr>
+                	<tr>
+               		<td>
+				Cooling Costs                
+                	</td>
+                	<td>
+                	</td>
+                	<td>
+                		<input type="text" id="coolingcostsyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="coolingcostsyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="coolingcostsyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="coolingcostsyear4" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="coolingcostsyear5" style="width: 4em">
+                	</td>
+			</tr>
+                	<tr>
+                	<td>
+				Revenue - Cost(CAPEX)                
+                	</td>
+                	<td>
+                	</td>
+                	<td>
+                		<input type="text" id="cashflowyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="cashflowyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="cashflowyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="cashflowyear4" style="width: 4em">
+               		</td>
+                	<td>
+                		<input type="text" id="cashflowyear5" style="width: 4em">
+                	</td>
+			</tr>
+                	<tr>
+                	<td>
+                		Revenue - Cost(annuity)
+                	</td>
+                	<td>
+                	</td>
+                	<td>
+                		<input type="text" id="cashflowannuityyear1" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="cashflowannuityyear2" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="cashflowannuityyear3" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="cashflowannuityyear4" style="width: 4em">
+                	</td>
+                	<td>
+                		<input type="text" id="cashflowannuityyear5" style="width: 4em">
+                	</td>
 		</table>
 	</fieldset>
 	</td>
+	</tr>
 	</table>
-	</td>
-	<td>
+</td>
+
+<td>
 	<table>
+	<tr>
 	<td>
 	<fieldset><legend>revenue</legend>
 		<table>
-		<tr>
-		<td>
-		<label>Iaas revenue :
-		</td>
-		<td>
-		<input type="number" id="iaasrevenue" style="width: 8em"></label>
-		</td>
-		<td>
-		<meter id="iaasprogress" value="0" max ="100"></meter>
-		</td>
-		<td>
-		<canvas id="mycanvas1" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label>DRaaS revenue:
-		</td>
-		<td>
-		<input type="number" id="draasrevenue" style="width: 8em"></label>
-		</td>
-		<td>
-		<meter id="draasprogress" value="0" max ="100"></meter>
-		</td>
-		<td>
-		<canvas id="mycanvas2" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<label>HaaS revenue:
-		</td>
-		<td>
-		<input type="number" id="haasrevenue" style="width: 8em"></label>
-		</td>
-		<td>
-		<meter id="haasprogress" value="0" max ="100"></meter>
-		</td>
-		<td>
-		<canvas id="mycanvas3" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
-		</td>
-		</tr>
+			<tr>
+			<td>
+				<label>Iaas revenue :
+			</td>
+			<td>
+				<input type="number" id="iaasrevenue" style="width: 8em"></label>
+			</td>
+			<td>
+				<meter id="iaasprogress" value="0" max ="100"></meter>
+			</td>
+			<td>
+				<canvas id="mycanvas1" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<label>DRaaS revenue:
+			</td>
+			<td>
+				<input type="number" id="draasrevenue" style="width: 8em"></label>
+			</td>
+			<td>
+				<meter id="draasprogress" value="0" max ="100"></meter>
+			</td>
+			<td>
+				<canvas id="mycanvas2" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<label>HaaS revenue:
+			</td>
+			<td>
+				<input type="number" id="haasrevenue" style="width: 8em"></label>
+			</td>
+			<td>
+				<meter id="haasprogress" value="0" max ="100"></meter>
+			</td>
+			<td>
+				<canvas id="mycanvas3" width="70" height="70" style="border:1px dashed #CCC;"></canvas>
+			</td>
+			</tr>
 		</table>
 	</fieldset>
 	</td>
+	</tr>
 	</table>
-	</td>
+</td>
+</tr>
 </table>
 </fieldset>
 
 <script>
 
 function run() {
+
+document.getElementById("capexyear1").value=0;
+document.getElementById("capexyear2").value=0;
+document.getElementById("capexyear3").value=0;
+document.getElementById("capexyear4").value=0;
+document.getElementById("capexyear5").value=0;
+
+document.getElementById("test").value=document.getElementById("Ultra").value;
 
 
 //energy related 
@@ -897,71 +906,68 @@ document.getElementById("cashflowyear5").value=Math.round(document.getElementByI
 
 
 //calculation for annuity
+
 principal = document.getElementById("totalcapex").value;
 document.getElementById("loanperiodinyears").value = document.getElementById("Ultra").value;
 interest = document.getElementById("annualinterest").value / 100 / 12;
 payments = document.getElementById("Ultra").value * 12;
 //payments = document.getElementById("loanperiodinyears").value * 12;
 x = Math.pow(1 + interest, payments);
-monthly = Math.round((principal*x*interest)/(x-1));
-//a = monthly;
-document.getElementById("annuity").value = Math.round((principal*x*interest)/(x-1));
-document.getElementById("paymentwithinterest").value = Math.round(monthly * payments);
-document.getElementById("interestpayed").value = Math.round((monthly * payments) - principal);
+monthly = (principal*x*interest)/(x-1);
+a = monthly;
+document.getElementById("annuity").value = a.toFixed(2);
+document.getElementById("paymentwithinterest").value = (monthly * payments).toFixed(2);
+document.getElementById("interestpayed").value = ((monthly * payments) - principal).toFixed(2);
 
 
-document.getElementById("test").value = document.getElementById("Ultra").value;
+//document.getElementById("test").value = document.getElementById("Ultra").value;
 
-switch (document.getElementById("Ultra").value) {
-	case 1:
+if (document.getElementById("Ultra").value == 1) {
 document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
-	case 2:
+document.getElementById("annuityyear2").value=0;
+document.getElementById("annuityyear3").value=0;
+document.getElementById("annuityyear4").value=0;
+document.getElementById("annuityyear5").value=0;
+}
+
+if (document.getElementById("Ultra").value == 2) {
 document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear2").value=Math.round(document.getElementById("annuity").value*12);
-	case 3:
+document.getElementById("annuityyear3").value=0;
+document.getElementById("annuityyear4").value=0;
+document.getElementById("annuityyear5").value=0;}
+
+if (document.getElementById("Ultra").value == 3) {
 document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear2").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear3").value=Math.round(document.getElementById("annuity").value*12);
-	case 4:
+document.getElementById("annuityyear4").value=0;
+document.getElementById("annuityyear5").value=0;
+}
+if (document.getElementById("Ultra").value == 4) {
 document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear2").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear3").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear4").value=Math.round(document.getElementById("annuity").value*12);
-	default:
+document.getElementById("annuityyear5").value=0;
+}
+if (document.getElementById("Ultra").value == 5) {
 document.getElementById("annuityyear1").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear2").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear3").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear4").value=Math.round(document.getElementById("annuity").value*12);
 document.getElementById("annuityyear5").value=Math.round(document.getElementById("annuity").value*12);
-
 }
 
 
 //cashflow - annuity
 
-switch (Math.round(document.getElementById("Ultra").value)) {
-	case 1:
-	document.getElementById("cashflowannuityyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("annuityyear1").value)*1-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
-	case 2:
-document.getElementById("cashflowannuityyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("annuityyear1").value)-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
-document.getElementById("cashflowannuityyear2").value=Math.round(document.getElementById("iaasrevenueyear2").value)+Math.round(document.getElementById("draasrevenueyear2").value)+Math.round(document.getElementById("haasrevenueyear2").value)-Math.round(document.getElementById("annuityyear2").value)-Math.round(document.getElementById("powercostsyear2").value)-Math.round(document.getElementById("coolingcostsyear2").value);
-	case 3:
-document.getElementById("cashflowannuityyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("annuityyear1").value)-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
-document.getElementById("cashflowannuityyear2").value=Math.round(document.getElementById("iaasrevenueyear2").value)+Math.round(document.getElementById("draasrevenueyear2").value)+Math.round(document.getElementById("haasrevenueyear2").value)-Math.round(document.getElementById("annuityyear2").value)-Math.round(document.getElementById("powercostsyear2").value)-Math.round(document.getElementById("coolingcostsyear2").value);
-document.getElementById("cashflowannuityyear3").value=Math.round(document.getElementById("iaasrevenueyear3").value)+Math.round(document.getElementById("draasrevenueyear3").value)+Math.round(document.getElementById("haasrevenueyear3").value)-Math.round(document.getElementById("annuityyear3").value)-Math.round(document.getElementById("powercostsyear3").value)-Math.round(document.getElementById("coolingcostsyear3").value);
-	case 4:
-document.getElementById("cashflowannuityyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("annuityyear1").value)-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
-document.getElementById("cashflowannuityyear2").value=Math.round(document.getElementById("iaasrevenueyear2").value)+Math.round(document.getElementById("draasrevenueyear2").value)+Math.round(document.getElementById("haasrevenueyear2").value)-Math.round(document.getElementById("annuityyear2").value)-Math.round(document.getElementById("powercostsyear2").value)-Math.round(document.getElementById("coolingcostsyear2").value);
-document.getElementById("cashflowannuityyear3").value=Math.round(document.getElementById("iaasrevenueyear3").value)+Math.round(document.getElementById("draasrevenueyear3").value)+Math.round(document.getElementById("haasrevenueyear3").value)-Math.round(document.getElementById("annuityyear3").value)-Math.round(document.getElementById("powercostsyear3").value)-Math.round(document.getElementById("coolingcostsyear3").value);
-document.getElementById("cashflowannuityyear4").value=Math.round(document.getElementById("iaasrevenueyear4").value)+Math.round(document.getElementById("draasrevenueyear4").value)+Math.round(document.getElementById("haasrevenueyear4").value)-Math.round(document.getElementById("annuityyear4").value)-Math.round(document.getElementById("powercostsyear4").value)-Math.round(document.getElementById("coolingcostsyear4").value);
-	default:
 document.getElementById("cashflowannuityyear1").value=Math.round(document.getElementById("iaasrevenueyear1").value)+Math.round(document.getElementById("draasrevenueyear1").value)+Math.round(document.getElementById("haasrevenueyear1").value)-Math.round(document.getElementById("annuityyear1").value)-Math.round(document.getElementById("powercostsyear1").value)-Math.round(document.getElementById("coolingcostsyear1").value);
 document.getElementById("cashflowannuityyear2").value=Math.round(document.getElementById("iaasrevenueyear2").value)+Math.round(document.getElementById("draasrevenueyear2").value)+Math.round(document.getElementById("haasrevenueyear2").value)-Math.round(document.getElementById("annuityyear2").value)-Math.round(document.getElementById("powercostsyear2").value)-Math.round(document.getElementById("coolingcostsyear2").value);
 document.getElementById("cashflowannuityyear3").value=Math.round(document.getElementById("iaasrevenueyear3").value)+Math.round(document.getElementById("draasrevenueyear3").value)+Math.round(document.getElementById("haasrevenueyear3").value)-Math.round(document.getElementById("annuityyear3").value)-Math.round(document.getElementById("powercostsyear3").value)-Math.round(document.getElementById("coolingcostsyear3").value);
 document.getElementById("cashflowannuityyear4").value=Math.round(document.getElementById("iaasrevenueyear4").value)+Math.round(document.getElementById("draasrevenueyear4").value)+Math.round(document.getElementById("haasrevenueyear4").value)-Math.round(document.getElementById("powercostsyear4").value)-Math.round(document.getElementById("coolingcostsyear4").value);
 document.getElementById("cashflowannuityyear5").value=Math.round(document.getElementById("iaasrevenueyear5").value)+Math.round(document.getElementById("draasrevenueyear5").value)+Math.round(document.getElementById("haasrevenueyear5").value)-Math.round(document.getElementById("annuityyear5").value)-Math.round(document.getElementById("powercostsyear5").value)-Math.round(document.getElementById("coolingcostsyear5").value);
 
-}
 
 
 //document.getElementById("cashflowannuityyear3").value=Math.round(document.getElementById("iaasrevenueyear3").value)+Math.round(document.getElementById("draasrevenueyear3").value)+Math.round(document.getElementById("haasrevenueyear3").value)-Math.round(document.getElementById("annuityyear3").value)*0-Math.round(document.getElementById("powercostsyear3").value)-Math.round(document.getElementById("coolingcostsyear3").value);
