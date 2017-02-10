@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE> CLoud Tool </TITLE>
+<style>
+canvas#mycanvas {border: solid gray 1px}
+body {
+    font-family: sans-serif;
+    padding: 10px;
+}
+h1 {
+    font-weight: bold;
+}
+label {
+    font-size: small;
+}
+#controls {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #000;
+}
+</style>
+</HEAD>
+<BODY>
+<CENTER>
+<h1>WebSQL for LD</h1>
+
+
+<canvas id="can2" width="200" height="200" style="border:1px dashed #CCC;">revenue per doctor</canvas>
+<canvas id="can3" width="200" height="200" style="border:1px dashed #CCC;">revenue per service</canvas>
+<canvas id="can4" width="200" height="200" style="border:1px dashed #CCC;">revenue per platform</canvas>
+<br />
+<br />
+
+<label>Select Doctors:<select id="doctordropdownlist" onchange="selectDoctor()"></select></label>
+<br />
+<br />
+<!--
+<label>selected doctors:<input type = "text" id="selecteddoctor" onchange="selectDoctor()"></label>
+-->
+
+<canvas id="can5" width="200" height="200" style="border:1px dashed #CCC;"></canvas>
+<canvas id="mycanvas1" width="200" height="200" style="border:1px dashed #CCC;"></canvas>
+<canvas id="mycanvas2" width="200" height="200" style="border:1px dashed #CCC;"></canvas>
+<canvas id="mycanvas3" width="200" height="200" style="border:1px dashed #CCC;"></canvas>
+<br />
+<canvas id="can6" width="200" height="200" style="border:1px dashed #CCC;"></canvas>
+<canvas id="mycanvas4" width="200" height="200" style="border:1px dashed #CCC;"></canvas>
+<canvas id="mycanvas5" width="200" height="200" style="border:1px dashed #CCC;"></canvas>
+<canvas id="mycanvas6" width="200" height="200" style="border:1px dashed #CCC;"></canvas>
+<br />
+
+<label>Pacients:<select id="pacientdropdownlist" onchange="selectPacient()"></select></label>
+<label>Selected pacient:<input type = "text" id="selectedpacient" onchange="selectPacient()"></label>
+<br />
+<label>Services:<select id="servicedropdownlist" onchange="selectService()"></select></label>
+<label>selected service:<input type = "text" id="selectedservice" onchange="selectService()"></label>
+<br />
+<label>Platforms:<select id="platformdropdownlist" onchange="selectPlatform()"></select></label>
+<label>selected Platform:<input type = "text" id="selectedplatform" onchange="selectPlatform()"></label>
+<br />
+
+<table><tr><td>
+<div id="controls">
+
+    <p>Add entry to the database</p>
+
+        <label>Doctor :
+        <select id="doctor">
+                <option value = "doctor1">Doctor 1</option>
+                <option value = "doctor2">Doctor 2</option>
+                <option value = "doctor3">Doctor 3</option>
+                <option value = "doctor4">Doctor 4</option>
+        </select>
+        </label>
+    <br />
+<!--
+    <label>Doctor:</label>
+    <input type="text" id="doctor" />
+    <br />
+-->
+
+
+    <label>Pacient :
+        <select id="pacient">
+                <option value = "pacient1">Pacient 1</option>
+                <option value = "pacient2">Pacient 2</option>
+                <option value = "pacient3">Pacient 3</option>
+                <option value = "pacient4">Pacient 4</option>
+        </select>
+        </label>
+    <br />
+
+
+<!--
+    <label>Pacient:</label>
+    <input type="text" id="pacient" />
+    <br />
+-->
+    	<label>Service :
+	<select id="service">
+		<option value = "calldoctor">Call Doctor</option>
+		<option value = "consultation">Consultation</option>
+		<option value = "secondopinion">Second Opinion</option>
+	</select>
+	</label>
+    <br />
+<!--
+   <label>Service :</label>
+   <input type="text" id="service" />
+    <br />
+-->
+
+    <label>Zone :
+    <select id="zone">
+            <option value = "bolesti"></option>
+            <option value = "cijepljenje">Cijepljenje</option>
+            <option value = "doctor">Doctor</option>
+            <option value = "hranjenje">Hranjenje</option>
+            <option value = "kljucnitrenuci">Kljucni trenuci</option>
+            <option value = "lijekovi">Lijekovi</option>
+            <option value = "ostalo">Ostalo</option>
+            <option value = "rastirazvoj">Rast i razvoj</option>
+            <option value = "spavanje">Spavanje</option>
+            <option value = "temperatura">Temperatura</option>
+            <option value = "zubi">Zubi</option>
+     </select>
+     </label>
+    <br />
+
+<!--
+    <label>Zone:</label>
+    <input type="text" id="zone" />
+    <br />
+-->
+
+    <label>Ad :
+    <select id="ad">
+            <option value = "apetito">Apetito</option>
+            <option value = "avenetermalnavoda">Avene termalna voda</option>
+            <option value = "Bronhostop">Bronhostop</option>
+            <option value = "Cicalfate">Cicalfate</option>
+            <option value = "Cicatridina">Cicatridina</option>
+            <option value = "Dermalibour+">Dermalibour+</option>
+            <option value = "Echinax">Echinax</option>
+            <option value = "Exomegap">Exomega</option>
+            <option value = "Isilax">Isilax</option>
+            <option value = "Primalba">Primalba</option>
+            <option value = "Reidrato">Reidrato</option>
+     </select>
+     </label>
+    <br />
+
+<!--
+<label>Ad :</label>
+    <input type="text" id="ad" />
+    <br />
+-->
+
+    <label>Datum :</label>
+    <input type="text" id="date" value="1" />
+    <br />
+
+    <label>Start:</label>
+    <input type="text" id="start" value="1" />
+    <br />
+
+    <label>End :</label>
+    <input type="text" id="end" value="1" />
+    <br />
+
+    <label>Duration:</label>
+    <input type="text" id="duration" value="1" />
+    <br />
+
+    <label>Price:</label>
+    <input type="text" id="price" value="100" />
+    <br />
+
+    <label>Invoice :</label>
+    <input type="text" id="invoice" value="1"/>
+    <br />
+
+        <label>Platform :
+        <select id="platform">
+                <option value = "ios">IOS</option>
+                <option value = "android">Android</option>
+                <option value = "web">Web</option>
+        </select>
+        </label>
+    <br />
+
+
+<!--
+    <label>Platform:</label>
+    <input type="text" id="platform" />
+    <br />
+-->
+    <br />
+    <button type="button" id="addcar" style="height:30px; width:200px" onclick="addCar();">Add</button>
+    <br />
+</td>
+<td>
+
+<div id="carlistholder">
+     <h3>Your Data</h3>
+        <ul id="carlist"></ul>
+</div>
+</td>
+<td>
+<!--
+    <label>ios:</label>
+    <input type="number" id="doctoriosrevenue" value="0"/>
+    <input type="number" id="doctoriosrevenuepercentage" value="0"/>%
+    <br />
+    <label>adnroid:</label>
+    <input type="number" id="doctorandroidrevenue" value="0"/>
+    <input type="number" id="doctorandroidrevenuepercentage" value="0"/>%
+    <br />
+    <label>web:</label>
+    <input type="number" id="doctorwebrevenue" value="0"/>
+    <input type="number" id="doctorwebrevenuepercentage" value="0"/>%
+    <br />
+    <label>total:</label>
+    <input type="number" id="doctortotalrevenue" value="0"/>
+    <br />
+    <label>total:</label>
+    <input type="number" id="test1" value="0"/>
+    <input type="number" id="test2" value="0"/>
+    <input type="number" id="test3" value="0"/>
+    <br />
+-->
+</td>
+</tr>
+</table>
+</div>
+
+<br />
+<!--
+
+<div id="carlistholder">
+     <h3>Your Data</h3>
+	<ul id="carlist"></ul>
+</div>
+-->
+<!--
+<div id="doctorlistholder">
+     <h3>Your Doctors</h3>
+       <ul id="doctorlist"></ul>
+</div>
+<div id="pacientlistholder">
+     <h3>Your Pacient</h3>
+       <ul id="pacientlist"></ul>
+</div>
+<div id="servicelistholder">
+     <h3>Your Services</h3>
+       <ul id="servicelist"></ul>
+</div>
+<div id="platformlistholder">
+     <h3>Your platform</h3>
+       <ul id="platformlist"></ul>
+</div>
+<div id="graphsholder">
+     <h3>Your Graphs</h3>
+	<ul id="graphs"></ul>
+</div>
+
+
+<p><strong>Note: </strong>You can leave this page and when you return the cars you entered will still be here!</p>A
+-->
+
+<script>
+//Test for browser compatibility
+if (window.openDatabase) {
+    //Create the database the parameters are 1. the database name 2.version number 3. a description 4. the size of the database (in bytes) 1024 x 1024 = 1MB
+    var mydb = openDatabase("ld6_db", "0.1", "A Database of Cars I Like", 1024 * 1024);
+
+    //create the cars table using SQL for the database using a transaction
+    mydb.transaction(function (t) {
+        t.executeSql("CREATE TABLE IF NOT EXISTS cars (id INTEGER PRIMARY KEY ASC, make TEXT, model TEXT, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, date TEXT, start DATE, end DATE, duration INTEGER, price INTEGER, invoice TEXT, platform TEXT)");
+    });
+
+} else {
+    alert("WebSQL is not supported by your browser!");
+}
+
+
+
+//function to get the list of cars from the database
+    if (mydb) {
+        //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
+        mydb.transaction(function (t) {
+
+            t.executeSql("SELECT * FROM cars group by doctor", [],function (t, results) { 
+		//var listitems = "";
+    		//var listholder = document.getElementById("graphs");
+		var totalrevenue = 0;
+		var doctorrevenue = [0, 0, 0, 0];
+		var doctor = ["a", "b", "c", "d"];
+                var j;
+    		var i;
+    		//listholder.innerHTML = "";
+		var canvas2 = document.getElementById("can2");
+		var ctx2 = canvas2.getContext("2d");
+		ctx2.clearRect(0,0,canvas2.width, canvas2.height);
+		var lastend = 0;
+		var cw=ctx2.canvas.width/2;
+		var ch=ctx2.canvas.height/2;	
+		var radius = ch/1.5
+		var myColor = ['red','green','blue', 'yellow'];
+                ctx2.textAlign = 'center';
+    		//Iterate through the results
+    		for (i = 0; i < results.rows.length; i++) {
+        		//Get the current row
+        		var row = results.rows.item(i);
+			doctor[i]=row.doctor;
+    		}
+        	mydb.transaction(function (t) {
+            		t.executeSql("SELECT * FROM cars", [],function (t, results) {
+                	//Iterate through the results
+                		for (i = 0; i < results.rows.length; i++) {
+                        		//Get the current row
+                        		var row = results.rows.item(i);
+					totalrevenue += row.price;
+                			for (j = 0; j < doctor.length; j++) {
+                                		if (row.doctor == doctor[j]) {
+                                        		doctorrevenue[j]+= row.price;
+                                		}
+						if ((i+1)  == results.rows.length) {
+							//listholder.innerHTML += "<li>" + "i:" + i + doctor[j] + " : " +  doctorrevenue[j] + "/" + totalrevenue;
+							//listholder.innerHTML += "<label>" + doctor[j] + ":<input type='number' id='" + doctor[j] + "' value='" + doctorrevenue[j] + "'></label><br>";
+							//document.getElementById(doctor[j]).innerHTML=doctorrevenue[j];
+							ctx2.fillStyle = myColor[j];
+							ctx2.beginPath();
+							ctx2.moveTo(cw,ch);
+					
+							//// Arc Parameters: x, y, radius, startingAngle (radians), endingAngle (radians), antiClockwise (boolean)
+							ctx2.arc(cw,ch,ch,lastend,lastend+(Math.PI*2*(doctorrevenue[j]/totalrevenue)),false);
+							ctx2.fill();
+                                        		ctx2.fillStyle = 'white';
+                                        		ctx2.beginPath();
+                                        		ctx2.moveTo(cw,ch);
+                                        		ctx2.arc(cw,ch,(ch-3),0,2*Math.PI,false);
+                                        		ctx2.fill();
+
+							//var endAngle = lastend + (Math.PI*(doctorrevenue[j]/totalrevenue));
+							//var setX = cw  + Math.cos(endAngle) * radius;
+							//var setY = ch + Math.sin(endAngle) * radius;
+							//ctx.fillStyle = "black";
+							//ctx.font = '14px Calibri';
+							//ctx.fillText(doctorrevenue[j],setX,setY);
+
+							ctx2.fillStyle = "blue";
+                					ctx2.font="bold 14px bebas"
+							ctx2.fillText(totalrevenue.toFixed(0)+'HRK', cw+2, ch+4, cw);
+                					ctx2.font="bold 14px bebas"
+							ctx2.fillText('revenue per doctors', cw+2, ch+14, cw);
+
+
+
+                                                        //var endAngle = lastend + (Math.PI*(doctorrevenue[j]/totalrevenue));
+                                                        //var setX = cw  + Math.cos(endAngle) * radius;
+                                                        //var setY = ch + Math.sin(endAngle) * radius;
+                                                        //ctx.fillText(doctorrevenue[j],setX,setY);
+
+
+							lastend += Math.PI * 2 * (doctorrevenue[j]/totalrevenue);
+
+						}
+                			}	
+                		}
+        		});
+        	});
+        });
+
+            t.executeSql("SELECT * FROM cars group by service", [],function (t, results) {
+                //var listitems = "";
+                //var listholder = document.getElementById("graphs");
+                var totalrevenue = 0;
+                var servicerevenue = [0, 0, 0, 0];
+                var service = ["a", "b", "c", "d"];
+                var j;
+                var i;
+                //listholder.innerHTML = "";
+                //piechart http://jsfiddle.net/hvYkM/1/
+                //https://jsfiddle.net/rradik/kuqdwuyd/
+                var canvas3 = document.getElementById("can3");
+                var ctx3 = canvas3.getContext("2d");
+                ctx3.clearRect(0,0,canvas3.width, canvas3.height);
+                var lastend = 0;
+                var cw3=ctx3.canvas.width/2;
+                var ch3=ctx3.canvas.height/2;
+                var radius3 = ctx3.canvas.height/1.5
+                var myColor3 = ['red','green','blue', 'yellow'];
+                ctx3.font="bold 14px bebas"
+                ctx3.textAlign = 'center';
+                //Iterate through the results
+                for (i = 0; i < results.rows.length; i++) {
+                        //Get the current row
+                        var row = results.rows.item(i);
+                        service[i]=row.service;
+                }
+                mydb.transaction(function (t) {
+                        t.executeSql("SELECT * FROM cars", [],function (t, results) {
+                        //Iterate through the results
+                                for (i = 0; i < results.rows.length; i++) {
+                                        //Get the current row
+                                        var row = results.rows.item(i);
+                                        totalrevenue += row.price;
+                                        for (j = 0; j < service.length; j++) {
+                                                if (row.service == service[j]) {
+                                                        servicerevenue[j]+= row.price;
+                                                }
+                                                if ((i+1)  == results.rows.length) {
+                                                        //listholder.innerHTML += "<li>" + "i:" + i + service[j] + " : " +  servicerevenue[j] + "/" + totalrevenue;
+                                                        //listholder.innerHTML += "<label>" + service[j] + ":<input type='number' id='" + service[j] + "' value='" + servicerevenue[j] + "'></label><br>";
+                                                        //document.getElementById(doctor[j]).innerHTML=servicerevenue[j];
+                                                        ctx3.fillStyle = myColor3[j];
+                                                        ctx3.beginPath();
+                                                        ctx3.moveTo(cw3,ch3);
+
+                                                        //// Arc Parameters: x, y, radius, startingAngle (radians), endingAngle (radians), antiClockwise (boolean)
+                                                        ctx3.arc(cw3,ch3,ch3,lastend,lastend+(Math.PI*2*(servicerevenue[j]/totalrevenue)),false);
+                                                        ctx3.fill();
+                                                        ctx3.fillStyle = 'white';
+                                                        ctx3.beginPath();
+                                                        ctx3.moveTo(cw3,ch3);
+                                                        ctx3.arc(cw3,ch3,(ch3-3),0,2*Math.PI,false);
+                                                        ctx3.fill();
+                					ctx3.fillStyle = "blue";
+                                                        ctx3.fillText(totalrevenue.toFixed(0)+'HRK', cw3+2, ch3+4, cw3);
+                                                        ctx3.font="bold 14px bebas"
+                                                        ctx3.fillText('revenue per services', cw3+2, ch3+14, cw3);
+                                                        lastend += Math.PI * 2 * (servicerevenue[j]/totalrevenue);
+
+                                                }
+                                        }
+                                }
+                        });
+                });
+        });
+
+
+
+            t.executeSql("SELECT * FROM cars group by platform", [],function (t, results) {
+                //var listitems = "";
+                //var listholder = document.getElementById("graphs");
+                var totalrevenue = 0;
+                var platformrevenue = [0, 0, 0];
+                var platform = ["a", "b", "c"];
+                var j;
+                var i;
+                //listholder.innerHTML = "";
+                //piechart http://jsfiddle.net/hvYkM/1/
+                //https://jsfiddle.net/rradik/kuqdwuyd/
+                var canvas2 = document.getElementById("can4");
+                var ctx2 = canvas2.getContext("2d");
+                ctx2.clearRect(0,0,canvas2.width, canvas2.height);
+                var lastend = 0;
+                var cw=ctx2.canvas.width/2;
+                var ch=ctx2.canvas.height/2;
+                var radius = ctx2.canvas.height/1.5
+                var myColor = ['red','green','blue', 'yellow'];
+                ctx2.font="bold 14px bebas"
+                ctx2.textAlign = 'center';
+                //Iterate through the results
+                for (i = 0; i < results.rows.length; i++) {
+                        //Get the current row
+                        var row = results.rows.item(i);
+                        platform[i]=row.platform;
+                }
+                mydb.transaction(function (t) {
+                        t.executeSql("SELECT * FROM cars", [],function (t, results) {
+                        //Iterate through the results
+                                for (i = 0; i < results.rows.length; i++) {
+                                        //Get the current row
+                                        var row = results.rows.item(i);
+                                        totalrevenue += row.price;
+                                        for (j = 0; j < platform.length; j++) {
+                                                if (row.platform == platform[j]) {
+                                                        platformrevenue[j]+= row.price;
+                                                }
+                                                if ((i+1)  == results.rows.length) {
+                                                        //listholder.innerHTML += "<li>" + "i:" + i + platform[j] + " : " +  platformrevenue[j] + "/" + totalrevenue;
+                                                        //listholder.innerHTML += "<label>" + platform[j] + ":<input type='number' id='" + platform[j] + "' value='" + platformrevenue[j] + "'></label><br>";
+                                                        //document.getElementById(doctor[j]).innerHTML=platformrevenue[j];
+                                                        ctx2.fillStyle = myColor[j];
+                                                        ctx2.beginPath();
+                                                        ctx2.moveTo(cw,ch);
+
+                                                        //// Arc Parameters: x, y, radius, startingAngle (radians), endingAngle (radians), antiClockwise (boolean)
+                                                        ctx2.arc(cw,ch,ch,lastend,lastend+(Math.PI*2*(platformrevenue[j]/totalrevenue)),false);
+                                                        ctx2.fill();
+                                                        ctx2.fillStyle = 'white';
+                                                        ctx2.beginPath();
+                                                        ctx2.moveTo(cw,ch);
+                                                        ctx2.arc(cw,ch,(ch-3),0,2*Math.PI,false);
+                                                        ctx2.fill();
+                					ctx2.fillStyle = "blue";
+                                                        ctx2.fillText(totalrevenue.toFixed(0)+'HRK', cw+2, ch+4, cw);
+                                                        ctx2.font="bold 14px bebas"
+                                                        ctx2.fillText('revenue per platform', cw+2, ch+14, cw);
+                                                        lastend += Math.PI * 2 * (platformrevenue[j]/totalrevenue);
+
+                                                }
+                                        }
+                                }
+                        });
+                });
+        });
+
+
+        });
+
+    } else {
+       	alert("db not found, your browser does not support web sql!");
+    }
+
+
+//function to output the list of cars in the database
+function updateGraphs(transaction, results) {
+    //initialise the listitems variable
+    //var listitems = "";
+    //get the car list holder ul
+    //var listholder = document.getElementById("carlist");
+
+    //clear cars list ul
+    //listholder.innerHTML = "";
+
+    var i;
+    //Iterate through the results
+    for (i = 0; i < results.rows.length; i++) {
+        //Get the current row
+        var row = results.rows.item(i);
+
+        //listholder.innerHTML += "<li>" + row.doctor +" - " +  row.pacient + " - " + row.service + " - " + row.platform + " - " + row.price +" (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete</a>)";
+    }
+
+}
+
+//function to output the list of cars in the database
+
+function updateCarList(transaction, results) {
+    //initialise the listitems variable
+    var listitems = "";
+    //get the car list holder ul
+    var listholder = document.getElementById("carlist");
+
+    //clear cars list ul
+    listholder.innerHTML = "";
+
+    var i;
+    //Iterate through the results
+    for (i = 0; i < results.rows.length; i++) {
+        //Get the current row
+        var row = results.rows.item(i);
+
+        listholder.innerHTML += "<li>" + row.doctor +" - " +  row.pacient + " - " + row.service + " - " + row.platform + " - " + row.price +" (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete</a>)";
+    }
+
+}
+
+function selectDoctor (){
+
+//document.getElementById("selecteddoctor").value = document.getElementById("doctordropdownlist").value;
+
+    if (mydb) {
+
+       mydb.transaction(function (t) {
+       		t.executeSql("SELECT * FROM cars WHERE doctor = '" + document.getElementById("doctordropdownlist").value + "'group by platform", [], function (t, results) {
+                	var i;
+                        var platformtotalrevenue = 0;
+                        var platformrevenue = [0, 0, 0];
+                        var platform = ["a", "b", "c"];
+			for (i = 0; i < results.rows.length; i++) {
+                        	//Get the current row
+                        	var row = results.rows.item(i);
+                        	platform[i]=row.platform;
+                	}
+       		mydb.transaction(function (t) {
+       		t.executeSql("SELECT * FROM cars WHERE doctor = '" + document.getElementById("doctordropdownlist").value + "'", [], function (t, results) {
+
+                        //get the car list holder ul
+                        //var doctorholder = document.getElementById("doctorlist");
+                        //var pacientholder = document.getElementById("pacientlist");
+                        //var serviceholder = document.getElementById("servicelist");
+                        //var platformholder = document.getElementById("platformlist");
+
+                        //clear cars list ul
+                        //doctorholder.innerHTML = "";
+                        //pacientholder.innerHTML = "";
+                        //serviceholder.innerHTML = "";
+                        //platformholder.innerHTML = "";
+			//revenue
+			var doctoriosrevenue=0;
+			var doctoriosrevenuepercentage=0;
+			var doctorandroidrevenue=0;
+			var doctorandroidrevenuepercentage=0;
+			var doctorwebrevenue=0;
+			var doctorwebrevenuepercentage=0;
+			var doctortotalrevenue=0;
+ 	                var canvas5 = document.getElementById("can5");
+        	        var ctx5 = canvas5.getContext("2d");
+                	ctx5.clearRect(0,0,canvas5.width, canvas5.height);
+                	var lastend = 0;
+                	var cw=ctx5.canvas.width/2;
+                	var ch=ctx5.canvas.height/2;
+                	var radius = ctx5.canvas.height/1.5
+                	var myColor = ['red','green','blue', 'yellow'];
+                	ctx5.font="bold 14px bebas"
+                	ctx5.textAlign = 'center';
+                        for (i=0; i < results.rows.length; i++) {
+                                var row = results.rows.item(i);
+                                platformtotalrevenue += row.price;
+                                        for (j = 0; j < platform.length; j++) {
+                                                if (row.platform == platform[j]) {
+                                                        platformrevenue[j]+= row.price;
+                                                }
+                                        if ((i+1)  == results.rows.length) {
+                                                        ctx5.fillStyle = myColor[j];
+                                                        ctx5.beginPath();
+                                                        ctx5.moveTo(cw,ch);
+                                                        ctx5.arc(cw,ch,ch,lastend,lastend+(Math.PI*2*(platformrevenue[j]/platformtotalrevenue)),false);
+                                                        ctx5.fill();
+                                                        ctx5.fillStyle = 'white';
+                                                        ctx5.beginPath();
+                                                        ctx5.moveTo(cw,ch);
+                                                        ctx5.arc(cw,ch,(ch-3),0,2*Math.PI,false);
+                                                        ctx5.fill();
+                                                        ctx5.fillStyle = "blue";
+                                                        ctx5.fillText(platformtotalrevenue.toFixed(0)+'HRK', cw+2, ch+4, cw);
+                                                        ctx5.font="bold 16px bebas"
+                                                        ctx5.fillText('revenue per platforms', cw+2, ch+14, cw);
+                                                        lastend += Math.PI * 2 * (platformrevenue[j]/platformtotalrevenue);
+                                                }
+                                        }      
+			        if (results.rows.item(i).platform == "android") {
+					doctorandroidrevenue = Math.round(doctorandroidrevenue) + Math.round(results.rows.item(i).price);				
+				} else if (results.rows.item(i).platform == "ios") {
+					doctoriosrevenue = Math.round(doctoriosrevenue) +  Math.round(results.rows.item(i).price);
+				} else {
+					doctorwebrevenue = Math.round(doctorwebrevenue) + Math.round(results.rows.item(i).price);
+				}
+				doctortotalrevenue = doctortotalrevenue + results.rows.item(i).price;
+				//pacientholder.innerHTML += "<li>" + results.rows.item(i).pacient;
+                                //serviceholder.innerHTML += "<li>" + results.rows.item(i).service;
+                                //platformholder.innerHTML += "<li>" + results.rows.item(i).platform;
+                          	doctoriosrevenuepercentage=(Math.round(doctoriosrevenue)/Math.round(doctortotalrevenue)*100).toFixed(2);
+                          	doctorandroidrevenuepercentage=(Math.round(doctorandroidrevenue)/Math.round(doctortotalrevenue)*100).toFixed(2);
+                          	doctorwebrevenuepercentage=(Math.round(doctorwebrevenue)/Math.round(doctortotalrevenue)*100).toFixed(2);
+			}
+
+                                //chart for ios revenue
+                                var al1=0;
+                                var id1 = setInterval(frame1,10);
+                                function frame1() {
+                                var cnv1 = document.getElementById('mycanvas1');
+                                var ctx1 = cnv1.getContext('2d');
+                                var cw1 = ctx1.canvas.width;
+                                var ch1 = ctx1.canvas.height;
+                                var start1 = 4.72;
+                                diff1 = ((al1 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx1.clearRect(0, 0, cw1, ch1);
+                                ctx1.lineWidth = 7;
+                                ctx1.fillStyle = '#09F';
+                                ctx1.strokeStyle = '#09F';
+                                ctx1.font="14px bebas"
+                                ctx1.textAlign = 'center';
+                                ctx1.fillText(al1.toFixed(2)+'%', cw1*.5, ch1*.5+2, cw1);
+                                ctx1.fillText('ios', cw1/2+2, ch1/2+14, cw1/2);
+                                ctx1.beginPath();
+                                ctx1.arc(cw1*.5,ch1*.5,60,start1,diff1/10+start1,false);
+                                ctx1.stroke();
+                                if (al1 >= doctoriosrevenuepercentage) {
+                                      clearInterval(id1);
+                                    } else {
+                                      al1++;
+                                    }
+                                }
+                                //chart for android revenue
+                                var al2=0;
+                                var id2 = setInterval(frame2,10);
+                                function frame2() {
+                                var cnv2 = document.getElementById('mycanvas2');
+                                var ctx2 = cnv2.getContext('2d');
+                                var cw2 = ctx2.canvas.width;
+                                var ch2 = ctx2.canvas.height;
+                                var start2 = 4.72;
+                                diff2 = ((al2 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx2.clearRect(0, 0, cw2, ch2);
+                                ctx2.lineWidth = 7;
+                                ctx2.fillStyle = '#09F';
+                                ctx2.strokeStyle = '#09F';
+                                ctx2.font="14px bebas"
+                                ctx2.textAlign = 'center';
+                                ctx2.fillText(al2.toFixed(2)+'%', cw2*.5, ch2*.5+2, cw2);
+                                ctx2.fillText('android', cw2/2+2, ch2/2+14, cw2/2);
+                                ctx2.beginPath();
+                                ctx2.arc(cw2*.5,ch2*.5,60,start2,diff1/10+start2,false);
+                                ctx2.stroke();
+                                if (al2 >= doctorandroidrevenuepercentage) {
+                                      clearInterval(id2);
+                                    } else {
+                                      al2++;
+                                    }
+                                }
+                               //chart for web revenue
+                                var al3=0;
+                                var id3 = setInterval(frame3,10);
+                                function frame3() {
+                                var cnv3 = document.getElementById('mycanvas3');
+                                var ctx3 = cnv3.getContext('2d');
+                                var cw3 = ctx3.canvas.width;
+                                var ch3 = ctx3.canvas.height;
+                                var start3 = 4.72;
+                                diff3 = ((al3 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx3.clearRect(0, 0, cw3, ch3);
+                                ctx3.lineWidth = 7;
+                                ctx3.fillStyle = '#09F';
+                                ctx3.strokeStyle = '#09F';
+                                ctx3.font="14px bebas"
+                                ctx3.textAlign = 'center';
+                                ctx3.fillText(al3.toFixed(2)+'%', cw3*.5, ch3*.5+2, cw3);
+                                ctx3.fillText('web', cw3/2+2, ch3/2+14, cw3/2);
+                                ctx3.beginPath();
+                                ctx3.arc(cw3*.5,ch3*.5,60,start3,diff3/10+start3,false);
+                                ctx3.stroke();
+                                if (al3 >= doctorwebrevenuepercentage) {
+                                      clearInterval(id3);
+                                    } else {
+                                      al3++;
+                                    }
+                                }
+
+
+                        });
+                });
+		});
+	});
+
+	
+	       mydb.transaction(function (t) {
+                t.executeSql("SELECT * FROM cars WHERE doctor = '" + document.getElementById("doctordropdownlist").value + "'group by service", [], function (t, results) {
+                        var i;
+                        var servicetotalrevenue = 0;
+                        var servicerevenue = [0, 0, 0];
+                        var service = ["a", "b", "c"];
+                        for (i = 0; i < results.rows.length; i++) {
+                                //Get the current row
+                                var row = results.rows.item(i);
+                                service[i]=row.service;
+                        }
+                mydb.transaction(function (t) {
+                t.executeSql("SELECT * FROM cars WHERE doctor = '" + document.getElementById("doctordropdownlist").value + "'", [], function (t, results) {
+
+                        var canvas6 = document.getElementById("can6");
+                        var ctx6 = canvas6.getContext("2d");
+                        ctx6.clearRect(0,0,canvas6.width, canvas6.height);
+                        var lastend = 0;
+                        var cw=ctx6.canvas.width/2;
+                        var ch=ctx6.canvas.height/2;
+                        var radius = ctx6.canvas.height/1.5
+                        var myColor = ['red','green','blue', 'yellow'];
+                        ctx6.font="bold 14px bebas"
+                        ctx6.textAlign = 'center';
+                        for (i=0; i < results.rows.length; i++) {
+                                var row = results.rows.item(i);
+                                servicetotalrevenue += row.price;
+                                        for (j = 0; j < service.length; j++) {
+                                                if (row.service == service[j]) {
+                                                        servicerevenue[j]+= row.price;
+                                                }
+                                        if ((i+1)  == results.rows.length) {
+                                                        ctx6.fillStyle = myColor[j];
+                                                        ctx6.beginPath();
+                                                        ctx6.moveTo(cw,ch);
+                                                        ctx6.arc(cw,ch,ch,lastend,lastend+(Math.PI*2*(servicerevenue[j]/servicetotalrevenue)),false);
+                                                        ctx6.fill();
+                                                        ctx6.fillStyle = 'white';
+                                                        ctx6.beginPath();
+                                                        ctx6.moveTo(cw,ch);
+                                                        ctx6.arc(cw,ch,(ch-3),0,2*Math.PI,false);
+                                                        ctx6.fill();
+                                                        ctx6.fillStyle = "blue";
+                                                        ctx6.fillText(servicetotalrevenue.toFixed(0)+'HRK', cw+2, ch+4, cw);
+                                                        ctx6.font="bold 16px bebas"
+                                                        ctx6.fillText('revenue per services', cw+2, ch+14, cw);
+                                                        lastend += Math.PI * 2 * (servicerevenue[j]/servicetotalrevenue);
+                                                }
+                                        }
+        			}
+
+
+
+				service1revenuepercentage=(servicerevenue[0]/servicetotalrevenue*100).toFixed(2);
+				service2revenuepercentage=(servicerevenue[1]/servicetotalrevenue*100).toFixed(2);
+				service3revenuepercentage=(servicerevenue[2]/servicetotalrevenue*100).toFixed(2);
+
+                                //chart for ios revenue
+                                var al4=0;
+                                var id4 = setInterval(frame4,10);
+                                function frame4() {
+                                var cnv4 = document.getElementById('mycanvas4');
+                                var ctx4 = cnv4.getContext('2d');
+                                var cw4 = ctx4.canvas.width;
+                                var ch4 = ctx4.canvas.height;
+                                var start4 = 4.72;
+                                diff4 = ((al4 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx4.clearRect(0, 0, cw4, ch4);
+                                ctx4.lineWidth = 7;
+                                ctx4.fillStyle = '#09F';
+                                ctx4.strokeStyle = '#09F';
+                                ctx4.font="14px bebas"
+                                ctx4.textAlign = 'center';
+                                ctx4.fillText(al4.toFixed(2)+'%', cw4*.5, ch4*.5+2, ch4);
+                                ctx4.fillText('revenue per ' + service[0], cw4/2+2, ch4/2+14, cw4/2);
+                                ctx4.beginPath();
+                                ctx4.arc(cw4*.5,ch4*.5,60,start4,diff4/10+start4,false);
+                                ctx4.stroke();
+                                if (al4 >= service1revenuepercentage) {
+                                      clearInterval(id4);
+                                    } else {
+                                      al4++;
+                                    }
+                                }
+ 
+                                //chart for ios revenue
+                                var al5=0;
+                                var id5 = setInterval(frame5,10);
+                                function frame5() {
+                                var cnv5 = document.getElementById('mycanvas5');
+                                var ctx5 = cnv5.getContext('2d');
+                                var cw5 = ctx5.canvas.width;
+                                var ch5 = ctx5.canvas.height;
+                                var start5 = 4.72;
+                                diff5 = ((al5 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx5.clearRect(0, 0, cw5, ch5);
+                                ctx5.lineWidth = 7;
+                                ctx5.fillStyle = '#09F';
+                                ctx5.strokeStyle = '#09F';
+                                ctx5.font="14px bebas"
+                                ctx5.textAlign = 'center';
+                                ctx5.fillText(al5.toFixed(2)+'%', cw5*.5, ch5*.5+2, cw5);
+                                ctx5.fillText('revenue per' + service[1], cw5/2+2, ch5/2+14, cw5/2);
+                                ctx5.beginPath();
+                                ctx5.arc(cw5*.5,ch5*.5,60,start5,diff5/10+start5,false);
+                                ctx5.stroke();
+                                if (al5 >= service2revenuepercentage) {
+                                      clearInterval(id5);
+                                    } else {
+                                      al5++;
+                                    }
+                                }
+
+
+                                //chart for ios revenue
+                                var al6=0;
+                                var id6 = setInterval(frame6,10);
+                                function frame6() {
+                                var cnv6 = document.getElementById('mycanvas6');
+                                var ctx6 = cnv6.getContext('2d');
+                                var cw6 = ctx6.canvas.width;
+                                var ch6 = ctx6.canvas.height;
+                                var start6 = 4.72;
+                                diff6 = ((al6 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx6.clearRect(0, 0, cw6, ch6);
+                                ctx6.lineWidth = 7;
+                                ctx6.fillStyle = '#09F';
+                                ctx6.strokeStyle = '#09F';
+                                ctx6.font="14px bebas"
+                                ctx6.textAlign = 'center';
+                                ctx6.fillText(al6.toFixed(2)+'%', cw6*.5, ch6*.5+2, cw6);
+                                ctx6.fillText('revenue per' + service[2], cw6/2+2, ch6/2+14, cw6/2);
+                                ctx6.beginPath();
+                                ctx6.arc(cw6*.5,ch6*.5,60,start6,diff6/10+start6,false);
+                                ctx6.stroke();
+                                if (al6 >= service3revenuepercentage) {
+                                      clearInterval(id6);
+                                    } else {
+                                      al6++;
+                                    }
+                                }
+
+
+			});
+		});
+	});
+	});
+ 
+
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
+
+function selectPacient (){
+document.getElementById("selectedpacient").value = document.getElementById("pacientdropdownlist").value;
+
+    if (mydb) {
+        //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
+       mydb.transaction(function (t) {
+       t.executeSql("SELECT * FROM cars WHERE pacient = '" + document.getElementById("selectedpacient").value + "'", [], function (t, results) {
+
+                        //initialise the listitems variable
+                        var listitems = "";
+
+                        //get the car list holder ul
+                        //var doctorholder = document.getElementById("doctorlist");
+                        //var pacientholder = document.getElementById("pacientlist");
+                        //var serviceholder = document.getElementById("servicelist");
+                        //var platformholder = document.getElementById("platformlist");
+
+                        //clear cars list ul
+                        //doctorholder.innerHTML = "";
+                        //pacientholder.innerHTML = "";
+                        //serviceholder.innerHTML = "";
+                        //platformholder.innerHTML = "";
+
+                        var i;
+//                        var doctortxt="";
+//                        var pacienttxt="";
+//                        var servicetxt="";
+//                        var platformtxt="";
+
+                        for (i=0; i < results.rows.length; i++) {
+                                //doctorholder.innerHTML += "<li>" + results.rows.item(i).doctor;
+//                              //pacientholder.innerHTML += "<li>" + results.rows.item(i).pacient;
+                                //serviceholder.innerHTML += "<li>" + results.rows.item(i).service;
+                                //platformholder.innerHTML += "<li>" + results.rows.item(i).platform;
+//                                doctortxt=doctortxt + "<option value="+results.rows.item(i).doctor + ">" + results.rows.item(i).dcoctor + "</option>";
+//                                pacienttxt=pacienttxt + "<option value="+results.rows.item(i).pacient + ">" + results.rows.item(i).pacient + "</option>";
+//                                servicetxt=servicetxt + "<option value="+results.rows.item(i).service + ">" + results.rows.item(i).service + "</option>";
+//                                platformtxt=platformtxt + "<option value="+results.rows.item(i).platform + ">" + results.rows.item(i).platform + "</option>";
+
+                                }
+//                          document.getElementById("doctordropdownlist").innerHTML=doctortxt;
+//                          document.getElementById("pacientdropdownlist").innerHTML=pacienttxt;
+//                          document.getElementById("servicedropdownlist").innerHTML=servicetxt;
+//                          document.getElementById("platformdropdownlist").innerHTML=platformtxt;
+                        }, null);
+                });
+
+
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
+
+
+function selectService (){
+document.getElementById("selectedservice").value = document.getElementById("servicedropdownlist").value;
+}
+
+function selectPlatform (){
+document.getElementById("selectedplatform").value = document.getElementById("platformdropdownlist").value;
+}
+
+function updateDoctorList(transaction, results) {
+    //initialise the listitems variable
+    var listitems = "";
+    //get the car list holder ul
+    //var doctorholder = document.getElementById("doctorlist");
+
+    //clear cars list ul
+    //doctorholder.innerHTML = "";
+
+    var i;
+    var txt="";
+    //Iterate through the results
+    for (i = 0; i < results.rows.length; i++) {
+        //Get the current row
+        var row = results.rows.item(i);
+//        doctorholder.innerHTML += "<li>" + row.doctor + " (<a href='javascript:void(0);' onclick='outputPacientforselectedDoctor(" + row.id + ");'>Show Pacient</a>)";
+	 txt=txt + "<option value="+results.rows.item(i).doctor + ">" + results.rows.item(i).doctor + "</option>";
+
+    }
+    document.getElementById("doctordropdownlist").innerHTML=txt;
+}
+
+function updatePacientList(transaction, results) {
+    //initialise the listitems variable
+    //var listitems = "";
+    //get the car list holder ul
+    //var pacientholder = document.getElementById("pacientlist");
+
+    //clear cars list ul
+    //pacientholder.innerHTML = "";
+
+    var i;
+    var txt="";
+    //Iterate through the results
+    for (i = 0; i < results.rows.length; i++) {
+        //Get the current row
+	var row = results.rows.item(i);
+//	 pacientholder.innerHTML += "<li>" + results.rows.item(i).pacient;
+	 txt=txt + "<option value="+results.rows.item(i).pacient + ">" + results.rows.item(i).pacient + "</option>";
+    }
+    document.getElementById("pacientdropdownlist").innerHTML=txt;
+}
+
+
+function updateServiceList(transaction, results) {
+    //initialise the listitems variable
+    //var listitems = "";
+    //get the car list holder ul
+    //var listholder = document.getElementById("servicelist");
+
+    //clear cars list ul
+    //listholder.innerHTML = "";
+
+    var i;
+    var txt="";
+    //Iterate through the results
+    for (i = 0; i < results.rows.length; i++) {
+        //Get the current row
+        var row = results.rows.item(i);
+//        listholder.innerHTML += "<li>" + row.service + " - ";
+	  txt=txt + "<option value="+results.rows.item(i).service + ">" + results.rows.item(i).service + "</option>";
+        }
+    document.getElementById("servicedropdownlist").innerHTML=txt;
+    }
+
+
+function updatePlatformList(transaction, results) {
+    //initialise the listitems variable
+    //var listitems = "";
+    //get the car list holder ul
+    //var plaformholder = document.getElementById("platformlist");
+
+    //clear cars list ul
+    //plaformholder.innerHTML = "";
+
+    var i;
+    var txt="";
+    //Iterate through the results
+    for (i = 0; i < results.rows.length; i++) {
+        //Get the current row
+         var row = results.rows.item(i);
+//         platformholder.innerHTML += "<li>" + results.rows.item(i).platform;
+       txt=txt + "<option value="+results.rows.item(i).platform + ">" + results.rows.item(i).platform + "</option>";
+    }
+    document.getElementById("platformdropdownlist").innerHTML=txt;
+}
+
+//function to get the list of cars from the database
+function outputCars() {
+    //check to ensure the mydb object has been created
+    if (mydb) {
+        //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
+        mydb.transaction(function (t) {
+            t.executeSql("SELECT * FROM cars", [], updateCarList);
+        });
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
+
+
+function outputDoctors() {
+    //check to ensure the mydb object has been created
+    if (mydb) {
+        //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
+        mydb.transaction(function (t) {
+            t.executeSql("SELECT * FROM cars group by doctor", [], updateDoctorList);
+        });
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
+
+
+function outputPacient() {
+    //check to ensure the mydb object has been created
+    if (mydb) {
+        //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
+        mydb.transaction(function (t) {
+            t.executeSql("SELECT * FROM cars group by pacient", [], updatePacientList);
+        });
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
+
+
+function outputServices() {
+    //check to ensure the mydb object has been created
+    if (mydb) {
+        //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
+        mydb.transaction(function (t) {
+            t.executeSql("SELECT * FROM cars group by service", [], updateServiceList);
+        });
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
+
+function outputPlatform() {
+    //check to ensure the mydb object has been created
+    if (mydb) {
+        //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
+        mydb.transaction(function (t) {
+            t.executeSql("SELECT * FROM cars group by platform", [], updatePlatformList);
+        });
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
+
+
+//function to add the car to the database
+
+function addCar() {
+    //check to ensure the mydb object has been created
+    if (mydb) {
+        //get the values of the make and model text inputs
+//        var make = document.getElementById("carmake").value;
+//        var model = document.getElementById("carmodel").value;
+        var doctor = document.getElementById("doctor").value;
+        var pacient = document.getElementById("pacient").value;
+        var service = document.getElementById("service").value;
+        var zone = document.getElementById("zone").value;
+        var ad = document.getElementById("ad").value;
+        var date = document.getElementById("date").value;
+        var start = document.getElementById("start").value;
+        var end = document.getElementById("end").value;
+        var duration = document.getElementById("duration").value;
+        var price = document.getElementById("price").value;
+        var invoice = document.getElementById("invoice").value;
+        var platform = document.getElementById("platform").value;
+
+        //Test to ensure that the user has entered both a make and model
+        if (doctor !== "" && pacient !== "") {
+            //Insert the user entered details into the cars table, note the use of the ? placeholder, these will replaced by the data passed in as an array as the second parameter
+            mydb.transaction(function (t) {
+                t.executeSql("INSERT INTO cars (doctor, pacient, service, zone, ad, date, start, end, duration, price, invoice, platform) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [doctor, pacient, service, zone, ad, date, start, end, duration, price, invoice, platform]);
+                outputCars();
+            });
+        } else {
+            alert("You must enter a doctor and pacient and service  and platform!");
+        }
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
+
+
+//function to remove a car from the database, passed the row id as it's only parameter
+
+function deleteCar(id) {
+    //check to ensure the mydb object has been created
+    if (mydb) {
+        //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
+        mydb.transaction(function (t) {
+            t.executeSql("DELETE FROM cars WHERE id=?", [id], outputCars);
+        });
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+}
+
+
+outputCars();
+outputDoctors();
+outputPacient();
+outputServices();
+outputPlatform();
+</script>
+</CENTER>
+</BODY>
+</HTML>
