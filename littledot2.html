@@ -93,7 +93,7 @@ label {
 -->
         <label>Doctor :
         <select id="doctor">
-                <option value = "doctor1">Doctor 1</option>
+                <option value = "doctor1" selected>Doctor 1</option>
                 <option value = "doctor2">Doctor 2</option>
                 <option value = "doctor3">Doctor 3</option>
                 <option value = "doctor4">Doctor 4</option>
@@ -109,7 +109,7 @@ label {
 
     <label>Pacient :
         <select id="pacient">
-                <option value = "pacient1">Pacient 1</option>
+                <option value = "pacient1" selected>Pacient 1</option>
                 <option value = "pacient2">Pacient 2</option>
                 <option value = "pacient3">Pacient 3</option>
                 <option value = "pacient4">Pacient 4</option>
@@ -125,7 +125,7 @@ label {
 -->
     	<label>Service :
 	<select id="service">
-		<option value = "calldoctor">Call Doctor</option>
+		<option value = "calldoctor" selected>Call Doctor</option>
 		<option value = "consultation">Consultation</option>
 		<option value = "secondopinion">Second Opinion</option>
 	</select>
@@ -137,9 +137,9 @@ label {
     <br />
 -->
 
-    <label>Zone :
+    <label>Zone :</label>
     <select id="zone">
-            <option value = "bolesti"></option>
+            <option value = "bolesti" selected>Bolesti</option>
             <option value = "cijepljenje">Cijepljenje</option>
             <option value = "doctor">Doctor</option>
             <option value = "hranjenje">Hranjenje</option>
@@ -151,7 +151,6 @@ label {
             <option value = "temperatura">Temperatura</option>
             <option value = "zubi">Zubi</option>
      </select>
-     </label>
     <br />
 
 <!--
@@ -160,21 +159,20 @@ label {
     <br />
 -->
 
-    <label>Ad :
+    <label>Ad :</label>
     <select id="ad">
-            <option value = "apetito">Apetito</option>
+            <option value = "apetito" selected>Apetito</option>
             <option value = "avenetermalnavoda">Avene termalna voda</option>
-            <option value = "Bronhostop">Bronhostop</option>
-            <option value = "Cicalfate">Cicalfate</option>
-            <option value = "Cicatridina">Cicatridina</option>
-            <option value = "Dermalibour+">Dermalibour+</option>
-            <option value = "Echinax">Echinax</option>
-            <option value = "Exomegap">Exomega</option>
-            <option value = "Isilax">Isilax</option>
-            <option value = "Primalba">Primalba</option>
-            <option value = "Reidrato">Reidrato</option>
+            <option value = "bronhostop">Bronhostop</option>
+            <option value = "cicalfate">Cicalfate</option>
+            <option value = "cicatridina">Cicatridina</option>
+            <option value = "dermalibour">Dermalibour</option>
+            <option value = "echinax">Echinax</option>
+            <option value = "exomegap">Exomega</option>
+            <option value = "isilax">Isilax</option>
+            <option value = "primalba">Primalba</option>
+            <option value = "reidrato">Reidrato</option>
      </select>
-     </label>
     <br />
 
 <!--
@@ -183,20 +181,33 @@ label {
     <br />
 -->
 
-    <label>Datum :</label>
-    <input type="date" id="date" value="2017-02-02" />
+    <label>Mjesec :</label>
+    <select id="date">
+            <option value = "1" selected>sijecanj</option>
+            <option value = "2">veljaca</option>
+            <option value = "3">ozujak</option>
+            <option value = "4">travanj</option>
+            <option value = "5">svibanj</option>
+            <option value = "6">lipanj</option>
+            <option value = "7">srpanj</option>
+            <option value = "8">kolovoz</option>
+            <option value = "9">rujan</option>
+            <option value = "10">listopad</option>
+            <option value = "11">studeni</option>
+            <option value = "12">prosinac</option>
+     </select>
     <br />
 
     <label>Start:</label>
-    <input type="time" id="start" value="00:00" />
+    <input type="time" id="start" value="00:00:00" />
     <br />
 
     <label>End :</label>
-    <input type="time" id="end" value="00:00" />
+    <input type="time" id="end" value="00:00:00" />
     <br />
 
     <label>Duration:</label>
-    <input type="time" id="duration" value="00:00" />
+    <input type="time" id="duration" value="00:00:00" />
     <br />
 
     <label>Price:</label>
@@ -209,7 +220,7 @@ label {
 
         <label>Platform :
         <select id="platform">
-                <option value = "ios">IOS</option>
+                <option value = "ios" selected>IOS</option>
                 <option value = "android">Android</option>
                 <option value = "web">Web</option>
         </select>
@@ -228,7 +239,10 @@ label {
 -->
 </td>
 <td>
+<button type="button" id="addcar" style="height:30px; width:200px" onclick="addCar();">Add To database</button>
+<!--
 <button type="button" id="addcar" style="height:30px; width:200px" onclick="addCsv();">Add To database</button>
+-->
 <br />
 <br />
 <br />
@@ -241,10 +255,10 @@ label {
 <br />
 <!--
 <label for="printcsv"> <strong>Print CSV File:</strong></label>
--->
 <button type="button" id="printcsv" style="height:30px; width:200px" onclick="printCsv();">Print CSV</button>
 <br />
 <br />
+-->
 </td>
 </tr>
 </table>
@@ -329,83 +343,51 @@ label {
 <p><strong>Note: </strong>You can leave this page and when you return the cars you entered will still be here!</p>A
 -->
 
+
+    <input type="hidden" id="csvdr" value="doctor" />
+    <br />
+
+    <input type="hidden" id="csvpacient" value="pacient" />
+    <br />
+
+    <input type="hidden" id="csvservice" value="service" />
+    <br />
+
+
+    <input type="hidden" id="csvzone" value="zone" />
+    <br />
+
+    <input type="hidden" id="csvad" value="ad" />
+    <br />
+
+    <input type="hidden" id="csvdatum" value="datum" />
+    <br />
+
+
+    <input type="hidden" id="csvod" value="od" />
+    <br />
+
+    <input type="hidden" id="csvdo" value="Till" />
+    <br />
+
+    <input type="hidden" id="csvtrajanje" value="trajanje" />
+    <br />
+
+
+    <input type="hidden" id="csvprice" value="price" />
+    <br />
+
+
+    <input type="hidden" id="csvinvoice" value="invoice" />
+    <br />
+
+    <input type="hidden" id="csvplatform" value="platform" />
+    <br />
+
 <!--
-<table>
-<tr>
-<td>
-    <label>City:</label>
-    <input type="text" id="city" value="city" />
-    <br />
-
-    <label>Temperature:</label>
-    <input type="text" id="temperature" value="temperature" />
-    <br />
-
-    <label>Conditions:</label>
-    <input type="text" id="conditions" value="conditions" />
-    <br />
-
--->
-<!--
-    <label>Doctor:</label>
-    <input type="text" id="csvdr" value="doctor" />
-    <br />
-
-    <label>Pacient:</label>
-    <input type="text" id="csvpacient" value="pacient" />
-    <br />
-
-    <label>Service:</label>
-    <input type="text" id="csvservice" value="service" />
-    <br />
-
-
-    <label>zone:</label>
-    <input type="text" id="csvzone" value="zone" />
-    <br />
-
-    <label>Ad:</label>
-    <input type="text" id="csvad" value="ad" />
-    <br />
-
-    <label>datum:</label>
-    <input type="text" id="csvdatum" value="datum" />
-    <br />
-
-
-    <label>od:</label>
-    <input type="text" id="csvod" value="od" />
-    <br />
-
-    <label>do:</label>
-    <input type="text" id="csvdo" value="Till" />
-    <br />
-
-    <label>trajanje:</label>
-    <input type="text" id="csvtrajanje" value="trajanje" />
-    <br />
-
-
-    <label>price:</label>
-    <input type="text" id="csvprice" value="price" />
-    <br />
-
-
-    <label>invoice:</label>
-    <input type="text" id="csvinvoice" value="invoice" />
-    <br />
-
-    <label>platform:</label>
-    <input type="text" id="csvplatform" value="platform" />
-    <br />
-
    <label for="addcsv"> <strong>Add  CSV:</strong></label>
    <button type="button" id="addscv" onclick="addCsv();">Add Entry to Database</button>
 
-</td>
-<td> 
--->
-<!--
 <div id="csvholder">
      <h3>Your csv</h3>
         <ul id="csvlist"></ul>
@@ -511,6 +493,19 @@ function processData(csv) {
  	document.getElementById("csvinvoice").value=tarr[10];
  	document.getElementById("csvplatform").value=tarr[11];
 
+        //document.getElementById("doctor").value=tarr[0];
+        //document.getElementById("pacient").value=tarr[1];
+        //document.getElementById("service").value=tarr[2];
+        //document.getElementById("zone").value=tarr[3];
+        //document.getElementById("ad").value=tarr[4];
+        //document.getElementById("date").value=tarr[5];
+        //document.getElementById("start").value=tarr[6];
+        //document.getElementById("end").value=tarr[7];
+        //document.getElementById("duration").value=tarr[8];
+        //document.getElementById("price").value=tarr[9];
+        //document.getElementById("invoice").value=tarr[10];
+        //document.getElementById("platform").value=tarr[11];
+
 
 	if (i == 0) {
 
@@ -525,9 +520,9 @@ function processData(csv) {
 
 	}
 	console.log(lines);
-	drawOutput(lines);
+//	drawOutput(lines);
 //	outputCsv(); 
-//	printCsv();
+	printCsv();
 
 }
 
@@ -578,7 +573,7 @@ function drawOutput(lines){
 		});
 
          } else {
-                alert("You must enter a doctor and pacient and service  and platform!");
+                alert("You must enter a doctor and pacient and service  and platform draw output!");
          }
 }
 
@@ -586,44 +581,44 @@ function addCsv() {
     //check to ensure the mydb object has been created
     if (mydb2) {
         //get the values of the make and model text inputs
-        //var doctor = document.getElementById("csvdr").value;
-        //var pacient = document.getElementById("csvpacient").value;
-        //var service = document.getElementById("csvservice").value;
-        //var zone = document.getElementById("csvzone").value;
-        //var ad = document.getElementById("csvad").value;
-        //var datum = document.getElementById("csvdatum").value;
-        //var od = document.getElementById("csvod").value;
-        //var till = document.getElementById("csvdo").value;
-        //var trajanje = document.getElementById("csvtrajanje").value;
-        //var price = document.getElementById("csvprice").value;
-        //var invoice = document.getElementById("csvinvoice").value;
-        //var platform = document.getElementById("csvplatform").value;
+        var doctor = document.getElementById("csvdr").value;
+        var pacient = document.getElementById("csvpacient").value;
+        var service = document.getElementById("csvservice").value;
+        var zone = document.getElementById("csvzone").value;
+        var ad = document.getElementById("csvad").value;
+        var datum = document.getElementById("csvdatum").value;
+        var od = document.getElementById("csvod").value;
+        var till = document.getElementById("csvdo").value;
+        var trajanje = document.getElementById("csvtrajanje").value;
+        var price = document.getElementById("csvprice").value;
+        var invoice = document.getElementById("csvinvoice").value;
+        var platform = document.getElementById("csvplatform").value;
 
 
-
-        var doctor = document.getElementById("doctor").value;
-        var pacient = document.getElementById("pacient").value;
-        var service = document.getElementById("service").value;
-        var zone = document.getElementById("zone").value;
-        var ad = document.getElementById("ad").value;
-        var datum = document.getElementById("date").value;
-        var od = document.getElementById("start").value;
-        var till = document.getElementById("end").value;
-        var trajanje = document.getElementById("duration").value;
-        var price = document.getElementById("price").value;
-        var invoice = document.getElementById("invoice").value;
-        var platform = document.getElementById("platform").value;
+        //var doctor = document.getElementById("doctor").value;
+        //var pacient = document.getElementById("pacient").value;
+        //var service = document.getElementById("service").value;
+        //var zone = document.getElementById("zone").value;
+        //var ad = document.getElementById("ad").value;
+        //var datum = document.getElementById("date").value;
+        //var od = document.getElementById("start").value;
+        //var till = document.getElementById("end").value;
+        //var trajanje = document.getElementById("duration").value;
+        //var price = document.getElementById("price").value;
+        //var invoice = document.getElementById("invoice").value;
+        //var platform = document.getElementById("platform").value;
 
 
         //Test to ensure that the user has entered both a make and model
-        if (doctor !== "" && pacient !== "" && service !=="") {
+        if (doctor !== "" && pacient !== "") {
             //Insert the user entered details into the cars table, note the use of the ? placeholder, these will replaced by the data passed in as an array as the second parameter
             mydb2.transaction(function (t) {
                 t.executeSql("INSERT INTO ld (doctor, pacient, service, zone, ad, datum, od, do, trajanje, price, invoice, platform) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [doctor, pacient, service, zone, ad, datum, od, till, trajanje, price, invoice, platform]);
-                outputCsv();
+                //outputCsv();
+                printCsv();
             });
         } else {
-            alert("You must enter a doctor and pacient and service  and platform!");
+            alert("You must enter a doctor and pacient add CSV!");
         }
     } else {
         alert("db not found, your browser does not support web sql!");
@@ -1552,14 +1547,14 @@ function selectDoctor (){
 }
 
 function selectPacient (){
-document.getElementById("selectedpacient").value = document.getElementById("pacientdropdownlist").value;
+//document.getElementById("selectedpacient").value = document.getElementById("pacientdropdownlist").value;
 
     //if (mydb) {
     if (mydb2) {
         //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
        //mydb.transaction(function (t) {
        mydb2.transaction(function (t) {
-       t.executeSql("SELECT * FROM ld WHERE pacient = '" + document.getElementById("selectedpacient").value + "'", [], function (t, results) {
+       t.executeSql("SELECT * FROM ld WHERE pacient = '" + document.getElementById("pacientdropdownlist").value + "'", [], function (t, results) {
 
                         //initialise the listitems variable
                         var listitems = "";
@@ -1580,11 +1575,11 @@ document.getElementById("selectedpacient").value = document.getElementById("paci
 
 
 function selectService (){
-document.getElementById("selectedservice").value = document.getElementById("servicedropdownlist").value;
+//document.getElementById("selectedservice").value = document.getElementById("servicedropdownlist").value;
 }
 
 function selectPlatform (){
-document.getElementById("selectedplatform").value = document.getElementById("platformdropdownlist").value;
+//document.getElementById("selectedplatform").value = document.getElementById("platformdropdownlist").value;
 }
 
 function updateDoctorList(transaction, results) {
@@ -1727,32 +1722,62 @@ function addCar() {
     //if (mydb) {
     if (mydb2) {
         //get the values of the make and model text inputs
-//        var make = document.getElementById("carmake").value;
-//        var model = document.getElementById("carmodel").value;
-        var doctor = document.getElementById("doctor").value;
-        var pacient = document.getElementById("pacient").value;
-        var service = document.getElementById("service").value;
-        var zone = document.getElementById("zone").value;
-        var ad = document.getElementById("ad").value;
-        var date = document.getElementById("date").value;
-        var start = document.getElementById("start").value;
-        var end = document.getElementById("end").value;
-        var duration = document.getElementById("duration").value;
-        var price = document.getElementById("price").value;
-        var invoice = document.getElementById("invoice").value;
-        var platform = document.getElementById("platform").value;
+
+
+        document.getElementById("csvdr").value=document.getElementById("doctor").value;
+        document.getElementById("csvpacient").value=document.getElementById("pacient").value;
+        document.getElementById("csvservice").value=document.getElementById("service").value;
+        document.getElementById("csvzone").value=document.getElementById("zone").value;
+        document.getElementById("csvad").value=document.getElementById("ad").value;
+        document.getElementById("csvdatum").value=document.getElementById("date").value;
+        document.getElementById("csvod").value=document.getElementById("start").value;
+        document.getElementById("csvdo").value=document.getElementById("end").value;
+        document.getElementById("csvtrajanje").value=document.getElementById("duration").value;
+        document.getElementById("csvprice").value = document.getElementById("price").value;
+        document.getElementById("csvinvoice").value=document.getElementById("invoice").value;
+        document.getElementById("csvplatform").value=document.getElementById("platform").value;
+        addCsv();
+
+        //var doctor = document.getElementById("csvdr").value;
+        //var pacient = document.getElementById("csvpacient").value;
+        //var service = document.getElementById("csvservice").value;
+        //var zone = document.getElementById("csvzone").value;
+        //var ad = document.getElementById("csvad").value;
+        //var datum = document.getElementById("csvdatum").value;
+        //var od = document.getElementById("csvod").value;
+        //var till = document.getElementById("csvdo").value;
+        //var trajanje = document.getElementById("csvtrajanje").value;
+        //var price = document.getElementById("csvprice").value;
+        //var invoice = document.getElementById("csvinvoice").value;
+        //var platform = document.getElementById("csvplatform").value;
+
+
+
+        //var doctor = document.getElementById("doctor").value;
+        //var pacient = document.getElementById("pacient").value;
+        //var service = document.getElementById("service").value;
+        //var zone = document.getElementById("zone").value;
+        //var ad = document.getElementById("ad").value;
+        //var date = document.getElementById("date").value;
+        //var start = document.getElementById("start").value;
+        //var end = document.getElementById("end").value;
+        //var duration = document.getElementById("duration").value;
+        //var price = document.getElementById("price").value;
+        //var invoice = document.getElementById("invoice").value;
+        //var platform = document.getElementById("platform").value;
 
         //Test to ensure that the user has entered both a make and model
-        if (doctor !== "" && pacient !== "") {
+        //if (doctor !== "" && pacient !== "") {
             //Insert the user entered details into the cars table, note the use of the ? placeholder, these will replaced by the data passed in as an array as the second parameter
             //mydb.transaction(function (t) {
-            mydb2.transaction(function (t) {
-                t.executeSql("INSERT INTO ld (doctor, pacient, service, zone, ad, date, start, end, duration, price, invoice, platform) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [doctor, pacient, service, zone, ad, date, start, end, duration, price, invoice, platform]);
-                outputCars();
-            });
-        } else {
-            alert("You must enter a doctor and pacient and service  and platform!");
-        }
+         //   mydb2.transaction(function (t) {
+          //      t.executeSql("INSERT INTO ld (doctor, pacient, service, zone, ad, date, start, end, duration, price, invoice, platform) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [doctor, pacient, service, zone, ad, date, start, end, duration, price, invoice, platform]);
+                //outputCars();
+           //     printCsv();
+           // });
+        //} else {
+        //    alert("You must enter a doctor and pacient add car!");
+       // }
     } else {
         alert("db not found, your browser does not support web sql!");
     }
