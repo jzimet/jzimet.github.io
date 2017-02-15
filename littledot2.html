@@ -255,10 +255,10 @@ label {
 <br />
 <!--
 <label for="printcsv"> <strong>Print CSV File:</strong></label>
+-->
 <button type="button" id="printcsv" style="height:30px; width:200px" onclick="printCsv();">Print CSV</button>
 <br />
 <br />
--->
 </td>
 </tr>
 </table>
@@ -269,10 +269,13 @@ label {
 
 <td>
 
+-->
 <div id="carlistholder">
      <h3>Your Data</h3>
         <ul id="carlist"></ul>
 </div>
+
+<!--
 </td>
 -->
 
@@ -415,15 +418,15 @@ if (window.openDatabase) {
 
     //create the cars table using SQL for the database using a transaction
     mydb.transaction(function (t) {
-        t.executeSql("CREATE TABLE IF NOT EXISTS cars (id INTEGER PRIMARY KEY ASC, make TEXT, model TEXT, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, date TEXT, start DATE, end DATE, duration INTEGER, price INTEGER, invoice TEXT, platform TEXT)");
+        //t.executeSql("CREATE TABLE IF NOT EXISTS cars (id INTEGER PRIMARY KEY ASC, make TEXT, model TEXT, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, date TEXT, start DATE, end DATE, duration INTEGER, price INTEGER, invoice TEXT, platform TEXT)");
     });
     //mydb2.transaction(function (t) {
         //t.executeSql("CREATE TABLE IF NOT EXISTS test4 (id INTEGER PRIMARY KEY ASC, city  TEXT, temperature TEXT, conditions TEXT)");
     //});
 
     mydb2.transaction(function (t) {
-        //t.executeSql("CREATE TABLE IF NOT EXISTS ld (id INTEGER PRIMARY KEY ASC, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, datum TEXT, od TEXT, do TEXT, trajanje TEXT, price TEXT, invoice TEXT, platform TEXT)");
-        t.executeSql("CREATE TABLE IF NOT EXISTS cars (id INTEGER PRIMARY KEY ASC, make TEXT, model TEXT, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, date TEXT, start DATE, end DATE, duration INTEGER, price INTEGER, invoice TEXT, platform TEXT)");
+        t.executeSql("CREATE TABLE IF NOT EXISTS ld (id INTEGER PRIMARY KEY ASC, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, datum TEXT, od TEXT, do TEXT, trajanje TEXT, price TEXT, invoice TEXT, platform TEXT)");
+        //t.executeSql("CREATE TABLE IF NOT EXISTS cars (id INTEGER PRIMARY KEY ASC, make TEXT, model TEXT, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, date TEXT, start DATE, end DATE, duration INTEGER, price INTEGER, invoice TEXT, platform TEXT)");
     });
 
 
@@ -472,6 +475,10 @@ function loadHandler(event) {
 function processData(csv) {
         var allTextLines = csv.split(/\r\n|\n/);
         var lines = [];
+	var listholder = document.getElementById("carlist");
+        listholder.innerHTML = "";
+	//listholder.innerHTML += "<li>" + document.getElementById("csvservice").value;
+        
         for (var i=0; i<allTextLines.length-1; i++) {
             var data = allTextLines[i].split(';');
                 var tarr = [];
@@ -507,10 +514,15 @@ function processData(csv) {
         //document.getElementById("platform").value=tarr[11];
 
 
+
+    	//listholder.innerHTML += "<li>" + i + "." + document.getElementById("csvservice").value;
+
+
 	if (i == 0) {
 
 		dropTableCsv();
 		createTableCsv();
+		//addCsv();
 
 	} else {
 	
@@ -521,8 +533,8 @@ function processData(csv) {
 	}
 	console.log(lines);
 //	drawOutput(lines);
-//	outputCsv(); 
-	printCsv();
+	outputCsv(); 
+//	printCsv();
 
 }
 
@@ -608,6 +620,10 @@ function addCsv() {
         //var invoice = document.getElementById("invoice").value;
         //var platform = document.getElementById("platform").value;
 
+        //var listholder = document.getElementById("carlist");
+        //listholder.innerHTML = "";
+        //listholder.innerHTML += "<li>" + document.getElementById("csvservice").value;
+
 
         //Test to ensure that the user has entered both a make and model
         if (doctor !== "" && pacient !== "") {
@@ -642,26 +658,13 @@ function deleteCsv(id) {
 
 //function to output the list of cars in the database
 function updateCsvList(transaction, results) {
-    //initialise the listitems variable
-    //var listitems = "";
-    //get the car list holder ul
-    var csvholder = document.getElementById("csvlist");
-    //var csvdropdown=document.getElementById("csvdropdownlist");
-
-    //clear cars list ul
-    //csvholder.innerHTML = "";
-    //csvdropdown = "";
-
-    var i;
-	var xtable = document.createElement("TABLE");
-    //csvholder.innerHTML += "<li>" + "id - doctor - pacient - service - zone - ad - datum - od - do - trajanje - price - invoice - platform - delete";
-    //Iterate through the results
-    for (i = 0; i < results.rows.length; i++) {
-        //Get the current row
-        var row = results.rows.item(i);
-
-
-
+    	var i;
+       var xtable = document.createElement("table");
+       xtable.setAttribute("border", "1");
+       var xrow = xtable.insertRow(0);
+       xrow.insertCell(0).outerHTML = "<th>id</th><th>doctor</th><th>pacient</th><th>service</th><th>zone</th><th>ad</th><th>datum</th><th>od</th><th>do</th><th>trajanje</th><th>price</th><th>invoice</th><th>platform</th><th>delete</th>";
+    	//Iterate through the results
+    	for (i = 0; i < results.rows.length; i++) {
                                         var row = results.rows.item(i);
                                         xrow = xtable.insertRow(-1);
                                         var xcell0 = xrow.insertCell(0);
@@ -680,7 +683,7 @@ function updateCsvList(transaction, results) {
                                         xcell6.innerHTML = row.datum;
                                         var xcell7 = xrow.insertCell(7);
                                         xcell7.innerHTML = row.od;
-                                        var xcell8 = xrow.insertCell(7);
+                                        var xcell8 = xrow.insertCell(8);
                                         xcell8.innerHTML = row.do;
                                         var xcell9 = xrow.insertCell(9);
                                         xcell9.innerHTML = row.trajanje;
@@ -692,15 +695,12 @@ function updateCsvList(transaction, results) {
                                         xcell12.innerHTML = row.platform;
                                         var xcell13 = xrow.insertCell(13);
                                         xcell13.innerHTML = "(<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)";
-
-
-        //csvholder.innerHTML += "<li>" + row.id +" - " +  row.doctor + " - " + row.pacient +  "-"  + row.service + "-" + row.zone + "-" + row.ad + "-" + row.datum + "-" + row.od + "-" + row.do + "-" + row.trajanje + "-" + row.price + "-" + row.invoice + "-" + row.platform +  " (<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)";
-        //csvdropdown.innerHTML += csvdropdown + "<option value="+row.id + ">" + row.id + "-" + row.city + "-" + row.temperature + row.conditions + "</option>";
-    }
-                       var dvxTable = document.getElementById("dvxTable");
+                                }
+                        var dvxTable = document.getElementById("dvxTable");
                         dvxTable.innerHTML = "";
                         dvxTable.appendChild(xtable);
 }
+
 
 //function to get the list of cars from the database
 function outputCsv() {
@@ -723,14 +723,18 @@ function printCsv() {
         mydb2.transaction(function (t) {
                 t.executeSql("SELECT * FROM ld ", [],function (t, results) {
     			var csvholder = document.getElementById("csvlist");
-			var xtable = document.createElement("TABLE");
-    			//xtable.border = "1";
-			//xrow = xtable.insertRow(-1);	    			
-//csvholder.innerHTML = "";
-        		//csvholder.innerHTML += "<li>" + "id - doctor - pacient - service - zone - ad - datum - od - do - trajanje - price - invoice - platform - delete";
-        		//csvholder.innerHTML += "<table><tr><th>id</th><th>doctor</th><th>pacient</th><th>service</th><th>zone</th><th>ad</th><th>datum</th><th>od</th><th>do</th><th>trajanje</th><th>price</th><th>invoice</th><th>platform</th><th>delete</th></tr>";
-                                for (i = 0; i < results.rows.length; i++) {
-                                        var row = results.rows.item(i);
+                        var listholder = document.getElementById("carlist");
+        		//listholder.innerHTML = "";
+        		//listholder.innerHTML += "<li>" + document.getElementById("csvservice").value;
+        		//listholder.innerHTML += "<li>" + row.service;
+        
+				var xtable = document.createElement("table");
+        			xtable.setAttribute("border", "1");
+				var xrow = xtable.insertRow(0);
+				xrow.insertCell(0).outerHTML = "<th>id</th><th>doctor</th><th>pacient</th><th>service</th><th>zone</th><th>ad</th><th>datum</th><th>od</th><th>do</th><th>trajanje</th><th>price</th><th>invoice</th><th>platform</th><th>delete</th>";
+
+				for (i = 0; i < results.rows.length; i++) {
+					var row = results.rows.item(i);
 					xrow = xtable.insertRow(-1);	    			
 					var xcell0 = xrow.insertCell(0);
 					xcell0.innerHTML = row.id;
@@ -748,7 +752,7 @@ function printCsv() {
                                         xcell6.innerHTML = row.datum;
 					var xcell7 = xrow.insertCell(7);
                                         xcell7.innerHTML = row.od;
-					var xcell8 = xrow.insertCell(7);
+					var xcell8 = xrow.insertCell(8);
                                         xcell8.innerHTML = row.do;
 					var xcell9 = xrow.insertCell(9);
                                         xcell9.innerHTML = row.trajanje;
@@ -964,8 +968,8 @@ function createTableCsv() {
 				var bar = 0;
                 		myColor = ['red','green','blue', 'yellow'];
                                 for ( k=0; k< doctor.length;k++) {
-					currY2 = currY2 - doctorrevenue[k]/10;
-					bar = doctorrevenue[k]/10;
+					currY2 = currY2 - doctorrevenue[k]/100;
+					bar = doctorrevenue[k]/100;
                                         ctx2.fillStyle = myColor[k];
                                         //context.fillRect(x,y,width,height)
 					ctx2.fillRect((width2*z-width2/3*2),currY2,width2/5,bar);
@@ -975,8 +979,8 @@ function createTableCsv() {
 				var bar = 0;
                 		myColor = ['black','lightgreen','lightblue', 'pink'];
 				for ( k=0; k< service.length;k++) {
-                                	currY2 = currY2 - servicerevenue[k]/10;
-					bar = servicerevenue[k]/10;
+                                	currY2 = currY2 - servicerevenue[k]/100;
+					bar = servicerevenue[k]/100;
                                         ctx2.fillStyle = myColor[k];
 					ctx2.fillRect((width2*z-width2/3),currY2,width2/5,bar);
                                         ctx2.fillStyle = 'blue';
@@ -1155,7 +1159,7 @@ function updateGraphs(transaction, results) {
         //Get the current row
         var row = results.rows.item(i);
 
-        listholder.innerHTML += "<li>" + row.doctor +" - " +  row.pacient + " - " + row.service + " - " + row.platform + " - " + row.price + row.zone + " (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete</a>)";
+       listholder.innerHTML += "<li>" + row.doctor +" - " +  row.pacient + " - " + row.service + " - " + row.platform + " - " + row.price + row.zone + " (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete</a>)";
     }
 
 }
@@ -1170,40 +1174,44 @@ function updateCarList(transaction, results) {
         //clear cars list ul
 	//listholder.innerHTML = "";
 	var i;
-	var xtable = document.createElement("TABLE");
+	var xtable = document.createElement("table");
+        xtable.setAttribute("border", "1");
+	var xrow = xtable.insertRow(0);
+        xrow.insertCell(0).outerHTML = "<th>id</th><th>doctor</th><th>pacient</th><th>service</th><th>zone</th><th>ad</th><th>datum</th><th>od</th><th>do</th><th>trajanje</th><th>price</th><th>invoice</th><th>platform</th><th>delete</th>";
+
         //Iterate through the results
     	for (i = 0; i < results.rows.length; i++) {
-        //Get the current row
-        var row = results.rows.item(i);
-                                        xrow = xtable.insertRow(-1);
-                                        var xcell0 = xrow.insertCell(0);
-                                        xcell0.innerHTML = row.id;
-                                        var xcell1 = xrow.insertCell(1);
-                                        xcell1.innerHTML = row.doctor;
-                                        var xcell2 = xrow.insertCell(2);
-                                        xcell2.innerHTML = row.pacient;
-                                        var xcell3 = xrow.insertCell(3);
-                                        xcell3.innerHTML = row.service;
-                                        var xcell4 = xrow.insertCell(4);
-                                        xcell3.innerHTML = row.zone;
-                                        var xcell5 = xrow.insertCell(5);
-                                        xcell5.innerHTML = row.ad;
-                                        var xcell6 = xrow.insertCell(6);
-                                        xcell6.innerHTML = row.datum;
-                                        var xcell7 = xrow.insertCell(7);
-                                        xcell7.innerHTML = row.od;
-                                        var xcell8 = xrow.insertCell(7);
-                                        xcell8.innerHTML = row.do;
-                                        var xcell9 = xrow.insertCell(9);
-                                        xcell9.innerHTML = row.trajanje;
-                                        var xcell10 = xrow.insertCell(10);
-                                        xcell10.innerHTML = row.price;
-                                        var xcell11 = xrow.insertCell(11);
-                                        xcell11.innerHTML = row.invoice;
-                                        var xcell12 = xrow.insertCell(12);
-                                        xcell12.innerHTML = row.platform;
-                                        var xcell13 = xrow.insertCell(13);
-                                        xcell13.innerHTML = "(<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)";
+        	//Get the current row
+        	var row = results.rows.item(i);
+                xrow = xtable.insertRow(-1);
+                var xcell0 = xrow.insertCell(0);
+                xcell0.innerHTML = row.id;
+                var xcell1 = xrow.insertCell(1);
+                xcell1.innerHTML = row.doctor;
+                var xcell2 = xrow.insertCell(2);
+                xcell2.innerHTML = row.pacient;
+                var xcell3 = xrow.insertCell(3);
+                xcell3.innerHTML = row.service;
+                var xcell4 = xrow.insertCell(4);
+                xcell3.innerHTML = row.zone;
+                var xcell5 = xrow.insertCell(5);
+                xcell5.innerHTML = row.ad;
+                var xcell6 = xrow.insertCell(6);
+                xcell6.innerHTML = row.datum;
+                var xcell7 = xrow.insertCell(7);
+                xcell7.innerHTML = row.od;
+                var xcell8 = xrow.insertCell(8);
+                xcell8.innerHTML = row.do;
+                var xcell9 = xrow.insertCell(9);
+                xcell9.innerHTML = row.trajanje;
+                var xcell10 = xrow.insertCell(10);
+                xcell10.innerHTML = row.price;
+                var xcell11 = xrow.insertCell(11);
+                xcell11.innerHTML = row.invoice;
+                var xcell12 = xrow.insertCell(12);
+                xcell12.innerHTML = row.platform;
+                var xcell13 = xrow.insertCell(13);
+                xcell13.innerHTML = "(<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)";
         //listholder.innerHTML += "<li>" + row.doctor +" - " +  row.pacient + " - " + row.service + " - " + row.platform + " - " + row.price + row.zone + row.datum +" (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete</a>)";
     	}
 	var dvxTable = document.getElementById("dvxTable");
