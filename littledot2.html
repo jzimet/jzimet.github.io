@@ -35,32 +35,11 @@ label {
 
 <label>Pacients:<select id="pacientdropdownlist" onchange="selectPacient()"></select></label>
 
-<!--
-<label>Selected pacient:<input type = "text" id="selectedpacient" onchange="selectPacient()"></label>
-<br />
--->
-
 <label>Services:<select id="servicedropdownlist" onchange="selectService()"></select></label>
-
-<!--
-<label>selected service:<input type = "text" id="selectedservice" onchange="selectService()"></label>
-<br />
--->
 
 <label>Platforms:<select id="platformdropdownlist" onchange="selectPlatform()"></select></label>
 
-
-
-<!--
-<label>selected Platform:<input type = "text" id="selectedplatform" onchange="selectPlatform()"></label>
 <br />
--->
-
-<br />
-<br />
-<!--
-<label>selected doctors:<input type = "text" id="selecteddoctor" onchange="selectDoctor()"></label>
--->
 
 <canvas id="can5" width="150" height="150" style="border:1px dashed #CCC;"></canvas>
 <canvas id="mycanvas1" width="150" height="150" style="border:1px dashed #CCC;"></canvas>
@@ -73,24 +52,13 @@ label {
 <canvas id="mycanvas6" width="150" height="150" style="border:1px dashed #CCC;"></canvas>
 <br />
 
-<!--
-<label>Pacients:<select id="pacientdropdownlist" onchange="selectPacient()"></select></label>
-<label>Selected pacient:<input type = "text" id="selectedpacient" onchange="selectPacient()"></label>
-<br />
-<label>Services:<select id="servicedropdownlist" onchange="selectService()"></select></label>
-<label>selected service:<input type = "text" id="selectedservice" onchange="selectService()"></label>
-<br />
-<label>Platforms:<select id="platformdropdownlist" onchange="selectPlatform()"></select></label>
-<label>selected Platform:<input type = "text" id="selectedplatform" onchange="selectPlatform()"></label>
-<br />
--->
-
 <table><tr><td>
 <div id="controls">
 
 <!--
     <p>Add entry to the database</p>
 -->
+
         <label>Doctor :
         <select id="doctor">
                 <option value = "doctor1" selected>Doctor 1</option>
@@ -100,12 +68,12 @@ label {
         </select>
         </label>
     <br />
+
 <!--
     <label>Doctor:</label>
     <input type="text" id="doctor" />
     <br />
 -->
-
 
     <label>Pacient :
         <select id="pacient">
@@ -123,6 +91,7 @@ label {
     <input type="text" id="pacient" />
     <br />
 -->
+
     	<label>Service :
 	<select id="service">
 		<option value = "calldoctor" selected>Call Doctor</option>
@@ -131,6 +100,7 @@ label {
 	</select>
 	</label>
     <br />
+
 <!--
    <label>Service :</label>
    <input type="text" id="service" />
@@ -234,17 +204,9 @@ label {
     <br />
 -->
     <br />
-<!--
-    <button type="button" id="addcar" style="height:30px; width:200px" onclick="addCar();">Add</button>
--->
 </td>
 <td>
 <button type="button" id="addcar" style="height:30px; width:200px" onclick="addCar();">Add To database</button>
-<!--
-<button type="button" id="addcar" style="height:30px; width:200px" onclick="addCsv();">Add To database</button>
--->
-<br />
-<br />
 <br />
 <!--
 <label for="csvFileInput"> <strong>Import from CSV File:</strong></label>
@@ -252,32 +214,21 @@ label {
 <input type="file" id="csvFileInput" style="height:30px; width:200px" onchange="handleFiles(this.files)" accept=".csv">
 <div id="output"></div>
 <br />
-<br />
 <!--
 <label for="printcsv"> <strong>Print CSV File:</strong></label>
 -->
 <button type="button" id="printcsv" style="height:30px; width:200px" onclick="printCsv();">Print CSV</button>
-<br />
 <br />
 </td>
 </tr>
 </table>
 </div>
 
-<!--
-</td>
-
-<td>
-
--->
 <div id="carlistholder">
      <h3>Your Data</h3>
         <ul id="carlist"></ul>
 </div>
 
-<!--
-</td>
--->
 
 <!--
 <td>
@@ -303,15 +254,10 @@ label {
     <br />
 </td>
 <td>
-</td>
 -->
 
 </td>
 
-<!--
-</div>
-<br />
--->
 <!--
 
 <div id="carlistholder">
@@ -319,32 +265,33 @@ label {
 	<ul id="carlist"></ul>
 </div>
 -->
+
 <!--
 <div id="doctorlistholder">
      <h3>Your Doctors</h3>
        <ul id="doctorlist"></ul>
 </div>
+
 <div id="pacientlistholder">
      <h3>Your Pacient</h3>
        <ul id="pacientlist"></ul>
 </div>
+
 <div id="servicelistholder">
      <h3>Your Services</h3>
        <ul id="servicelist"></ul>
 </div>
+
 <div id="platformlistholder">
      <h3>Your platform</h3>
        <ul id="platformlist"></ul>
 </div>
+
 -->
 <div id="graphsholder">
      <h3></h3>
 	<ul id="graphs"></ul>
 </div>
-
-<!--
-<p><strong>Note: </strong>You can leave this page and when you return the cars you entered will still be here!</p>A
--->
 
 
     <input type="hidden" id="csvdr" value="doctor" />
@@ -356,7 +303,6 @@ label {
     <input type="hidden" id="csvservice" value="service" />
     <br />
 
-
     <input type="hidden" id="csvzone" value="zone" />
     <br />
 
@@ -365,7 +311,6 @@ label {
 
     <input type="hidden" id="csvdatum" value="datum" />
     <br />
-
 
     <input type="hidden" id="csvod" value="od" />
     <br />
@@ -376,10 +321,8 @@ label {
     <input type="hidden" id="csvtrajanje" value="trajanje" />
     <br />
 
-
     <input type="hidden" id="csvprice" value="price" />
     <br />
-
 
     <input type="hidden" id="csvinvoice" value="invoice" />
     <br />
@@ -396,13 +339,6 @@ label {
         <ul id="csvlist"></ul>
 </div>
 
-</td>
-</tr>
-</table>
--->
-
-<!--
-<label>City:<select id="csvdropdownlist"></select></label>
 -->
 
 
@@ -412,22 +348,14 @@ label {
 <script>
 //Test for browser compatibility
 if (window.openDatabase) {
-    //Create the database the parameters are 1. the database name 2.version number 3. a description 4. the size of the database (in bytes) 1024 x 1024 = 1MB
-    var mydb = openDatabase("ld6_db", "0.1", "A Database of Cars I Like", 1024 * 1024);
-    var mydb2 = openDatabase("test_db", "0.1", "A Database of Cars I Like", 1024 * 1024);
+    	//Create the database the parameters are 1. the database name 2.version number 3. a description 4. the size of the database (in bytes) 1024 x 1024 = 1MB
+	var mydb = openDatabase("ld6_db", "0.1", "A Database of Cars I Like", 1024 * 1024);
+    	var mydb2 = openDatabase("test_db", "0.1", "A Database of Cars I Like", 1024 * 1024);
 
-    //create the cars table using SQL for the database using a transaction
-    mydb.transaction(function (t) {
-        //t.executeSql("CREATE TABLE IF NOT EXISTS cars (id INTEGER PRIMARY KEY ASC, make TEXT, model TEXT, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, date TEXT, start DATE, end DATE, duration INTEGER, price INTEGER, invoice TEXT, platform TEXT)");
-    });
-    //mydb2.transaction(function (t) {
-        //t.executeSql("CREATE TABLE IF NOT EXISTS test4 (id INTEGER PRIMARY KEY ASC, city  TEXT, temperature TEXT, conditions TEXT)");
-    //});
-
-    mydb2.transaction(function (t) {
-        t.executeSql("CREATE TABLE IF NOT EXISTS ld (id INTEGER PRIMARY KEY ASC, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, datum TEXT, od TEXT, do TEXT, trajanje TEXT, price TEXT, invoice TEXT, platform TEXT)");
-        //t.executeSql("CREATE TABLE IF NOT EXISTS cars (id INTEGER PRIMARY KEY ASC, make TEXT, model TEXT, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, date TEXT, start DATE, end DATE, duration INTEGER, price INTEGER, invoice TEXT, platform TEXT)");
-    });
+    	//create the cars table using SQL for the database using a transaction
+	mydb2.transaction(function (t) {
+        	t.executeSql("CREATE TABLE IF NOT EXISTS ld (id INTEGER PRIMARY KEY ASC, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, datum TEXT, od TEXT, do TEXT, trajanje TEXT, price TEXT, invoice TEXT, platform TEXT)");
+	});
 
 
 } else {
@@ -475,9 +403,6 @@ function loadHandler(event) {
 function processData(csv) {
         var allTextLines = csv.split(/\r\n|\n/);
         var lines = [];
-	var listholder = document.getElementById("carlist");
-        listholder.innerHTML = "";
-	//listholder.innerHTML += "<li>" + document.getElementById("csvservice").value;
         
         for (var i=0; i<allTextLines.length-1; i++) {
             var data = allTextLines[i].split(';');
@@ -487,54 +412,46 @@ function processData(csv) {
                 }
                 lines.push(tarr);
 
-	document.getElementById("csvdr").value=tarr[0];
-	document.getElementById("csvpacient").value=tarr[1];
- 	document.getElementById("csvservice").value=tarr[2];
- 	document.getElementById("csvzone").value=tarr[3];
- 	document.getElementById("csvad").value=tarr[4];
- 	document.getElementById("csvdatum").value=tarr[5];
- 	document.getElementById("csvod").value=tarr[6];
- 	document.getElementById("csvdo").value=tarr[7];
- 	document.getElementById("csvtrajanje").value=tarr[8];
- 	document.getElementById("csvprice").value=tarr[9];
- 	document.getElementById("csvinvoice").value=tarr[10];
- 	document.getElementById("csvplatform").value=tarr[11];
+		document.getElementById("csvdr").value=tarr[0];
+		document.getElementById("csvpacient").value=tarr[1];
+ 		document.getElementById("csvservice").value=tarr[2];
+ 		document.getElementById("csvzone").value=tarr[3];
+ 		document.getElementById("csvad").value=tarr[4];
+ 		document.getElementById("csvdatum").value=tarr[5];
+ 		document.getElementById("csvod").value=tarr[6];
+ 		document.getElementById("csvdo").value=tarr[7];
+ 		document.getElementById("csvtrajanje").value=tarr[8];
+ 		document.getElementById("csvprice").value=tarr[9];
+ 		document.getElementById("csvinvoice").value=tarr[10];
+ 		document.getElementById("csvplatform").value=tarr[11];
 
-        //document.getElementById("doctor").value=tarr[0];
-        //document.getElementById("pacient").value=tarr[1];
-        //document.getElementById("service").value=tarr[2];
-        //document.getElementById("zone").value=tarr[3];
-        //document.getElementById("ad").value=tarr[4];
-        //document.getElementById("date").value=tarr[5];
-        //document.getElementById("start").value=tarr[6];
-        //document.getElementById("end").value=tarr[7];
-        //document.getElementById("duration").value=tarr[8];
-        //document.getElementById("price").value=tarr[9];
-        //document.getElementById("invoice").value=tarr[10];
-        //document.getElementById("platform").value=tarr[11];
+        	//document.getElementById("doctor").value=tarr[0];
+        	//document.getElementById("pacient").value=tarr[1];
+        	//document.getElementById("service").value=tarr[2];
+        	//document.getElementById("zone").value=tarr[3];
+        	//document.getElementById("ad").value=tarr[4];
+        	//document.getElementById("date").value=tarr[5];
+        	//document.getElementById("start").value=tarr[6];
+        	//document.getElementById("end").value=tarr[7];
+        	//document.getElementById("duration").value=tarr[8];
+        	//document.getElementById("price").value=tarr[9];
+        	//document.getElementById("invoice").value=tarr[10];
+        	//document.getElementById("platform").value=tarr[11];
 
+		if (i == 0) {
 
+			dropTableCsv();
+			createTableCsv();
 
-    	//listholder.innerHTML += "<li>" + i + "." + document.getElementById("csvservice").value;
-
-
-	if (i == 0) {
-
-		dropTableCsv();
-		createTableCsv();
-		//addCsv();
-
-	} else {
+		} else {
 	
-		addCsv();
+			addCsv();
 
-	}	
+		}	
 
 	}
 	console.log(lines);
-//	drawOutput(lines);
-	outputCsv(); 
-//	printCsv();
+	printCsv();
 
 }
 
@@ -547,14 +464,6 @@ function errorHandler(evt) {
 function drawOutput(lines){
         //Clear previous data
         document.getElementById("output").innerHTML = "";
-        var csvholder = document.getElementById("csvlist");
-        csvholder.innerHTML = "";
-        //csvholder.innerHTML += "<li>" + "linije u csv: " + lines.length;
-	//csvholder.innerHTML += "<li>" + "polja u liniji: " + lines[0].length;
-	//csvholder.innerHTML += "<li>" + lines[0][0] + "-" + lines[0][1] + "-" + lines[0][2];
-	//csvholder.innerHTML += "<li>" + lines[1][0] + "-" + lines[1][1] + "-" + lines[1][2];
-	//csvholder.innerHTML += "<li>" + lines[2][0] + "-" + lines[2][1] + "-" + lines[2][2];
-	//csvholder.innerHTML += "<li>" + lines[3][0] + "-" + lines[3][1] + "-" + lines[3][2];
 
         var table = document.createElement("table");
         for (var i = 0; i < lines.length; i++) {
@@ -562,13 +471,10 @@ function drawOutput(lines){
 		for (var j = 0; j < lines[i].length; j++) {
                         var firstNameCell = row.insertCell(-1);
                         firstNameCell.appendChild(document.createTextNode(lines[i][j]));
-	                //csvholder.innerHTML += "<li>" + "lines" + i + "length :" + lines[i].length;
-	                //csvholder.innerHTML += "<li>" + "lines" + i + j + "content :" + lines[i][j];
 		}
 	}
-	
 	document.getElementById("output").appendChild(table);
-	outputCsv();
+	//printCsv();
     	if (mydb2) {
 		mydb2.transaction(function (t) {
         		t.executeSql("SELECT * FROM ld", [],function (t, results) {
@@ -578,9 +484,7 @@ function drawOutput(lines){
     			for (i = 0; i < results.rows.length; i++) {
         			//Get the current row
         			var row = results.rows.item(i);
-          			//csvdropdown=csvdropdown + "<option value="+row.id + ">" + row.id + "-" + row.doctor + "-" + row.pacient + row.service + "</option>";
         			}
-    			//document.getElementById("csvdropdownlist").innerHTML=csvdropdown;
 			});
 		});
 
@@ -620,17 +524,11 @@ function addCsv() {
         //var invoice = document.getElementById("invoice").value;
         //var platform = document.getElementById("platform").value;
 
-        //var listholder = document.getElementById("carlist");
-        //listholder.innerHTML = "";
-        //listholder.innerHTML += "<li>" + document.getElementById("csvservice").value;
-
-
         //Test to ensure that the user has entered both a make and model
         if (doctor !== "" && pacient !== "") {
             //Insert the user entered details into the cars table, note the use of the ? placeholder, these will replaced by the data passed in as an array as the second parameter
             mydb2.transaction(function (t) {
                 t.executeSql("INSERT INTO ld (doctor, pacient, service, zone, ad, datum, od, do, trajanje, price, invoice, platform) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [doctor, pacient, service, zone, ad, datum, od, till, trajanje, price, invoice, platform]);
-                //outputCsv();
                 printCsv();
             });
         } else {
@@ -649,7 +547,8 @@ function deleteCsv(id) {
     if (mydb2) {
         //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
         mydb2.transaction(function (t) {
-            t.executeSql("DELETE FROM ld WHERE id=?", [id], outputCsv);
+            //t.executeSql("DELETE FROM ld WHERE id=?", [id], outputCsv);
+            t.executeSql("DELETE FROM ld WHERE id=?", [id], printCsv);
         });
     } else {
         alert("db not found, your browser does not support web sql!");
@@ -659,46 +558,47 @@ function deleteCsv(id) {
 //function to output the list of cars in the database
 function updateCsvList(transaction, results) {
     	var i;
-       var xtable = document.createElement("table");
-       xtable.setAttribute("border", "1");
-       var xrow = xtable.insertRow(0);
-       xrow.insertCell(0).outerHTML = "<th>id</th><th>doctor</th><th>pacient</th><th>service</th><th>zone</th><th>ad</th><th>datum</th><th>od</th><th>do</th><th>trajanje</th><th>price</th><th>invoice</th><th>platform</th><th>delete</th>";
+	//https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_table_insertrow
+       	var xtable = document.createElement("table");
+       	xtable.setAttribute("border", "1");
+       	var xrow = xtable.insertRow(0);
+       	xrow.insertCell(0).outerHTML = "<th>id</th><th>doctor</th><th>pacient</th><th>service</th><th>zone</th><th>ad</th><th>datum</th><th>od</th><th>do</th><th>trajanje</th><th>price</th><th>invoice</th><th>platform</th><th>delete</th>";
     	//Iterate through the results
     	for (i = 0; i < results.rows.length; i++) {
-                                        var row = results.rows.item(i);
-                                        xrow = xtable.insertRow(-1);
-                                        var xcell0 = xrow.insertCell(0);
-                                        xcell0.innerHTML = row.id;
-                                        var xcell1 = xrow.insertCell(1);
-                                        xcell1.innerHTML = row.doctor;
-                                        var xcell2 = xrow.insertCell(2);
-                                        xcell2.innerHTML = row.pacient;
-                                        var xcell3 = xrow.insertCell(3);
-                                        xcell3.innerHTML = row.service;
-                                        var xcell4 = xrow.insertCell(4);
-                                        xcell3.innerHTML = row.zone;
-                                        var xcell5 = xrow.insertCell(5);
-                                        xcell5.innerHTML = row.ad;
-                                        var xcell6 = xrow.insertCell(6);
-                                        xcell6.innerHTML = row.datum;
-                                        var xcell7 = xrow.insertCell(7);
-                                        xcell7.innerHTML = row.od;
-                                        var xcell8 = xrow.insertCell(8);
-                                        xcell8.innerHTML = row.do;
-                                        var xcell9 = xrow.insertCell(9);
-                                        xcell9.innerHTML = row.trajanje;
-                                        var xcell10 = xrow.insertCell(10);
-                                        xcell10.innerHTML = row.price;
-                                        var xcell11 = xrow.insertCell(11);
-                                        xcell11.innerHTML = row.invoice;
-                                        var xcell12 = xrow.insertCell(12);
-                                        xcell12.innerHTML = row.platform;
-                                        var xcell13 = xrow.insertCell(13);
-                                        xcell13.innerHTML = "(<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)";
-                                }
-                        var dvxTable = document.getElementById("dvxTable");
-                        dvxTable.innerHTML = "";
-                        dvxTable.appendChild(xtable);
+        	var row = results.rows.item(i);
+                xrow = xtable.insertRow(-1);
+                var xcell0 = xrow.insertCell(0);
+                xcell0.innerHTML = row.id;
+                var xcell1 = xrow.insertCell(1);
+                xcell1.innerHTML = row.doctor;
+                var xcell2 = xrow.insertCell(2);
+                xcell2.innerHTML = row.pacient;
+                var xcell3 = xrow.insertCell(3);
+                xcell3.innerHTML = row.service;
+                var xcell4 = xrow.insertCell(4);
+                xcell3.innerHTML = row.zone;
+                var xcell5 = xrow.insertCell(5);
+                xcell5.innerHTML = row.ad;
+                var xcell6 = xrow.insertCell(6);
+                xcell6.innerHTML = row.datum;
+                var xcell7 = xrow.insertCell(7);
+                xcell7.innerHTML = row.od;
+                var xcell8 = xrow.insertCell(8);
+                xcell8.innerHTML = row.do;
+                var xcell9 = xrow.insertCell(9);
+                xcell9.innerHTML = row.trajanje;
+                var xcell10 = xrow.insertCell(10);
+                xcell10.innerHTML = row.price;
+                var xcell11 = xrow.insertCell(11);
+                xcell11.innerHTML = row.invoice;
+                var xcell12 = xrow.insertCell(12);
+                xcell12.innerHTML = row.platform;
+                var xcell13 = xrow.insertCell(13);
+                xcell13.innerHTML = "(<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)";
+	}
+        var dvxTable = document.getElementById("dvxTable");
+        dvxTable.innerHTML = "";
+        dvxTable.appendChild(xtable);
 }
 
 
@@ -708,7 +608,8 @@ function outputCsv() {
     if (mydb2) {
         //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
         mydb2.transaction(function (t) {
-            t.executeSql("SELECT * FROM ld", [], updateCsvList);
+            //t.executeSql("SELECT * FROM ld", [], updateCsvList);
+            t.executeSql("SELECT * FROM ld", [], printCsv());
         });
     } else {
         alert("db not found, your browser does not support web sql!");
@@ -722,54 +623,47 @@ function printCsv() {
     if (mydb2) {
         mydb2.transaction(function (t) {
                 t.executeSql("SELECT * FROM ld ", [],function (t, results) {
-    			var csvholder = document.getElementById("csvlist");
-                        var listholder = document.getElementById("carlist");
-        		//listholder.innerHTML = "";
-        		//listholder.innerHTML += "<li>" + document.getElementById("csvservice").value;
-        		//listholder.innerHTML += "<li>" + row.service;
         
-				var xtable = document.createElement("table");
-        			xtable.setAttribute("border", "1");
-				var xrow = xtable.insertRow(0);
-				xrow.insertCell(0).outerHTML = "<th>id</th><th>doctor</th><th>pacient</th><th>service</th><th>zone</th><th>ad</th><th>datum</th><th>od</th><th>do</th><th>trajanje</th><th>price</th><th>invoice</th><th>platform</th><th>delete</th>";
+			//http://www.java2s.com/Tutorials/Javascript/DOM_Object/Table/index.htm
+			//https://www.w3schools.com/jsref/met_table_insertrow.asp
+			var xtable = document.createElement("table");
+        		xtable.setAttribute("border", "2");
+			var xrow = xtable.insertRow(0);
+			xrow.insertCell(0).outerHTML = "<th>id</th><th>doctor</th><th>pacient</th><th>service</th><th>zone</th><th>ad</th><th>datum</th><th>od</th><th>do</th><th>trajanje</th><th>price</th><th>invoice</th><th>platform</th><th>delete</th>";
 
-				for (i = 0; i < results.rows.length; i++) {
-					var row = results.rows.item(i);
-					xrow = xtable.insertRow(-1);	    			
-					var xcell0 = xrow.insertCell(0);
-					xcell0.innerHTML = row.id;
-					var xcell1 = xrow.insertCell(1);
-					xcell1.innerHTML = row.doctor;
-					var xcell2 = xrow.insertCell(2);
-					xcell2.innerHTML = row.pacient;
-					var xcell3 = xrow.insertCell(3);
-                                        xcell3.innerHTML = row.service;
-					var xcell4 = xrow.insertCell(4);
-                                        xcell3.innerHTML = row.zone;
-					var xcell5 = xrow.insertCell(5);
-                                        xcell5.innerHTML = row.ad;
-					var xcell6 = xrow.insertCell(6);
-                                        xcell6.innerHTML = row.datum;
-					var xcell7 = xrow.insertCell(7);
-                                        xcell7.innerHTML = row.od;
-					var xcell8 = xrow.insertCell(8);
-                                        xcell8.innerHTML = row.do;
-					var xcell9 = xrow.insertCell(9);
-                                        xcell9.innerHTML = row.trajanje;
-					var xcell10 = xrow.insertCell(10);
-                                        xcell10.innerHTML = row.price;
-					var xcell11 = xrow.insertCell(11);
-                                        xcell11.innerHTML = row.invoice;
-					var xcell12 = xrow.insertCell(12);
-                                        xcell12.innerHTML = row.platform;
-					var xcell13 = xrow.insertCell(13);
-                                        xcell13.innerHTML = "(<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)";
+			for (i = 0; i < results.rows.length; i++) {
+				var row = results.rows.item(i);
+				xrow = xtable.insertRow(-1);	    			
+				var xcell0 = xrow.insertCell(0);
+				xcell0.innerHTML = row.id;
+				var xcell1 = xrow.insertCell(1);
+				xcell1.innerHTML = row.doctor;
+				var xcell2 = xrow.insertCell(2);
+				xcell2.innerHTML = row.pacient;
+				var xcell3 = xrow.insertCell(3);
+                                xcell3.innerHTML = row.service;
+				var xcell4 = xrow.insertCell(4);
+                                xcell3.innerHTML = row.zone;
+				var xcell5 = xrow.insertCell(5);
+                                xcell5.innerHTML = row.ad;
+				var xcell6 = xrow.insertCell(6);
+                                xcell6.innerHTML = row.datum;
+				var xcell7 = xrow.insertCell(7);
+                                xcell7.innerHTML = row.od;
+				var xcell8 = xrow.insertCell(8);
+                                xcell8.innerHTML = row.do;
+				var xcell9 = xrow.insertCell(9);
+                                xcell9.innerHTML = row.trajanje;
+				var xcell10 = xrow.insertCell(10);
+                                xcell10.innerHTML = row.price;
+				var xcell11 = xrow.insertCell(11);
+                                xcell11.innerHTML = row.invoice;
+				var xcell12 = xrow.insertCell(12);
+                                xcell12.innerHTML = row.platform;
+				var xcell13 = xrow.insertCell(13);
+                                xcell13.innerHTML = "(<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)";
 					
-        				//var csvholder = document.getElementById("csvlist");
-        				//csvholder.innerHTML += "<li>" + row.id +" - " +  row.doctor + " - " + row.pacient +  "-"  + row.service + "-" + row.zone + "-" + row.ad + "-" + row.datum + "-" + row.od + "-" + row.do + "-" + row.trajanje + "-" + row.price + "-" + row.invoice + "-" + row.platform + " (<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)";
-        				//csvholder.innerHTML += "<tr><td>" + row.id +  "</td><td>" +  row.doctor + "</td><td>"  + row.pacient +  "</td><td>"   + row.service + "</td><td>"  + row.zone + "</td><td>"  + row.ad + "</td><td>"  + row.datum + "</td><td>"  + row.od + "</td><td>"  + row.do + "</td><td>"  + row.trajanje + "</td><td>"  + row.price + "</td><td>"  + row.invoice + "</td><td>"  + row.platform + "</td><td>" +  "(<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)" + "</td></tr>";
-                                }
-    			//csvholder.innerHTML += "</table>";
+                  	}
 			var dvxTable = document.getElementById("dvxTable");
     			dvxTable.innerHTML = "";
     			dvxTable.appendChild(xtable);
@@ -799,16 +693,6 @@ function dropTableCsv() {
 
 function createTableCsv() {
     if (mydb2) {
-
-        //get the values of the make and model text inputs
-        //var city = document.getElementById("city").value;
-        //var temperature = document.getElementById("temperature").value;
-        //var conditions = document.getElementById("conditions").value;
-
-        //mydb2.transaction(function (t) {
-        //	t.executeSql("CREATE TABLE IF NOT EXISTS test4 (id INTEGER PRIMARY KEY ASC, city  TEXT, temperature TEXT, conditions TEXT)") 
-        //});
-
 
         mydb2.transaction(function (t) {
         	t.executeSql("CREATE TABLE IF NOT EXISTS ld (id INTEGER PRIMARY KEY ASC, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, datum TEXT, od TEXT, do TEXT, trajanje TEXT, price TEXT, invoice TEXT, platform TEXT)");
@@ -905,16 +789,12 @@ function createTableCsv() {
                 var j;
                 var i;
                 listholder.innerHTML = "";
-                //listholder.innerHTML += "z=:"  + z;
-
-
 
                                         var canvas2 = document.getElementById("can7");
                                         var ctx2 = canvas2.getContext("2d");
                                         var width2 = canvas2.width/12;
                                         var currX2 = 0;
                                         var base2 = 200;
-					//var h2 = 0;
                                         ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
 
 
@@ -935,7 +815,6 @@ function createTableCsv() {
                         //Iterate through the results
                         for ( z = 1; z < 13; z++) {        
                         	currX2 += width2;
-				//h2=0;
 				for (j = 0; j < doctor.length; j++) {
                                 	doctorrevenue[j]=0; 
                                 }
@@ -950,7 +829,6 @@ function createTableCsv() {
 						if (row.datum == z) {
 							if (row.doctor == doctor[j]) {
                                                         	doctorrevenue[j]+= parseInt(row.price);
-                                                		//listholder.innerHTML += "gotit:"  + doctorrevenue[j];
 							}
 						}
 					}
@@ -959,7 +837,6 @@ function createTableCsv() {
                                                 if (row.datum == z) {
                                                         if (row.service== service[j]) {
                                                                 servicerevenue[j]+= parseInt(row.price);
-                                                                //listholder.innerHTML += "gotit:"  + servicerevenue[j];
                                                         }
                                                 }
                                         }		
@@ -1105,7 +982,6 @@ function createTableCsv() {
                                                         platformrevenue[j]+= parseInt(row.price);
                                                 }
                                                 if ((i+1)  == results.rows.length) {
-                                                        //document.getElementById(doctor[j]).innerHTML=platformrevenue[j];
                                                         ctx2.fillStyle = myColor[j];
                                                         ctx2.beginPath();
                                                         ctx2.moveTo(cw,ch);
@@ -1146,20 +1022,11 @@ function createTableCsv() {
 //function to output the list of cars in the database
 function updateGraphs(transaction, results) {
     //initialise the listitems variable
-    //var listitems = "";
-    //get the car list holder ul
-    var listholder = document.getElementById("carlist");
-
-    //clear cars list ul
-    listholder.innerHTML = "";
-
     var i;
     //Iterate through the results
     for (i = 0; i < results.rows.length; i++) {
         //Get the current row
         var row = results.rows.item(i);
-
-       listholder.innerHTML += "<li>" + row.doctor +" - " +  row.pacient + " - " + row.service + " - " + row.platform + " - " + row.price + row.zone + " (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete</a>)";
     }
 
 }
@@ -1168,11 +1035,6 @@ function updateGraphs(transaction, results) {
 
 function updateCarList(transaction, results) {
         //initialise the listitems variable
-	var listitems = "";
-        //get the car list holder ul
-	var listholder = document.getElementById("carlist");
-        //clear cars list ul
-	//listholder.innerHTML = "";
 	var i;
 	var xtable = document.createElement("table");
         xtable.setAttribute("border", "1");
@@ -1212,7 +1074,6 @@ function updateCarList(transaction, results) {
                 xcell12.innerHTML = row.platform;
                 var xcell13 = xrow.insertCell(13);
                 xcell13.innerHTML = "(<a href='javascript:void(0);' onclick='deleteCsv(" + row.id + ");'>Delete</a>)";
-        //listholder.innerHTML += "<li>" + row.doctor +" - " +  row.pacient + " - " + row.service + " - " + row.platform + " - " + row.price + row.zone + row.datum +" (<a href='javascript:void(0);' onclick='deleteCar(" + row.id + ");'>Delete</a>)";
     	}
 	var dvxTable = document.getElementById("dvxTable");
 	dvxTable.innerHTML = "";
@@ -1223,10 +1084,8 @@ function updateCarList(transaction, results) {
 
 function selectDoctor (){
 
-    //if (mydb) {
     if (mydb2) {
 
-       //mydb.transaction(function (t) {
        mydb2.transaction(function (t) {
        		t.executeSql("SELECT * FROM ld WHERE doctor = '" + document.getElementById("doctordropdownlist").value + "'group by platform", [], function (t, results) {
     			var selection = document.getElementById("doctordropdownlist").value;
@@ -1245,7 +1104,6 @@ function selectDoctor (){
     				//listholder.innerHTML += "rows content :" + platform[i];
     				//listholder.innerHTML += "dropdownselection :" + document.getElementById("doctordropdownlist").value;
                 	}
-       		//mydb.transaction(function (t) {
        		mydb2.transaction(function (t) {
        		t.executeSql("SELECT * FROM ld WHERE doctor = '" + document.getElementById("doctordropdownlist").value + "'", [], function (t, results) {
 
@@ -1396,7 +1254,6 @@ function selectDoctor (){
 	});
 
 	
-	       //mydb.transaction(function (t) {
 	       mydb2.transaction(function (t) {
                 t.executeSql("SELECT * FROM ld WHERE doctor = '" + document.getElementById("doctordropdownlist").value + "'group by service", [], function (t, results) {
                         var i;
@@ -1409,7 +1266,6 @@ function selectDoctor (){
                                 var row = results.rows.item(i);
                                 service[i]=row.service;
                         }
-                //mydb.transaction(function (t) {
                 mydb2.transaction(function (t) {
                 t.executeSql("SELECT * FROM ld WHERE doctor = '" + document.getElementById("doctordropdownlist").value + "'", [], function (t, results) {
 
@@ -1554,26 +1410,353 @@ function selectDoctor (){
     }
 }
 
+
+
 function selectPacient (){
-//document.getElementById("selectedpacient").value = document.getElementById("pacientdropdownlist").value;
 
-    //if (mydb) {
     if (mydb2) {
-        //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
-       //mydb.transaction(function (t) {
+
        mydb2.transaction(function (t) {
-       t.executeSql("SELECT * FROM ld WHERE pacient = '" + document.getElementById("pacientdropdownlist").value + "'", [], function (t, results) {
-
-                        //initialise the listitems variable
-                        var listitems = "";
-
+       		t.executeSql("SELECT * FROM ld WHERE pacient = '" + document.getElementById("pacientdropdownlist").value + "'group by platform", [], function (t, results) {
+    			var selection = document.getElementById("pacientdropdownlist").value;
+                        var listholder = document.getElementById("graphs");
                         var i;
+                        var platformtotalrevenue = 0;
+                        var platformrevenue = [0, 0, 0];
+                        var platform = ["a", "b", "c"];
+                        listholder.innerHTML = "";
+                        for (i = 0; i < results.rows.length; i++) {
+                                //Get the current row
+                                var row = results.rows.item(i);
+                                platform[i]=row.platform;
+                        }
+                mydb2.transaction(function (t) {
+       		t.executeSql("SELECT * FROM ld WHERE pacient = '" + document.getElementById("pacientdropdownlist").value + "'", [], function (t, results) {
+                        var platformtotalrevenue=0;
+    			var selection = document.getElementById("pacientdropdownlist").value;
+                        var iosrevenue=0;
+                        var iosrevenuepercentage=0;
+                        var androidrevenue=0;
+                        var androidrevenuepercentage=0;
+                        var webrevenue=0;
+                        var webrevenuepercentage=0;
+                        var totalrevenue=0;
+                        var canvas5 = document.getElementById("can5");
+                        var ctx5 = canvas5.getContext("2d");
+                        ctx5.clearRect(0,0,canvas5.width, canvas5.height);
+                        var lastend = 0;
+                        var cw=ctx5.canvas.width/2;
+                        var ch=ctx5.canvas.height/2;
 
+			//var hwidth = ctx5.canvas.width/2;
+			//var hheight = ctx5.canvas.height/2;
+
+                        var radius = ctx5.canvas.height/1.5
+			var myColor = ['red','green','blue', 'yellow'];
+                        ctx5.font="bold 14px bebas"
+                        ctx5.textAlign = 'center';
                         for (i=0; i < results.rows.length; i++) {
+                                var row = results.rows.item(i);
+                                platformtotalrevenue += parseInt(row.price);
+                                        for (j = 0; j < platform.length; j++) {
+                                                if (row.platform == platform[j]) {
+                                                        platformrevenue[j]+= parseInt(row.price);
+                                                }
+                                        if ((i+1)  == results.rows.length) {
+                                                        ctx5.fillStyle = myColor[j];
+                                                        ctx5.beginPath();
+                                                        ctx5.moveTo(cw,ch);
+                                                        ctx5.arc(cw,ch,ch,lastend,lastend+(Math.PI*2*(platformrevenue[j]/platformtotalrevenue)),false);
+                                                        ctx5.fill();
+							
+							ctx5.lineTo(cw,ch);
+							ctx5.fill();
+							var radius = ch/1.5; //use suitable radius
+							var endAngle = lastend + (Math.PI*(platformrevenue[j]/platformtotalrevenue));
+							var setX = cw + Math.cos(endAngle) * radius;
+							var setY = ch + Math.sin(endAngle) * radius;
+							ctx5.fillStyle = "#ffffff";
+							ctx5.font = '14px Calibri';
+							ctx5.fillText(platformrevenue[j],setX,setY);
 
+                                                        //ctx5.fillStyle = 'white';
+                                                        //ctx5.beginPath();
+                                                        //ctx5.moveTo(cw,ch);
+                                                        //ctx5.arc(cw,ch,(ch-3),0,2*Math.PI,false);
+                                                        //ctx5.fill();
+                                                        //ctx5.fillStyle = "blue";
+                                                        //ctx5.fillText(platformtotalrevenue.toFixed(0)+'HRK', cw+2, ch+4, cw);
+                                                        //ctx5.font="bold 16px bebas"
+                                                        //ctx5.fillText('revenue per platforms', cw+2, ch+14, cw);
+                                                        lastend += Math.PI * 2 * (platformrevenue[j]/platformtotalrevenue);
+                                                }
+                                        }
+                                if (results.rows.item(i).platform == "android") {
+                                        androidrevenue = Math.round(androidrevenue) + parseInt(results.rows.item(i).price);       
+                                } else if (results.rows.item(i).platform == "ios") {
+                                        iosrevenue = Math.round(iosrevenue) +  parseInt(results.rows.item(i).price);
+                                } else {
+                                        webrevenue = Math.round(webrevenue) + parseInt(results.rows.item(i).price);
                                 }
-                        }, null);
+                                totalrevenue = totalrevenue + parseInt(results.rows.item(i).price);
+                                iosrevenuepercentage=(Math.round(iosrevenue)/Math.round(totalrevenue)*100).toFixed(2);
+                                androidrevenuepercentage=(Math.round(androidrevenue)/Math.round(totalrevenue)*100).toFixed(2);
+
+                                webrevenuepercentage=(Math.round(webrevenue)/Math.round(totalrevenue)*100).toFixed(2);
+                        }
+
+                                //chart for ios revenue
+                                var al1=0;
+                                var id1 = setInterval(frame1,10);
+                                function frame1() {
+                                var cnv1 = document.getElementById('mycanvas1');
+                                var ctx1 = cnv1.getContext('2d');
+                                var cw1 = ctx1.canvas.width;
+                                var ch1 = ctx1.canvas.height;
+                                var start1 = 4.72;
+                                diff1 = ((al1 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx1.clearRect(0, 0, cw1, ch1);
+                                ctx1.lineWidth = 7;
+                                ctx1.fillStyle = '#09F';
+                                ctx1.strokeStyle = '#09F';
+                                ctx1.font="14px bebas"
+                                ctx1.textAlign = 'center';
+                                ctx1.fillText(al1.toFixed(2)+'%', cw1*.5, ch1*.5+2, cw1);
+                                ctx1.fillText('ios', cw1/2+2, ch1/2+14, cw1/2);
+                                ctx1.beginPath();
+                                ctx1.arc(cw1*.5,ch1*.5,60,start1,diff1/10+start1,false);
+                                ctx1.stroke();
+                                if (al1 >= iosrevenuepercentage) {
+                                      clearInterval(id1);
+                                    } else {
+                                      al1++;
+                                    }
+                                }
+                                //chart for android revenue
+                                var al2=0;
+                                var id2 = setInterval(frame2,10);
+                                function frame2() {
+                                var cnv2 = document.getElementById('mycanvas2');
+                                var ctx2 = cnv2.getContext('2d');
+                                var cw2 = ctx2.canvas.width;
+                                var ch2 = ctx2.canvas.height;
+                                var start2 = 4.72;
+                                diff2 = ((al2 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx2.clearRect(0, 0, cw2, ch2);
+                                ctx2.lineWidth = 7;
+                                ctx2.fillStyle = '#09F';
+                                ctx2.strokeStyle = '#09F';
+                                ctx2.font="14px bebas"
+                                ctx2.textAlign = 'center';
+                                ctx2.fillText(al2.toFixed(2)+'%', cw2*.5, ch2*.5+2, cw2);
+                                ctx2.fillText('android', cw2/2+2, ch2/2+14, cw2/2);
+                                ctx2.beginPath();
+                                ctx2.arc(cw2*.5,ch2*.5,60,start2,diff2/10+start2,false);
+                                ctx2.stroke();
+                                if (al2 >= androidrevenuepercentage) {
+                                      clearInterval(id2);
+                                    } else {
+                                      al2++;
+                                    }
+                                }
+                               //chart for web revenue
+                                var al3=0;
+                                var id3 = setInterval(frame3,10);
+                                function frame3() {
+                                var cnv3 = document.getElementById('mycanvas3');
+                                var ctx3 = cnv3.getContext('2d');
+                                var cw3 = ctx3.canvas.width;
+                                var ch3 = ctx3.canvas.height;
+                                var start3 = 4.72;
+                                diff3 = ((al3 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx3.clearRect(0, 0, cw3, ch3);
+                                ctx3.lineWidth = 7;
+                                ctx3.fillStyle = '#09F';
+                                ctx3.strokeStyle = '#09F';
+                                ctx3.font="14px bebas"
+                                ctx3.textAlign = 'center';
+                                ctx3.fillText(al3.toFixed(2)+'%', cw3*.5, ch3*.5+2, cw3);
+                                ctx3.fillText('web', cw3/2+2, ch3/2+14, cw3/2);
+                                ctx3.beginPath();
+                                ctx3.arc(cw3*.5,ch3*.5,60,start3,diff3/10+start3,false);
+                                ctx3.stroke();
+                                if (al3 >= webrevenuepercentage) {
+                                      clearInterval(id3);
+                                    } else {
+                                      al3++;
+                                    }
+                                }
+
+
+                        });
                 });
+                });
+        });
+
+
+               mydb2.transaction(function (t) {
+                t.executeSql("SELECT * FROM ld WHERE pacient = '" + document.getElementById("pacientdropdownlist").value + "'group by service", [], function (t, results) {
+                        var i;
+    			var selection = document.getElementById("pacientdropdownlist").value;
+                        var servicetotalrevenue = 0;
+                        var servicerevenue = [0, 0, 0];
+                        var service = ["a", "b", "c"];
+                        for (i = 0; i < results.rows.length; i++) {
+                                //Get the current row
+                                var row = results.rows.item(i);
+                                service[i]=row.service;
+                        }
+                mydb2.transaction(function (t) {
+                t.executeSql("SELECT * FROM ld WHERE pacient = '" + document.getElementById("pacientdropdownlist").value + "'", [], function (t, results) {
+
+                        var canvas6 = document.getElementById("can6");
+    			var selection = document.getElementById("pacientdropdownlist").value;
+                        var ctx6 = canvas6.getContext("2d");
+                        ctx6.clearRect(0,0,canvas6.width, canvas6.height);
+                        var lastend = 0;
+                        var cw=ctx6.canvas.width/2;
+                        var ch=ctx6.canvas.height/2;
+                        var radius = ctx6.canvas.height/1.5
+                        var myColor = ['red','green','blue', 'yellow'];
+                        ctx6.font="bold 14px bebas"
+                        ctx6.textAlign = 'center';
+                        for (i=0; i < results.rows.length; i++) {
+                                var row = results.rows.item(i);
+                                servicetotalrevenue += parseInt(row.price);
+                                        for (j = 0; j < service.length; j++) {
+                                                if (row.service == service[j]) {
+                                                        servicerevenue[j]+= parseInt(row.price);
+                                                }
+                                        if ((i+1)  == results.rows.length) {
+                                                        ctx6.fillStyle = myColor[j];
+                                                        ctx6.beginPath();
+                                                        ctx6.moveTo(cw,ch);
+                                                        ctx6.arc(cw,ch,ch,lastend,lastend+(Math.PI*2*(servicerevenue[j]/servicetotalrevenue)),false);
+                                                        ctx6.fill();
+
+
+                                                        ctx6.lineTo(cw,ch);
+                                                        ctx6.fill();
+                                                        var radius = ch/1.5; //use suitable radius
+                                                        var endAngle = lastend + (Math.PI*(servicerevenue[j]/servicetotalrevenue));
+                                                        var setX = cw + Math.cos(endAngle) * radius;
+                                                        var setY = ch + Math.sin(endAngle) * radius;
+                                                        ctx6.fillStyle = "#ffffff";
+                                                        ctx6.font = '14px Calibri';
+                                                        ctx6.fillText(servicerevenue[j],setX,setY);
+
+
+
+                                                        //ctx6.fillStyle = 'white';
+                                                        //ctx6.beginPath();
+                                                        //ctx6.moveTo(cw,ch);
+                                                        //ctx6.arc(cw,ch,(ch-3),0,2*Math.PI,false);
+                                                        //ctx6.fill();
+                                                        //ctx6.fillStyle = "blue";
+                                                        //ctx6.fillText(servicetotalrevenue.toFixed(0)+'HRK', cw+2, ch+4, cw);
+                                                        //ctx6.font="bold 16px bebas"
+                                                        //ctx6.fillText('revenue per services', cw+2, ch+14, cw);
+                                                        lastend += Math.PI * 2 * (servicerevenue[j]/servicetotalrevenue);
+                                                }
+                                        }
+                                }
+
+
+
+                                service1revenuepercentage=(servicerevenue[0]/servicetotalrevenue*100).toFixed(2);
+                                service2revenuepercentage=(servicerevenue[1]/servicetotalrevenue*100).toFixed(2);
+                                service3revenuepercentage=(servicerevenue[2]/servicetotalrevenue*100).toFixed(2);
+
+                                //chart for ios revenue
+                                var al4=0;
+                                var id4 = setInterval(frame4,10);
+                                function frame4() {
+                                var cnv4 = document.getElementById('mycanvas4');
+                                var ctx4 = cnv4.getContext('2d');
+                                var cw4 = ctx4.canvas.width;
+                                var ch4 = ctx4.canvas.height;
+                                var start4 = 4.72;
+                                diff4 = ((al4 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx4.clearRect(0, 0, cw4, ch4);
+                                ctx4.lineWidth = 7;
+                                ctx4.fillStyle = '#09F';
+                                ctx4.strokeStyle = '#09F';
+                                ctx4.font="14px bebas"
+                                ctx4.textAlign = 'center';
+                                ctx4.fillText(al4.toFixed(2)+'%', cw4*.5, ch4*.5+2, ch4);
+                                ctx4.fillText('revenue per ' + service[0], cw4/2+2, ch4/2+14, cw4/2);
+                                ctx4.beginPath();
+                                ctx4.arc(cw4*.5,ch4*.5,60,start4,diff4/10+start4,false);
+                                ctx4.stroke();
+                                if (al4 >= service1revenuepercentage) {
+                                     clearInterval(id4);
+                                    } else {
+                                      al4++;
+                                    }
+                                }
+
+                                //chart for ios revenue
+                                var al5=0;
+                                var id5 = setInterval(frame5,10);
+                                function frame5() {
+                                var cnv5 = document.getElementById('mycanvas5');
+                                var ctx5 = cnv5.getContext('2d');
+                                var cw5 = ctx5.canvas.width;
+                                var ch5 = ctx5.canvas.height;
+                                var start5 = 4.72;
+                                diff5 = ((al5 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx5.clearRect(0, 0, cw5, ch5);
+                                ctx5.lineWidth = 7;
+                                ctx5.fillStyle = '#09F';
+                                ctx5.strokeStyle = '#09F';
+                                ctx5.font="14px bebas"
+                                ctx5.textAlign = 'center';
+                                ctx5.fillText(al5.toFixed(2)+'%', cw5*.5, ch5*.5+2, cw5);
+                                ctx5.fillText('revenue per' + service[1], cw5/2+2, ch5/2+14, cw5/2);
+                                ctx5.beginPath();
+                                ctx5.arc(cw5*.5,ch5*.5,60,start5,diff5/10+start5,false);
+                                ctx5.stroke();
+                                if (al5 >= service2revenuepercentage) {
+                                      clearInterval(id5);
+                                    } else {
+                                      al5++;
+                                    }
+                                }
+
+
+                                //chart for ios revenue
+                                var al6=0;
+                                var id6 = setInterval(frame6,10);
+                                function frame6() {
+                                var cnv6 = document.getElementById('mycanvas6');
+                                var ctx6 = cnv6.getContext('2d');
+                                var cw6 = ctx6.canvas.width;
+                                var ch6 = ctx6.canvas.height;
+                                var start6 = 4.72;
+                                diff6 = ((al6 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx6.clearRect(0, 0, cw6, ch6);
+                                ctx6.lineWidth = 7;
+                                ctx6.fillStyle = '#09F';
+                                ctx6.strokeStyle = '#09F';
+                                ctx6.font="14px bebas"
+                                ctx6.textAlign = 'center';
+                                ctx6.fillText(al6.toFixed(2)+'%', cw6*.5, ch6*.5+2, cw6);
+                                ctx6.fillText('revenue per' + service[2], cw6/2+2, ch6/2+14, cw6/2);
+                                ctx6.beginPath();
+                                ctx6.arc(cw6*.5,ch6*.5,60,start6,diff6/10+start6,false);
+                                ctx6.stroke();
+                                if (al6 >= service3revenuepercentage) {
+                                      clearInterval(id6);
+                                    } else {
+                                      al6++;
+                                    }
+                                }
+
+
+                        });
+                });
+        });
+        });
 
 
     } else {
@@ -1582,17 +1765,38 @@ function selectPacient (){
 }
 
 
+//function selectPacient (){
+
+//    if (mydb2) {
+        //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
+//       mydb2.transaction(function (t) {
+//       t.executeSql("SELECT * FROM ld WHERE pacient = '" + document.getElementById("pacientdropdownlist").value + "'", [], function (t, results) {
+
+                        //initialise the listitems variable
+//                        var listitems = "";
+
+//                        var i;
+
+//                        for (i=0; i < results.rows.length; i++) {
+
+//                                }
+//                        }, null);
+//                });
+
+
+//    } else {
+//        alert("db not found, your browser does not support web sql!");
+//    }
+//}
+
+
 function selectService (){
-//document.getElementById("selectedservice").value = document.getElementById("servicedropdownlist").value;
 }
 
 function selectPlatform (){
-//document.getElementById("selectedplatform").value = document.getElementById("platformdropdownlist").value;
 }
 
 function updateDoctorList(transaction, results) {
-    //initialise the listitems variable
-    var listitems = "";
 
     var i;
     var txt="";
@@ -1600,14 +1804,12 @@ function updateDoctorList(transaction, results) {
     for (i = 0; i < results.rows.length; i++) {
         //Get the current row
         var row = results.rows.item(i);
-	 txt=txt + "<option value="+results.rows.item(i).doctor + ">" + results.rows.item(i).doctor + "</option>";
-
+	txt=txt + "<option value="+results.rows.item(i).doctor + ">" + results.rows.item(i).doctor + "</option>";
     }
     document.getElementById("doctordropdownlist").innerHTML=txt;
 }
 
 function updatePacientList(transaction, results) {
-
 
     var i;
     var txt="";
@@ -1651,10 +1853,8 @@ function updatePlatformList(transaction, results) {
 //function to get the list of cars from the database
 function outputCars() {
     //check to ensure the mydb object has been created
-    //if (mydb) {
     if (mydb2) {
         //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
-        //mydb.transaction(function (t) {
         mydb2.transaction(function (t) {
             t.executeSql("SELECT * FROM ld", [], updateCarList);
         });
@@ -1666,10 +1866,8 @@ function outputCars() {
 
 function outputDoctors() {
     //check to ensure the mydb object has been created
-    //if (mydb) {
     if (mydb2) {
         //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
-        //mydb.transaction(function (t) {
         mydb2.transaction(function (t) {
             t.executeSql("SELECT * FROM ld group by doctor", [], updateDoctorList);
         });
@@ -1681,10 +1879,8 @@ function outputDoctors() {
 
 function outputPacient() {
     //check to ensure the mydb object has been created
-    //if (mydb) {
     if (mydb2) {
         //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
-        //mydb.transaction(function (t) {
         mydb2.transaction(function (t) {
             t.executeSql("SELECT * FROM ld group by pacient", [], updatePacientList);
         });
@@ -1696,10 +1892,8 @@ function outputPacient() {
 
 function outputServices() {
     //check to ensure the mydb object has been created
-    //if (mydb) {
     if (mydb2) {
         //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
-        //mydb.transaction(function (t) {
         mydb2.transaction(function (t) {
             t.executeSql("SELECT * FROM ld group by service", [], updateServiceList);
         });
@@ -1710,10 +1904,8 @@ function outputServices() {
 
 function outputPlatform() {
     //check to ensure the mydb object has been created
-    //if (mydb) {
     if (mydb2) {
         //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
-        //mydb.transaction(function (t) {
         mydb2.transaction(function (t) {
             t.executeSql("SELECT * FROM ld group by platform", [], updatePlatformList);
         });
@@ -1727,7 +1919,6 @@ function outputPlatform() {
 
 function addCar() {
     //check to ensure the mydb object has been created
-    //if (mydb) {
     if (mydb2) {
         //get the values of the make and model text inputs
 
@@ -1759,8 +1950,6 @@ function addCar() {
         //var invoice = document.getElementById("csvinvoice").value;
         //var platform = document.getElementById("csvplatform").value;
 
-
-
         //var doctor = document.getElementById("doctor").value;
         //var pacient = document.getElementById("pacient").value;
         //var service = document.getElementById("service").value;
@@ -1775,17 +1964,6 @@ function addCar() {
         //var platform = document.getElementById("platform").value;
 
         //Test to ensure that the user has entered both a make and model
-        //if (doctor !== "" && pacient !== "") {
-            //Insert the user entered details into the cars table, note the use of the ? placeholder, these will replaced by the data passed in as an array as the second parameter
-            //mydb.transaction(function (t) {
-         //   mydb2.transaction(function (t) {
-          //      t.executeSql("INSERT INTO ld (doctor, pacient, service, zone, ad, date, start, end, duration, price, invoice, platform) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [doctor, pacient, service, zone, ad, date, start, end, duration, price, invoice, platform]);
-                //outputCars();
-           //     printCsv();
-           // });
-        //} else {
-        //    alert("You must enter a doctor and pacient add car!");
-       // }
     } else {
         alert("db not found, your browser does not support web sql!");
     }
@@ -1796,10 +1974,8 @@ function addCar() {
 
 function deleteCar(id) {
     //check to ensure the mydb object has been created
-    //if (mydb) {
     if (mydb2) {
         //Get all the cars from the database with a select statement, set outputCarList as the callback function for the executeSql command
-        //mydb.transaction(function (t) {
         mydb2.transaction(function (t) {
             t.executeSql("DELETE FROM ld WHERE id=?", [id], outputCars);
         });
