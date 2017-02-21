@@ -55,12 +55,9 @@ label {
 <!--
 <table><tr><td>
 <div id="controls">
--->
-<!--
     <p>Add entry to the database</p>
 -->
 
-<!--
 
         <label>Doctor :
         <select id="doctor">
@@ -76,8 +73,6 @@ label {
     <label>Doctor:</label>
     <input type="text" id="doctor" />
     <br />
--->
-<!--
     <label>Pacient :
         <select id="pacient">
                 <option value = "pacient1" selected>Pacient 1</option>
@@ -87,15 +82,12 @@ label {
         </select>
         </label>
     <br />
--->
 
-<!--
     <label>Pacient:</label>
     <input type="text" id="pacient" />
     <br />
--->
-<!--
-    	<label>Service :
+    	
+	<label>Service :
 	<select id="service">
 		<option value = "calldoctor" selected>Call Doctor</option>
 		<option value = "consultation">Consultation</option>
@@ -103,14 +95,12 @@ label {
 	</select>
 	</label>
     <br />
--->
-<!--
-   <label>Service :</label>
+   
+	<label>Service :</label>
    <input type="text" id="service" />
     <br />
--->
-<!--
-    <label>Zone :</label>
+    
+	<label>Zone :</label>
     <select id="zone">
             <option value = "bolesti" selected>Bolesti</option>
             <option value = "cijepljenje">Cijepljenje</option>
@@ -125,14 +115,12 @@ label {
             <option value = "zubi">Zubi</option>
      </select>
     <br />
--->
-<!--
-    <label>Zone:</label>
+    
+	<label>Zone:</label>
     <input type="text" id="zone" />
     <br />
--->
-<!--
-    <label>Ad :</label>
+    	
+	<label>Ad :</label>
     <select id="ad">
             <option value = "apetito" selected>Apetito</option>
             <option value = "avenetermalnavoda">Avene termalna voda</option>
@@ -147,13 +135,11 @@ label {
             <option value = "reidrato">Reidrato</option>
      </select>
     <br />
--->
-<!--
-<label>Ad :</label>
+
+
+	<label>Ad :</label>
     <input type="text" id="ad" />
     <br />
--->
-<!--
 
     <label>Mjesec :</label>
     <select id="date">
@@ -201,27 +187,31 @@ label {
         </label>
     <br />
 
--->
-<!--
     <label>Platform:</label>
     <input type="text" id="platform" />
     <br />
--->
-<!--
     <br />
 </td>
 <td>
 <button type="button" id="addcar" style="height:30px; width:200px" onclick="addCar();">Add To database</button>
 <br />
+
+
+https://www.html5rocks.com/en/tutorials/file/dndfiles/
+https://scotch.io/tutorials/use-the-html5-file-api-to-work-with-files-locally-in-the-browser
+https://softwarecave.org/2014/07/07/accessing-local-files-from-a-web-browser-using-html5-file-api/
+https://thiscouldbebetter.wordpress.com/2012/12/18/loading-editing-and-saving-a-text-file-in-html5-using-javascrip/
 -->
+
 <label for="csvFileInput"> <strong>Import from CSV File:</strong></label>
 <input type="file" id="csvFileInput" style="height:30px; width:200px" onchange="handleFiles(this.files)" accept=".csv">
 <div id="output"></div>
 <br />
+
+
+
 <!--
 <label for="printcsv"> <strong>Print CSV File:</strong></label>
--->
-<!--
 <button type="button" id="printcsv" style="height:30px; width:200px" onclick="printCsv();">Print CSV</button>
 <br />
 </td>
@@ -260,22 +250,13 @@ label {
     <br />
 </td>
 <td>
--->
-
-<!--
-
 </td>
-
--->
-<!--
 
 <div id="carlistholder">
      <h3>Your Data</h3>
 	<ul id="carlist"></ul>
 </div>
--->
 
-<!--
 <div id="doctorlistholder">
      <h3>Your Doctors</h3>
        <ul id="doctorlist"></ul>
@@ -296,9 +277,6 @@ label {
        <ul id="platformlist"></ul>
 </div>
 
--->
-
-<!--
 
 <div id="graphsholder">
      <h3></h3>
@@ -355,8 +333,105 @@ label {
 -->
 
 
-<div id="dvxTable">
+<div type="hidden" id="dvxTable">
 </div>
+
+<textarea type="hidden" id="textarea">
+doctor;pacient;service;zone;ad;datum;od;do;trajanje;price;invoice;platform
+doctor1;pacient1;call doctor;Bolesti;Apetito;1;07:10:00;07:40:00;0:30:00;60;click;android
+doctor1;pacient1;call doctor;Cjepljenje;Avene  termalna  voda;2;07:20:00;07:50:00;0:30:00;60;click;android
+doctor1;pacient1;call doctor;Doktor;Bronhostop;3;07:30:00;08:00:00;0:30:00;60;click;web
+doctor1;pacient1;call doctor;Hranjenje;Cicalfate;4;07:40:00;08:10:00;0:30:00;60;click;android
+doctor1;pacient1;call doctor;Klju_ni trenutci;Cicatridina;5;07:50:00;08:20:00;0:30:00;60;click;ios
+doctor1;pacient1;consultation;Lijekovi;Dermalibour+;1;08:00:00;08:30:00;0:30:00;60;click;web
+doctor1;pacient1;consultation;Ostalo;Echinax;2;08:10:00;08:40:00;0:30:00;60;click;android
+doctor1;pacient1;consultation;Rast i razvoj;Exomega;3;08:20:00;08:50:00;0:30:00;60;click;ios
+doctor1;pacient1;second opinion;Spavanje;Isilax;1;08:30:00;09:00:00;0:30:00;60;click;web
+doctor1;pacient1;second opinion;Stolica/Mokrenje;Primalba;2;07:10:00;09:10:00;2:00:00;240;click;android
+doctor1;pacient2;call doctor;Temperatura;Reidrato;1;07:20:00;09:20:00;2:00:00;240;click;android
+doctor1;pacient2;call doctor;Zubi;XeraCalm;2;07:30:00;09:30:00;2:00:00;240;click;android
+doctor1;pacient2;call doctor;Bolesti;Apetito;3;07:40:00;08:40:00;1:00:00;120;click;web
+doctor1;pacient2;call doctor;Cjepljenje;Avene  termalna  voda;4;07:50:00;08:50:00;1:00:00;120;click;android
+doctor1;pacient2;call doctor;Doktor;Bronhostop;5;08:00:00;08:30:00;0:30:00;60;click;ios
+doctor1;pacient2;consultation;Hranjenje;Cicalfate;1;08:10:00;08:40:00;0:30:00;60;click;web
+doctor1;pacient2;consultation;Klju_ni trenutci;Cicatridina;2;08:20:00;08:50:00;0:30:00;60;click;android
+doctor1;pacient2;consultation;Lijekovi;Dermalibour+;3;08:30:00;09:00:00;0:30:00;60;click;ios
+doctor1;pacient2;second opinion;Ostalo;Echinax;1;07:10:00;08:40:00;1:30:00;180;click;web
+doctor1;pacient2;second opinion;Rast i razvoj;Exomega;2;07:20:00;08:50:00;1:30:00;180;click;android
+doctor1;pacient3;call doctor;Spavanje;Isilax;1;07:30:00;09:00:00;1:30:00;180;click;android
+doctor1;pacient3;call doctor;Stolica/Mokrenje;Primalba;2;07:40:00;09:10:00;1:30:00;180;click;android
+doctor1;pacient3;call doctor;Temperatura;Reidrato;3;07:50:00;09:20:00;1:30:00;180;click;web
+doctor1;pacient3;call doctor;Zubi;XeraCalm;4;08:00:00;09:30:00;1:30:00;180;click;android
+doctor1;pacient3;call doctor;Bolesti;Apetito;5;08:10:00;08:40:00;0:30:00;60;click;ios
+doctor1;pacient3;consultation;Cjepljenje;Avene  termalna  voda;1;08:20:00;08:50:00;0:30:00;60;click;web
+doctor1;pacient3;consultation;Doktor;Bronhostop;2;08:30:00;09:00:00;0:30:00;60;click;android
+doctor1;pacient3;consultation;Hranjenje;Cicalfate;3;07:10:00;08:10:00;1:00:00;120;click;ios
+doctor1;pacient3;second opinion;Klju_ni trenutci;Cicatridina;1;07:20:00;08:20:00;1:00:00;120;click;web
+doctor1;pacient3;second opinion;Lijekovi;Dermalibour+;2;07:30:00;08:30:00;1:00:00;120;click;android
+doctor2;pacient1;call doctor;Ostalo;Echinax;1;07:40:00;08:40:00;1:00:00;120;click;android
+doctor2;pacient1;call doctor;Rast i razvoj;Exomega;2;07:50:00;08:50:00;1:00:00;120;click;android
+doctor2;pacient1;call doctor;Spavanje;Isilax;3;08:00:00;09:00:00;1:00:00;120;click;web
+doctor2;pacient1;call doctor;Stolica/Mokrenje;Primalba;4;08:10:00;09:10:00;1:00:00;120;click;android
+doctor2;pacient1;call doctor;Temperatura;Reidrato;5;08:20:00;09:20:00;1:00:00;120;click;ios
+doctor2;pacient1;consultation;Zubi;XeraCalm;1;08:30:00;09:30:00;1:00:00;120;click;web
+doctor2;pacient1;consultation;Bolesti;Apetito;2;07:10:00;07:40:00;0:30:00;60;click;android
+doctor2;pacient1;consultation;Cjepljenje;Avene  termalna  voda;3;07:20:00;07:50:00;0:30:00;60;click;ios
+doctor2;pacient1;second opinion;Doktor;Bronhostop;1;07:30:00;08:00:00;0:30:00;60;click;web
+doctor2;pacient1;second opinion;Hranjenje;Cicalfate;2;07:40:00;08:10:00;0:30:00;60;click;android
+doctor2;pacient2;call doctor;Klju_ni trenutci;Cicatridina;1;07:50:00;08:20:00;0:30:00;60;click;android
+doctor2;pacient2;call doctor;Lijekovi;Dermalibour+;2;08:00:00;08:30:00;0:30:00;60;click;android
+doctor2;pacient2;call doctor;Ostalo;Echinax;3;08:10:00;08:40:00;0:30:00;60;click;web
+doctor2;pacient2;call doctor;Rast i razvoj;Exomega;4;08:20:00;08:50:00;0:30:00;60;click;android
+doctor2;pacient2;call doctor;Spavanje;Isilax;5;08:30:00;09:00:00;0:30:00;60;click;ios
+doctor2;pacient2;consultation;Stolica/Mokrenje;Primalba;1;07:10:00;09:10:00;2:00:00;240;click;web
+doctor2;pacient2;consultation;Temperatura;Reidrato;2;07:20:00;09:20:00;2:00:00;240;click;android
+doctor2;pacient2;consultation;Zubi;XeraCalm;3;07:30:00;09:30:00;2:00:00;240;click;ios
+doctor2;pacient2;second opinion;Bolesti;Apetito;1;07:40:00;07:40:00;0:00:00;0;click;web
+doctor2;pacient2;second opinion;Cjepljenje;Avene  termalna  voda;2;07:50:00;07:50:00;0:00:00;0;click;android
+doctor2;pacient3;call doctor;Doktor;Bronhostop;1;08:00:00;08:00:00;0:00:00;0;click;android
+doctor2;pacient3;call doctor;Hranjenje;Cicalfate;2;08:10:00;08:10:00;0:00:00;0;click;android
+doctor2;pacient3;call doctor;Klju_ni trenutci;Cicatridina;3;08:20:00;08:20:00;0:00:00;0;click;web
+doctor2;pacient3;call doctor;Lijekovi;Dermalibour+;4;08:30:00;08:30:00;0:00:00;0;click;android
+doctor2;pacient3;call doctor;Ostalo;Echinax;5;07:10:00;08:40:00;1:30:00;180;click;ios
+doctor2;pacient3;consultation;Rast i razvoj;Exomega;1;07:20:00;08:50:00;1:30:00;180;click;web
+doctor2;pacient3;consultation;Spavanje;Isilax;2;07:30:00;09:00:00;1:30:00;180;click;android
+doctor2;pacient3;consultation;Stolica/Mokrenje;Primalba;3;07:40:00;09:10:00;1:30:00;180;click;ios
+doctor2;pacient3;second opinion;Temperatura;Reidrato;1;07:50:00;09:20:00;1:30:00;180;click;web
+doctor2;pacient3;second opinion;Zubi;XeraCalm;2;08:00:00;09:30:00;1:30:00;180;click;android
+doctor3;pacient1;call doctor;Bolesti;Apetito;1;08:10:00;08:40:00;0:30:00;60;click;android
+doctor3;pacient1;call doctor;Cjepljenje;Avene  termalna  voda;2;08:20:00;08:50:00;0:30:00;60;click;android
+doctor3;pacient1;call doctor;Doktor;Bronhostop;3;08:30:00;08:50:00;0:20:00;40;click;web
+doctor3;pacient1;call doctor;Hranjenje;Cicalfate;4;07:10:00;08:10:00;1:00:00;120;click;android
+doctor3;pacient1;call doctor;Klju_ni trenutci;Cicatridina;5;07:20:00;08:20:00;1:00:00;120;click;ios
+doctor3;pacient1;consultation;Lijekovi;Dermalibour+;1;07:30:00;08:30:00;1:00:00;120;click;web
+doctor3;pacient1;consultation;Ostalo;Echinax;2;07:40:00;08:40:00;1:00:00;120;click;android
+doctor3;pacient1;consultation;Rast i razvoj;Exomega;3;07:50:00;08:50:00;1:00:00;120;click;ios
+doctor3;pacient1;second opinion;Spavanje;Isilax;1;08:00:00;09:00:00;1:00:00;120;click;web
+doctor3;pacient1;second opinion;Stolica/Mokrenje;Primalba;2;08:10:00;09:10:00;1:00:00;120;click;android
+doctor3;pacient2;call doctor;Temperatura;Reidrato;1;08:20:00;09:20:00;1:00:00;120;click;android
+doctor3;pacient2;call doctor;Zubi;XeraCalm;2;08:30:00;09:30:00;1:00:00;120;click;android
+doctor3;pacient2;call doctor;Bolesti;Apetito;3;07:10:00;07:40:00;0:30:00;60;click;web
+doctor3;pacient2;call doctor;Cjepljenje;Avene  termalna  voda;4;07:20:00;07:50:00;0:30:00;60;click;android
+doctor3;pacient2;call doctor;Doktor;Bronhostop;5;07:30:00;08:00:00;0:30:00;60;click;ios
+doctor3;pacient2;consultation;Hranjenje;Cicalfate;1;07:40:00;08:10:00;0:30:00;60;click;web
+doctor3;pacient2;consultation;Klju_ni trenutci;Cicatridina;2;07:50:00;08:20:00;0:30:00;60;click;android
+doctor3;pacient2;consultation;Lijekovi;Dermalibour+;3;08:00:00;08:30:00;0:30:00;60;click;ios
+doctor3;pacient2;second opinion;Ostalo;Echinax;1;08:10:00;08:40:00;0:30:00;60;click;web
+doctor3;pacient2;second opinion;Rast i razvoj;Exomega;2;08:20:00;08:50:00;0:30:00;60;click;android
+doctor3;pacient3;call doctor;Spavanje;Isilax;1;08:30:00;09:00:00;0:30:00;60;click;android
+doctor3;pacient3;call doctor;Stolica/Mokrenje;Primalba;2;07:10:00;09:10:00;2:00:00;240;click;android
+doctor3;pacient3;call doctor;Temperatura;Reidrato;3;07:20:00;09:20:00;2:00:00;240;click;web
+doctor3;pacient3;call doctor;Zubi;XeraCalm;4;07:30:00;09:30:00;2:00:00;240;click;android
+doctor3;pacient3;call doctor;Bolesti;Apetito;5;07:40:00;07:40:00;0:00:00;0;click;ios
+doctor3;pacient3;consultation;Cjepljenje;Avene  termalna  voda;1;07:50:00;07:50:00;0:00:00;0;click;web
+doctor3;pacient3;consultation;Doktor;Bronhostop;2;08:00:00;08:20:00;0:20:00;40;click;android
+doctor3;pacient3;consultation;Hranjenje;Cicalfate;3;08:10:00;08:30:00;0:20:00;40;click;ios
+doctor3;pacient3;second opinion;Klju_ni trenutci;Cicatridina;1;08:20:00;08:40:00;0:20:00;40;click;web
+doctor3;pacient3;second opinion;Lijekovi;Dermalibour+;2;08:30:00;08:50:00;0:20:00;40;click;android;
+</textarea>
+
+
+<div id="log"></div>
 
 <script>
 //Test for browser compatibility
@@ -367,13 +442,91 @@ if (window.openDatabase) {
 
     	//create the cars table using SQL for the database using a transaction
 	mydb2.transaction(function (t) {
-        	t.executeSql("CREATE TABLE IF NOT EXISTS ld (id INTEGER PRIMARY KEY ASC, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, datum TEXT, od TEXT, do TEXT, trajanje TEXT, price TEXT, invoice TEXT, platform TEXT)");
+        	t.executeSql("CREATE TABLE IF NOT EXISTS ld (id INTEGER PRIMARY KEY ASC, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, datum TEXT, od TEXT, till TEXT, trajanje TEXT, price TEXT, invoice TEXT, platform TEXT)");
 	});
 
 
 } else {
     alert("WebSQL is not supported by your browser!");
 }
+
+
+//print textearea to csv
+var allText = document.getElementById("textarea").value;
+var allTextLines = [];
+allTextLines = allText.split(/\r\n|\n/);
+
+var fldHeading = [[]];
+var fldData = [[]];
+
+for (var i = 0; i < allTextLines.length; i++) {
+        fldData[i] = allTextLines[i].split(';');
+}
+
+printcsv = "<table>";
+for (var i = 0; i < allTextLines.length; i++) {
+        if (i==0) {
+                for (var j = 0; j < fldData[i].length; j++) {
+                        if (j==0) {
+                                printcsv += "<tr><th>" + fldData[i][j] + "</th>";
+                        } else if (j==fldData[i].length) {
+                                printcsv += "<th>" + fldData[i][j] + "</th></tr>";
+                        } else {
+                                printcsv += "<th>" + fldData[i][j] + "</th>";
+                        }
+                }
+        } else {
+                for (var k = 0; k < fldData[i].length; k++) {
+                        if (k==0) {
+                                printcsv += "<tr><td>" + fldData[i][k] + "</td>";
+                        } else if (k==fldData[i].length) {
+                                printicsv += "<td>" + fldData[i][k] + "</td></tr>";
+                        } else {
+                                printcsv += "<td>" + fldData[i][k] + "</td>";
+                        }
+                }
+        }
+}
+printcsv += "</table>";
+document.getElementById("log").innerHTML = printcsv;
+//end textarea to csv
+
+
+
+//add textrea to csv to database
+    //check to ensure the mydb object has been created
+    if (mydb2) {
+        
+	for (var i = 1; i < allTextLines.length; i++) {
+                                var doctor = fldData[i][0];
+                                var pacient = fldData[i][1];
+                                var service = fldData[i][2];
+                                var zone = fldData[i][3];
+                                var ad = fldData[i][4];
+                                var datum = fldData[i][5];
+                                var od = fldData[i][6];
+                                var till = fldData[i][7];
+                                var trajanje = fldData[i][8];
+                                var price = fldData[i][9];
+                                var invoice = fldData[i][10];
+                                var platform = fldData[i][11];
+				printcsv += "<td>" + doctor + "</td><td>" + pacient + "</td><td>" + service + "</td><td>" + zone + "</td><td>" + ad + "</td><td>"  + datum + "</td><td>" + od + "</td><td>" + till + "</td><td>" + trajanje + "</td><td>" + price + "</td><td>"  + invoice + "</td><td>" + platform + "</td><td>";
+        }
+
+        if (doctor !== "" && pacient !== "") {
+            //Insert the user entered details into the cars table, note the use of the ? placeholder, these will replaced by the data passed in as an array as the second parameter
+            mydb2.transaction(function (t) {
+                t.executeSql("INSERT INTO ld (doctor, pacient, service, zone, ad, datum, od, till, trajanje, price, invoice, platform) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [doctor, pacient, service, zone, ad, datum, od, till, trajanje, price, invoice, platform]);
+                printCsv();
+            });
+        } else {
+            alert("You must enter a doctor and pacient add CSV!");
+        }
+    } else {
+        alert("db not found, your browser does not support web sql!");
+    }
+
+
 
 //http://www.braingia.org/webnotes/2016/02/07/parsing-a-csv-with-javascript/
 function handleFiles(files) {
@@ -437,19 +590,6 @@ function processData(csv) {
  		document.getElementById("csvprice").value=tarr[9];
  		document.getElementById("csvinvoice").value=tarr[10];
  		document.getElementById("csvplatform").value=tarr[11];
-
-        	//document.getElementById("doctor").value=tarr[0];
-        	//document.getElementById("pacient").value=tarr[1];
-        	//document.getElementById("service").value=tarr[2];
-        	//document.getElementById("zone").value=tarr[3];
-        	//document.getElementById("ad").value=tarr[4];
-        	//document.getElementById("date").value=tarr[5];
-        	//document.getElementById("start").value=tarr[6];
-        	//document.getElementById("end").value=tarr[7];
-        	//document.getElementById("duration").value=tarr[8];
-        	//document.getElementById("price").value=tarr[9];
-        	//document.getElementById("invoice").value=tarr[10];
-        	//document.getElementById("platform").value=tarr[11];
 
 		if (i == 0) {
 
@@ -523,25 +663,11 @@ function addCsv() {
         var invoice = document.getElementById("csvinvoice").value;
         var platform = document.getElementById("csvplatform").value;
 
-
-        //var doctor = document.getElementById("doctor").value;
-        //var pacient = document.getElementById("pacient").value;
-        //var service = document.getElementById("service").value;
-        //var zone = document.getElementById("zone").value;
-        //var ad = document.getElementById("ad").value;
-        //var datum = document.getElementById("date").value;
-        //var od = document.getElementById("start").value;
-        //var till = document.getElementById("end").value;
-        //var trajanje = document.getElementById("duration").value;
-        //var price = document.getElementById("price").value;
-        //var invoice = document.getElementById("invoice").value;
-        //var platform = document.getElementById("platform").value;
-
         //Test to ensure that the user has entered both a make and model
         if (doctor !== "" && pacient !== "") {
             //Insert the user entered details into the cars table, note the use of the ? placeholder, these will replaced by the data passed in as an array as the second parameter
             mydb2.transaction(function (t) {
-                t.executeSql("INSERT INTO ld (doctor, pacient, service, zone, ad, datum, od, do, trajanje, price, invoice, platform) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [doctor, pacient, service, zone, ad, datum, od, till, trajanje, price, invoice, platform]);
+                t.executeSql("INSERT INTO ld (doctor, pacient, service, zone, ad, datum, od, till, trajanje, price, invoice, platform) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [doctor, pacient, service, zone, ad, datum, od, till, trajanje, price, invoice, platform]);
                 printCsv();
             });
         } else {
@@ -708,7 +834,7 @@ function createTableCsv() {
     if (mydb2) {
 
         mydb2.transaction(function (t) {
-        	t.executeSql("CREATE TABLE IF NOT EXISTS ld (id INTEGER PRIMARY KEY ASC, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, datum TEXT, od TEXT, do TEXT, trajanje TEXT, price TEXT, invoice TEXT, platform TEXT)");
+        	t.executeSql("CREATE TABLE IF NOT EXISTS ld (id INTEGER PRIMARY KEY ASC, doctor TEXT, pacient TEXT, service TEXT, zone TEXT, ad TEXT, datum TEXT, od TEXT, till TEXT, trajanje TEXT, price TEXT, invoice TEXT, platform TEXT)");
         });
 
     } else {
