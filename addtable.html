@@ -1,0 +1,120 @@
+<!--
+http://jsfiddle.net/7AeDQ/
+http://stackoverflow.com/questions/6473111/add-delete-table-rows-dynamically-using-javascript
+-->
+<div id="POItablediv">
+    <input type="button" id="savedata" value="Save data"/><br/><br/>
+    <table id="POITable" border="1">
+        <tr>
+            <td><input type="button" id="add" value="Add Row" onclick="insRow()"/><input type="button" id="addCol" value="Add Column" onclick="insCol()"/></td>
+	    <td><input type="button" id="status" value="Status"/></td>
+		
+        </tr>
+        <tr>
+            <td><input type="button" id="delete" value="Delete Row" onclick="deleteRow(this)"/><select id="color1" onchange="colorRow(this)"> <option selected id="red1">Red</option><option id="yellow1">Yellow</option><option id="green1">Green</option></select></td>
+            <td></td>
+        </tr>
+    </table>
+
+<script>
+
+function colorRow(row)
+{
+    var i=row.parentNode.parentNode.rowIndex;
+	var tbl = document.getElementById('POITable');
+	var red = "red"+i;
+	var yellow = "yellow"+i;
+	var green = "green"+i;
+	if (document.getElementById(red).selected == true) {
+		for (var a = 1; a < tbl.rows[i].cells.length; a++) {
+            		tbl.rows[i].cells[a].bgColor = "red";
+        	}
+	} else if (document.getElementById(yellow).selected == true){
+
+               for (var a = 1; a < tbl.rows[i].cells.length; a++) {
+                        tbl.rows[i].cells[a].bgColor = "yellow";
+ 
+		}
+	} else {
+
+              for (var a = 1; a < tbl.rows[i].cells.length; a++) {
+                        tbl.rows[i].cells[a].bgColor = "green";
+ 
+		}
+	}
+}
+
+function deleteRow(row)
+{
+    var i=row.parentNode.parentNode.rowIndex;
+    document.getElementById('POITable').deleteRow(i);
+}
+
+function deleteCol(column){
+	var tbl = document.getElementById('POITable');
+	var j= column.parentNode.cellIndex;
+        console.log("row length" + tbl.rows.length + "row" + column.parentNode.parentNode.rowIndex + " - column" + column.parentNode.cellIndex);
+	for (i = 0; i < tbl.rows.length; i++) {
+            tbl.rows[i].deleteCell(j);
+        }
+}
+
+function insRow()
+{
+    console.log( 'hi');
+    var x=document.getElementById('POITable');
+    j = x.rows.length;
+        var red = "red"+j;
+        var yellow = "yellow"+j;
+        var green = "green"+j;
+    console.log(red);
+    
+
+    var row = x.insertRow(-1);
+        for (i=0; i< x.rows[0].cells.length;i++) {
+                var cell = row.insertCell(i);
+		if (i == 0) {
+			cell.innerHTML="<input type='button' value='Delete Row' onclick='deleteRow(this)'/><select onchange='colorRow(this)'><option selected id = '"+red+"'>Red</option><option id = '"+yellow+"'>Yellow</option><option id ='"+green+"'>Green</option></select>";
+		} else if (i == 1) {
+		
+		}else {
+			cell.innerHTML="<input size=25 type='text' value='"+i+"'>";
+		}
+	} 
+
+
+	//var new_row = x.rows[1].cloneNode(true);
+    //var len = x.rows.length;
+    //new_row.cells[0].innerHTML = len;
+    
+    //var inp1 = new_row.cells[1].getElementsByTagName('input')[0];
+    //inp1.id += len;
+    //inp1.value = '';
+    //var inp2 = new_row.cells[2].getElementsByTagName('input')[0];
+    //inp2.id += len;
+    //inp2.value = '';
+    //var inp3 = new_row.cells[3].getElementsByTagName('input')[0];
+    //inp3.id += len;
+    //inp3.value = '';
+    //x.appendChild( new_row );
+}
+
+function insCol() {
+    var tbl = document.getElementById('POITable');
+    var i;
+    for (i = 0; i < tbl.rows.length; i++) {
+        var cell = tbl.rows[i].insertCell(-1);
+
+                if (i == 0) {
+                        cell.innerHTML="<input type='button' style='height: 2em; width: 15em' value='Delete Column' onclick='deleteCol(this)'/>";
+			
+		} else {
+                        cell.innerHTML="<input size=25 type='text' value = '"+i+"'>";
+                }
+
+        //var cell = tbl.rows[i].insertCell(i);
+	//cell.innerHTML="<input type='text'>";
+        //createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), i, 'col');
+    }
+}
+</script>
