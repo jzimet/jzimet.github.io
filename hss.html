@@ -1,0 +1,435 @@
+
+<table> <tr> <td>
+<input type = "number" min="0" max ="1000" value="100" style="background-color:yellow;width:50px" id = "users" onchange="calculate()">
+<label for "users"> number of users</label>
+<br>
+<input type = "number" style="background-color:yellow;width:50px" id = "discount" value="20" onchange="calculate()">
+<label for "discount">% Discount</label>
+<br>
+
+<input type = "number" style="background-color:yellow;width:50px"  id = "total" readonly>
+<label for "total">$ total</label>
+<br>
+<input type = "number" style="background-color:yellow;width:50px" id = "priceperuserperyear" readonly>
+<label for "priceperuserperyear">$ price per user per year</label>
+<br>
+<input type = "number" style="background-color:yellow;width:50px" id = "priceperuserpermonth" readonly>
+<label for "priceperuserpermonth">$ price per user per month</label>
+</td>
+<td>
+<canvas id="mycanvas1" width="130" height="130" style="border:1px dashed #CCC;">price per user per month</canvas>
+</td>
+</tr>
+</table>
+<br>
+
+<img src="hss-anyconnect.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "vpn" onchange="calculate()">
+<label for "vpn"> vpn client</label>
+
+<input type = "radio" name = "vpnclient" id="vpnclientradio" value="vpnclient" checked="checked" onchange="calculate()">
+<label for "vpnclient">any connect client based remote access</label>
+
+<input type = "radio" name = "vpnclient" id="clientlessvpnradio" value="clientlessvpn" onchange="calculate()">
+<label for "clientlessvpn">apex clientless based remote access</label>
+
+<label id="vpnclientlabel"></label>
+<br>
+
+<img src="hss-opendns.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "opendns" onchange="calculate()">
+<label for "opendns">open dns</label>
+
+<input type = "radio" name = "opendns" id="opendnsforroaminguserradio" value="opendnsforroaminguser" checked="checked" onchange="calculate()">
+<label for "opendnsforroaminguser">for roaming user</label>
+
+
+<input type = "radio" name = "opendns" value="opendnsforbranch" onchange="calculate()">
+<label for "opendnsforbranch">for branch</label>
+
+<input type = "radio" name = "opendns" value="opendnsforwlan" onchange="calculate()">
+<label for "opendnsforwlan">for wlan</label>
+
+<label id="opendnslabel"></label>
+<br>
+
+<img src="hss-websecurity.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "websecurity" onchange="calculate()">
+<label for "websecurity">web security</label>
+
+<input type = "radio" name = "websecurity" id = "websecurityessentialradio" value="websecurityessential" checked="checked" onchange="calculate()">
+<label for "websecurityessential">essential</label>
+
+<input type = "radio" name = "websecurity" id = "websecuritypremiumradio" value="websecuritypremium" onchange="calculate()">
+<label for "websecuritypremium">premium</label>
+
+<input type = "checkbox" id = "websecurityshared" onchange="calculate()">
+<label for "websecurityshared">shared</label>
+
+<label id="websecuritylabel"></label>
+<br>
+
+<img src="hss-emailsecurity.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "mailsecurity" onchange="calculate()">
+<label for "mailsecurity">mail security</label>
+
+<input type = "radio" name = "mailsecurity" id = "mailsecurityessentialradio" value="mailsecurityessential" checked="checked" onchange="calculate()">
+<label for "mailsecurityessential">essential</label>
+
+<input type = "radio" name = "mailsecurity" id= "mailsecuritypremiumradio" value="mailsecuritypremium" onchange="calculate()">
+<label for "mailsecuritypremium">premium</label>
+
+<input type = "checkbox" id = "mailsecurityshared" onchange="calculate()">
+<label for "mailsecurityshared">shared</label>
+
+<label id="mailsecuritylabel"></label>
+<br>
+
+<img src="hss-firewall.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "firewall" onchange="calculate()">
+<label for "firewall">firewall</label>
+
+<input type = "radio" name = "firewall" id ="firewallsmallradio" value="firewallsmall" checked="checked" onchange="calculate()">
+<label for "firewallsmall">small (100MB)</label>
+
+<input type = "radio" name = "firewall" id="firewallmediumradio" value="firewallmedium" onchange="calculate()">
+<label for "firewallmedium">medium (1GB) </label>
+
+<input type = "radio" name = "firewall" id="firewalllargeradio" value="firewalllarge" onchange="calculate()">
+<label for "firewalllarge">large (2GB)</label>
+
+<input type = "checkbox" id = "firewallshared" onchange="calculate()">
+<label for "firewallshared">shared</label>
+
+<input type = "checkbox" id = "firewallspla" onchange="calculate()">
+<label for "firewallspla">spla</label>
+
+<label id="firewalllabel"></label>
+<br>
+
+<img src="hss-sourcefire.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "ngfirewall" onchange="calculate()">
+<label for "ngfirewall">ng firewall</label>
+
+<input type = "radio" name = "ngfirewall" id="ngfirewallradio" value="ngfwipsamp" checked="checked" onchange="calculate()">
+<label for "ngfwipsamp">ips and amp</label>
+
+<input type = "checkbox" id = "ngfirewallshared" onchange="calculate()">
+<label for "ngfirewallshared">shared</label>
+
+<label id="ngfirewalllabel"></label>
+<br>
+
+<img src="hss-csr.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "router" onchange="calculate()">
+<label for "router">router</label>
+
+<input type = "radio" name = "router" id ="routeripbaseradio" value="routeripbase" checked="checked">
+<label for "routeripbase">base</label>
+
+<input type = "radio" name = "router" id ="routerdatacenterradio" value="routerdatacenter" onchange="calculate()">
+<label for "routerdatacenter">datacenter</label>
+
+<input type = "radio" name = "router" id = "routersecurityradio" value="routersecurity" onchange="calculate()">
+<label for "routersecurity">security</label>
+
+<input type = "radio" name = "router" id="routerallradio" value="routerall" onchange="calculate()">
+<label for "routerall">base and security and datacenter</label>
+
+<input type = "checkbox" id = "routershared" onchange="calculate()">
+<label for "routershared">shared</label>
+
+<input type = "checkbox" id = "routerspla" onchange="calculate()">
+<label for "routerspla">spla</label>
+
+<label id="routerlabel"></label>
+<br>
+
+<img src="hss-amp.png" align="center" width="50" height="50">
+<img src="hss-talos.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "amp" onchange="calculate()">
+<label for "router">anti malware protection</label>
+
+<input type = "radio" name = "amp" id = "amppublicradio" value="amppublic" checked="checked" onchange="calculate()">
+<label for "amppublic">public</label>
+
+<input type = "radio" name = "amp" id = "ampprivateradio" value="ampprivate" onchange="calculate()">
+<label for "ampprivate">private cloud mode</label>
+
+<input type = "radio" name = "amp" id = "ampprivateairgapradio" value="ampprivateairgap" onchange="calculate()">
+<label for "ampprivateairgap">private air gap mode</label>
+
+<input type = "checkbox" id = "ampshared" onchange="calculate()">
+<label for "ampshared">shared</label>
+
+<br>
+
+
+<img src="hss-tg.png" align="center" width="50" height="50">
+<img src="hss-talos.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "tg" onchange="calculate()">
+<label for "tg">threatgrid</label>
+
+<input type = "radio" name = "tg" id = "tgpublicradio" value="tgpublic" checked="checked" onchange="calculate()">
+<label for "tgpublic">public</label>
+
+<input type = "radio" name = "tg" id = "tgprivateradio" value="tgprivate" onchange="calculate()">
+<label for "tgprivate">private</label>
+
+<input type = "checkbox" id = "tgshared" onchange="calculate()">
+<label for "tgshared">shared</label>
+
+<br>
+
+<img src="hss-ubiqube.png" align="center" width="50" height="50">
+<img src="hss-tail-f.png" align="center" width="50" height="50">
+<br>
+
+<img src="hss-topology.png" align="center" width="400" height="200">
+
+<script>
+var quantity = Number(document.getElementById("users").value);
+var priceperuserperyear=0;
+var priceperuserpermonth=0;
+
+if (quantity < 26) {
+	var vpnclient=150/25;
+	var clientlessvpn=360/25;
+	var opendnsforroaminguser=12*2.33;
+} else if (quantity > 25 && quantity < 51) {
+        var vpnclient=300/50;
+        var clientlessvpn=550/50;
+	var opendnsforroaminguser=12*2.33;
+} else if (quantity >50 && quantity < 101) {
+        var vpnclient=500/100;
+        var clientlessvpn=1000/100;
+	var opendnsforroaminguser=12*2.08;
+} else if (quantity > 100 && quantity < 251) {
+        var vpnclient=750/250;
+        var clientlessvpn=2150/250;
+	var opendnsforroaminguser=12*1.63;
+} else { 
+        var vpnclient=1125/500;
+        var clientlessvpn=3200/500;
+	var opendnsforroaminguser=12*1.38;
+}
+
+if (quantity < 250) {
+        var websecurityessential=34.84;
+        var websecuritypremium=69.99;
+        var mailsecurityessential=19.06;
+        var mailsecuritypremium=31.83;
+} else if (quantity > 250 && quantity < 500) {
+        var websecurityessential=33.28;
+        var websecuritypremium=59.06;
+        var mailsecurityessential=18.79;
+        var mailsecuritypremium=31.69;
+} else {
+        var websecurityessential=33.18;
+        var websecuritypremium=52.49;
+        var mailsecurityessential=18.68;
+        var mailsecuritypremium=31.5;
+}
+
+if (document.getElementById("firewallspla").checked) {
+
+	var firewallsmallspla=12*22;
+	var firewallsmall=firewalsmallspla;
+	var firewallmediumspla=12*193;
+	var firewallmedium=firewalmediumspla;
+	var firewalllargespla=12*771;
+	var firewalllarge=firewalllargespla;
+
+} else {
+
+	var firewallsmall=3595/8;
+	var firewallmedium=4794;
+	var firewalllarge=19176;
+
+}
+
+var ngfirewall=12000;
+
+var routeripbase=285;
+var routerdatacenter=435;
+var routersecurity=485;
+var routerall=665;
+
+var ampcloud=12000+18000;
+var tg=85000+52000;
+
+
+//document.getElementById("vpnclientlabel").innerHTML= ": $" + vpnclient*25 + " for 25 ipsecvpn users" + " and $" + clientlessvpn*25 + " for 25 sslvpn users";
+//document.getElementById("opendnslabel").innerHTML= ": $" + opendnsforroaminguser/12 + " monthly for 10 roaming users";
+//document.getElementById("websecuritylabel").innerHTML= ": $" + Number(websecurityessential*100).toFixed(0) + " essential for 100 users" + " $" + Number(websecuritypremium*100).toFixed(0) + " premium for 100 users";
+//document.getElementById("mailsecuritylabel").innerHTML= ": $" + Number(mailsecurityessential*100).toFixed(0) + " essential for 100 users" + " $" + Number(mailsecuritypremium*100).toFixed(0) + " premium for 100 users";
+//document.getElementById("firewalllabel").innerHTML= ": $" + Number(firewallsmall*8).toFixed(0) + " for 8 x 100 MB virtual firewall $" + Number(firewallmedium).toFixed(0) + " for 1GB firewall $" + Number(firewalllarge).toFixed(0) + " for 2GB firewall";
+//document.getElementById("ngfirewalllabel").innerHTML= ": $" + Number(ngfirewall).toFixed(0) + " for ng virtual firewall";
+//document.getElementById("routerlabel").innerHTML= ": $" + Number(routeripbase).toFixed(0) + " for base router $" + Number(routerdatacenter).toFixed(0) + " for router with data center functionality $" + Number(routersecurity).toFixed(0) + " for router with security features $" + Number(routerall).toFixed(0) + " for router with datacenter and security functionality";
+
+
+function calculate (){
+
+var total = 0;
+document.getElementById("priceperuserperyear").value = 0;
+document.getElementById("priceperuserpermonth").value = 0;
+
+total +=  Number(document.getElementById("users").value) * Number(document.getElementById("vpn").checked) * vpnclient * Number(document.getElementById("vpnclientradio").checked);
+
+total += document.getElementById("users").value * document.getElementById("vpn").checked * clientlessvpn * Number(document.getElementById("clientlessvpnradio").checked);
+
+total += document.getElementById("users").value * document.getElementById("opendns").checked * opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked);
+
+if (Number(document.getElementById("websecurityshared").checked) == 0) {
+	total += document.getElementById("users").value * document.getElementById("websecurity").checked * websecurityessential * Number(document.getElementById("websecurityessentialradio").checked);
+
+	total += document.getElementById("users").value * document.getElementById("websecurity").checked * websecuritypremium * Number(document.getElementById("websecuritypremiumradio").checked);
+} else {
+
+	total += document.getElementById("websecurity").checked * websecurityessential * Number(document.getElementById("websecurityessentialradio").checked);
+
+	total += document.getElementById("websecurity").checked * websecuritypremium * Number(document.getElementById("websecuritypremiumradio").checked);
+
+}
+
+if (Number(document.getElementById("mailsecurityshared").checked) == 0) {
+        total += document.getElementById("users").value * document.getElementById("mailsecurity").checked * mailsecurityessential * Number(document.getElementById("mailsecurityessentialradio").checked);
+
+        total += document.getElementById("users").value * document.getElementById("mailsecurity").checked * mailsecuritypremium * Number(document.getElementById("mailsecuritypremiumradio").checked);
+} else {
+
+        total += document.getElementById("mailsecurity").checked * mailsecurityessential * Number(document.getElementById("mailsecurityessentialradio").checked);
+
+        total += document.getElementById("mailsecurity").checked * mailsecuritypremium * Number(document.getElementById("mailsecuritypremiumradio").checked);
+
+}
+
+
+if (Number(document.getElementById("firewallshared").checked) == 0) {
+        total += document.getElementById("users").value * document.getElementById("firewall").checked * firewallsmall * Number(document.getElementById("firewallsmallradio").checked);
+
+        total += document.getElementById("users").value * document.getElementById("firewall").checked * firewallmedium * Number(document.getElementById("firewallmediumradio").checked);
+        
+	total += document.getElementById("users").value * document.getElementById("firewall").checked * firewalllarge * Number(document.getElementById("firewalllargeradio").checked);
+
+} else {
+
+        total += document.getElementById("firewall").checked * firewallsmall * Number(document.getElementById("firewallsmallradio").checked);
+
+        total += document.getElementById("firewall").checked * firewallmedium * Number(document.getElementById("firewallmediumradio").checked);
+        total += document.getElementById("firewall").checked * firewalllarge * Number(document.getElementById("firewalllargeradio").checked);
+
+}
+
+if (Number(document.getElementById("ngfirewallshared").checked) == 0) {
+
+        total += document.getElementById("users").value * document.getElementById("ngfirewall").checked * ngfirewall * Number(document.getElementById("ngfirewallradio").checked);
+
+
+} else {
+
+        total += document.getElementById("ngfirewall").checked * ngfirewall * Number(document.getElementById("ngfirewallradio").checked);
+
+}
+
+
+if (Number(document.getElementById("routershared").checked) == 0) {
+
+        total += document.getElementById("users").value * document.getElementById("router").checked * routeripbase * Number(document.getElementById("routeripbaseradio").checked);
+        total += document.getElementById("users").value * document.getElementById("router").checked * routerdatacenter * Number(document.getElementById("routerdatacenterradio").checked);
+        total += document.getElementById("users").value * document.getElementById("router").checked * routersecurity * Number(document.getElementById("routersecurityradio").checked);
+        total += document.getElementById("users").value * document.getElementById("router").checked * routerall * Number(document.getElementById("routerallradio").checked);
+
+
+} else {
+
+        total += document.getElementById("router").checked * routeripbase * Number(document.getElementById("routeripbaseradio").checked);
+        total += document.getElementById("router").checked * routerdatacenter * Number(document.getElementById("routerdatacenterradio").checked);
+        total += document.getElementById("router").checked * routersecurity * Number(document.getElementById("routersecurityradio").checked);
+        total += document.getElementById("router").checked * routerall * Number(document.getElementById("routerallradio").checked);
+
+
+}
+
+
+if (Number(document.getElementById("ampshared").checked) == 0) {
+
+        total += document.getElementById("users").value * document.getElementById("amp").checked * ampcloud * Number(document.getElementById("amppublicradio").checked);
+        total += document.getElementById("users").value * document.getElementById("amp").checked * ampcloud * Number(document.getElementById("ampprivateradio").checked);
+        total += document.getElementById("users").value * document.getElementById("amp").checked * ampcloud * Number(document.getElementById("ampprivateairgapradio").checked);
+
+
+} else {
+
+       total += document.getElementById("amp").checked * ampcloud * Number(document.getElementById("amppublicradio").checked);
+        total += document.getElementById("amp").checked * ampcloud * Number(document.getElementById("ampprivateradio").checked);
+        total += document.getElementById("amp").checked * ampcloud * Number(document.getElementById("ampprivateairgapradio").checked);
+
+}
+
+
+
+if (Number(document.getElementById("tgshared").checked) == 0) {
+
+        total += document.getElementById("users").value * document.getElementById("tg").checked * tg * Number(document.getElementById("tgpublicradio").checked);
+        total += document.getElementById("users").value * document.getElementById("tg").checked * tg * Number(document.getElementById("tgprivateradio").checked);
+
+
+} else {
+
+       total += document.getElementById("tg").checked * tg * Number(document.getElementById("tgpublicradio").checked);
+        total += document.getElementById("tg").checked * tg * Number(document.getElementById("tgprivateradio").checked);
+
+}
+
+document.getElementById("total").value = parseInt((total*(1-document.getElementById("discount").value/100)));
+priceperuserperyear = Number(((total*(1-document.getElementById("discount").value/100))/document.getElementById("users").value).toFixed(2));
+document.getElementById("priceperuserperyear").value = priceperuserperyear;
+
+priceperuserpermonth = Number(((total*(1-document.getElementById("discount").value/100))/document.getElementById("users").value/12).toFixed(2));
+document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
+
+
+
+                                //chart for ios revenue
+                                var al1=0;
+				var id1 = setInterval(frame1,10);
+                                function frame1() {
+                                var cnv1 = document.getElementById('mycanvas1');
+                                var ctx1 = cnv1.getContext('2d');
+                                var cw1 = ctx1.canvas.width;
+                                var ch1 = ctx1.canvas.height;
+                                var start1 = 4.72;
+                                diff1 = ((al1 / 100) * Math.PI*2*10).toFixed(2);
+                                ctx1.clearRect(0, 0, cw1, ch1);
+                                ctx1.lineWidth = 7;
+                                ctx1.fillStyle = '#09F';
+                                ctx1.strokeStyle = '#09F';
+                                ctx1.font="14px bebas"
+                                ctx1.textAlign = 'center';
+                                ctx1.fillText(al1.toFixed(2)+'$', cw1*.5, ch1*.5+2, cw1);
+                                ctx1.fillText('priceperuserpermonth', cw1/2+2, ch1/2+14, cw1/2);
+                                ctx1.beginPath();
+                                ctx1.arc(cw1*.5,ch1*.5,60,start1,diff1/10+start1,false);
+                                ctx1.stroke();
+                                if (al1 >= priceperuserpermonth) {
+                                      clearInterval(id1);
+                                    } else {
+                                      al1++;
+                                    }
+                                }
+
+}
+
+calculate();
+
+</script>
