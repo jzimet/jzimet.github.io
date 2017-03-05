@@ -19,13 +19,16 @@
 <td>
 <canvas id="mycanvas1" width="130" height="130" style="border:1px dashed #CCC;">price per user per month</canvas>
 </td>
+<td>
+<img src="hss-talos-pitch.png" align="center" width="200" height="100">
+</td>
 </tr>
 </table>
 <br>
 
 <img src="hss-anyconnect.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "vpn" onchange="calculate()">
+<input type = "checkbox" id = "vpn" checked="checked" onchange="calculate()">
 <label for "vpn"> vpn client</label>
 
 <input type = "radio" name = "vpnclient" id="vpnclientradio" value="vpnclient" checked="checked" onchange="calculate()">
@@ -38,9 +41,10 @@
 <br>
 
 <img src="hss-opendns.png" align="center" width="50" height="50">
+<img src="hss-umbrella.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "opendns" onchange="calculate()">
-<label for "opendns">open dns</label>
+<input type = "checkbox" id = "opendns" checked="checked" onchange="calculate()">
+<label for "opendns">Cisco Umbrella open dns and Cloud Lock</label>
 
 <input type = "radio" name = "opendns" id="opendnsforroaminguserradio" value="opendnsforroaminguser" checked="checked" onchange="calculate()">
 <label for "opendnsforroaminguser">for roaming user</label>
@@ -52,12 +56,13 @@
 <input type = "radio" name = "opendns" value="opendnsforwlan" onchange="calculate()">
 <label for "opendnsforwlan">for wlan</label>
 
-<label id="opendnslabel"></label>
+<label id="opendnslabel"> 208.67.222.222 + 208.67.220.220</label>
+<a href ="https://signup.umbrella.com/">Umbrella Free Trial</a>
 <br>
 
 <img src="hss-websecurity.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "websecurity" onchange="calculate()">
+<input type = "checkbox" id = "websecurity" checked="checked" onchange="calculate()">
 <label for "websecurity">web security</label>
 
 <input type = "radio" name = "websecurity" id = "websecurityessentialradio" value="websecurityessential" checked="checked" onchange="calculate()">
@@ -66,15 +71,17 @@
 <input type = "radio" name = "websecurity" id = "websecuritypremiumradio" value="websecuritypremium" onchange="calculate()">
 <label for "websecuritypremium">premium</label>
 
-<input type = "checkbox" id = "websecurityshared" onchange="calculate()">
+<input type = "checkbox" id = "websecurityshared" checked="checked" onchange="calculate()">
 <label for "websecurityshared">shared</label>
 
 <label id="websecuritylabel"></label>
+<a href="https://info.sourcefire.com/ContentSecurityOfferPage.html">Try Web Security</a>
+
 <br>
 
 <img src="hss-emailsecurity.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "mailsecurity" onchange="calculate()">
+<input type = "checkbox" id = "mailsecurity" checked="checked" onchange="calculate()">
 <label for "mailsecurity">mail security</label>
 
 <input type = "radio" name = "mailsecurity" id = "mailsecurityessentialradio" value="mailsecurityessential" checked="checked" onchange="calculate()">
@@ -83,15 +90,16 @@
 <input type = "radio" name = "mailsecurity" id= "mailsecuritypremiumradio" value="mailsecuritypremium" onchange="calculate()">
 <label for "mailsecuritypremium">premium</label>
 
-<input type = "checkbox" id = "mailsecurityshared" onchange="calculate()">
+<input type = "checkbox" id = "mailsecurityshared" checked="checked" onchange="calculate()">
 <label for "mailsecurityshared">shared</label>
 
 <label id="mailsecuritylabel"></label>
+<a href ="http://www.cisco.com/c/dam/en/us/products/collateral/security/cloud-email-security/aag_c45-734182.pdf">cloud, hybrid, virtual or on-premise  mail security</a>
 <br>
 
 <img src="hss-firewall.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "firewall" onchange="calculate()">
+<input type = "checkbox" id = "firewall" checked="checked" onchange="calculate()">
 <label for "firewall">firewall</label>
 
 <input type = "radio" name = "firewall" id ="firewallsmallradio" value="firewallsmall" checked="checked" onchange="calculate()">
@@ -103,7 +111,7 @@
 <input type = "radio" name = "firewall" id="firewalllargeradio" value="firewalllarge" onchange="calculate()">
 <label for "firewalllarge">large (2GB)</label>
 
-<input type = "checkbox" id = "firewallshared" onchange="calculate()">
+<input type = "checkbox" id = "firewallshared" checked="checked" onchange="calculate()">
 <label for "firewallshared">shared</label>
 
 <input type = "checkbox" id = "firewallspla" onchange="calculate()">
@@ -128,7 +136,7 @@
 
 <img src="hss-csr.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "router" onchange="calculate()">
+<input type = "checkbox" id = "router" checked="checked" onchange="calculate()">
 <label for "router">router</label>
 
 <input type = "radio" name = "router" id ="routeripbaseradio" value="routeripbase" checked="checked">
@@ -143,7 +151,7 @@
 <input type = "radio" name = "router" id="routerallradio" value="routerall" onchange="calculate()">
 <label for "routerall">base and security and datacenter</label>
 
-<input type = "checkbox" id = "routershared" onchange="calculate()">
+<input type = "checkbox" id = "routershared" checked="checked" onchange="calculate()">
 <label for "routershared">shared</label>
 
 <input type = "checkbox" id = "routerspla" onchange="calculate()">
@@ -162,10 +170,10 @@
 <label for "amppublic">public</label>
 
 <input type = "radio" name = "amp" id = "ampprivateradio" value="ampprivate" onchange="calculate()">
-<label for "ampprivate">private cloud mode</label>
+<label for "ampprivate">private cloud - proxy mode (internet required) </label>
 
 <input type = "radio" name = "amp" id = "ampprivateairgapradio" value="ampprivateairgap" onchange="calculate()">
-<label for "ampprivateairgap">private air gap mode</label>
+<label for "ampprivateairgap">private cloud - air gap mode (no internet required)</label>
 
 <input type = "checkbox" id = "ampshared" onchange="calculate()">
 <label for "ampshared">shared</label>
@@ -193,8 +201,19 @@
 <img src="hss-ubiqube.png" align="center" width="50" height="50">
 <img src="hss-tail-f.png" align="center" width="50" height="50">
 <br>
-
+<img src="hss-stealthwatch.png" align="center" width="50" height="50">
+<a href="http://www.cisco.com/c/en/us/products/collateral/security/stealthwatch/datasheet-c78-736512.html">StealthWatch</a>
+<br>
+<table>
+<tr>
+<td>
 <img src="hss-topology.png" align="center" width="400" height="200">
+</td>
+<td>
+<img src="hss-bom.png" align="center" width="400" height="200">
+</td>
+</tr>
+<table>
 
 <script>
 var quantity = Number(document.getElementById("users").value);
