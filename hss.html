@@ -20,13 +20,7 @@
 <canvas id="mycanvas1" width="130" height="130" style="border:1px dashed #CCC;">price per user per month</canvas>
 </td>
 <td>
-<img src="hss-talos-pitch.png" align="center" width="200" height="100">
-</td>
-<td>
-<img src="hss-topology.png" align="center" width="200" height="100">
-</td>
-<td>
-<a href ="https://jzimet.github.io/hss-bom.xls"><img src="hss-bom.png" align="center" width="200" height="100"></a>
+<img src="hss-talos-pitch.png" align="center" width="300" height="150">
 </td>
 </tr>
 </table>
@@ -62,8 +56,10 @@
 <input type = "radio" name = "opendns" value="opendnsforwlan" onchange="calculate()">
 <label for "opendnsforwlan">for wlan</label>
 
+<!--
 <label id="opendnslabel"> 208.67.222.222 + 208.67.220.220</label>
 <a href ="https://signup.umbrella.com/">Umbrella Free Trial</a>
+-->
 <br>
 
 <img src="hss-websecurity.png" align="center" width="50" height="50">
@@ -80,9 +76,10 @@
 <input type = "checkbox" id = "websecurityshared" checked="checked" onchange="calculate()">
 <label for "websecurityshared">shared</label>
 
+<!--
 <label id="websecuritylabel"></label>
 <a href="https://info.sourcefire.com/ContentSecurityOfferPage.html">Try Web Security</a>
-
+-->
 <br>
 
 <img src="hss-emailsecurity.png" align="center" width="50" height="50">
@@ -98,9 +95,11 @@
 
 <input type = "checkbox" id = "mailsecurityshared" checked="checked" onchange="calculate()">
 <label for "mailsecurityshared">shared</label>
+<!--
 
 <label id="mailsecuritylabel"></label>
 <a href ="http://www.cisco.com/c/dam/en/us/products/collateral/security/cloud-email-security/aag_c45-734182.pdf">cloud, hybrid, virtual or on-premise  mail security</a>
+-->
 <br>
 
 <img src="hss-firewall.png" align="center" width="50" height="50">
@@ -210,6 +209,16 @@
 <img src="hss-stealthwatch.png" align="center" width="50" height="50">
 <a href="http://www.cisco.com/c/en/us/products/collateral/security/stealthwatch/datasheet-c78-736512.html">StealthWatch</a>
 <br>
+<table>
+<tr>
+<td>
+<img src="hss-topology.png" align="center" width="500" height="200">
+</td>
+<td>
+<a href ="https://jzimet.github.io/hss-bom.xls"><img src="hss-mrr.png" align="center" width="500" height="200"></a>
+</td>
+</tr>
+</table>
 
 <script>
 var quantity = Number(document.getElementById("users").value);
