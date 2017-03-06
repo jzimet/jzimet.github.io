@@ -226,6 +226,9 @@
 </table>
 
 <script>
+
+function calculate (){
+
 var quantity = Number(document.getElementById("users").value);
 var priceperuserperyear=0;
 var priceperuserpermonth=0;
@@ -234,22 +237,28 @@ if (quantity < 26) {
 	var vpnclient=150/25;
 	var clientlessvpn=360/25;
 	var opendnsforroaminguser=12*2.33;
+
 } else if (quantity > 25 && quantity < 51) {
         var vpnclient=300/50;
         var clientlessvpn=550/50;
 	var opendnsforroaminguser=12*2.33;
+
 } else if (quantity >50 && quantity < 101) {
         var vpnclient=500/100;
         var clientlessvpn=1000/100;
 	var opendnsforroaminguser=12*2.08;
+
 } else if (quantity > 100 && quantity < 251) {
         var vpnclient=750/250;
         var clientlessvpn=2150/250;
 	var opendnsforroaminguser=12*1.63;
+
+
 } else { 
         var vpnclient=1125/500;
         var clientlessvpn=3200/500;
 	var opendnsforroaminguser=12*1.38;
+
 }
 
 if (quantity < 250) {
@@ -297,7 +306,7 @@ var ampcloud=12000+18000;
 var tg=85000+52000;
 
 
-//document.getElementById("vpnclientlabel").innerHTML= ": $" + vpnclient*25 + " for 25 ipsecvpn users" + " and $" + clientlessvpn*25 + " for 25 sslvpn users";
+//document.getElementById("vpnclientlabel").innerHTML= ": $" + vpnclient + "ipsec client and $" + clientlessvpn + "ssl client" ;
 //document.getElementById("opendnslabel").innerHTML= ": $" + opendnsforroaminguser/12 + " monthly for 10 roaming users";
 //document.getElementById("websecuritylabel").innerHTML= ": $" + Number(websecurityessential*100).toFixed(0) + " essential for 100 users" + " $" + Number(websecuritypremium*100).toFixed(0) + " premium for 100 users";
 //document.getElementById("mailsecuritylabel").innerHTML= ": $" + Number(mailsecurityessential*100).toFixed(0) + " essential for 100 users" + " $" + Number(mailsecuritypremium*100).toFixed(0) + " premium for 100 users";
@@ -306,7 +315,7 @@ var tg=85000+52000;
 //document.getElementById("routerlabel").innerHTML= ": $" + Number(routeripbase).toFixed(0) + " for base router $" + Number(routerdatacenter).toFixed(0) + " for router with data center functionality $" + Number(routersecurity).toFixed(0) + " for router with security features $" + Number(routerall).toFixed(0) + " for router with datacenter and security functionality";
 
 
-function calculate (){
+//function calculate (){
 
 var total = 0;
 document.getElementById("priceperuserperyear").value = 0;
