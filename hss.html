@@ -62,26 +62,6 @@
 -->
 <br>
 
-<img src="hss-websecurity.png" align="center" width="50" height="50">
-
-<input type = "checkbox" id = "websecurity" checked="checked" onchange="calculate()">
-<label for "websecurity">web security</label>
-
-<input type = "radio" name = "websecurity" id = "websecurityessentialradio" value="websecurityessential" checked="checked" onchange="calculate()">
-<label for "websecurityessential">essential</label>
-
-<input type = "radio" name = "websecurity" id = "websecuritypremiumradio" value="websecuritypremium" onchange="calculate()">
-<label for "websecuritypremium">premium</label>
-
-<input type = "checkbox" id = "websecurityshared" checked="checked" onchange="calculate()">
-<label for "websecurityshared">shared</label>
-
-<!--
-<label id="websecuritylabel"></label>
-<a href="https://info.sourcefire.com/ContentSecurityOfferPage.html">Try Web Security</a>
--->
-<br>
-
 <img src="hss-emailsecurity.png" align="center" width="50" height="50">
 
 <input type = "checkbox" id = "mailsecurity" checked="checked" onchange="calculate()">
@@ -93,12 +73,32 @@
 <input type = "radio" name = "mailsecurity" id= "mailsecuritypremiumradio" value="mailsecuritypremium" onchange="calculate()">
 <label for "mailsecuritypremium">premium</label>
 
+<!--
 <input type = "checkbox" id = "mailsecurityshared" checked="checked" onchange="calculate()">
 <label for "mailsecurityshared">shared</label>
-<!--
 
 <label id="mailsecuritylabel"></label>
 <a href ="http://www.cisco.com/c/dam/en/us/products/collateral/security/cloud-email-security/aag_c45-734182.pdf">cloud, hybrid, virtual or on-premise  mail security</a>
+-->
+<br>
+
+<img src="hss-websecurity.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "websecurity" checked="checked" onchange="calculate()">
+<label for "websecurity">web security</label>
+
+<input type = "radio" name = "websecurity" id = "websecurityessentialradio" value="websecurityessential" checked="checked" onchange="calculate()">
+<label for "websecurityessential">essential</label>
+
+<input type = "radio" name = "websecurity" id = "websecuritypremiumradio" value="websecuritypremium" onchange="calculate()">
+<label for "websecuritypremium">premium</label>
+
+<!--
+<input type = "checkbox" id = "websecurityshared" checked="checked" onchange="calculate()">
+<label for "websecurityshared">shared</label>
+
+<label id="websecuritylabel"></label>
+<a href="https://info.sourcefire.com/ContentSecurityOfferPage.html">Try Web Security</a>
 -->
 <br>
 
@@ -125,20 +125,6 @@
 <label id="firewalllabel"></label>
 <br>
 
-<img src="hss-sourcefire.png" align="center" width="50" height="50">
-
-<input type = "checkbox" id = "ngfirewall" onchange="calculate()">
-<label for "ngfirewall">ng firewall</label>
-
-<input type = "radio" name = "ngfirewall" id="ngfirewallradio" value="ngfwipsamp" checked="checked" onchange="calculate()">
-<label for "ngfwipsamp">ips and amp</label>
-
-<input type = "checkbox" id = "ngfirewallshared" onchange="calculate()">
-<label for "ngfirewallshared">shared</label>
-
-<label id="ngfirewalllabel"></label>
-<br>
-
 <img src="hss-csr.png" align="center" width="50" height="50">
 
 <input type = "checkbox" id = "router" checked="checked" onchange="calculate()">
@@ -163,6 +149,20 @@
 <label for "routerspla">spla</label>
 
 <label id="routerlabel"></label>
+<br>
+
+<img src="hss-sourcefire.png" align="center" width="50" height="50">
+
+<input type = "checkbox" id = "ngfirewall" onchange="calculate()">
+<label for "ngfirewall">ng firewall</label>
+
+<input type = "radio" name = "ngfirewall" id="ngfirewallradio" value="ngfwipsamp" checked="checked" onchange="calculate()">
+<label for "ngfwipsamp">ips and amp</label>
+
+<input type = "checkbox" id = "ngfirewallshared" onchange="calculate()">
+<label for "ngfirewallshared">shared</label>
+
+<label id="ngfirewalllabel"></label>
 <br>
 
 <img src="hss-amp.png" align="center" width="50" height="50">
@@ -327,29 +327,29 @@ total += document.getElementById("users").value * document.getElementById("vpn")
 
 total += document.getElementById("users").value * document.getElementById("opendns").checked * opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked);
 
-if (Number(document.getElementById("websecurityshared").checked) == 0) {
+//if (Number(document.getElementById("websecurityshared").checked) == 0) {
 	total += document.getElementById("users").value * document.getElementById("websecurity").checked * websecurityessential * Number(document.getElementById("websecurityessentialradio").checked);
 
 	total += document.getElementById("users").value * document.getElementById("websecurity").checked * websecuritypremium * Number(document.getElementById("websecuritypremiumradio").checked);
-} else {
+//} else {
 
-	total += document.getElementById("websecurity").checked * websecurityessential * Number(document.getElementById("websecurityessentialradio").checked);
+//	total += document.getElementById("websecurity").checked * websecurityessential * Number(document.getElementById("websecurityessentialradio").checked);
 
-	total += document.getElementById("websecurity").checked * websecuritypremium * Number(document.getElementById("websecuritypremiumradio").checked);
+//	total += document.getElementById("websecurity").checked * websecuritypremium * Number(document.getElementById("websecuritypremiumradio").checked);
 
-}
+//}
 
-if (Number(document.getElementById("mailsecurityshared").checked) == 0) {
+//if (Number(document.getElementById("mailsecurityshared").checked) == 0) {
         total += document.getElementById("users").value * document.getElementById("mailsecurity").checked * mailsecurityessential * Number(document.getElementById("mailsecurityessentialradio").checked);
 
         total += document.getElementById("users").value * document.getElementById("mailsecurity").checked * mailsecuritypremium * Number(document.getElementById("mailsecuritypremiumradio").checked);
-} else {
+//} else {
 
-        total += document.getElementById("mailsecurity").checked * mailsecurityessential * Number(document.getElementById("mailsecurityessentialradio").checked);
+//        total += document.getElementById("mailsecurity").checked * mailsecurityessential * Number(document.getElementById("mailsecurityessentialradio").checked);
 
-        total += document.getElementById("mailsecurity").checked * mailsecuritypremium * Number(document.getElementById("mailsecuritypremiumradio").checked);
+//        total += document.getElementById("mailsecurity").checked * mailsecuritypremium * Number(document.getElementById("mailsecuritypremiumradio").checked);
 
-}
+//}
 
 
 if (Number(document.getElementById("firewallshared").checked) == 0) {
