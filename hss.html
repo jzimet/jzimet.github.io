@@ -1,26 +1,26 @@
 
 <table> <tr> <td>
-<input type = "number" min="0" max ="1000" value="100" style="background-color:yellow;width:50px" id = "users" onchange="calculate()">
+<input type = "number" min="0" max ="1000" value="100" style="background-color:yellow;height:30px;width:50px;text-align:right" id = "users" onchange="calculate()">
 <label for "users"> number of users</label>
 <br>
-<input type = "number" style="background-color:yellow;width:50px" id = "discount" value="0" onchange="calculate()">
+<input type = "number" style="background-color:yellow;height:30px;width:50px;text-align:right" id = "discount" value="0" onchange="calculate()">
 <label for "discount">% Discount</label>
 <br>
 
-<input type = "number" style="background-color:yellow;width:50px"  id = "total" readonly>
+<input type = "number" style="background-color:yellow;height:30px;width:50px;text-align:right"  id = "total" readonly>
 <label for "total">$ total</label>
 <br>
-<input type = "number" style="background-color:yellow;width:50px" id = "priceperuserperyear" readonly>
+<input type = "number" style="background-color:yellow;height:30px;width:50px;text-align:right" id = "priceperuserperyear" readonly>
 <label for "priceperuserperyear">$ price per user per year</label>
 <br>
-<input type = "number" style="background-color:yellow;width:50px" id = "priceperuserpermonth" readonly>
+<input type = "number" style="background-color:yellow;height:30px;width:50px;text-align:right" id = "priceperuserpermonth" readonly>
 <label for "priceperuserpermonth">$ price per user per month</label>
 </td>
 <td>
-<canvas id="mycanvas1" width="130" height="130" style="border:1px dashed #CCC;">price per user per month</canvas>
+<canvas id="mycanvas1" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
 </td>
 <td>
-<canvas id="can" width="130" height="130" style="border:1px dashed #CCC;">price per user per month</canvas>
+<canvas id="can" width="200" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
 </td>
 <td>
 <img src="hss-talos-pitch.png" align="center" width="200" height="100">
@@ -577,9 +577,9 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 			console.log(Number(100*data[i]/myTotal).toFixed(0));
 		}
 
-                ctx.fillStyle = "blue";
-                ctx.font="bold 14px bebas"
-                ctx.fillText(Number(myTotal/1000).toFixed(0)+'$ k', canvas.width/2-9, canvas.height/2+4, canvas.width/2);
+                ctx.fillStyle = "black";
+                ctx.font="bold 12px bebas"
+                ctx.fillText('$'+ Number(myTotal/1000).toFixed(2)+'k', canvas.width/2-9, canvas.height/2+4, canvas.width/2);
   
 		lastend += Math.PI*2*(data[i]/myTotal);
 	}
