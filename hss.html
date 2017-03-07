@@ -353,8 +353,6 @@ if (document.getElementById("firewallspla").checked) {
 
 }
 
-var ngfirewall=12000;
-
 if (document.getElementById("routerspeed").selectedIndex==0) {
 	var routeripbase=265;
 	var routerdatacenter=435;
@@ -382,6 +380,7 @@ if (document.getElementById("routerspeed").selectedIndex==0) {
         var routerall=8500;
 }
 
+var ngfirewall=12000;
 var ampcloud=12000+18000;
 var tg=85000+52000;
 
@@ -421,11 +420,13 @@ total +=  Number(document.getElementById("users").value) * Number(document.getEl
 //################
 
 clientlessvpndata = document.getElementById("users").value * document.getElementById("vpn").checked * clientlessvpn * Number(document.getElementById("clientlessvpnradio").checked);
+
 total += document.getElementById("users").value * document.getElementById("vpn").checked * clientlessvpn * Number(document.getElementById("clientlessvpnradio").checked);
 
 //################
 
 opendnsdata= document.getElementById("users").value * document.getElementById("opendns").checked * opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked);
+
 total += document.getElementById("users").value * document.getElementById("opendns").checked * opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked);
 
 //################
@@ -434,6 +435,7 @@ total += document.getElementById("users").value * document.getElementById("opend
 	total += document.getElementById("users").value * document.getElementById("websecurity").checked * websecurityessential * Number(document.getElementById("websecurityessentialradio").checked);
 
 	websecuritypremiumdata = document.getElementById("users").value * document.getElementById("websecurity").checked * websecuritypremium * Number(document.getElementById("websecuritypremiumradio").checked);
+
 	total += document.getElementById("users").value * document.getElementById("websecurity").checked * websecuritypremium * Number(document.getElementById("websecuritypremiumradio").checked);
 
 
@@ -443,53 +445,70 @@ total += document.getElementById("users").value * document.getElementById("opend
         total += document.getElementById("users").value * document.getElementById("mailsecurity").checked * mailsecurityessential * Number(document.getElementById("mailsecurityessentialradio").checked);
 
         mailsecuritypremiumdata= document.getElementById("users").value * document.getElementById("mailsecurity").checked * mailsecuritypremium * Number(document.getElementById("mailsecuritypremiumradio").checked);
+
         total += document.getElementById("users").value * document.getElementById("mailsecurity").checked * mailsecuritypremium * Number(document.getElementById("mailsecuritypremiumradio").checked);
 
 
 //################
 
         firewallsmalldata= firewallsmall*Number(document.getElementById("firewallsmallradio").checked)*(document.getElementById("users").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked)*Number(document.getElementById("firewall").checked));
+
         firewallmediumdata= firewallmedium*Number(document.getElementById("firewallmediumradio").checked)*(document.getElementById("users").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked)*Number(document.getElementById("firewall").checked));
+
         firewalllargedata= firewalllarge*Number(document.getElementById("firewalllargeradio").checked)*(document.getElementById("users").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked)*Number(document.getElementById("firewall").checked));
+
         total += (firewallsmall*Number(document.getElementById("firewallsmallradio").checked)+firewallmedium*Number(document.getElementById("firewallmediumradio").checked)+firewalllarge*Number(document.getElementById("firewalllargeradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked)*Number(document.getElementById("firewall").checked));
 
 
 //################
 
         ngfirewalldata= ngfirewall*(document.getElementById("users").value * (1-Number(document.getElementById("ngfirewallshared").checked)) + Number(document.getElementById("ngfirewall").checked) * Number(document.getElementById("ngfirewallshared").checked));
+
         total += ngfirewall*(document.getElementById("users").value * (1-Number(document.getElementById("ngfirewallshared").checked)) + Number(document.getElementById("ngfirewall").checked) * Number(document.getElementById("ngfirewallshared").checked));
 
 
 //################
 
         routerbronzedata = (routeripbase* Number(document.getElementById("routeripbaseradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
+
         routersilverdata = (routerdatacenter* Number(document.getElementById("routerdatacenterradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
+
         routergolddata = (routersecurity* Number(document.getElementById("routersecurityradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
+
         routerplatinumdata = (routerall* Number(document.getElementById("routerallradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
+
         total += (routeripbase* Number(document.getElementById("routeripbaseradio").checked)+routerdatacenter* Number(document.getElementById("routerdatacenterradio").checked)+routersecurity* Number(document.getElementById("routersecurityradio").checked)+routerall* Number(document.getElementById("routerallradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
 
 
 //################
 
         amppublicdata=(ampcloud * Number(document.getElementById("amppublicradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked)*Number(document.getElementById("amp").checked));
+
         ampprivatedata=(ampcloud * Number(document.getElementById("ampprivateradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked)*Number(document.getElementById("amp").checked));
+
         ampprivateairgapdata=(ampcloud * Number(document.getElementById("ampprivateairgapradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked)*Number(document.getElementById("amp").checked));
+
         total +=(ampcloud * Number(document.getElementById("amppublicradio").checked)+ampcloud * Number(document.getElementById("ampprivateradio").checked)+ampcloud * Number(document.getElementById("ampprivateairgapradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked)*Number(document.getElementById("amp").checked));
 
 //#################
 
         tgpublicdata= (tg*Number(document.getElementById("tgpublicradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked)*Number(document.getElementById("tg").checked));
+
         tgprivatedata= (tg*Number(document.getElementById("tgprivateradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked)*Number(document.getElementById("tg").checked));
+
         total += (tg*Number(document.getElementById("tgpublicradio").checked)+tg*Number(document.getElementById("tgprivateradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked)*Number(document.getElementById("tg").checked));
 
 
 //#################
 
 document.getElementById("total").value = parseInt((total*(1-document.getElementById("discount").value/100)));
+
 priceperuserperyear = Number(((total*(1-document.getElementById("discount").value/100))/document.getElementById("users").value).toFixed(2));
+
 document.getElementById("priceperuserperyear").value = priceperuserperyear;
 
 priceperuserpermonth = Number(((total*(1-document.getElementById("discount").value/100))/document.getElementById("users").value/12).toFixed(2));
+
 document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 
 
@@ -577,12 +596,9 @@ var data = [vpnclientdata*Number(document.getElementById("vpn").checked),clientl
 			console.log(Number(100*data[i]/myTotal).toFixed(0));
 		}
 
-                //ctx.fillStyle = "lightgreen";
                 ctx.fillStyle = '#09F';
-                //ctx.font="bold 12px bebas"
                 ctx.font="10px bebas"
                 ctx.fillText('$'+ Number(myTotal/1000).toFixed(1)+'k', canvas.width/2-9, canvas.height/2+4, canvas.width/2);
-                //ctx.fillText('', canvas.width/2-9, canvas.height/2+4, canvas.width/2);
   
 		lastend += Math.PI*2*(data[i]/myTotal);
 	}
