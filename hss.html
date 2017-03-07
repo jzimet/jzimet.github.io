@@ -20,6 +20,9 @@
 <canvas id="mycanvas1" width="130" height="130" style="border:1px dashed #CCC;">price per user per month</canvas>
 </td>
 <td>
+<canvas id="can" width="130" height="130" style="border:1px dashed #CCC;">price per user per month</canvas>
+</td>
+<td>
 <img src="hss-talos-pitch.png" align="center" width="200" height="100">
 </td>
 </tr>
@@ -466,6 +469,30 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
                                     }
                                 }
 
+	//piechart http://jsfiddle.net/hvYkM/1/
+	//https://www.w3schools.com/tags/ref_colornames.asp
+
+	var canvas = document.getElementById("can");
+	var ctx = canvas.getContext("2d");
+	var lastend = 0;
+	var data = [(vpnclient*quantity*document.getElementById("vpn").checked),(clientlessvpn*quantity*document.getElementById("vpn").checked),(opendnsforroaminguser*quantity*document.getElementById("opendns").checked),(websecurityessential*quantity*document.getElementById("websecurity").checked),(websecuritypremium)*quantity*document.getElementById("websecurity").checked,(mailsecurityessential*quantity**document.getElementById("mailsecurity").checked),(mailsecuritypremium*quantity**document.getElementById("mailsecurity").checked),firewallsmall**document.getElementById("firewall").checked,firewallmedium**document.getElementById("firewall").checked,firewalllarge*document.getElementById("firewall").checked,routeripbase*document.getElementById("router").checked, routerdatacenter*document.getElementById("router").checked,routerall*document.getElementById("router").checked,ngfirewall*document.getElementById("ngfirewall").checked,ampcloud*document.getElementById("amp").checked,tg*document.getElementById("tg").checked];
+	var myTotal = 0;
+	var myColor = ['#50B432','#ED561B','#DDDF00','#24CBE5','#64E572','#FF9655','#FFF263','#6AF9C4', '#F0F8FF', '#FAEBD7', '#00FFFF', '#7FFFD4', '#F0FFFF', '#F5F5DC', '#FFE4C4', '#1E90FF'];
+
+	for(var e = 0; e < data.length; e++)
+		{
+			  myTotal += data[e];
+		}
+
+	for (var i = 0; i < data.length; i++) {
+		ctx.fillStyle = myColor[i];
+		ctx.beginPath();
+		ctx.moveTo(canvas.width/2,canvas.height/2);
+		ctx.arc(canvas.width/2,canvas.height/2,canvas.height/2,lastend,lastend+(Math.PI*2*(data[i]/myTotal)),false);
+		ctx.lineTo(canvas.width/2,canvas.height/2);
+		ctx.fill();
+		lastend += Math.PI*2*(data[i]/myTotal);
+	}
 }
 
 calculate();
