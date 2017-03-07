@@ -34,13 +34,13 @@
 -->
 <img src="hss-anyconnect.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "vpn" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "vpn" checked="checked" onchange="calculate()">
 <label for "vpn">vpn remote acesss</label>
 
-<input type = "radio" name = "vpnclient" id="vpnclientradio" value="vpnclient" checked="checked" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "vpnclient" id="vpnclientradio" value="vpnclient" checked="checked" onchange="calculate()">
 <label for "vpnclient">ipsec based</label>
 
-<input type = "radio" name = "vpnclient" id="clientlessvpnradio" value="clientlessvpn" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "vpnclient" id="clientlessvpnradio" value="clientlessvpn" onchange="calculate()">
 <label for "clientlessvpn">ssl based (clientles) </label>
 
 <label id="vpnclientlabel"></label>
@@ -49,17 +49,17 @@
 <img src="hss-opendns.png" align="center" width="50" height="50">
 <img src="hss-umbrella.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "opendns" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "opendns" checked="checked" onchange="calculate()">
 <label for "opendns">Cisco Umbrella open dns and Cloud Lock</label>
 
-<input type = "radio" name = "opendns" id="opendnsforroaminguserradio" value="opendnsforroaminguser" checked="checked" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforroaminguserradio" value="opendnsforroaminguser" checked="checked" onchange="calculate()">
 <label for "opendnsforroaminguser">for roaming user</label>
 
 
-<input type = "radio" name = "opendns" value="opendnsforbranch" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "opendns" value="opendnsforbranch" onchange="calculate()">
 <label for "opendnsforbranch">for branch</label>
 
-<input type = "radio" name = "opendns" value="opendnsforwlan" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "opendns" value="opendnsforwlan" onchange="calculate()">
 <label for "opendnsforwlan">for wlan</label>
 
 <!--
@@ -70,17 +70,17 @@
 
 <img src="hss-emailsecurity.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "mailsecurity" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "mailsecurity" checked="checked" onchange="calculate()">
 <label for "mailsecurity">mail security</label>
 
-<input type = "radio" name = "mailsecurity" id = "mailsecurityessentialradio" value="mailsecurityessential" checked="checked" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px"  name = "mailsecurity" id = "mailsecurityessentialradio" value="mailsecurityessential" checked="checked" onchange="calculate()">
 <label for "mailsecurityessential">essential</label>
 
-<input type = "radio" name = "mailsecurity" id= "mailsecuritypremiumradio" value="mailsecuritypremium" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "mailsecurity" id= "mailsecuritypremiumradio" value="mailsecuritypremium" onchange="calculate()">
 <label for "mailsecuritypremium">premium</label>
 
 <!--
-<input type = "checkbox" id = "mailsecurityshared" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px"  id = "mailsecurityshared" checked="checked" onchange="calculate()">
 <label for "mailsecurityshared">shared</label>
 
 <label id="mailsecuritylabel"></label>
@@ -90,17 +90,17 @@
 
 <img src="hss-websecurity.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "websecurity" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "websecurity" checked="checked" onchange="calculate()">
 <label for "websecurity">web security</label>
 
-<input type = "radio" name = "websecurity" id = "websecurityessentialradio" value="websecurityessential" checked="checked" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "websecurity" id = "websecurityessentialradio" value="websecurityessential" checked="checked" onchange="calculate()">
 <label for "websecurityessential">essential</label>
 
-<input type = "radio" name = "websecurity" id = "websecuritypremiumradio" value="websecuritypremium" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "websecurity" id = "websecuritypremiumradio" value="websecuritypremium" onchange="calculate()">
 <label for "websecuritypremium">premium</label>
 
 <!--
-<input type = "checkbox" id = "websecurityshared" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px"  id = "websecurityshared" checked="checked" onchange="calculate()">
 <label for "websecurityshared">shared</label>
 
 <label id="websecuritylabel"></label>
@@ -110,22 +110,22 @@
 
 <img src="hss-firewall.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "firewall" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "firewall" checked="checked" onchange="calculate()">
 <label for "firewall">firewall</label>
 
-<input type = "radio" name = "firewall" id ="firewallsmallradio" value="firewallsmall" checked="checked" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "firewall" id ="firewallsmallradio" value="firewallsmall" checked="checked" onchange="calculate()">
 <label for "firewallsmall">small (100MB)</label>
 
-<input type = "radio" name = "firewall" id="firewallmediumradio" value="firewallmedium" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "firewall" id="firewallmediumradio" value="firewallmedium" onchange="calculate()">
 <label for "firewallmedium">medium (1GB) </label>
 
-<input type = "radio" name = "firewall" id="firewalllargeradio" value="firewalllarge" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "firewall" id="firewalllargeradio" value="firewalllarge" onchange="calculate()">
 <label for "firewalllarge">large (2GB)</label>
 
-<input type = "checkbox" id = "firewallshared" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "firewallshared" checked="checked" onchange="calculate()">
 <label for "firewallshared">shared</label>
 
-<input type = "checkbox" id = "firewallspla" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "firewallspla" onchange="calculate()">
 <label for "firewallspla">spla</label>
 
 <label id="firewalllabel"></label>
@@ -133,25 +133,25 @@
 
 <img src="hss-csr.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "router" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "router" checked="checked" onchange="calculate()">
 <label for "router">router</label>
 
-<input type = "radio" name = "router" id ="routeripbaseradio" value="routeripbase" checked="checked">
+<input type = "radio" style="height:20px;width:20px" name = "router" id ="routeripbaseradio" value="routeripbase" checked="checked">
 <label for "routeripbase">bronze</label>
 
-<input type = "radio" name = "router" id ="routerdatacenterradio" value="routerdatacenter" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "router" id ="routerdatacenterradio" value="routerdatacenter" onchange="calculate()">
 <label for "routerdatacenter">silver</label>
 
-<input type = "radio" name = "router" id = "routersecurityradio" value="routersecurity" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "router" id = "routersecurityradio" value="routersecurity" onchange="calculate()">
 <label for "routersecurity">gold</label>
 
-<input type = "radio" name = "router" id="routerallradio" value="routerall" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "router" id="routerallradio" value="routerall" onchange="calculate()">
 <label for "routerall">platinum</label>
 
 <!--
 https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 -->
-<label> Speed:<select id="routerspeed" onchange="calculate()">
+<label> Speed:<select style="height:25px;width:70px" id="routerspeed" onchange="calculate()">
 <option selected>10M</option>
 <option>100M</option>
 <option>1GB</option>
@@ -159,10 +159,10 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <option>10GB</option>
 </select></label>
 
-<input type = "checkbox" id = "routershared" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "routershared" checked="checked" onchange="calculate()">
 <label for "routershared">shared</label>
 
-<input type = "checkbox" id = "routerspla" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "routerspla" onchange="calculate()">
 <label for "routerspla">spla</label>
 
 <label id="routerlabel"></label>
@@ -170,13 +170,13 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 
 <img src="hss-sourcefire.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "ngfirewall" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "ngfirewall" onchange="calculate()">
 <label for "ngfirewall">ng firewall</label>
 
-<input type = "radio" name = "ngfirewall" id="ngfirewallradio" value="ngfwipsamp" checked="checked" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "ngfirewall" id="ngfirewallradio" value="ngfwipsamp" checked="checked" onchange="calculate()">
 <label for "ngfwipsamp">ips and amp</label>
 
-<input type = "checkbox" id = "ngfirewallshared" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "ngfirewallshared" checked="checked" onchange="calculate()">
 <label for "ngfirewallshared">shared</label>
 
 <label id="ngfirewalllabel"></label>
@@ -185,19 +185,19 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <img src="hss-amp.png" align="center" width="50" height="50">
 <img src="hss-talos.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "amp" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "amp" onchange="calculate()">
 <label for "router">anti malware protection</label>
 
-<input type = "radio" name = "amp" id = "amppublicradio" value="amppublic" checked="checked" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "amp" id = "amppublicradio" value="amppublic" checked="checked" onchange="calculate()">
 <label for "amppublic">public</label>
 
-<input type = "radio" name = "amp" id = "ampprivateradio" value="ampprivate" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "amp" id = "ampprivateradio" value="ampprivate" onchange="calculate()">
 <label for "ampprivate">private with internet (proxy)</label>
 
-<input type = "radio" name = "amp" id = "ampprivateairgapradio" value="ampprivateairgap" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "amp" id = "ampprivateairgapradio" value="ampprivateairgap" onchange="calculate()">
 <label for "ampprivateairgap">private without internet (air gap)</label>
 
-<input type = "checkbox" id = "ampshared" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "ampshared" checked="checked" onchange="calculate()">
 <label for "ampshared">shared</label>
 
 <br>
@@ -206,16 +206,16 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <img src="hss-tg.png" align="center" width="50" height="50">
 <img src="hss-talos.png" align="center" width="50" height="50">
 
-<input type = "checkbox" id = "tg" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "tg" onchange="calculate()">
 <label for "tg">threatgrid</label>
 
-<input type = "radio" name = "tg" id = "tgpublicradio" value="tgpublic" checked="checked" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "tg" id = "tgpublicradio" value="tgpublic" checked="checked" onchange="calculate()">
 <label for "tgpublic">public</label>
 
-<input type = "radio" name = "tg" id = "tgprivateradio" value="tgprivate" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "tg" id = "tgprivateradio" value="tgprivate" onchange="calculate()">
 <label for "tgprivate">private</label>
 
-<input type = "checkbox" id = "tgshared" checked="checked" onchange="calculate()">
+<input type = "checkbox" style="height:20px;width:20px" id = "tgshared" checked="checked" onchange="calculate()">
 <label for "tgshared">shared</label>
 
 <br>
