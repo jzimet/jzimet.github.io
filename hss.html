@@ -32,7 +32,6 @@
 <!--
 <input type = "number" id = "test">
 -->
-
 <img src="hss-anyconnect.png" align="center" width="50" height="50">
 
 <input type = "checkbox" id = "vpn" checked="checked" onchange="calculate()">
@@ -152,7 +151,7 @@
 <!--
 https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 -->
-<select id="routerspeed">
+<select id="routerspeed" onchange="calculate()">
 <option selected>10M</option>
 <option>100M</option>
 <option>1GB</option>
@@ -318,10 +317,35 @@ if (document.getElementById("firewallspla").checked) {
 
 var ngfirewall=12000;
 
-var routeripbase=285;
-var routerdatacenter=435;
-var routersecurity=485;
-var routerall=665;
+if (document.getElementById("routerspeed").selectedIndex==0) {
+	var routeripbase=265;
+	var routerdatacenter=435;
+	var routersecurity=485;
+	var routerall=665;
+} else if(document.getElementById("routerspeed").selectedIndex==1) {
+        var routeripbase=1040;
+        var routerdatacenter=1300;
+        var routersecurity=1560;
+        var routerall=1820;
+} else if(document.getElementById("routerspeed").selectedIndex==2) {
+        var routeripbase=3625;
+        var routerdatacenter=4340;
+        var routersecurity=4675;
+        var routerall=5530;
+} else if(document.getElementById("routerspeed").selectedIndex==3) {
+        var routeripbase=4805;
+        var routerdatacenter=6235;
+        var routersecurity=7820;
+        var routerall=8570;
+} else if(document.getElementById("routerspeed").selectedIndex==4) { 
+        var routeripbase=8500;
+        var routerdatacenter=8500;
+        var routersecurity=8500;
+        var routerall=8500;
+}
+
+
+//document.getElementById("test").value=routeripbase;
 
 var ampcloud=12000+18000;
 var tg=85000+52000;
