@@ -540,6 +540,7 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 	var ctx = canvas.getContext("2d");
 	var lastend = 0;
 
+	var datanames = ['ipsec','sslvpn','opendns','wsa-ess','wsa-prem','esa-ess','esa-prem','fw-S','fw-M','fw-L','r-bronze', 'r-sil','r-gold','r-plat','ngfw','amppub','amppriv','amppriv-teairgap','tg-pub', 'tg-priv'];
 	var data = [vpnclientdata*Number(document.getElementById("vpn").checked),clientlessvpndata*Number(document.getElementById("vpn").checked),opendnsdata*Number(document.getElementById("opendns").checked),websecurityessentialdata*Number(document.getElementById("websecurity").checked),websecuritypremiumdata*Number(document.getElementById("websecurity").checked),mailsecurityessentialdata*Number(document.getElementById("mailsecurity").checked),mailsecuritypremiumdata*Number(document.getElementById("mailsecurity").checked),firewallsmalldata*Number(document.getElementById("firewall").checked),firewallmediumdata*Number(document.getElementById("firewall").checked),firewalllargedata*Number(document.getElementById("firewall").checked),routerbronzedata*Number(document.getElementById("router").checked), routersilverdata*Number(document.getElementById("router").checked),routergolddata*Number(document.getElementById("router").checked),routerplatinumdata*Number(document.getElementById("router").checked),ngfirewalldata*Number(document.getElementById("ngfirewall").checked),amppublicdata*Number(document.getElementById("amp").checked), ampprivatedata*Number(document.getElementById("amp").checked),ampprivateairgapdata*Number(document.getElementById("amp").checked),tgpublicdata*Number(document.getElementById("tg").checked), tgprivatedata*Number(document.getElementById("tg").checked)];
 	//document.getElementById("test").value = Number(document.getElementById("firewall").checked);
 	var myTotal = 0;
@@ -555,13 +556,28 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 		ctx.fillStyle = myColor[i];
 		ctx.beginPath();
 		ctx.moveTo(canvas.width/2,canvas.height/2);
-		ctx.arc(canvas.width/2,canvas.height/2,canvas.height/2,lastend,lastend+(Math.PI*2*(data[i]/myTotal)),false);
+		ctx.arc(canvas.width/2,canvas.height/2,canvas.height/3,lastend,lastend+(Math.PI*2*(data[i]/myTotal)),false);
 		ctx.lineTo(canvas.width/2,canvas.height/2);
 		ctx.fill();
 
-                ctx.fillStyle = "red";
-                ctx.font="bold 20px bebas"
-                ctx.fillText(Number(myTotal).toFixed(0)+'$ GPL', canvas.width/2-18, canvas.height/2+4, canvas.width/2);
+
+                var radius = canvas.height/2/1.5; //use suitable radius
+                var endAngle = lastend + (Math.PI*(data[i]/myTotal));
+                var setX = canvas.width/2 + Math.cos(endAngle) * radius;
+                var setY = canvas.height/2 + Math.sin(endAngle) * radius;
+                ctx.fillStyle = "#000000";
+                ctx.font = '10px Calibri';
+                if (data[i]==0) {
+			console.log(Number(100*data[i]/myTotal).toFixed(0));
+		
+		} else {	
+			ctx.fillText(Number(100*data[i]/myTotal).toFixed(0)+"%"+datanames[i],setX,setY);
+			console.log(Number(100*data[i]/myTotal).toFixed(0));
+		}
+
+                ctx.fillStyle = "#000000";
+                ctx.font="bold 14px bebas"
+                ctx.fillText(Number(myTotal/1000).toFixed(0)+'$ k', canvas.width/2-9, canvas.height/2+4, canvas.width/2);
   
 		lastend += Math.PI*2*(data[i]/myTotal);
 	}
