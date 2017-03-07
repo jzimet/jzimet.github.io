@@ -538,9 +538,11 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 
 	var canvas = document.getElementById("can");
 	var ctx = canvas.getContext("2d");
+	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 	var lastend = 0;
 
 	var datanames = ['ipsec','sslvpn','opendns','wsa-ess','wsa-prem','esa-ess','esa-prem','fw-S','fw-M','fw-L','r-bronze', 'r-sil','r-gold','r-plat','ngfw','amppub','amppriv','amppriv-teairgap','tg-pub', 'tg-priv'];
+	
 	var data = [vpnclientdata*Number(document.getElementById("vpn").checked),clientlessvpndata*Number(document.getElementById("vpn").checked),opendnsdata*Number(document.getElementById("opendns").checked),websecurityessentialdata*Number(document.getElementById("websecurity").checked),websecuritypremiumdata*Number(document.getElementById("websecurity").checked),mailsecurityessentialdata*Number(document.getElementById("mailsecurity").checked),mailsecuritypremiumdata*Number(document.getElementById("mailsecurity").checked),firewallsmalldata*Number(document.getElementById("firewall").checked),firewallmediumdata*Number(document.getElementById("firewall").checked),firewalllargedata*Number(document.getElementById("firewall").checked),routerbronzedata*Number(document.getElementById("router").checked), routersilverdata*Number(document.getElementById("router").checked),routergolddata*Number(document.getElementById("router").checked),routerplatinumdata*Number(document.getElementById("router").checked),ngfirewalldata*Number(document.getElementById("ngfirewall").checked),amppublicdata*Number(document.getElementById("amp").checked), ampprivatedata*Number(document.getElementById("amp").checked),ampprivateairgapdata*Number(document.getElementById("amp").checked),tgpublicdata*Number(document.getElementById("tg").checked), tgprivatedata*Number(document.getElementById("tg").checked)];
 	//document.getElementById("test").value = Number(document.getElementById("firewall").checked);
 	var myTotal = 0;
