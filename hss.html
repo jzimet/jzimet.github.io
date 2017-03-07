@@ -521,8 +521,8 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
                                 ctx1.strokeStyle = '#09F';
                                 ctx1.font="14px bebas"
                                 ctx1.textAlign = 'center';
-                                ctx1.fillText(al1.toFixed(2)+'$', cw1*.5, ch1*.5+2, cw1);
-                                ctx1.fillText('priceperuserpermonth', cw1/2+2, ch1/2+14, cw1/2);
+                                ctx1.fillText(priceperuserpermonth +'$', cw1*.5, ch1*.5+2, cw1);
+                                ctx1.fillText('per user per month', cw1/2+2, ch1/2+14, cw1/2);
                                 ctx1.beginPath();
                                 ctx1.arc(cw1*.5,ch1*.5,60,start1,diff1/10+start1,false);
                                 ctx1.stroke();
@@ -575,7 +575,7 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 			console.log(Number(100*data[i]/myTotal).toFixed(0));
 		}
 
-                ctx.fillStyle = "#000000";
+                ctx.fillStyle = "blue";
                 ctx.font="bold 14px bebas"
                 ctx.fillText(Number(myTotal/1000).toFixed(0)+'$ k', canvas.width/2-9, canvas.height/2+4, canvas.width/2);
   
