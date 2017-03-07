@@ -29,9 +29,13 @@
 </table>
 <br>
 
+<!################ vpn client
+-->
+
 <!--
 <input type = "number" id = "test">
 -->
+
 <img src="hss-anyconnect.png" align="center" width="50" height="50">
 
 <input type = "checkbox" style="height:20px;width:20px" id = "vpn" checked="checked" onchange="calculate()">
@@ -45,6 +49,9 @@
 
 <label id="vpnclientlabel"></label>
 <br>
+
+<!--################ open dns
+-->
 
 <img src="hss-opendns.png" align="center" width="50" height="50">
 <img src="hss-umbrella.png" align="center" width="50" height="50">
@@ -68,6 +75,9 @@
 -->
 <br>
 
+<!--################ email security
+-->
+
 <img src="hss-emailsecurity.png" align="center" width="50" height="50">
 
 <input type = "checkbox" style="height:20px;width:20px" id = "mailsecurity" checked="checked" onchange="calculate()">
@@ -88,6 +98,9 @@
 -->
 <br>
 
+<!--################ web security
+-->
+
 <img src="hss-websecurity.png" align="center" width="50" height="50">
 
 <input type = "checkbox" style="height:20px;width:20px" id = "websecurity" checked="checked" onchange="calculate()">
@@ -107,6 +120,9 @@
 <a href="https://info.sourcefire.com/ContentSecurityOfferPage.html">Try Web Security</a>
 -->
 <br>
+
+<!--################ firewall
+-->
 
 <img src="hss-firewall.png" align="center" width="50" height="50">
 
@@ -130,6 +146,9 @@
 
 <label id="firewalllabel"></label>
 <br>
+
+<!--################ router
+-->
 
 <img src="hss-csr.png" align="center" width="50" height="50">
 
@@ -168,6 +187,9 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <label id="routerlabel"></label>
 <br>
 
+<!--################ sourcefire ng firewall
+-->
+
 <img src="hss-sourcefire.png" align="center" width="50" height="50">
 
 <input type = "checkbox" style="height:20px;width:20px" id = "ngfirewall" onchange="calculate()">
@@ -181,6 +203,9 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 
 <label id="ngfirewalllabel"></label>
 <br>
+
+<!--################ amp
+-->
 
 <img src="hss-amp.png" align="center" width="50" height="50">
 <img src="hss-talos.png" align="center" width="50" height="50">
@@ -202,6 +227,8 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 
 <br>
 
+<!--################ threatgrid
+-->
 
 <img src="hss-tg.png" align="center" width="50" height="50">
 <img src="hss-talos.png" align="center" width="50" height="50">
@@ -220,12 +247,19 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 
 <br>
 
+<!--################ ubiqube and nso
+-->
+
 <img src="hss-ubiqube.png" align="center" width="50" height="50">
 <img src="hss-tail-f.png" align="center" width="50" height="50">
 <br>
 <img src="hss-stealthwatch.png" align="center" width="50" height="50">
 <a href="http://www.cisco.com/c/en/us/products/collateral/security/stealthwatch/datasheet-c78-736512.html">StealthWatch</a>
 <br>
+
+<!--################
+-->
+
 <table>
 <tr>
 <td>
@@ -241,6 +275,9 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 </td>
 </tr>
 </table>
+
+<!--################
+-->
 
 <script>
 
@@ -419,8 +456,8 @@ total += document.getElementById("users").value * document.getElementById("opend
 
 //################
 
-        ngfirewalldata= ngfirewall*(document.getElementById("users").value * (1-Number(document.getElementById("ngfirewallshared").checked)) + document.getElementById("ngfirewall").checked * Number(document.getElementById("ngfirewallshared").checked));
-        total += ngfirewall*(document.getElementById("users").value * (1-Number(document.getElementById("ngfirewallshared").checked)) + document.getElementById("ngfirewall").checked * Number(document.getElementById("ngfirewallshared").checked));
+        ngfirewalldata= ngfirewall*(document.getElementById("users").value * (1-Number(document.getElementById("ngfirewallshared").checked)) + Number(document.getElementById("ngfirewall").checked) * Number(document.getElementById("ngfirewallshared").checked));
+        total += ngfirewall*(document.getElementById("users").value * (1-Number(document.getElementById("ngfirewallshared").checked)) + Number(document.getElementById("ngfirewall").checked) * Number(document.getElementById("ngfirewallshared").checked));
 
 
 //################
