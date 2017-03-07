@@ -551,7 +551,7 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 	for(var e = 0; e < data.length; e++)
 		{
 			  myTotal += data[e];
-				console.log (data[e]);
+//				console.log (data[e]);
 		}
 
 	for (var i = 0; i < data.length; i++) {
@@ -559,6 +559,14 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 		ctx.beginPath();
 		ctx.moveTo(canvas.width/2,canvas.height/2);
 		ctx.arc(canvas.width/2,canvas.height/2,canvas.height/3,lastend,lastend+(Math.PI*2*(data[i]/myTotal)),false);
+                ctx.lineTo(canvas.width/2,canvas.height/2);
+                ctx.fill();
+		
+                ctx.fillStyle = "white";
+                ctx.beginPath();
+                ctx.moveTo(canvas.width/2,canvas.height/2);
+                ctx.arc(canvas.width/2,canvas.height/2,canvas.height/5,lastend,lastend+(Math.PI*2*(data[i]/myTotal)),false);
+
 		ctx.lineTo(canvas.width/2,canvas.height/2);
 		ctx.fill();
 
@@ -570,7 +578,7 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
                 ctx.fillStyle = "#000000";
                 ctx.font = '10px Calibri';
                 if (data[i]==0) {
-			console.log(Number(100*data[i]/myTotal).toFixed(0));
+//			console.log(Number(100*data[i]/myTotal).toFixed(0));
 		
 		} else {	
 			ctx.fillText(Number(100*data[i]/myTotal).toFixed(0)+"%"+datanames[i],setX,setY);
@@ -578,7 +586,8 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 		}
 
                 ctx.fillStyle = "black";
-                ctx.font="bold 12px bebas"
+                //ctx.font="bold 12px bebas"
+                ctx.font="12px bebas"
                 ctx.fillText('$'+ Number(myTotal/1000).toFixed(2)+'k', canvas.width/2-9, canvas.height/2+4, canvas.width/2);
   
 		lastend += Math.PI*2*(data[i]/myTotal);
