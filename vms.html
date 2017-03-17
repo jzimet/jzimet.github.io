@@ -188,17 +188,19 @@
 
 <label>CPE select :
 <select>
+<option value="me1200">ME 1200</option>
+<option value="rv340">RV 340</option>
 <option value="isr881">ISR881W</option>
 <option value="isr892">ISR 892</option>
 <option value="isr2921">ISR 1941</option>
 <option value="isr3925">ISR 3925E</option>
 <option value="isr4321">ISR 4321</option>
-<option value="isr4331">ISR4331</option>
-<option value="isr4351">ISR4351</option>
-<option value="isr4431">ISR4431</option>
-<option value="isr4451">ISR4451</option>
-<option value="asr1001">ASR1001X</option>
-<option value="asr1002">ASR1002X</option>
+<option value="isr4331">ISR 4331</option>
+<option value="isr4351">ISR 4351</option>
+<option value="isr4431">ISR 4431</option>
+<option value="isr4451">ISR 4451</option>
+<option value="asr1001">ASR 1001X</option>
+<option value="asr1002">ASR 1002X</option>
 </select>
 </label>
 -->
@@ -229,7 +231,7 @@ function insRow()
                 if (i == 0) {
                         cell.innerHTML="<input type='button' value='Delete Row' onclick='deleteRow(this)'/>";
                 } else if (i== (x.rows[0].cells.length-1)) {
-                        cell.innerHTML='<select><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
+                        cell.innerHTML='<select><option value="me1200">ME 1200</option><option value="rv340">RV 340</option><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
 		} else {
                         cell.innerHTML="<input size=25 type='text' value='"+i+"'>";
                 }
