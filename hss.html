@@ -276,6 +276,23 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <a href="http://www.cisco.com/c/en/us/products/collateral/security/stealthwatch/datasheet-c78-736512.html">StealthWatch</a>
 <br>
 
+
+<!--################ ubiqube and nso
+-->
+<div id="tablediv">
+    <input type="button" id="savedata" value="Save data"/><br/><br/>
+    <table id="table" border="1">
+        <tr>
+            <td><input type="button" id="add" value="Add Row" onclick="insRow()"/></td>
+        <td>Tenant id</td>
+        <td>Number of Branch</td>
+        <td>Number of employee per tennant</td>
+        <td>CPE Select</td>
+        </tr>
+    </table>
+<br>
+
+
 <!--################
 -->
 
@@ -297,6 +314,7 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 
 <!--################
 -->
+
 
 <script>
 
@@ -621,6 +639,28 @@ var data = [vpnclientdata*Number(document.getElementById("vpn").checked),clientl
   
 		lastend += Math.PI*2*(data[i]/myTotal);
 	}
+}
+
+function deleteRow(row)
+{
+    var i=row.parentNode.parentNode.rowIndex;
+    document.getElementById('table').deleteRow(i);
+}
+
+function insRow()
+{
+    var x=document.getElementById('table');
+    var row = x.insertRow(-1);
+        for (i=0; i< x.rows[0].cells.length;i++) {
+                var cell = row.insertCell(i);
+                if (i == 0) {
+                        cell.innerHTML="<input type='button' value='Delete Row' onclick='deleteRow(this)'/>";
+                } else if (i== (x.rows[0].cells.length-1)) {
+                        cell.innerHTML='<select><option value="me1200">ME 1200</option><option value="rv340">RV 340</option><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
+                } else {
+                        cell.innerHTML="<input size=25 type='text' value='"+i+"'>";
+                }
+        }
 }
 
 calculate();
