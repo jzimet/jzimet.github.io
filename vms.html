@@ -229,13 +229,11 @@
 <td>
 <label style="color: #3CBC8D;font-size: 20px">Total: $<input type = "number" id = "total" readonly style="width: 4em; height: 2em; font-size: 30px; background-color: #3CBC8D; color: white"></label>
 </td>
-<!--
 <td>
-<label style="color: #3CBC8D;font-size: 20px">Per user per month: $<input type = "number" id = "mrr" readonly style="width: 4em; height: 2em; font-size: 30px; background-color: #3CBC8D; color: white"></label>
+<label style="color: #3CBC8D;font-size: 20px">Per user per month: $<input type = "number" id = "mrr" readonly style="width: 3em; height: 2em; font-size: 30px; background-color: #3CBC8D; color: white"></label>
 </td>
--->
-<td>
-<label for="slider" style="color: #3CBC8D">Discount:</label><input type="range" min="0" max="100" value="20" step = "5" id="slider" oninput="sliderOutputUpdate(value)"><output for="slider" id="volume" style="color: #3CBC8D">20 %</output>
+<td style="vertical-align:middle">
+<label for="slider" style="color: #3CBC8D">Discount:</label><input type="range" min="0" max="100" value="20" step = "5" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="slider" oninput="sliderOutputUpdate(value)"><output for="slider" id="volume" style="color: #3CBC8D">20 %</output>
 </td>
 <td>
 <canvas id="mycanvas1" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
@@ -358,8 +356,8 @@ total = (wsa + wsasophos+wsaamp+wsamcafee+esa+esadlp+esaamp+esaencryption+esamca
 //console.log("total:"+total);
 
 priceperuserpermonth = Number(total/users/12).toFixed(2);
-document.getElementById("total").value = Number(total);
-//document.getElementById("mrr").value = Number(priceperuserpermonth);
+document.getElementById("total").value = Number(total).toFixed(0);
+document.getElementById("mrr").value = Number(priceperuserpermonth).toFixed(2);
 
 //console.log("wsa:"+Number(document.getElementById("wsa").checked));
 //console.log("wsasophos:"+Number(document.getElementById("wsasophos").checked));
