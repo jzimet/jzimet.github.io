@@ -13,15 +13,15 @@
 <td colspan=2><input type="checkbox" id = "wsa" onclick="calculate()">Web Security</td>
 </tr>
 <tr>
-<td></td>
+<td> - </td>
 <td><input type = "checkbox" id = "wsasophos" onclick="calculate()">Sophos</td>
 </tr>
 <tr>
-<td></td>
-<td><input type = "checkbox" id = "wsaamp" onclick="calculate()">AMP</td>
+<td> - </td>
+<td><input type = "checkbox" id = "wsaamp" onclick="calculate()">Anti Malware protection</td>
 </tr>
 <tr>
-<td></td>
+<td> - </td>
 <td><input type = "checkbox" id = "wsamcafee" onclick="calculate()">McAfee</td>
 </tr>
 </table>
@@ -31,13 +31,19 @@
 <legend>Remote Access Option</legend>
 <table>
 <tr>
-<td><input type="checkbox" id = "acplus" onclick="calculate()">ipsec based (AC Plus)</td>
+<td>
+<input type="checkbox" id = "ipsecremoteaccess" onclick="calculate()">ipsec remote access (AC Plus)</td>
+</td>
 </tr>
 <tr>
-<td><input type = "checkbox" id = "acapex" onclick="calculate()">ssl based (AC APEX)</td>
+<td>
+<input type="checkbox" id = "sslremoteaccess" onclick="calculate()">ssl remote access (AC APEX)</td>
+</td>
 </tr>
 <tr>
-<td><input type = "checkbox" id = "opendns" onclick="calculate()">open dns (cloudlock)</td>
+<td>
+<input type = "checkbox" id = "opendns" onclick="calculate()">open dns (cloudlock)
+</td>
 </tr>
 </table>
 </fieldset>
@@ -60,20 +66,24 @@
 <td colspan=2><input type="checkbox" id = "esa" onclick="calculate()">Email Security</td>
 </tr>
 <tr>
-<td></td>
+<td> - </td>
 <td><input type = "checkbox" id = "esadlp" onclick="calculate()">Data Loss Prevention</td>
 </tr>
 <tr>
-<td></td>
+<td> - </td>
 <td><input type = "checkbox" id = "esaamp" onclick="calculate()">Anti Malware protection</td>
 </tr>
 <tr>
-<td></td>
+<td> - </td>
 <td><input type = "checkbox" id = "esaencryption" onclick="calculate()">Encryption</td>
 </tr>
 <tr>
-<td></td>
+<td> - </td>
 <td><input type = "checkbox" id = "esamcafee" onclick="calculate()">McAfee</td>
+</tr>
+<tr>
+<td> - </td>
+<td><input type = "checkbox" id = "esasophos" onclick="calculate()">Sophos</td>
 </tr>
 </table>
 </fieldset>
@@ -110,9 +120,9 @@
 <td><input type = "checkbox" id = "asa" onclick="calculate()">ASAv</td>
 <td>
 <select id = "selectasamodel" onchange="calculate()">
-<option value="100">ASAv5</option>
-<option value="200">ASAv10</option>
-<option value="300">ASAv30</option>
+<option>100MB ASAv5</option>
+<option>1GB ASAv10</option>
+<option>2GB ASAv30</option>
 </select>
 </td>
 <td></td>
@@ -291,17 +301,20 @@ priceperuserpermonth=0;
 discount = 1-document.getElementById("slider").value/100;
 users = document.getElementById("employee1").value;
 wsa = 34.84;
-wsasophos = 69.99;
-wsaamp = 69.99;
-wsamcafee = 69.99;
-acplus=1125/500;
-acapex = 3200/500;
+wsasophos = 16.06;
+wsaamp = 22.10;
+wsamcafee = 16.06;
+
+ipsecremoteaccess=1125/500;
+sslremoteaccess = 3200/500;
 opendns = 12*1.63;
+
 esa = 19.06;
 esadlp = 31.83;
-esaamp = 31.83;
-esaencryption = 31.83;
-esamcafee = 31.83;
+esaamp = 12.79;
+esasophos=17.04
+esaencryption = 17.33;
+esamcafee = 12;
 
 //https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 csr = 0;
@@ -314,6 +327,8 @@ asa=0;
 asaindex1=document.getElementById("selectasamodel").selectedIndex;
 var asaoptions = [ 449, 4794, 19176];
 asa = asaoptions[asaindex1];
+
+
 ngips = 12000;
 vise = 400;
 
@@ -339,21 +354,20 @@ esadlp = Number(document.getElementById("esadlp").checked)*esadlp*users;
 esaamp = Number(document.getElementById("esaamp").checked)*esaamp*users;
 esaencryption = Number(document.getElementById("esaencryption").checked)*esaencryption*users;
 esamcafee = Number(document.getElementById("esamcafee").checked)*esamcafee*users;
+esasophos = Number(document.getElementById("esasophos").checked)*esasophos*users;
 
 csr = Number(document.getElementById("csr").checked)*csr;
 asa = Number(document.getElementById("asa").checked)*asa;
 ngips = Number(document.getElementById("ngips").checked)*ngips;
 vise = Number(document.getElementById("vise").checked)*vise;
 
-acplus = Number(document.getElementById("acplus").checked)*acplus*users;
-acapex = Number(document.getElementById("acapex").checked)*acapex*users;
+ipsecremoteaccess = Number(document.getElementById("ipsecremoteaccess").checked)*ipsecremoteaccess*users;
+sslremoteaccess = Number(document.getElementById("sslremoteaccess").checked)*sslremoteaccess*users;
 opendns = Number(document.getElementById("opendns").checked)*opendns*users;
 
 cpe = Number(document.getElementById("cpe1").checked)*cpe;
 
-total = (wsa + wsasophos+wsaamp+wsamcafee+esa+esadlp+esaamp+esaencryption+esamcafee+csr+asa+ngips+vise+acplus+acapex+opendns+cpe)*discount;
-
-//console.log("total:"+total);
+total = (wsa + wsasophos+wsaamp+wsamcafee+esa+esadlp+esaamp+esaencryption+esamcafee+esasophos+csr+asa+ngips+vise+ipsecremoteaccess+sslremoteaccess+opendns+cpe)*discount;
 
 priceperuserpermonth = Number(total/users/12).toFixed(2);
 document.getElementById("total").value = Number(total).toFixed(0);
@@ -441,6 +455,25 @@ function insRow()
 		}
         }
 }
+function insCol() {
+    var tbl = document.getElementById('table');
+    var i;
+    for (i = 0; i < tbl.rows.length; i++) {
+        var cell = tbl.rows[i].insertCell(-1);
+
+                if (i == 0) {
+                        cell.innerHTML="<input type='button' style='height: 2em; width: 15em' value='Delete Column' onclick='deleteCol(this)'/>";
+
+                } else {
+                        cell.innerHTML="<input size=25 type='text' value = '"+i+"'>";
+                }
+
+        //var cell = tbl.rows[i].insertCell(i);
+        //cell.innerHTML="<input type='text'>";
+        //createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), i, 'col');
+    }
+}
+
 </script>
 </body>
 </html>
