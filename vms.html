@@ -445,13 +445,17 @@ function insRow()
                 if (i == 0) {
                         cell.innerHTML="<input type='button' value='Delete Row' onclick='deleteRow(this)'/>";
                 } else if (i== (x.rows[0].cells.length-1)) {
-                        cell.innerHTML='<input type="checkbox" id = "cpe"+i onclick="calculate()"><select id = "selectcpemodel"+i onchange="calculate()"><option value="me1200">ME 1200</option><option value="rv340">RV 340</option><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
+                        cell.innerHTML='<input type="checkbox" id = "cpe"+x.rowIndex onclick="calculate()"><select id = "selectcpemodel"+i onchange="calculate()"><option value="me1200">ME 1200</option><option value="rv340">RV 340</option><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
+			console.log(x.rowIndex);
 		} else if (i == 1) {
-                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'tenant' + '"+i+"' value='"+i+"'>";
+                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'tenant' + '"+(x.rows.length-1)+"' value='"+(x.rows.length-1)+"'>";
+			console.log(x.rows.length);
 		} else if (i == 2) {
-                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'branch' + '"+i+"' value='"+i+"'>";
+                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'branch' + '"+(x.rows.length-1)+"' value='"+(x.rows.length-1)+"'>";
+			console.log(x.rows.length);
                 } else if (i ==3) {
-                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'employee' + '"+i+"' value='"+i+"'>";
+                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'employee' + '"+(x.rows.length-1)+"' value='"+(x.rows.length-1)+"'>";
+			console.log(x.rows.length);
 		}
         }
 }
@@ -472,6 +476,15 @@ function insCol() {
         //cell.innerHTML="<input type='text'>";
         //createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), i, 'col');
     }
+}
+
+function deleteCol(column){
+        var tbl = document.getElementById('table');
+        var j= column.parentNode.cellIndex;
+        console.log("row length" + tbl.rows.length + "row" + column.parentNode.parentNode.rowIndex + " - column" + column.parentNode.cellIndex);
+        for (i = 0; i < tbl.rows.length; i++) {
+            tbl.rows[i].deleteCell(j);
+        }
 }
 
 </script>
