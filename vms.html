@@ -10,19 +10,19 @@
 <legend>Web Security Option</legend>
 <table>
 <tr>
-<td colspan=2><input type="checkbox" id = "wsa">Web Security</td>
+<td colspan=2><input type="checkbox" id = "wsa" onclick="calculate()">Web Security</td>
 </tr>
 <tr>
 <td></td>
-<td><input type = "checkbox" id = "sophos">Sophos</td>
+<td><input type = "checkbox" id = "wsasophos" onclick="calculate()">Sophos</td>
 </tr>
 <tr>
 <td></td>
-<td><input type = "checkbox" id = "amp">AMP</td>
+<td><input type = "checkbox" id = "wsaamp" onclick="calculate()">AMP</td>
 </tr>
 <tr>
 <td></td>
-<td><input type = "checkbox" id = "McAfee">McAfee</td>
+<td><input type = "checkbox" id = "wsamcafee" onclick="calculate()">McAfee</td>
 </tr>
 </table>
 </fieldset>
@@ -31,10 +31,13 @@
 <legend>Remote Access Option</legend>
 <table>
 <tr>
-<td><input type="checkbox" id = "acplus">AC Plus</td>
+<td><input type="checkbox" id = "acplus" onclick="calculate()">ipsec based (AC Plus)</td>
 </tr>
 <tr>
-<td><input type = "checkbox" id = "acapex">AC APEX</td>
+<td><input type = "checkbox" id = "acapex" onclick="calculate()">ssl based (AC APEX)</td>
+</tr>
+<tr>
+<td><input type = "checkbox" id = "opendns" onclick="calculate()">open dns (cloudlock)</td>
 </tr>
 </table>
 </fieldset>
@@ -45,7 +48,7 @@
 <td>
 
 <fieldset>
-<legend>A la carte</legend>
+<legend>Virtual web security, router, firewall, intrusion protection, identity</legend>
 
 <table>
 <td>
@@ -54,23 +57,23 @@
 <legend>Email Security Option</legend>
 <table>
 <tr>
-<td colspan=2><input type="checkbox" id = "esa">Email Security</td>
+<td colspan=2><input type="checkbox" id = "esa" onclick="calculate()">Email Security</td>
 </tr>
 <tr>
 <td></td>
-<td><input type = "checkbox" id = "dlp">Data Loss Prevention</td>
+<td><input type = "checkbox" id = "esadlp" onclick="calculate()">Data Loss Prevention</td>
 </tr>
 <tr>
 <td></td>
-<td><input type = "checkbox" id = "esaamp">ESA AMP</td>
+<td><input type = "checkbox" id = "esaamp" onclick="calculate()">Anti Malware protection</td>
 </tr>
 <tr>
 <td></td>
-<td><input type = "checkbox" id = "esaencription">ESA Encryption</td>
+<td><input type = "checkbox" id = "esaencryption" onclick="calculate()">Encryption</td>
 </tr>
 <tr>
 <td></td>
-<td><input type = "checkbox" id = "esamacafee">ESA Macafee</td>
+<td><input type = "checkbox" id = "esamcafee" onclick="calculate()">McAfee</td>
 </tr>
 </table>
 </fieldset>
@@ -83,44 +86,44 @@
 <legend>CSR, ASAv, NGIPS, vISE</legend>
 <table>
 <tr>
-<td><input type="checkbox" id = "csr">CSR 1000v</td>
+<td><input type="checkbox" id = "csr" onclick="calculate()">CSR 1000v</td>
 <td>
-<select>
-<option value="csrbronze">CSR ip base</option>
-<option value="csrsilver">CSR OTV, LISP</option>
-<option value="csrgold">CSR Security</option>
-<option value="csrplatinum">CSR all</option>
+<select id ="selectcsrmodel" onchange="calculate()">
+<option>CSR ip base</option>
+<option>CSR OTV, LISP</option>
+<option>CSR Security</option>
+<option>CSR all</option>
 </select>
 </td>
 <td>
-<select>
-<option value="10">10MB</option>
-<option value="50">50MB</option>
-<option value="100">100MB</option>
-<option value="1000">1GB</option>
-<option value="2500">2.5GB</option>
-<option value="10000">10GB</option>
+<select id = "selectcsrspeed" onchange="calculate()">
+<option>10MB</option>
+<option>50MB</option>
+<option>100MB</option>
+<option>1GB</option>
+<option>2.5GB</option>
+<option>10GB</option>
 </select>
 </td>
 </tr>
 <tr>
-<td><input type = "checkbox" id = "asav">ASAv</td>
+<td><input type = "checkbox" id = "asa" onclick="calculate()">ASAv</td>
 <td>
-<select>
-<option value="asabronze">ASAv5</option>
-<option value="asasilver">ASAv10</option>
-<option value="asagold">ASAv30</option>
+<select id = "selectasamodel" onchange="calculate()">
+<option value="100">ASAv5</option>
+<option value="200">ASAv10</option>
+<option value="300">ASAv30</option>
 </select>
 </td>
 <td></td>
 </tr>
 <tr>
-<td><input type = "checkbox" id = "ngips">NG IPS</td>
+<td><input type = "checkbox" id = "ngips" onclick="calculate()">NG IPS</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><input type = "checkbox" id = "vise">vISE</td>
+<td><input type = "checkbox" id = "vise" onclick="calculate()">vISE</td>
 <td></td>
 <td></td>
 </tr>
@@ -129,93 +132,292 @@
 
 </td>
 
-<td>
+	<td>
+<!--
+	<fieldset>
+	<legend>XRv 9000</legend>
+	<table>
+		<tr>
+		<td><input type="checkbox" id = "xrv" onclick="calculate()">XRv 9000</td>
+		<td>
+		<select id ="selectxrvmodel" onchange="calculate()">
+			<option value="mplsbasic">IP/MPLS Basic</option>
+			<option value="mplspremium">IP/MPLS Premium</option>
+			<option value="l3vpnbasic">IP/MPLS + L3VPN basic</option>
+			<option value="l3vpnpremium">IP/MPLS + L3VPN premium</option>
+			<option value="vroutereflector">virtual route reflector</option>
+		</select>
+		</td>
+		</tr>
+<!--
+		<tr>
+		<td>
+			<fieldset>
+			<legend>Select Option</legend>
+			<table>
+				<td>
 
-<fieldset>
-<legend>XRv 9000</legend>
+					<fieldset>
+						<legend>IP/MPLS</legend>
+							<table>
+								<tr>
+									<td></td>
+									<td><input type = "radio" name = "mpls" value="basic">Basic</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><input type = "radio" name = "mpls" value="premium">Premium</td>
+								</tr>
+							</table>
+					</fieldset>
+
+					<fieldset>
+						<legend>L3VPN</legend>
+							<table>
+								<tr>
+									<td></td>
+									<td><input type = "radio" name = "mpls" value="basic2">basic</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><input type = "radio" name = "mpls" value="premium2">Premium</td>
+								</tr>
+							</table>
+					</fieldset>
+					<fieldset>
+						<legend>Route reflector</legend>
+							<table>
+
+								<tr>
+									<td></td>
+									<td><input type = "radio" name = "mpls" value="routereflector">Virtual Route Reflector</td>
+								</tr>
+							</table>
+					</fieldset>
+				</td>
+			</table>
+			</fieldset>
+-->
+<!--
+							<table>
+				
+								<tr>
+									<td></td>
+									<td><input type = "checkbox" id = "hqos">H-QoS</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><input type = "checkbox" id = "li">Lawfull Intercept</td>
+								</tr>
+
+							</table>
+		</table>
+		</fieldset>
+-->
+</td>
+
+</table>
+</fieldset>
+
+
+</td>
+</tr>
+</table>
+
 <table>
 <tr>
-<td colspan=2><input type="checkbox" id = "xrv">XRv 9000</td>
-</tr>
-<tr>
-<td></td>
-<td><input type = "radio" name = "mpls" value="basic">IP/MPLS Basic</td>
-</tr>
-<tr>
-<td></td>
-<td><input type = "radio" name = "mpls" value="premium">IP/MPLS Premium</td>
-</tr>
-<tr>
-<td></td>
-<td><input type = "radio" name = "mpls" value="basic2">IP/MPLS + L3VPN basic</td>
-</tr>
-<tr>
-<td></td>
-<td><input type = "radio" name = "mpls" value="premium2">IP/MPLS + L3VPN Premium</td>
-</tr>
-<tr>
-<td></td>
-<td><input type = "radio" name = "mpls" value="routereflector">Virtual Route Reflector</td>
-</tr>
-<tr>
-<td></td>
-<td><input type = "checkbox" id = "hqos">H-QoS</td>
-</tr>
-<tr>
-<td></td>
-<td><input type = "checkbox" id = "li">Lawfull Intercept</td>
-</tr>
-
-
-</table>
-</fieldset>
+<td>
+<label style="color: #3CBC8D;font-size: 20px">Total: $<input type = "number" id = "total" readonly style="width: 4em; height: 2em; font-size: 30px; background-color: #3CBC8D; color: white"></label>
 </td>
-
-</table>
-</fieldset>
-
-
-</td>
-</tr>
-</table>
 <!--
-<label>Number of tenants:<input type="number" id="tenant"></label>
-<br>
-<label>Number of branch per tenant:<input type="number" id="branch"></label>
-<br>
-<label>Number of employee per tenant:<input type="number" id="employee"></label>
+<td>
+<label style="color: #3CBC8D;font-size: 20px">Per user per month: $<input type = "number" id = "mrr" readonly style="width: 4em; height: 2em; font-size: 30px; background-color: #3CBC8D; color: white"></label>
+</td>
+-->
+<td>
+<label for="slider" style="color: #3CBC8D">Discount:</label><input type="range" min="0" max="100" value="20" step = "5" id="slider" oninput="sliderOutputUpdate(value)"><output for="slider" id="volume" style="color: #3CBC8D">20 %</output>
+</td>
+<td>
+<canvas id="mycanvas1" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
+</td>
+</tr>
+<table>
 <br>
 
-<label>CPE select :
-<select>
-<option value="me1200">ME 1200</option>
-<option value="rv340">RV 340</option>
-<option value="isr881">ISR881W</option>
-<option value="isr892">ISR 892</option>
-<option value="isr2921">ISR 1941</option>
-<option value="isr3925">ISR 3925E</option>
-<option value="isr4321">ISR 4321</option>
-<option value="isr4331">ISR 4331</option>
-<option value="isr4351">ISR 4351</option>
-<option value="isr4431">ISR 4431</option>
-<option value="isr4451">ISR 4451</option>
-<option value="asr1001">ASR 1001X</option>
-<option value="asr1002">ASR 1002X</option>
-</select>
-</label>
--->
 <div id="tablediv">
-    <input type="button" id="savedata" value="Save data"/><br/><br/>
-    <table id="table" border="1">
-        <tr>
-            <td><input type="button" id="add" value="Add Row" onclick="insRow()"/></td>
-        <td>Tenant id</td>
-        <td>Number of Branch</td>
-        <td>Number of employee per tennant</td>
-        <td>CPE Select</td>
-        </tr>
-    </table>
+<!--
+<input type="button" id="savedata" value="calculate" onclick="calculate()"/><br/><br/>
+-->
+<table id="table" border="1">
+<tr>
+    <td><input type="button" id="add" value="Add Row" onclick="insRow()"/></td>
+<td>Tenant id</td>
+<td>Number of Branch</td>
+<td>Number of employee per tennant</td>
+<td>CPE Select</td>
+</tr>
+<tr>
+<td>default</td>
+<td><input size=25 type="number" value="1" id="tenant1" readonly style="border: 2px solid red;  border-radius: 4px"></td>
+<td><input size=25 type="number" value="1" id="branch1" style="border: 2px solid red;  border-radius: 4px" onchange="calculate()"></td>
+<td><input size=25 type="number" value="100" id="employee1" style="border: 2px solid red;  border-radius: 4px" onchange="calculate()"></td>
+<td>
+<input type="checkbox" id = "cpe1" onclick="calculate()">
+	<select id="selectcpemodel1" onchange="calculate()">
+	<option value="me1200">ME 1200</option>
+	<option value="rv340">RV 340</option>
+	<option value="isr881">ISR881W</option>
+	<option value="isr892">ISR 892</option>
+	<option value="isr2921">ISR 1941</option>
+	<option value="isr3925">ISR 3925E</option>
+	<option value="isr4321">ISR 4321</option>
+	<option value="isr4331">ISR 4331</option>
+	<option value="isr4351">ISR 4351</option>
+	<option value="isr4431">ISR 4431</option>
+	<option value="isr4451">ISR 4451</option>
+	<option value="asr1001">ASR 1001X</option>
+	<option value="asr1002">ASR 1002X</option>
+	</select>
+</td>
+</tr>
+</table>
+
+
 <script>
+
+
+function calculate () {
+
+total = 0;
+priceperuserpermonth=0;
+discount = 1-document.getElementById("slider").value/100;
+users = document.getElementById("employee1").value;
+wsa = 34.84;
+wsasophos = 69.99;
+wsaamp = 69.99;
+wsamcafee = 69.99;
+acplus=1125/500;
+acapex = 3200/500;
+opendns = 12*1.63;
+esa = 19.06;
+esadlp = 31.83;
+esaamp = 31.83;
+esaencryption = 31.83;
+esamcafee = 31.83;
+
+//https://www.w3schools.com/jsref/prop_select_selectedindex.asp
+csr = 0;
+csrindex1=document.getElementById("selectcsrmodel").selectedIndex;
+csrindex2=document.getElementById("selectcsrspeed").selectedIndex;
+var csroptions = [ [ 265, 1040, 3625, 4805, 8500, 8500], [435, 1300, 4340, 6235, 8500, 8500], [485, 1560, 4675, 7820, 8500, 8500], [665, 1820, 5530, 8570, 8500, 8500] ];
+csr = csroptions[csrindex1][csrindex2];
+
+asa=0;
+asaindex1=document.getElementById("selectasamodel").selectedIndex;
+var asaoptions = [ 449, 4794, 19176];
+asa = asaoptions[asaindex1];
+ngips = 12000;
+vise = 400;
+
+//xrv=0;
+//xrvindex1=document.getElementById("selectxrvmodel").selectedIndex;
+//var xrvoptions = [ 100, 200, 300, 400, 500];
+//xrv = xrvoptions[xrvindex1];
+
+cpe=0;
+cpeindex1=document.getElementById("selectcpemodel1").selectedIndex;
+var cpeoptions = [ 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300];
+cpe = cpeoptions[cpeindex1];
+
+
+
+wsa = Number(document.getElementById("wsa").checked)*wsa*users;
+wsasophos = Number(document.getElementById("wsasophos").checked)*wsasophos*users;
+wsaamp = Number(document.getElementById("wsaamp").checked)*wsaamp*users;
+wsamcafee = Number(document.getElementById("wsamcafee").checked)*wsamcafee*users;
+
+esa = Number(document.getElementById("esa").checked)*esa*users;
+esadlp = Number(document.getElementById("esadlp").checked)*esadlp*users;
+esaamp = Number(document.getElementById("esaamp").checked)*esaamp*users;
+esaencryption = Number(document.getElementById("esaencryption").checked)*esaencryption*users;
+esamcafee = Number(document.getElementById("esamcafee").checked)*esamcafee*users;
+
+csr = Number(document.getElementById("csr").checked)*csr;
+asa = Number(document.getElementById("asa").checked)*asa;
+ngips = Number(document.getElementById("ngips").checked)*ngips;
+vise = Number(document.getElementById("vise").checked)*vise;
+
+acplus = Number(document.getElementById("acplus").checked)*acplus*users;
+acapex = Number(document.getElementById("acapex").checked)*acapex*users;
+opendns = Number(document.getElementById("opendns").checked)*opendns*users;
+
+cpe = Number(document.getElementById("cpe1").checked)*cpe;
+
+total = (wsa + wsasophos+wsaamp+wsamcafee+esa+esadlp+esaamp+esaencryption+esamcafee+csr+asa+ngips+vise+acplus+acapex+opendns+cpe)*discount;
+
+//console.log("total:"+total);
+
+priceperuserpermonth = Number(total/users/12).toFixed(2);
+document.getElementById("total").value = Number(total);
+//document.getElementById("mrr").value = Number(priceperuserpermonth);
+
+//console.log("wsa:"+Number(document.getElementById("wsa").checked));
+//console.log("wsasophos:"+Number(document.getElementById("wsasophos").checked));
+//console.log("wsaamp:"+Number(document.getElementById("wsaamp").checked));
+//console.log("wsamcafee:"+Number(document.getElementById("wsamcafee").checked));
+//console.log("esa:"+Number(document.getElementById("esa").checked));
+//console.log("esadlp:"+Number(document.getElementById("esadlp").checked));
+//console.log("esaamp:"+Number(document.getElementById("esaamp").checked));
+//console.log("esaencryption:"+Number(document.getElementById("esaencryption").checked));
+//console.log("esamcafee:"+Number(document.getElementById("esamcafee").checked));
+//console.log("csr:"+Number(document.getElementById("csr").checked));
+//console.log("asa:"+Number(document.getElementById("asa").checked));
+//console.log("ngips:"+Number(document.getElementById("ngips").checked));
+//console.log("vise:"+Number(document.getElementById("vise").checked));
+//console.log("acplus:"+Number(document.getElementById("acplus").checked));
+//console.log("acapex:"+Number(document.getElementById("acapex").checked));
+//console.log("opendns:"+Number(document.getElementById("opendns").checked));
+//console.log("total:"+Number(document.getElementById("total").value));
+//console.log("discount:"+ discount);
+
+
+//#################
+
+var al1=0;
+var id1 = setInterval(frame1,10);
+function frame1() {
+	var cnv1 = document.getElementById('mycanvas1');
+	var ctx1 = cnv1.getContext('2d');
+	var cw1 = ctx1.canvas.width;
+	var ch1 = ctx1.canvas.height;
+	var start1 = 4.72;
+	diff1 = ((al1 / 100) * Math.PI*2*10).toFixed(2);
+	ctx1.clearRect(0, 0, cw1, ch1);
+	ctx1.lineWidth = 7;
+	ctx1.fillStyle = '#09F';
+	ctx1.strokeStyle = '#09F';
+	ctx1.font="14px bebas"
+	ctx1.textAlign = 'center';
+	ctx1.fillText(priceperuserpermonth +'$', cw1*.5, ch1*.5+2, cw1);
+	ctx1.fillText('per user per month', cw1/2+2, ch1/2+14, cw1/2);
+	ctx1.beginPath();
+	ctx1.arc(cw1*.5,ch1*.5,60,start1,diff1/10+start1,false);
+	ctx1.stroke();
+	if (al1 >= priceperuserpermonth) {
+                        clearInterval(id1);
+                } else {
+                        al1++;
+                }
+        }
+
+
+}
+//http://thenewcode.com/757/Playing-With-The-HTML5-range-Slider-Input
+function sliderOutputUpdate(vol) {
+	document.querySelector('#volume').value = vol + "%";
+	calculate();
+}
+
 function deleteRow(row)
 {
     var i=row.parentNode.parentNode.rowIndex;
@@ -231,10 +433,14 @@ function insRow()
                 if (i == 0) {
                         cell.innerHTML="<input type='button' value='Delete Row' onclick='deleteRow(this)'/>";
                 } else if (i== (x.rows[0].cells.length-1)) {
-                        cell.innerHTML='<select><option value="me1200">ME 1200</option><option value="rv340">RV 340</option><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
-		} else {
-                        cell.innerHTML="<input size=25 type='text' value='"+i+"'>";
-                }
+                        cell.innerHTML='<input type="checkbox" id = "cpe"+i onclick="calculate()"><select id = "selectcpemodel"+i onchange="calculate()"><option value="me1200">ME 1200</option><option value="rv340">RV 340</option><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
+		} else if (i == 1) {
+                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'tenant' + '"+i+"' value='"+i+"'>";
+		} else if (i == 2) {
+                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'branch' + '"+i+"' value='"+i+"'>";
+                } else if (i ==3) {
+                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'employee' + '"+i+"' value='"+i+"'>";
+		}
         }
 }
 </script>
