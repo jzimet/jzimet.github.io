@@ -10,7 +10,7 @@
 <legend>Web Security Option</legend>
 <table>
 <tr>
-<td colspan=2><input type="checkbox" id = "wsa" onclick="calculate()">Web Security</td>
+<td colspan=2><input type="checkbox" id = "wsa" checked onclick="calculate()">Web Security</td>
 </tr>
 <tr>
 <td> - </td>
@@ -32,7 +32,7 @@
 <table>
 <tr>
 <td>
-<input type="checkbox" id = "ipsecremoteaccess" onclick="calculate()">ipsec remote access (AC Plus)</td>
+<input type="checkbox" id = "ipsecremoteaccess" checked onclick="calculate()">ipsec remote access (AC Plus)</td>
 </td>
 </tr>
 <tr>
@@ -42,7 +42,7 @@
 </tr>
 <tr>
 <td>
-<input type = "checkbox" id = "opendns" onclick="calculate()">open dns (cloudlock)
+<input type = "checkbox" id = "opendns" checked onclick="calculate()">open dns (cloudlock)
 </td>
 </tr>
 </table>
@@ -63,7 +63,7 @@
 <legend>Email Security Option</legend>
 <table>
 <tr>
-<td colspan=2><input type="checkbox" id = "esa" onclick="calculate()">Email Security</td>
+<td colspan=2><input type="checkbox" id = "esa" checked onclick="calculate()">Email Security</td>
 </tr>
 <tr>
 <td> - </td>
@@ -498,6 +498,7 @@ function deleteCol(column){
         }
 }
 
+calculate();
 </script>
 </body>
 </html>
