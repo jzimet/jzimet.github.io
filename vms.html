@@ -461,11 +461,13 @@ function insRow()
                 } else if (i== (x.rows[0].cells.length-1)) {
                         cell.innerHTML='<input type="checkbox" id = "cpe"+x.rowIndex onclick="calculate()"><select id = "selectcpemodel"+i onchange="calculate()"><option value="me1200">ME 1200</option><option value="rv340">RV 340</option><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
 		} else if (i == 1) {
-                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' readonly id = 'tenant' + '"+(x.rows.length-1)+"' value='"+(x.rows.length-1)+"'>";
+                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid #3CBC8D;  border-radius: 4px; color: #3CBC8D' readonly id = 'tenant' + '"+(x.rows.length-1)+"' value='"+(x.rows.length-1)+"'>";
 		} else if (i == 2) {
-                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'branch' + '"+(x.rows.length-1)+"' value='"+(x.rows.length-1)+"'>";
+                        //cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'branch' + '"+(x.rows.length-1)+"' value='"+(x.rows.length-1)+"'>";
+			cell.innerHTML="<label for='branch'+'"+(x.rows.length-1)+"' style='color: #3CBC8D'></label><input type='range' min='0' max='100' value='1' step = '1' style='width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal' id='branch'+'"+(x.rows.length-1)+"' oninput='sliderOutputUpdateNumberOfBranch1(value)'><output for='branch'+'"+(x.rows.length-1)+"' id='volumefornumberofbranch1' style='color: #3CBC8D'>1</output>";
                 } else if (i ==3) {
-                        cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'employee' + '"+(x.rows.length-1)+"' value='"+(x.rows.length-1)+"'>";
+                        //cell.innerHTML="<input size=25 type='number' style='border: 2px solid red;  border-radius: 4px' id = 'employee' + '"+(x.rows.length-1)+"' value='"+(x.rows.length-1)+"'>";
+			cell.innerHTML="<label for='employee'+'"+(x.rows.length-1)+"' style='color: #3CBC8D'></label><input type='range' min='0' max='1000' value='100' step = '25' style='width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal' id='employee'+'"+(x.rows.length-1)+"' oninput='sliderOutputUpdateNumberOfEmployee1(value)'><output for='employee'+'"+(x.rows.length-1)+"' id='volumefornumberofemployee'+'"+(x.rows.length-1)+"' style='color: #3CBC8D'>100</output>";
 		}
         }
 }
