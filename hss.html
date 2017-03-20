@@ -699,11 +699,27 @@ function insRow()
                         cell.innerHTML="<input type='button' value='Delete Row' onclick='deleteRow(this)'/>";
                 } else if (i== (x.rows[0].cells.length-1)) {
                         cell.innerHTML='<select><option value="me1200">ME 1200</option><option value="rv340">RV 340</option><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
-                } else {
-                        cell.innerHTML="<input size=25 type='text' value='"+i+"'>";
-                }
+                } else if (i==2) {
+                        //cell.innerHTML="<input size=25 type='text' readonly value='"+i+"'>";
+			cell.innerHTML='<label for="branch1" style="color: #3CBC8D"></label><input type="range" min="0" max="100" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="branch1" oninput="sliderOutputUpdateNumberOfBranch1(value)"><output for="branch1" id="volumefornumberofbranch1" style="color: #3CBC8D">1</output>';
+                } else if (i==3) {
+                        //cell.innerHTML="<input size=25 type='text' readonly value='"+i+"'>";
+			cell.innerHTML='<label for="employee1" style="color: #3CBC8D"></label><input type="range" min="0" max="1000" value="100" step = "25" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="employee1" oninput="sliderOutputUpdateNumberOfEmployee1(value)"><output for="employee1" id="volumefornumberofemployee1" style="color: #3CBC8D">100</output>';
+		} else if (i==1) {
+                        cell.innerHTML="<input size=25 type='text' value='"+ (x.rows.length-1)+"'>";
+		}
         }
 }
+
+function sliderOutputUpdateNumberOfEmployee1(vol) {
+        document.querySelector('#volumefornumberofemployee1').value = vol;
+        calculate();
+}
+function sliderOutputUpdateNumberOfBranch1(vol) {
+        document.querySelector('#volumefornumberofbranch1').value = vol;
+        calculate();
+}
+
 
 calculate();
 
