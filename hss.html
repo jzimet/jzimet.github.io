@@ -22,8 +22,11 @@
 <input type = "number" min="0" max ="1000" value="100" style="background-color:yellow;height:30px;width:50px;text-align:right" id = "users" onchange="calculate()">
 <label for "users"> number of users</label>
 <br>
+<!--
 <input type = "number" style="background-color:yellow;height:30px;width:50px;text-align:right" id = "discount" value="20" step="5" onchange="calculate()">
 <label for "discount">% Discount</label>
+-->
+<label for="discount" style="color: #3CBC8D">Discount:</label><input type="range" min="0" max="100" value="20" step = "5" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="discount" oninput="sliderOutputUpdate(value)"><output for="discount" id="volume" style="color: #3CBC8D">20 %</output>
 <br>
 
 <input type = "number" style="background-color:yellow;height:30px;width:50px;text-align:right"  id = "total" readonly>
@@ -639,6 +642,13 @@ var data = [vpnclientdata*Number(document.getElementById("vpn").checked),clientl
   
 		lastend += Math.PI*2*(data[i]/myTotal);
 	}
+}
+
+
+//http://thenewcode.com/757/Playing-With-The-HTML5-range-Slider-Input
+function sliderOutputUpdate(vol) {
+        document.querySelector('#volume').value = vol + "%";
+        calculate();
 }
 
 function deleteRow(row)
