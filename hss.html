@@ -706,7 +706,7 @@ function insRow()
                         //cell.innerHTML="<input size=25 type='text' readonly value='"+i+"'>";
 			cell.innerHTML='<label for="employee1" style="color: #3CBC8D"></label><input type="range" min="0" max="1000" value="100" step = "25" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="employee1" oninput="sliderOutputUpdateNumberOfEmployee1(value)"><output for="employee1" id="volumefornumberofemployee1" style="color: #3CBC8D">100</output>';
 		} else if (i==1) {
-                        cell.innerHTML="<input size=25 type='text' value='"+ (x.rows.length-1)+"'>";
+                        cell.innerHTML="<input style='color: #3CBC8D' size=25 type='text' value='"+ (x.rows.length-1)+"'>";
 		}
         }
 }
