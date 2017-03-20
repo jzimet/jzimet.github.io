@@ -243,7 +243,7 @@
 <label style="color: #3CBC8D;font-size: 20px">Per user per month: $<input type = "number" id = "mrr" readonly style="width: 3em; height: 2em; font-size: 30px; background-color: #3CBC8D; color: white;text-align: center"></label>
 </td>
 <td style="vertical-align:middle">
-<label for="slider" style="color: #3CBC8D">Discount:</label><input type="range" min="0" max="100" value="20" step = "5" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="slider" oninput="sliderOutputUpdate(value)"><output for="slider" id="volume" style="color: #3CBC8D">20 %</output>
+<label for="discount" style="color: #3CBC8D">Discount:</label><input type="range" min="0" max="100" value="20" step = "5" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="discount" oninput="sliderOutputUpdateDiscount(value)"><output for="discount" id="volumefordiscount" style="color: #3CBC8D">20 %</output>
 </td>
 <td>
 <canvas id="mycanvas1" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
@@ -266,9 +266,10 @@
 </tr>
 <tr>
 <td>default</td>
-<td><input size=25 type="number" value="1" id="tenant1" readonly style="border: 2px solid red;  border-radius: 4px"></td>
-<td><input size=25 type="number" value="1" id="branch1" style="border: 2px solid red;  border-radius: 4px" onchange="calculate()"></td>
-<td><input size=25 type="number" value="100" id="employee1" style="border: 2px solid red;  border-radius: 4px" onchange="calculate()"></td>
+<td><input size=25 type="number" value="1" id="tenant1" readonly style="border: 2px solid #3CBC8D;  border-radius: 4px; color: #3CBC8D"></td>
+<td><label for="branch1" style="color: #3CBC8D"></label><input type="range" min="0" max="10" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="branch1" oninput="sliderOutputUpdateNumberOfBranch1(value)"><output for="branch1" id="volumefornumberofbranch1" style="color: #3CBC8D">1</output></td>
+<td><label for="employee1" style="color: #3CBC8D"></label><input type="range" min="0" max="1000" value="100" step = "25" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="employee1" oninput="sliderOutputUpdateNumberOfEmployee1(value)"><output for="employee1" id="volumefornumberofemployee1" style="color: #3CBC8D">100</output>
+</td>
 <td>
 <input type="checkbox" id = "cpe1" onclick="calculate()">
 	<select id="selectcpemodel1" onchange="calculate()">
@@ -298,7 +299,7 @@ function calculate () {
 
 total = 0;
 priceperuserpermonth=0;
-discount = 1-document.getElementById("slider").value/100;
+discount = 1-document.getElementById("discount").value/100;
 users = document.getElementById("employee1").value;
 wsa = 34.84;
 wsasophos = 16.06;
@@ -369,7 +370,11 @@ cpe = Number(document.getElementById("cpe1").checked)*cpe;
 
 total = (wsa + wsasophos+wsaamp+wsamcafee+esa+esadlp+esaamp+esaencryption+esamcafee+esasophos+csr+asa+ngips+vise+ipsecremoteaccess+sslremoteaccess+opendns+cpe)*discount;
 
-priceperuserpermonth = Number(total/users/12).toFixed(2);
+if (users == 0) {
+		priceperuserpermonth = 0;
+	} else {
+		priceperuserpermonth = Number(total/users/12).toFixed(2);
+	}
 document.getElementById("total").value = Number(total).toFixed(0);
 document.getElementById("mrr").value = Number(priceperuserpermonth).toFixed(2);
 
@@ -425,9 +430,18 @@ function frame1() {
 
 }
 //http://thenewcode.com/757/Playing-With-The-HTML5-range-Slider-Input
-function sliderOutputUpdate(vol) {
-	document.querySelector('#volume').value = vol + "%";
+function sliderOutputUpdateDiscount(vol) {
+	document.querySelector('#volumefordiscount').value = vol + "%";
 	calculate();
+}
+
+function sliderOutputUpdateNumberOfEmployee1(vol) {
+        document.querySelector('#volumefornumberofemployee1').value = vol;
+        calculate();
+}
+function sliderOutputUpdateNumberOfBranch1(vol) {
+        document.querySelector('#volumefornumberofbranch1').value = vol;
+        calculate();
 }
 
 function deleteRow(row)
