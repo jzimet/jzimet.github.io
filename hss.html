@@ -25,14 +25,27 @@
 <br>
 <label for="discount" style="color: #3CBC8D">Discount:</label><input type="range" min="0" max="100" value="20" step = "5" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="discount" oninput="sliderOutputUpdateForDiscount(value)"><output for="discount" id="volumefordiscount" style="color: #3CBC8D">20 %</output>
 <br>
+<label for="years" style="color: #3CBC8D">Years: </label>
+<select id="years" onchange="calculate()">
+<option>1</option>
+<option>3</option>
+<option>5</option>
+</select>
+<br>
 <input type = "number" style="background-color:yellow;height:30px;width:60px;text-align:right;color: #3CBC8D"  id = "total" readonly>
-<label for "total" style="color: #3CBC8D">$ total</label>
+<label for "total" style="color: #3CBC8D">$ invoice</label>
 <br>
 <input type = "number" style="background-color:yellow;height:30px;width:60px;text-align:right;color: #3CBC8D" id = "priceperuserperyear" readonly>
-<label for "priceperuserperyear" style="color: #3CBC8D">$ price per user per year</label>
+<label for "priceperuserperyear" style="color: #3CBC8D">$ invoice per user per year</label>
 <br>
 <input type = "number" style="background-color:yellow;height:30px;width:60px;text-align:right;color: #3CBC8D" id = "priceperuserpermonth" readonly>
-<label for "priceperuserpermonth" style="color: #3CBC8D">$ price per user per month</label>
+<label for "priceperuserpermonth" style="color: #3CBC8D">$ invoice per user per month</label>
+<br>
+<input type = "number" style="background-color:yellow;height:30px;width:60px;text-align:right;color: #3CBC8D" id = "mrr" readonly>
+<label for "mrr" style="color: #3CBC8D">$ revenue per user per month</label>
+<br>
+<input type="text" id="resources" readonly style="color: #3CBC8D;height:15px;width:300px">
+
 </td>
 <td>
 <canvas id="mycanvas1" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
@@ -64,10 +77,13 @@
 <input type = "radio" style="height:20px;width:20px" name = "vpnclient" id="clientlessvpnradio" value="clientlessvpn" onchange="calculate()">
 <label for "clientlessvpn">ssl based (clientles) </label>
 </td>
-<!--<td>
-<label id="vpnclientlabel"></label>
+<td>
 </td>
--->
+<td>
+</td>
+<td>
+<label for="mrrforvpnremoteaccess">MRR:</label><input type="range" min="0" max="100" value="1" step = "1" style="width: 8em" id="mrrforvpnremoteaccess" oninput="sliderformrrvpnremoteaccess(value)"><output for="mrrforvpnremoteaccess" id="volumeformrrvpnremoteaccess" style="color: #3CBC8D">0.1</output>
+</td>
 </tr>
 <!--################ open dns
 -->
@@ -78,18 +94,31 @@
 </td>
 <td>
 <input type = "checkbox" style="height:20px;width:20px" id = "opendns" checked="checked" onchange="calculate()">
-<label for "opendns">Cisco Umbrella open dns and Cloud Lock</label>
+<label for "opendns">Cisco Open dns and Cloud Lock</label>
 </td>
 <td>
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforroaminguserradio" value="opendnsforroaminguser" checked="checked" onchange="calculate()">
 <label for "opendnsforroaminguser">for roaming user</label>
-<input type = "radio" style="height:20px;width:20px" name = "opendns" value="opendnsforbranch" onchange="calculate()">
+<input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforbranchradio" value="opendnsforbranch" onchange="calculate()">
 <label for "opendnsforbranch">for branch</label>
-<input type = "radio" style="height:20px;width:20px" name = "opendns" value="opendnsforwlan" onchange="calculate()">
+<select id="opendnsforbranchselected">
+<option>4321</option>
+<option>4331</option>
+<option>4351</option>
+<option>4431</option>
+<option>4451</option>
+</select>
+<input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforwlanradio" value="opendnsforwlan" onchange="calculate()">
 <label for "opendnsforwlan">for wlan</label>
 </td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<label for="mrrforopendns">MRR:</label><input type="range" min="0" max="100" value="1" step = "1" style="width: 8em" id="mrrforopendns" oninput="sliderformrropendns(value)"><output for="mrrforopendns" id="volumeformrropendns" style="color: #3CBC8D">0.1</output>
+</td>
 </tr>
-
 <!--
 <label id="opendnslabel"> 208.67.222.222 + 208.67.220.220</label>
 <a href ="https://signup.umbrella.com/">Umbrella Free Trial</a>
@@ -111,11 +140,17 @@
 <input type = "radio" style="height:20px;width:20px" name = "mailsecurity" id= "mailsecuritypremiumradio" value="mailsecuritypremium" onchange="calculate()">
 <label for "mailsecuritypremium">premium</label>
 </td>
+<td>
+<input type = "checkbox" style="height:20px;width:20px"  id = "mailsecurityshared" checked onclick="return false">
+<label for "mailsecurityshared">shared</label>
+</td>
+<td>
+</td>
+<td>
+<label for="mrrforemailsecurity">MRR:</label><input type="range" min="0" max="100" value="5" step = "1" style="width: 8em" id="mrrforemailsecurity" oninput="sliderformrremailsecurity(value)"><output for="mrrforemailsecurity" id="volumeformrremailsecurity" style="color: #3CBC8D">0.5</output>
+</td>
 </tr>
 <!--
-<input type = "checkbox" style="height:20px;width:20px"  id = "mailsecurityshared" checked="checked" onchange="calculate()">
-<label for "mailsecurityshared">shared</label>
-
 <label id="mailsecuritylabel"></label>
 <a href ="http://www.cisco.com/c/dam/en/us/products/collateral/security/cloud-email-security/aag_c45-734182.pdf">cloud, hybrid, virtual or on-premise  mail security</a>
 -->
@@ -136,11 +171,17 @@
 <input type = "radio" style="height:20px;width:20px" name = "websecurity" id = "websecuritypremiumradio" value="websecuritypremium" onchange="calculate()">
 <label for "websecuritypremium">premium</label>
 </td>
+<td>
+<input type = "checkbox" style="height:20px;width:20px"  id = "websecurityshared" checked onclick="return false">
+<label for "websecurityshared">shared</label>
+</td>
+<td>
+</td>
+<td>
+<label for="mrrforwebsecurity">MRR:</label><input type="range" min="0" max="100" value="10" step = "1" style="width: 8em" id="mrrforwebsecurity" oninput="sliderformrrwebsecurity(value)"><output for="mrrforwebsecurity" id="volumeformrrwebsecurity" style="color: #3CBC8D">1</output>
+</td>
 </tr>
 <!--
-<input type = "checkbox" style="height:20px;width:20px"  id = "websecurityshared" checked="checked" onchange="calculate()">
-<label for "websecurityshared">shared</label>
-
 <label id="websecuritylabel"></label>
 <a href="https://info.sourcefire.com/ContentSecurityOfferPage.html">Try Web Security</a>
 -->
@@ -157,11 +198,11 @@
 </td>
 <td>
 <input type = "radio" style="height:20px;width:20px" name = "firewall" id ="firewallsmallradio" value="firewallsmall" checked="checked" onchange="calculate()">
-<label for "firewallsmall">small (100MB)</label>
+<label for "firewallsmall">small (100MB, 25 tenants)</label>
 <input type = "radio" style="height:20px;width:20px" name = "firewall" id="firewallmediumradio" value="firewallmedium" onchange="calculate()">
-<label for "firewallmedium">medium (1GB) </label>
+<label for "firewallmedium">medium (1GB,50 tenants) </label>
 <input type = "radio" style="height:20px;width:20px" name = "firewall" id="firewalllargeradio" value="firewalllarge" onchange="calculate()">
-<label for "firewalllarge">large (2GB)</label>
+<label for "firewalllarge">large (2GB, 200 tenants)</label>
 </td>
 <td>
 <input type = "checkbox" style="height:20px;width:20px" id = "firewallshared" checked="checked" onchange="calculate()">
@@ -172,7 +213,7 @@
 <label for "firewallspla">spla</label>
 </td>
 <td>
-<label id="firewalllabel"></label>
+<label for="mrrforfirewall">MRR:</label><input type="range" min="0" max="100" value="1" step = "20" style="width: 8em" id="mrrforfirewall" oninput="sliderformrrfirewall(value)"><output for="mrrforfirewall" id="volumeformrrfirewall" style="color: #3CBC8D">2</output>
 </td>
 </tr>
 
@@ -194,17 +235,18 @@
 <input type = "radio" style="height:20px;width:20px" name = "router" id = "routersecurityradio" value="routersecurity" onchange="calculate()">
 <label for "routersecurity">gold</label>
 <input type = "radio" style="height:20px;width:20px" name = "router" id="routerallradio" value="routerall" onchange="calculate()">
-<label for "routerall">platinum</label>
+<label for "routerall">platinum, </label>
 <!--
 https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 -->
-<label> Speed:<select style="height:25px;width:70px" id="routerspeed" onchange="calculate()">
+<label for "routerspeed">Select speed :</label>
+<select style="height:25px;width:70px" id="routerspeed" onchange="calculate()">
 <option selected>10M</option>
 <option>100M</option>
 <option>1GB</option>
 <option>2.5GB</option>
 <option>10GB</option>
-</select></label>
+</select>
 </td>
 <td>
 <input type = "checkbox" style="height:20px;width:20px" id = "routershared" checked="checked" onchange="calculate()">
@@ -215,7 +257,7 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <label for "routerspla">spla</label>
 </td>
 <td>
-<label id="routerlabel"></label>
+<label for="mrrforrouter">MRR:</label><input type="range" min="0" max="100" value="1" step = "25" style="width: 8em" id="mrrforrouter" oninput="sliderformrrrouter(value)"><output for="mrrforrouter" id="volumeformrrrouter" style="color: #3CBC8D">2.5</output>
 </td>
 </tr>
 
@@ -238,7 +280,9 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <label for "ngfirewallshared">shared</label>
 </td>
 <td>
-<label id="ngfirewalllabel"></label>
+</td>
+<td>
+<bel for="mrrforsourcefire">MRR:</label><input type="range" min="0" max="1000" value="1" step = "100" style="width: 8em" id="mrrforsourcefire" oninput="sliderformrrsourcefire(value)"><output for="mrrforsourcefire" id="volumeformrrsourcefire" style="color: #3CBC8D">10</output>
 </td>
 </tr>
 
@@ -265,6 +309,11 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <input type = "checkbox" style="height:20px;width:20px" id = "ampshared" checked="checked" onchange="calculate()">
 <label for "ampshared">shared</label>
 </td>
+<td>
+</td>
+<td>
+<label for="mrrforamp">MRR:</label><input type="range" min="0" max="1000" value="1" step = "100" style="width: 8em" id="mrrforamp" oninput="sliderformrramp(value)"><output for="mrrforvpnremoteaccess" id="volumeformrramp" style="color: #3CBC8D">10</output>
+</td>
 </tr>
 
 <!--################ threatgrid
@@ -282,12 +331,22 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <input type = "radio" style="height:20px;width:20px" name = "tg" id = "tgpublicradio" value="tgpublic" checked="checked" onchange="calculate()">
 <label for "tgpublic">public</label>
 <input type = "radio" style="height:20px;width:20px" name = "tg" id = "tgprivateradio" value="tgprivate" onchange="calculate()">
-<label for "tgprivate">private</label>
+<label for "tgprivate">private, </label>
+<label for "tgselected">Select files per day : </label>
+<select id="tgselected" onchange="calculate()">
+<option>1500</option>
+<option>5000</option>
+</select>
 </td>
-<td colspan="4">
+<td>
 <input type = "checkbox" style="height:20px;width:20px" id = "tgshared" checked="checked" onchange="calculate()">
 <label for "tgshared">shared</label>
 </td>
+<td>
+</td>
+<td>
+<label for="mrrfortg">MRR:</label><input type="range" min="0" max="1000" value="100" step = "1" style="width: 8em" id="mrrfortg" oninput="sliderformrrtg(value)"><output for="mrrfortg" id="volumeformrrtg" style="color: #3CBC8D">10</output>
+</tg>
 </tr>
 
 <!--################ ubiqube and nso
@@ -351,11 +410,118 @@ document.getElementById("ngfirewall").checked=false;
 document.getElementById("amp").checked=false;
 document.getElementById("tg").checked=false;
 
+function sliderformrrvpnremoteaccess(vol) {
+        document.querySelector('#volumeformrrvpnremoteaccess').value = vol/10;
+        calculate();
+}
+function sliderformrropendns(vol) {
+        document.querySelector('#volumeformrropendns').value = vol/10;
+        calculate();
+}
+
+function sliderformrremailsecurity(vol) {
+        document.querySelector('#volumeformrremailsecurity').value = vol/10;
+        calculate();
+}
+function sliderformrrwebsecurity(vol) {
+        document.querySelector('#volumeformrrwebsecurity').value = vol/10;
+        calculate();
+}
+function sliderformrrfirewall(vol) {
+        document.querySelector('#volumeformrrfirewall').value = vol/10;
+        calculate();
+}
+function sliderformrrrouter(vol) {
+        document.querySelector('#volumeformrrrouter').value = vol/10;
+        calculate();
+}
+function sliderformrrsourcefire(vol) {
+        document.querySelector('#volumeformrrsourcefire').value = vol/10;
+        calculate();
+}
+function sliderformrramp(vol) {
+        document.querySelector('#volumeformrramp').value = vol/10;
+        calculate();
+}
+function sliderformrrtg(vol) {
+        document.querySelector('#volumeformrrtg').value = vol/10;
+        calculate();
+}
 function calculate (){
 
 var quantity = Number(document.getElementById("users").value);
 var priceperuserperyear=0;
 var priceperuserpermonth=0;
+
+//hdd,ram,core,nic
+asaresources =[[8,1,1,25],[8,2,1,50],[16,8,4,200]];
+csrresources=[[8,4,1,10],[8,4,2,10],[8,4,4,10]];
+wsaresources=[[250,4,1],[250,6,2],[1024,8,4]];
+esaresources=[[200,6,2],[500,8,4],[500,8,8]];
+ampresources=[[238,32,8],[1024,128,8]];
+
+var coreresources = 0;
+coreresources += Number(document.getElementById("websecurity").checked) * wsaresources[0][2];
+coreresources += Number(document.getElementById("mailsecurity").checked) * esaresources[0][2];
+coreresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallsmallradio").checked)*asaresources[0][2];
+coreresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallmediumradio").checked)*asaresources[1][2];
+coreresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewalllargeradio").checked)*asaresources[2][2];
+coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routeripbaseradio").checked)*csrresources[0][2];
+coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerdatacenterradio").checked)*csrresources[1][2];
+coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routersecurityradio").checked)*csrresources[2][2];
+coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerallradio").checked)*csrresources[2][2];
+coreresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateradio").checked)*ampresources[0][2];
+coreresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateairgapradio").checked)*ampresources[1][2];
+
+
+var ramresources = 0;
+ramresources += Number(document.getElementById("websecurity").checked) * wsaresources[0][1];
+ramresources += Number(document.getElementById("mailsecurity").checked) * esaresources[0][1];
+ramresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallsmallradio").checked)*asaresources[0][1];
+ramresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallmediumradio").checked)*asaresources[1][1];
+ramresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewalllargeradio").checked)*asaresources[2][1];
+ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routeripbaseradio").checked)*csrresources[0][1];
+ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerdatacenterradio").checked)*csrresources[1][1];
+ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routersecurityradio").checked)*csrresources[2][1];
+ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerallradio").checked)*csrresources[2][1];
+ramresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateradio").checked)*ampresources[0][1];
+ramresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateairgapradio").checked)*ampresources[1][1];
+
+
+var hddresources = 0;
+hddresources += Number(document.getElementById("websecurity").checked) * wsaresources[0][0];
+hddresources += Number(document.getElementById("mailsecurity").checked) * esaresources[0][0];
+hddresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallsmallradio").checked)*asaresources[0][0];
+hddresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallmediumradio").checked)*asaresources[1][0];
+hddresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewalllargeradio").checked)*asaresources[2][0];
+hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routeripbaseradio").checked)*csrresources[0][0];
+hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerdatacenterradio").checked)*csrresources[1][0];
+hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routersecurityradio").checked)*csrresources[2][0];
+hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerallradio").checked)*csrresources[2][0];
+hddresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateradio").checked)*ampresources[0][0];
+hddresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateairgapradio").checked)*ampresources[1][0];
+
+document.getElementById("resources").value="Resources required : "+coreresources+"cores, "+ramresources+"GB ram, "+hddresources+"GB hdd";
+
+var selectedyearindex=document.getElementById("years").selectedIndex;
+var selectedyear = Number(document.getElementById("years").options[document.getElementById("years").selectedIndex].text);
+
+var opendnsforbranchoptions=[33.33, 45.83, 91.67, 125, 200];
+opendnsforbranch=document.getElementById("opendnsforbranchselected").selectedIndex;
+opendnsforwlan=26/5;
+
+var mrr = 0;
+mrr = Number(document.getElementById("mrrforvpnremoteaccess").value)/10;
+mrr += Number(document.getElementById("mrrforopendns").value)/10;
+mrr += Number(document.getElementById("mrrforemailsecurity").value)/10;
+mrr += Number(document.getElementById("mrrforwebsecurity").value)/10;
+mrr += Number(document.getElementById("mrrforfirewall").value)/10;
+mrr += Number(document.getElementById("mrrforrouter").value)/10;
+mrr += Number(document.getElementById("mrrforsourcefire").value)/10;
+mrr += Number(document.getElementById("mrrforamp").value)/10;
+mrr += Number(document.getElementById("mrrfortg").value)/10;
+document.getElementById("mrr").value=mrr;
+
 
 if (quantity < 26) {
 	var vpnclient=150/25;
@@ -376,8 +542,6 @@ if (quantity < 26) {
         var vpnclient=750/250;
         var clientlessvpn=2150/250;
 	var opendnsforroaminguser=12*1.63;
-
-
 } else { 
         var vpnclient=1125/500;
         var clientlessvpn=3200/500;
@@ -385,21 +549,34 @@ if (quantity < 26) {
 
 }
 
+wse=[[34.84,76.65, 121.94],[33.28, 73.22, 116.48],[33.28, 73.22, 116.48]];
+wsp=[[69.99,153.98,244.97],[59.06, 129.33,206.71],[59.06, 129.33,206.71]];
+esie=[[19.06,41.93,66.69],[18.79,41.34,65.75],[18.79,41.34,65.75]];
+eso=[[19.46,42.81,68.11],[19.24, 42.33, 67.34],[19.24, 42.33, 67.34]];
+esp=[[31.83,70.03,111.39],[31.69,69.72,110.91],[31.69,69.72,110.91]];
+
+router = [[265,435,485,665],[1040,1300,1560,1820],[3625,4340,4675,5530],[4805,6235,7820,8570],[8500,8500,8500,8500]];
+selectedrouterspeed = Number(document.getElementById("routerspeed").selectedIndex);
+routeripbase=Number(router[selectedrouterspeed][0]);
+routerdatacenter=Number(router[selectedrouterspeed][1]);
+routersecurity=Number(router[selectedrouterspeed][2]);
+routerall=Number(router[selectedrouterspeed][3]);
+
 if (quantity < 250) {
-        var websecurityessential=34.84;
-        var websecuritypremium=69.99;
-        var mailsecurityessential=19.06;
-        var mailsecuritypremium=31.83;
+        var websecurityessential=wse[0][selectedyearindex];
+        var websecuritypremium=wsp[0][selectedyearindex];
+        var mailsecurityessential=eso[0][selectedyearindex];
+        var mailsecuritypremium=esp[0][selectedyearindex];
 } else if (quantity > 250 && quantity < 500) {
-        var websecurityessential=33.28;
-        var websecuritypremium=59.06;
-        var mailsecurityessential=18.79;
-        var mailsecuritypremium=31.69;
+        var websecurityessential=wse[1][selectedyearindex];
+        var websecuritypremium=wsp[1][selectedyearindex];
+        var mailsecurityessential=eso[1][selectedyearindex];
+        var mailsecuritypremium=esp[0][selectedyearindex];
 } else {
-        var websecurityessential=33.18;
-        var websecuritypremium=52.49;
-        var mailsecurityessential=18.68;
-        var mailsecuritypremium=31.5;
+        var websecurityessential=wse[2][selectedyearindex];
+        var websecuritypremium=wsp[2][selectedyearindex];
+        var mailsecurityessential=eso[2][selectedyearindex];
+        var mailsecuritypremium=esp[2][selectedyearindex];
 }
 
 if (document.getElementById("firewallspla").checked) {
@@ -419,37 +596,11 @@ if (document.getElementById("firewallspla").checked) {
 
 }
 
-if (document.getElementById("routerspeed").selectedIndex==0) {
-	var routeripbase=265;
-	var routerdatacenter=435;
-	var routersecurity=485;
-	var routerall=665;
-} else if(document.getElementById("routerspeed").selectedIndex==1) {
-        var routeripbase=1040;
-        var routerdatacenter=1300;
-        var routersecurity=1560;
-        var routerall=1820;
-} else if(document.getElementById("routerspeed").selectedIndex==2) {
-        var routeripbase=3625;
-        var routerdatacenter=4340;
-        var routersecurity=4675;
-        var routerall=5530;
-} else if(document.getElementById("routerspeed").selectedIndex==3) {
-        var routeripbase=4805;
-        var routerdatacenter=6235;
-        var routersecurity=7820;
-        var routerall=8570;
-} else if(document.getElementById("routerspeed").selectedIndex==4) { 
-        var routeripbase=8500;
-        var routerdatacenter=8500;
-        var routersecurity=8500;
-        var routerall=8500;
-}
-
 var ngfirewall=12000;
 var ampcloud=12000+18000;
-var tg=85000+52000;
-
+var tgoptions=[85000+52000,120000+52000];
+tg=Number(tgoptions[document.getElementById("tgselected").selectedIndex]);
+console.log("selected tg :" + tg);
 var total = 0;
 document.getElementById("priceperuserperyear").value = 0;
 document.getElementById("priceperuserpermonth").value = 0;
@@ -491,9 +642,10 @@ total += document.getElementById("users").value * document.getElementById("vpn")
 
 //################
 
-opendnsdata= document.getElementById("users").value * document.getElementById("opendns").checked * opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked);
+opendnsdata= document.getElementById("opendns").checked*(document.getElementById("users").value* opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked)+opendnsforbranch*Number(document.getElementById("opendnsforbranchradio").checked)+opendnsforwlan*document.getElementById("users").value*Number(document.getElementById("opendnsforwlanradio").checked));
 
-total += document.getElementById("users").value * document.getElementById("opendns").checked * opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked);
+//total += document.getElementById("users").value * document.getElementById("opendns").checked * opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked);
+total += opendnsdata;
 
 //################
 
@@ -573,7 +725,7 @@ priceperuserperyear = Number(((total*(1-document.getElementById("discount").valu
 
 document.getElementById("priceperuserperyear").value = priceperuserperyear;
 
-priceperuserpermonth = Number(((total*(1-document.getElementById("discount").value/100))/document.getElementById("users").value/12).toFixed(2));
+priceperuserpermonth = Number(((total*(1-document.getElementById("discount").value/100))/document.getElementById("users").value/(selectedyear*12)).toFixed(2));
 
 document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 
