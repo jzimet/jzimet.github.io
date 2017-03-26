@@ -213,7 +213,7 @@
 <label for "firewallspla">spla</label>
 </td>
 <td>
-<label for="mrrforfirewall">MRR:</label><input type="range" min="0" max="100" value="1" step = "20" style="width: 8em" id="mrrforfirewall" oninput="sliderformrrfirewall(value)"><output for="mrrforfirewall" id="volumeformrrfirewall" style="color: #3CBC8D">2</output>
+<label for="mrrforfirewall">MRR:</label><input type="range" min="0" max="100" value="20" step = "1" style="width: 8em" id="mrrforfirewall" oninput="sliderformrrfirewall(value)"><output for="mrrforfirewall" id="volumeformrrfirewall" style="color: #3CBC8D">2</output>
 </td>
 </tr>
 
@@ -257,7 +257,7 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <label for "routerspla">spla</label>
 </td>
 <td>
-<label for="mrrforrouter">MRR:</label><input type="range" min="0" max="100" value="1" step = "25" style="width: 8em" id="mrrforrouter" oninput="sliderformrrrouter(value)"><output for="mrrforrouter" id="volumeformrrrouter" style="color: #3CBC8D">2.5</output>
+<label for="mrrforrouter">MRR:</label><input type="range" min="0" max="100" value="25" step = "1" style="width: 8em" id="mrrforrouter" oninput="sliderformrrrouter(value)"><output for="mrrforrouter" id="volumeformrrrouter" style="color: #3CBC8D">2.5</output>
 </td>
 </tr>
 
@@ -282,7 +282,7 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <td>
 </td>
 <td>
-<bel for="mrrforsourcefire">MRR:</label><input type="range" min="0" max="1000" value="1" step = "100" style="width: 8em" id="mrrforsourcefire" oninput="sliderformrrsourcefire(value)"><output for="mrrforsourcefire" id="volumeformrrsourcefire" style="color: #3CBC8D">10</output>
+<bel for="mrrforsourcefire">MRR:</label><input type="range" min="0" max="1000" value="100" step = "1" style="width: 8em" id="mrrforsourcefire" oninput="sliderformrrsourcefire(value)"><output for="mrrforsourcefire" id="volumeformrrsourcefire" style="color: #3CBC8D">10</output>
 </td>
 </tr>
 
@@ -312,7 +312,7 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <td>
 </td>
 <td>
-<label for="mrrforamp">MRR:</label><input type="range" min="0" max="1000" value="1" step = "100" style="width: 8em" id="mrrforamp" oninput="sliderformrramp(value)"><output for="mrrforvpnremoteaccess" id="volumeformrramp" style="color: #3CBC8D">10</output>
+<label for="mrrforamp">MRR:</label><input type="range" min="0" max="1000" value="100" step = "1" style="width: 8em" id="mrrforamp" oninput="sliderformrramp(value)"><output for="mrrforvpnremoteaccess" id="volumeformrramp" style="color: #3CBC8D">10</output>
 </td>
 </tr>
 
@@ -511,15 +511,15 @@ opendnsforbranch=document.getElementById("opendnsforbranchselected").selectedInd
 opendnsforwlan=26/5;
 
 var mrr = 0;
-mrr = Number(document.getElementById("mrrforvpnremoteaccess").value)/10;
-mrr += Number(document.getElementById("mrrforopendns").value)/10;
-mrr += Number(document.getElementById("mrrforemailsecurity").value)/10;
-mrr += Number(document.getElementById("mrrforwebsecurity").value)/10;
-mrr += Number(document.getElementById("mrrforfirewall").value)/10;
-mrr += Number(document.getElementById("mrrforrouter").value)/10;
-mrr += Number(document.getElementById("mrrforsourcefire").value)/10;
-mrr += Number(document.getElementById("mrrforamp").value)/10;
-mrr += Number(document.getElementById("mrrfortg").value)/10;
+mrr += Number(document.getElementById("vpn").checked)*Number(document.getElementById("mrrforvpnremoteaccess").value)/10;
+mrr += Number(document.getElementById("opendns").checked)*Number(document.getElementById("mrrforopendns").value)/10;
+mrr += Number(document.getElementById("mailsecurity").checked)*Number(document.getElementById("mrrforemailsecurity").value)/10;
+mrr += Number(document.getElementById("websecurity").checked)*Number(document.getElementById("mrrforwebsecurity").value)/10;
+mrr += Number(document.getElementById("firewall").checked)*Number(document.getElementById("mrrforfirewall").value)/10;
+mrr += Number(document.getElementById("router").checked)*Number(document.getElementById("mrrforrouter").value)/10;
+mrr += Number(document.getElementById("ngfirewall").checked)*Number(document.getElementById("mrrforsourcefire").value)/10;
+mrr += Number(document.getElementById("amp").checked)*Number(document.getElementById("mrrforamp").value)/10;
+mrr += Number(document.getElementById("tg").checked)*Number(document.getElementById("mrrfortg").value)/10;
 document.getElementById("mrr").value=mrr;
 
 
