@@ -45,7 +45,26 @@
 <label for "mrr" style="color: #3CBC8D">$ revenue per user per month</label>
 <br>
 <input type="text" id="resources" readonly style="color: #3CBC8D;height:15px;width:300px">
-
+<br>
+<select id="servers" onchange="calculate()">
+<option>1.7GHz, 8-core, 64GB RAM</option>
+<option>2.2GHz, 10-core, 128GB RAM</option>
+<option>2.1 GHz, 8-core, 128GB RAM</option>
+<option>2.6 GHz, 14-core, 256GB RAM</option>
+<option>2.4GHz, 14-core, 256GB RAM</option>
+<option>2.2 GHz, 12-core, 256GB RAM</option>
+<option>2GHz, 14-core, 256GB RAM</option>
+<option>2.2GHz, 12-core, 128GB RAM</option>
+<option>3.4GHz, 6-core, 256GB RAM</option>
+<option>3.5GHz, 4-core, 256GB RAM</option>
+<option>3.2GHz, 8-core, 256GB RAM</option>
+<option>2.1GHz, 16-core, 256GB RAM</option>
+<option>2.3GHz, 18-core, 256GB RAM</option>
+</option>
+<input type = "checkbox" style="height:20px;width:20px" id = "40GB" onchange="calculate()">
+<label for "fi">40GB</label>
+<br>
+<input type="text" id="infracapex" readonly style="color: #3CBC8D;height:15px;width:300px">
 </td>
 <td>
 <canvas id="mycanvas1" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
@@ -453,6 +472,12 @@ var quantity = Number(document.getElementById("users").value);
 var priceperuserperyear=0;
 var priceperuserpermonth=0;
 
+//ghz, core, ram, gpl
+servers=[[1.7, 8,64,7214],[2.2, 10,128,11565],[2.1, 8,128,10400],[2.6, 14,256,22600],[2.4, 14,256,21400],[2.2, 12,256,18000],[2, 14,256,19280],[2.2, 12,128,14120],[3.4, 6,256,20650],[3.5, 4,256,17405],[3.2, 8,256,23255],[2.1, 16,256,20360],[2.3, 18,256,27268]];
+chassis=[14490,19500];
+fi=[37150,49000];
+
+
 //hdd,ram,core,nic
 asaresources =[[8,1,1,25],[8,2,1,50],[16,8,4,200]];
 csrresources=[[8,4,1,10],[8,4,2,10],[8,4,4,10]];
@@ -502,6 +527,16 @@ hddresources += Number(document.getElementById("amp").checked)*Number(document.g
 hddresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateairgapradio").checked)*ampresources[1][0];
 
 document.getElementById("resources").value="Resources required : "+coreresources+"cores, "+ramresources+"GB ram, "+hddresources+"GB hdd";
+
+var infrastructurecapex=0;
+infrastructurecapex += Math.ceil(coreresources/servers[document.getElementById("servers").selectedIndex][1])*Number(servers[document.getElementById("servers").selectedIndex][3]);
+infrastructurecapex += Math.ceil((coreresources/servers[document.getElementById("servers").selectedIndex][1])/8)*Number(document.getElementById("40GB").checked)*Number(chassis[1]);
+infrastructurecapex += Math.ceil((coreresources/servers[document.getElementById("servers").selectedIndex][1])/8)*(1-Number(document.getElementById("40GB").checked))*Number(chassis[0]);
+infrastructurecapex += Math.ceil((coreresources/servers[document.getElementById("servers").selectedIndex][1])/32)*Number(document.getElementById("40GB").checked)*Number(fi[1]);
+infrastructurecapex += Math.ceil((coreresources/servers[document.getElementById("servers").selectedIndex][1])/32)*(1-Number(document.getElementById("40GB").checked))*Number(fi[0]);
+console.log("fi:"+infrastructurecapex);
+
+document.getElementById("infracapex").value=Math.ceil(coreresources/servers[document.getElementById("servers").selectedIndex][1])+"servers,"+ Math.ceil(coreresources/servers[document.getElementById("servers").selectedIndex][1]/8)+"chassis,"+ Math.ceil(coreresources/servers[document.getElementById("servers").selectedIndex][1]/32)+" pair of fi, $"+infrastructurecapex+"GPL";
 
 var selectedyearindex=document.getElementById("years").selectedIndex;
 var selectedyear = Number(document.getElementById("years").options[document.getElementById("years").selectedIndex].text);
