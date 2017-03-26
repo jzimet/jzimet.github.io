@@ -536,7 +536,7 @@ infrastructurecapex += Math.ceil((coreresources/servers[document.getElementById(
 infrastructurecapex += Math.ceil((coreresources/servers[document.getElementById("servers").selectedIndex][1])/32)*(1-Number(document.getElementById("40GB").checked))*Number(fi[0]);
 console.log("fi:"+infrastructurecapex);
 
-document.getElementById("infracapex").value=Math.ceil(coreresources/servers[document.getElementById("servers").selectedIndex][1])+"servers,"+ Math.ceil(coreresources/servers[document.getElementById("servers").selectedIndex][1]/8)+"chassis,"+ Math.ceil(coreresources/servers[document.getElementById("servers").selectedIndex][1]/32)+" pair of fi, $"+infrastructurecapex+"GPL";
+document.getElementById("infracapex").value=Math.ceil(coreresources/servers[document.getElementById("servers").selectedIndex][1])+"servers,"+ Math.ceil(coreresources/servers[document.getElementById("servers").selectedIndex][1]/8)+"chassis,"+ Math.ceil(coreresources/servers[document.getElementById("servers").selectedIndex][1]/32)+" pair of fi : $"+infrastructurecapex+"GPL";
 
 var selectedyearindex=document.getElementById("years").selectedIndex;
 var selectedyear = Number(document.getElementById("years").options[document.getElementById("years").selectedIndex].text);
