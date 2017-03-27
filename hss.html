@@ -388,6 +388,48 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 </tg>
 </tr>
 
+<!--############### arbor
+-->
+<tr>
+<td>
+<img src="hss-arbor.png" align="center" width="50" height="50">
+</td>
+<td>
+<input type = "checkbox" style="height:20px;width:20px" id = "arbor" onchange="calculate()">
+<label for "arbor">arbor</label>
+</td>
+<td>
+<select id="hardwareforddos" onchange="calculate()">
+<option>9004</option>
+<option>9006</option>
+</select>
+<select id="speedforddos" onchange="calculate()">
+<option>10GB</option>
+<option>20GB</option>
+<option>40GB</option>
+</select>
+<input type = "checkbox" style="height:20px;width:20px" id = "redundancy" onchange="calculate()">
+<label for "redundancy">redundancy</label>
+<input type="checkbox" style="height:20px;width:20px" id = "coremonitoring" onchange="calculate()">
+<label for "coremonitoring">core monitoring</label>
+<input type = "checkbox" style="height:20px;width:20px" id = "edgemonitoring" onchange="calculate()">
+<label for "edgemonitoring">edge monitoring</label>
+<input type="checkbox" style="height:20px;width:20px" id = "scrubbing" onchange="calculate()">
+<label for "scrubbing">scrubbing</label>
+<input type = "checkbox" style="height:20px;width:20px" id = "aimsubscription" onchange="calculate()">
+<label for "aim subscription">AIM subscription</label>
+</td>
+<td>
+<input type = "checkbox" style="height:20px;width:20px" id = "arborshared" checked onclick="return false">
+<label for "arborshared">shared</label>
+</td>
+<td>
+</td>
+<td>
+<label for="mrrforarbor">MRR:</label><input type="range" min="0" max="1000" value="100" step = "1" style="width: 8em" id="mrrforarbor" oninput="sliderformrrarbor(value)"><output for="mrrforarbor" id="volumeformrrarbor" style="color: #3CBC8D">10</output>
+</tg>
+</tr>
+
 <!--################ ubiqube and nso
 -->
 <tr>
@@ -478,7 +520,10 @@ function sliderformrrtg(vol) {
         calculate();
 }
 
-
+function sliderformrrarbor(vol) {
+        document.querySelector('#volumeformrrarbor').value = vol/10;
+        calculate();
+}
 
 function calculate (){
 
@@ -771,6 +816,14 @@ total += opendnsdata;
         tgprivatedata= Number(document.getElementById("tg").checked)*tg*Number(document.getElementById("tgprivateradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked));
         total+=tgpublicdata+tgprivatedata;
 	//total += (tg*Number(document.getElementById("tgpublicradio").checked)+tg*Number(document.getElementById("tgprivateradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked)*Number(document.getElementById("tg").checked));
+
+
+//################# Arbor
+//9904 or 9006
+var hardwareforddos =[71462,726130];
+var redundancyforddos = 32000;
+//10, 20 or 40GB
+var speedforddos=[[100790, 66001, 18858, 553600, 28000],[100790,66001, 18858, 908900, 45000],[100790, 403075, 18858, 1546200, 70000]];
 
 
 //#################
