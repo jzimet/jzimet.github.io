@@ -113,6 +113,7 @@
 <td>
 <input type = "radio" style="height:20px;width:20px" name = "vpnclient" id="vpnclientradio" value="vpnclient" checked="checked" onchange="calculate()">
 <label for "vpnclientradio">ipsec based</label>
+<br>
 <input type = "radio" style="height:20px;width:20px" name = "vpnclient" id="clientlessvpnradio" value="clientlessvpn" onchange="calculate()">
 <label for "clientlessvpn">ssl based (clientles) </label>
 </td>
@@ -138,6 +139,7 @@
 <td>
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforroaminguserradio" value="opendnsforroaminguser" checked="checked" onchange="calculate()">
 <label for "opendnsforroaminguser">for roaming user</label>
+<br>
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforbranchradio" value="opendnsforbranch" onchange="calculate()">
 <label for "opendnsforbranch">for branch</label>
 <select id="opendnsforbranchselected">
@@ -147,6 +149,7 @@
 <option>4431</option>
 <option>4451</option>
 </select>
+<br>
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforwlanradio" value="opendnsforwlan" onchange="calculate()">
 <label for "opendnsforwlan">for wlan</label>
 </td>
@@ -238,8 +241,10 @@
 <td>
 <input type = "radio" style="height:20px;width:20px" name = "firewall" id ="firewallsmallradio" value="firewallsmall" checked="checked" onchange="calculate()">
 <label for "firewallsmall">small (100MB, 25 tenants)</label>
+<br>
 <input type = "radio" style="height:20px;width:20px" name = "firewall" id="firewallmediumradio" value="firewallmedium" onchange="calculate()">
 <label for "firewallmedium">medium (1GB,50 tenants) </label>
+<br>
 <input type = "radio" style="height:20px;width:20px" name = "firewall" id="firewalllargeradio" value="firewalllarge" onchange="calculate()">
 <label for "firewalllarge">large (2GB, 200 tenants)</label>
 </td>
@@ -271,10 +276,12 @@
 <label for "routeripbase">bronze</label>
 <input type = "radio" style="height:20px;width:20px" name = "router" id ="routerdatacenterradio" value="routerdatacenter" onchange="calculate()">
 <label for "routerdatacenter">silver</label>
+<br>
 <input type = "radio" style="height:20px;width:20px" name = "router" id = "routersecurityradio" value="routersecurity" onchange="calculate()">
 <label for "routersecurity">gold</label>
 <input type = "radio" style="height:20px;width:20px" name = "router" id="routerallradio" value="routerall" onchange="calculate()">
-<label for "routerall">platinum, </label>
+<label for "routerall">platinum</label>
+<br>
 <!--
 https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 -->
@@ -339,8 +346,10 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <td>
 <input type = "radio" style="height:20px;width:20px" name = "amp" id = "amppublicradio" value="amppublic" checked="checked" onchange="calculate()">
 <label for "amppublic">public</label>
+<br>
 <input type = "radio" style="height:20px;width:20px" name = "amp" id = "ampprivateradio" value="ampprivate" onchange="calculate()">
 <label for "ampprivate">private with internet (proxy)</label>
+<br>
 <input type = "radio" style="height:20px;width:20px" name = "amp" id = "ampprivateairgapradio" value="ampprivateairgap" onchange="calculate()">
 <label for "ampprivateairgap">private without internet (air gap)</label>
 </td>
@@ -370,7 +379,8 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <input type = "radio" style="height:20px;width:20px" name = "tg" id = "tgpublicradio" value="tgpublic" checked="checked" onchange="calculate()">
 <label for "tgpublic">public</label>
 <input type = "radio" style="height:20px;width:20px" name = "tg" id = "tgprivateradio" value="tgprivate" onchange="calculate()">
-<label for "tgprivate">private, </label>
+<label for "tgprivate">private </label>
+<br>
 <label for "tgselected">Select files per day : </label>
 <select id="tgselected" onchange="calculate()">
 <option>1500</option>
@@ -408,14 +418,19 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 <option>20GB</option>
 <option>40GB</option>
 </select>
+<br>
 <input type = "checkbox" style="height:20px;width:20px" id = "redundancy" onchange="calculate()">
 <label for "redundancy">redundancy</label>
+<br>
 <input type="checkbox" style="height:20px;width:20px" id = "coremonitoring" onchange="calculate()">
 <label for "coremonitoring">core monitoring</label>
+<br>
 <input type = "checkbox" style="height:20px;width:20px" id = "edgemonitoring" onchange="calculate()">
 <label for "edgemonitoring">edge monitoring</label>
+<br>
 <input type="checkbox" style="height:20px;width:20px" id = "scrubbing" onchange="calculate()">
 <label for "scrubbing">scrubbing</label>
+<br>
 <input type = "checkbox" style="height:20px;width:20px" id = "aimsubscription" onchange="calculate()">
 <label for "aim subscription">AIM subscription</label>
 </td>
@@ -856,8 +871,8 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
                 ctx1.strokeStyle = '#09F';
                 ctx1.font="14px bebas"
                 ctx1.textAlign = 'center';
-                ctx1.fillText(priceperuserpermonth +'$', cw1*.5, ch1*.5+2, cw1);
-                ctx1.fillText('per user per month', cw1/2+2, ch1/2+14, cw1/2);
+                ctx1.fillText('$'+Number(priceperuserpermonth).toFixed(2) +'/'+ Number(mrr).toFixed(2), cw1*.5, ch1*.5+2, cw1);
+                ctx1.fillText('Cost/MRR  per user', cw1/2+2, ch1/2+14, cw1/2);
                 ctx1.beginPath();
                 ctx1.arc(cw1*.5,ch1*.5,60,start1,diff1/10+start1,false);
                 ctx1.stroke();
@@ -866,6 +881,17 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
                 } else {
                         al1++;
                 }
+                
+		//ctx1.fillStyle = 'red';
+                //ctx1.strokeStyle = 'red';
+		//ctx1.beginPath();
+		//ctx1.arc(cw1*.5,ch1*.5,50,start1,diff1/10+start1,false);
+                //ctx1.stroke();
+                //if (al1 >= mrr) {
+                //        clearInterval(id1);
+                //} else {
+                //        al1++;
+                //}
         }
 
 //#################
