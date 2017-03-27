@@ -915,8 +915,9 @@ function updateNumberOfEmployee(row) {
 
 function deleteRow(row)
 {
-    var i=row.parentNode.parentNode.rowIndex;
-    document.getElementById('table').deleteRow(i);
+        var i=row.parentNode.parentNode.rowIndex;
+        document.getElementById('table').deleteRow(i);
+	calculate();
 }
 
 function saveRow(row)
