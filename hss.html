@@ -64,7 +64,7 @@
 <input type = "number" style="background-color:yellow;height:30px;width:60px;text-align:right;color: #3CBC8D" id = "mrr" readonly>
 <label for "mrr" style="color: #3CBC8D">$ revenue per user per month</label>
 <br>
-<input type="text" id="resources" readonly style="color: #3CBC8D;height:15px;width:300px">
+<input type="text" id="resources" readonly style="color: #3CBC8D;height:15px;width:400px">
 <br>
 <select id="servers" onchange="calculate()">
 <option>1.7GHz, 8-core, 64GB RAM</option>
@@ -84,7 +84,7 @@
 <input type = "checkbox" style="height:20px;width:20px" id = "40GB" onchange="calculate()">
 <label for "fi">40GB</label>
 <br>
-<input type="text" id="infracapex" readonly style="color: #3CBC8D;height:15px;width:300px">
+<input type="text" id="infracapex" readonly style="color: #3CBC8D;height:15px;width:400px">
 </td>
 <td>
 <canvas id="mycanvas1" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
@@ -511,43 +511,43 @@ ampresources=[[238,32,8],[1024,128,8]];
 var coreresources = 0;
 coreresources += Number(document.getElementById("websecurity").checked) * wsaresources[0][2];
 coreresources += Number(document.getElementById("mailsecurity").checked) * esaresources[0][2];
-coreresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallsmallradio").checked)*asaresources[0][2];
-coreresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallmediumradio").checked)*asaresources[1][2];
-coreresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewalllargeradio").checked)*asaresources[2][2];
-coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routeripbaseradio").checked)*csrresources[0][2];
-coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerdatacenterradio").checked)*csrresources[1][2];
-coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routersecurityradio").checked)*csrresources[2][2];
-coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerallradio").checked)*csrresources[2][2];
-coreresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateradio").checked)*ampresources[0][2];
-coreresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateairgapradio").checked)*ampresources[1][2];
+coreresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallsmallradio").checked)*asaresources[0][2]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+coreresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallmediumradio").checked)*asaresources[1][2]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+coreresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewalllargeradio").checked)*asaresources[2][2]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routeripbaseradio").checked)*csrresources[0][2]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerdatacenterradio").checked)*csrresources[1][2]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routersecurityradio").checked)*csrresources[2][2]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+coreresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerallradio").checked)*csrresources[2][2]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+coreresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateradio").checked)*ampresources[0][2]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked));
+coreresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateairgapradio").checked)*ampresources[1][2]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked));
 
 
 var ramresources = 0;
 ramresources += Number(document.getElementById("websecurity").checked) * wsaresources[0][1];
 ramresources += Number(document.getElementById("mailsecurity").checked) * esaresources[0][1];
-ramresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallsmallradio").checked)*asaresources[0][1];
-ramresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallmediumradio").checked)*asaresources[1][1];
-ramresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewalllargeradio").checked)*asaresources[2][1];
-ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routeripbaseradio").checked)*csrresources[0][1];
-ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerdatacenterradio").checked)*csrresources[1][1];
-ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routersecurityradio").checked)*csrresources[2][1];
-ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerallradio").checked)*csrresources[2][1];
-ramresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateradio").checked)*ampresources[0][1];
-ramresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateairgapradio").checked)*ampresources[1][1];
+ramresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallsmallradio").checked)*asaresources[0][1]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+ramresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallmediumradio").checked)*asaresources[1][1]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+ramresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewalllargeradio").checked)*asaresources[2][1]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routeripbaseradio").checked)*csrresources[0][1]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerdatacenterradio").checked)*csrresources[1][1]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routersecurityradio").checked)*csrresources[2][1]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+ramresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerallradio").checked)*csrresources[2][1]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+ramresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateradio").checked)*ampresources[0][1]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked));
+ramresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateairgapradio").checked)*ampresources[1][1]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked));
 
 
 var hddresources = 0;
 hddresources += Number(document.getElementById("websecurity").checked) * wsaresources[0][0];
 hddresources += Number(document.getElementById("mailsecurity").checked) * esaresources[0][0];
-hddresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallsmallradio").checked)*asaresources[0][0];
-hddresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallmediumradio").checked)*asaresources[1][0];
-hddresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewalllargeradio").checked)*asaresources[2][0];
-hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routeripbaseradio").checked)*csrresources[0][0];
-hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerdatacenterradio").checked)*csrresources[1][0];
-hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routersecurityradio").checked)*csrresources[2][0];
-hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerallradio").checked)*csrresources[2][0];
-hddresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateradio").checked)*ampresources[0][0];
-hddresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateairgapradio").checked)*ampresources[1][0];
+hddresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallsmallradio").checked)*asaresources[0][0]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+hddresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewallmediumradio").checked)*asaresources[1][0]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+hddresources += Number(document.getElementById("firewall").checked)*Number(document.getElementById("firewalllargeradio").checked)*asaresources[2][0]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routeripbaseradio").checked)*csrresources[0][0]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerdatacenterradio").checked)*csrresources[1][0]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routersecurityradio").checked)*csrresources[2][0]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+hddresources += Number(document.getElementById("router").checked)*Number(document.getElementById("routerallradio").checked)*csrresources[2][0]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+hddresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateradio").checked)*ampresources[0][0]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked));
+hddresources += Number(document.getElementById("amp").checked)*Number(document.getElementById("ampprivateairgapradio").checked)*ampresources[1][0]*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked));
 
 document.getElementById("resources").value="Resources required : "+coreresources+"cores, "+ramresources+"GB ram, "+hddresources+"GB hdd";
 
