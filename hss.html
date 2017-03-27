@@ -18,11 +18,31 @@
 <table>
 <br>
 
+<label for="branch" style="color: #3CBC8D">Branch:</label>
+<input type="range" min="0" max="10" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="branch" oninput="sliderOutputUpdateForBranch(value)"><output for="branch" id="volumeforbranch" style="color: #3CBC8D">1</output>
+<label for="users" style="color: #3CBC8D">, Users:</label>
+<input type="range" min="0" max="1000" value="100" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="users" oninput="sliderOutputUpdateForUsers(value)"><output for="users" id="volumeforusers" style="color: #3CBC8D">100</output>
+<label for "numberoftenants" style="color: #3CBC8D">, Tenants:</label>
+<input type = "number" style="width:30px;text-align:right;color: #3CBC8D" id = "numberoftenants" readonly>
+<label for "numberofusers" style="color: #3CBC8D">, Users:</label>
+<input type = "number" style="width:50px;text-align:right;color: #3CBC8D" id = "numberofusers" readonly>
+<br>
+<div id="tablediv">
+    <table id="table" border="1">
+        <tr>
+            <td><input type="button" value="Add Row" onclick="insRow()"></td>
+                <td></td>
+        <td>Tenant id</td>
+        <td>Number of Branch</td>
+        <td>Number of employee per tennant</td>
+        <td>CPE Select</td>
+        </tr>
+    </table>
+<br>
+
 <table>
 <tr>
 <td>
-<label for="users" style="color: #3CBC8D">Users:</label><input type="range" min="0" max="1000" value="100" step = "5" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="users" oninput="sliderOutputUpdateForUsers(value)"><output for="users" id="volumeforusers" style="color: #3CBC8D">20 users</output>
-<br>
 <label for="discount" style="color: #3CBC8D">Discount:</label><input type="range" min="0" max="100" value="20" step = "5" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="discount" oninput="sliderOutputUpdateForDiscount(value)"><output for="discount" id="volumefordiscount" style="color: #3CBC8D">20 %</output>
 <br>
 <label for="years" style="color: #3CBC8D">Years: </label>
@@ -386,18 +406,6 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 
 <!--################ ubiqube and nso
 -->
-<div id="tablediv">
-    <input type="button" id="savedata" value="Save data"/><br/><br/>
-    <table id="table" border="1">
-        <tr>
-            <td><input type="button" id="add" value="Add Row" onclick="insRow()"/></td>
-        <td>Tenant id</td>
-        <td>Number of Branch</td>
-        <td>Number of employee per tennant</td>
-        <td>CPE Select</td>
-        </tr>
-    </table>
-<br>
 
 
 <!--################
@@ -428,6 +436,9 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 document.getElementById("ngfirewall").checked=false;
 document.getElementById("amp").checked=false;
 document.getElementById("tg").checked=false;
+
+insRow();
+
 
 function sliderformrrvpnremoteaccess(vol) {
         document.querySelector('#volumeformrrvpnremoteaccess').value = vol/10;
@@ -466,11 +477,23 @@ function sliderformrrtg(vol) {
         document.querySelector('#volumeformrrtg').value = vol/10;
         calculate();
 }
+
+
+
 function calculate (){
 
 var quantity = Number(document.getElementById("users").value);
 var priceperuserperyear=0;
 var priceperuserpermonth=0;
+
+//######## tenants and users
+var numberoftenants=0;
+var numberofusers=0;
+for (i=1;i<document.getElementById("table").rows.length;i++){
+	numberofusers+=Number(document.getElementById("table").rows[i].cells[4].innerHTML);
+}
+document.getElementById("numberofusers").value=numberofusers;
+document.getElementById("numberoftenants").value=document.getElementById("table").rows.length-1;
 
 //ghz, core, ram, gpl
 servers=[[1.7, 8,64,7214],[2.2, 10,128,11565],[2.1, 8,128,10400],[2.6, 14,256,22600],[2.4, 14,256,21400],[2.2, 12,256,18000],[2, 14,256,19280],[2.2, 12,128,14120],[3.4, 6,256,20650],[3.5, 4,256,17405],[3.2, 8,256,23255],[2.1, 16,256,20360],[2.3, 18,256,27268]];
@@ -704,52 +727,50 @@ total += opendnsdata;
 
 //################
 
-        firewallsmalldata= firewallsmall*Number(document.getElementById("firewallsmallradio").checked)*(document.getElementById("users").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked)*Number(document.getElementById("firewall").checked));
-
-        firewallmediumdata= firewallmedium*Number(document.getElementById("firewallmediumradio").checked)*(document.getElementById("users").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked)*Number(document.getElementById("firewall").checked));
-
-        firewalllargedata= firewalllarge*Number(document.getElementById("firewalllargeradio").checked)*(document.getElementById("users").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked)*Number(document.getElementById("firewall").checked));
-
-        total += (firewallsmall*Number(document.getElementById("firewallsmallradio").checked)+firewallmedium*Number(document.getElementById("firewallmediumradio").checked)+firewalllarge*Number(document.getElementById("firewalllargeradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked)*Number(document.getElementById("firewall").checked));
+        firewallsmalldata= Number(document.getElementById("firewall").checked)*firewallsmall*Number(document.getElementById("firewallsmallradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+        firewallmediumdata= Number(document.getElementById("firewall").checked)*firewallmedium*Number(document.getElementById("firewallmediumradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+        firewalllargedata= Number(document.getElementById("firewall").checked)*firewalllarge*Number(document.getElementById("firewalllargeradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked));
+        total+=firewallsmalldata+firewallmediumdata+firewalllargedata;
+	//total += (firewallsmall*Number(document.getElementById("firewallsmallradio").checked)+firewallmedium*Number(document.getElementById("firewallmediumradio").checked)+firewalllarge*Number(document.getElementById("firewalllargeradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("firewallshared").checked))+Number(document.getElementById("firewallshared").checked)*Number(document.getElementById("firewall").checked));
 
 
 //################
 
-        ngfirewalldata= ngfirewall*(document.getElementById("users").value * (1-Number(document.getElementById("ngfirewallshared").checked)) + Number(document.getElementById("ngfirewall").checked) * Number(document.getElementById("ngfirewallshared").checked));
-
-        total += ngfirewall*(document.getElementById("users").value * (1-Number(document.getElementById("ngfirewallshared").checked)) + Number(document.getElementById("ngfirewall").checked) * Number(document.getElementById("ngfirewallshared").checked));
-
-
-//################
-
-        routerbronzedata = (routeripbase* Number(document.getElementById("routeripbaseradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
-
-        routersilverdata = (routerdatacenter* Number(document.getElementById("routerdatacenterradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
-
-        routergolddata = (routersecurity* Number(document.getElementById("routersecurityradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
-
-        routerplatinumdata = (routerall* Number(document.getElementById("routerallradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
-
-        total += (routeripbase* Number(document.getElementById("routeripbaseradio").checked)+routerdatacenter* Number(document.getElementById("routerdatacenterradio").checked)+routersecurity* Number(document.getElementById("routersecurityradio").checked)+routerall* Number(document.getElementById("routerallradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
+        ngfirewalldata= Number(document.getElementById("ngfirewallshared").checked)*ngfirewall*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ngfirewallshared").checked)) + Number(document.getElementById("ngfirewall").checked));
+        total+=ngfirewalldata;
+	//total += ngfirewall*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ngfirewallshared").checked)) + Number(document.getElementById("ngfirewall").checked) * Number(document.getElementById("ngfirewallshared").checked));
 
 
 //################
 
-        amppublicdata=(ampcloud * Number(document.getElementById("amppublicradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked)*Number(document.getElementById("amp").checked));
+        routerbronzedata = Number(document.getElementById("router").checked)*routeripbase* Number(document.getElementById("routeripbaseradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
 
-        ampprivatedata=(ampcloud * Number(document.getElementById("ampprivateradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked)*Number(document.getElementById("amp").checked));
+        routersilverdata = Number(document.getElementById("router").checked)*routerdatacenter* Number(document.getElementById("routerdatacenterradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
 
-        ampprivateairgapdata=(ampcloud * Number(document.getElementById("ampprivateairgapradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked)*Number(document.getElementById("amp").checked));
+        routergolddata = Number(document.getElementById("router").checked)*routersecurity* Number(document.getElementById("routersecurityradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
 
-        total +=(ampcloud * Number(document.getElementById("amppublicradio").checked)+ampcloud * Number(document.getElementById("ampprivateradio").checked)+ampcloud * Number(document.getElementById("ampprivateairgapradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked)*Number(document.getElementById("amp").checked));
+        routerplatinumdata = Number(document.getElementById("router").checked)*routerall* Number(document.getElementById("routerallradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked));
+	total+=routerbronzedata+routersilverdata+routergolddata+routerplatinumdata;
+        //total += (routeripbase* Number(document.getElementById("routeripbaseradio").checked)+routerdatacenter* Number(document.getElementById("routerdatacenterradio").checked)+routersecurity* Number(document.getElementById("routersecurityradio").checked)+routerall* Number(document.getElementById("routerallradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("routershared").checked))+Number(document.getElementById("routershared").checked)*document.getElementById("router").checked);
+
+
+//################
+
+        amppublicdata=Number(document.getElementById("amp").checked)*ampcloud * Number(document.getElementById("amppublicradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked));
+
+        ampprivatedata=Number(document.getElementById("amp").checked)*ampcloud * Number(document.getElementById("ampprivateradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked));
+
+        ampprivateairgapdata=Number(document.getElementById("amp").checked)*ampcloud * Number(document.getElementById("ampprivateairgapradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked));
+        total+=amppublicdata+ampprivatedata+ampprivateairgapdata;
+	//total +=(ampcloud * Number(document.getElementById("amppublicradio").checked)+ampcloud * Number(document.getElementById("ampprivateradio").checked)+ampcloud * Number(document.getElementById("ampprivateairgapradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("ampshared").checked))+Number(document.getElementById("ampshared").checked)*Number(document.getElementById("amp").checked));
 
 //#################
 
-        tgpublicdata= (tg*Number(document.getElementById("tgpublicradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked)*Number(document.getElementById("tg").checked));
+        tgpublicdata= Number(document.getElementById("tg").checked)*tg*Number(document.getElementById("tgpublicradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked));
 
-        tgprivatedata= (tg*Number(document.getElementById("tgprivateradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked)*Number(document.getElementById("tg").checked));
-
-        total += (tg*Number(document.getElementById("tgpublicradio").checked)+tg*Number(document.getElementById("tgprivateradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked)*Number(document.getElementById("tg").checked));
+        tgprivatedata= Number(document.getElementById("tg").checked)*tg*Number(document.getElementById("tgprivateradio").checked)*(document.getElementById("numberoftenants").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked));
+        total+=tgpublicdata+tgprivatedata;
+	//total += (tg*Number(document.getElementById("tgpublicradio").checked)+tg*Number(document.getElementById("tgprivateradio").checked))*(document.getElementById("users").value * (1-Number(document.getElementById("tgshared").checked))+Number(document.getElementById("tgshared").checked)*Number(document.getElementById("tg").checked));
 
 
 //#################
@@ -866,8 +887,30 @@ function sliderOutputUpdateForDiscount(vol) {
 
 //http://thenewcode.com/757/Playing-With-The-HTML5-range-Slider-Input
 function sliderOutputUpdateForUsers(vol) {
-        document.querySelector('#volumeforusers').value = vol + "users";
+        document.querySelector('#volumeforusers').value = vol;
         calculate();
+}
+
+//http://thenewcode.com/757/Playing-With-The-HTML5-range-Slider-Input
+function sliderOutputUpdateForBranch(vol) {
+        document.querySelector('#volumeforbranch').value = vol;
+}
+
+
+//http://thenewcode.com/757/Playing-With-The-HTML5-range-Slider-Input
+function sliderOutputUpdateNumberOfBranch1(vol) {
+        document.querySelector('#volumefornumberofbranch1').value = vol;
+}
+function sliderOutputUpdateNumberOfEmployee1(vol) {
+        document.querySelector('#volumefornumberofemployee1').value = vol;
+}
+function updateNumberOfBranch(row) {
+	var i=row.parentNode.parentNode.rowIndex;
+	document.getElementById("table").rows[i].cells[2].innerHTML=document.getElementById("volumefornumberofbranch1").value;;
+}
+function updateNumberOfEmployee(row) {
+        var i=row.parentNode.parentNode.rowIndex;
+        document.getElementById("table").rows[i].cells[4].innerHTML=document.getElementById("volumefornumberofemployee1").value;;
 }
 
 function deleteRow(row)
@@ -876,26 +919,44 @@ function deleteRow(row)
     document.getElementById('table').deleteRow(i);
 }
 
+function saveRow(row)
+{
+    	var i=row.parentNode.parentNode.rowIndex;
+    	document.getElementById("table").rows[i].cells[3].innerHTML=document.getElementById("branch").value;
+    	document.getElementById("table").rows[i].cells[4].innerHTML=document.getElementById("users").value;
+	console.log("branch:"+document.getElementById("branch").value);
+	console.log("branch:"+document.getElementById("users").value);
+	calculate();
+}
+
+
 function insRow()
 {
-    var x=document.getElementById('table');
-    var row = x.insertRow(-1);
-        for (i=0; i< x.rows[0].cells.length;i++) {
-                var cell = row.insertCell(i);
-                if (i == 0) {
-                        cell.innerHTML="<input type='button' value='Delete Row' onclick='deleteRow(this)'/>";
-                } else if (i== (x.rows[0].cells.length-1)) {
-                        cell.innerHTML='<select><option value="me1200">ME 1200</option><option value="rv340">RV 340</option><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
-                } else if (i==2) {
-                        //cell.innerHTML="<input size=25 type='text' readonly value='"+i+"'>";
-			cell.innerHTML='<label for="branch1" style="color: #3CBC8D"></label><input type="range" min="0" max="100" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="branch1" oninput="sliderOutputUpdateNumberOfBranch1(value)"><output for="branch1" id="volumefornumberofbranch1" style="color: #3CBC8D">1</output>';
-                } else if (i==3) {
-                        //cell.innerHTML="<input size=25 type='text' readonly value='"+i+"'>";
-			cell.innerHTML='<label for="employee1" style="color: #3CBC8D"></label><input type="range" min="0" max="1000" value="100" step = "25" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="employee1" oninput="sliderOutputUpdateNumberOfEmployee1(value)"><output for="employee1" id="volumefornumberofemployee1" style="color: #3CBC8D">100</output>';
-		} else if (i==1) {
-                        cell.innerHTML="<input style='color: #3CBC8D' size=25 type='text' value='"+ (x.rows.length-1)+"'>";
-		}
-        }
+    	var x=document.getElementById('table');
+    	document.getElementById("numberoftenants").value=document.getElementById("table").rows.length;
+    	numberofusers=document.getElementById("numberofusers").value;
+	//table
+	var tabledata=[[1,1,4]];
+	for (j=0;j<tabledata.length;j++){
+		var row = x.insertRow(-1);
+        		for (i=0; i< x.rows[0].cells.length;i++) {
+                		var cell = row.insertCell(i);
+                		if (i == 0) {
+                        		cell.innerHTML="<input type='button' value='Delete Row' onclick='deleteRow(this)'/>";
+                		} else if (i == 1) {
+                        		cell.innerHTML="<input type='button' value='Save Row' onclick='saveRow(this)'/>";
+                		} else if (i==2) {
+                                        cell.innerHTML=(x.rows.length-1);
+				} else if (i==3) {
+                                        cell.innerHTML=tabledata[j][1];
+				} else if (i==4) {
+                                        cell.innerHTML=tabledata[j][2];
+				} else if (i== (x.rows[0].cells.length-1)) {
+                        		cell.innerHTML='<select><option value="me1200">ME 1200</option><option value="rv340">RV 340</option><option value="isr881">ISR881W</option><option value="isr892">ISR 892</option><option value="isr2921">ISR 1941</option><option value="isr3925">ISR 3925E</option><option value="isr4321">ISR 4321</option><option value="isr4331">ISR4331</option><option value="isr4351">ISR4351</option><option value="isr4431">ISR4431</option><option value="isr4451">ISR4451</option><option value="asr1001">ASR1001X</option><option value="asr1002">ASR1002X</option></select>';
+				}
+			}
+	}
+	calculate();
 }
 
 function sliderOutputUpdateNumberOfEmployee1(vol) {
