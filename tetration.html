@@ -9,40 +9,83 @@
 </td>
 <td>
 <canvas id="mycanvas2" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
+<canvas id="can" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
+<!--
+<canvas id="can2" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
+-->
 </td>
 <td>
-<a href ="https://jzimet.github.io/idc-tetration-ciscoit-wp.pdf"><img src="tetration.png" align="center" width="300" height="150"></a>
+<a href ="https://jzimet.github.io/idc-tetration-ciscoit-wp.pdf"><img src="tetration.png" align="center" width="200" height="150"></a>
 </td>
 </table>
 <br>
+<table>
+<td>
 <label for="applicationnumber" style="color: #3CBC8D">Number of Applications:</label><input type="range" min="0" max="1000" value="100" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="applicationnumber" oninput="sliderOutputUpdateForApplicationNumber(value)"><output for="applications" id="volumeforapplicationnumber" style="color: #3CBC8D">100</output>
-<label for="frequencyofadm" style="color: #3CBC8D">Application Dependency Map Runs per Year:</label><input type="range" min="1" max="10" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="frequencyofadm" oninput="sliderOutputUpdateForFrequencyOfADM(value)"><output for="applications" id="volumeforfrequencyofadm" style="color: #3CBC8D">1</output>
-<br>
+</td>
+<td>
+<label for="frequencyofadm" style="color: #3CBC8D">Analysis per Year:</label><input type="range" min="1" max="10" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="frequencyofadm" oninput="sliderOutputUpdateForFrequencyOfADM(value)"><output for="applications" id="volumeforfrequencyofadm" style="color: #3CBC8D">1</output>
+</td>
+<td>
+<label for="years" style="color: #3CBC8D">Years of ownership:</label><input type="range" min="1" max="5" value="5" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="years" oninput="sliderOutputUpdateForYears(value)"><output for="years" id="volumeforyears" style="color: #3CBC8D">5</output>
+</td>
+<tr>
+<td>
 <label for="savingsinhours" style="color: #3CBC8D">Cisco Tetration savings in hours</label><input type = "number" id = "savingsinhours" readonly style="width: 6em">
+</td>
+<td>
 <label for="benefit" style="color: #3CBC8D">savings in $</label><input type = "number" id = "benefit" readonly style="width: 6em">
+</td>
+<td>
 <input type = "number" id = "benefitpercentage" readonly style="width: 3em"><label for="benefitpercentage" style="color: #3CBC8D">% less staff time</label>
-<br>
+</td>
+<tr>
+<td>
+</td>
+<td>
+</td>
+<tr>
+<td>
 <label for="mrr" style="color: #3CBC8D">Monthly Recurring Revenue:</label><input type="range" min="0" max="1000" value="100" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="mrr" oninput="sliderOutputUpdateForMRR(value)"><output for="mrr" id="volumeformrr" style="color: #3CBC8D">$100</output>
-
-<label for="years" style="color: #3CBC8D">Years:</label><input type="range" min="1" max="5" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="years" oninput="sliderOutputUpdateForYears(value)"><output for="years" id="volumeforyears" style="color: #3CBC8D">1</output>
+</td>
+</tr>
+<!--
 <label for="revenue" style="color: #3CBC8D">Revenue: $</label><input type = "number" id = "revenue" readonly style="width: 6em">
+-->
 <br>
+<tr>
+<td>
 <label for "tetrationoptions" style="color: #3CBC8D">Appliance:</label>
 <select id="tetrationoptions" onchange="calculate()">
 <option> Small </option>
 <option> Medium </option>
 <option> SaaS </option>
 </select>
-<label for="discount" style="color: #3CBC8D">Discount:</label><input type="range" min="0" max="100" value="20" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="discount" oninput="sliderOutputUpdateForDiscount(value)"><output for="mrr" id="volumefordiscount" style="color: #3CBC8D">20%</output>
-<label for="revenue-cost" style="color: #3CBC8D">Revenue - Cost : $</label><input type = "number" id = "revenue-cost" readonly style="width: 6em">
-<br>
+</td>
+<td>
+<label for="discount" style="color: #3CBC8D">Align Cost with Revenue:</label><input type="range" min="0" max="100" value="20" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="discount" oninput="sliderOutputUpdateForDiscount(value)"><output for="mrr" id="volumefordiscount" style="color: #3CBC8D">20%</output>
+</td>
+<td>
 <label for="interest" style="color: #3CBC8D">Interest:</label><input type="range" min="0" max="5" value="2" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="interest" oninput="sliderOutputUpdateForInterest(value)"><output for="interest" id="volumeforinterest" style="color: #3CBC8D">2%</output>
-<label for="monthlyrevenue" style="color: #3CBC8D">Monthly Revenue : $</label><input type = "number" id = "monthlyrevenue" readonly style="width: 6em">
+</td>
+</tr>
+<tr>
+<td>
+<label for="revenue-cost" style="color: #3CBC8D">Revenue - Cost : $</label><input type = "number" id = "revenue-cost" readonly style="width: 6em">
+<!--<label for="monthlyrevenue" style="color: #3CBC8D">Monthly Revenue : $</label><input type = "number" id = "monthlyrevenue" readonly style="width: 6em">
+-->
+</td>
+<td>
 <label for="annuity" style="color: #3CBC8D">Annuity : $</label><input type = "number" id = "annuity" readonly style="width: 6em">
-<label for="monthlyrevenue-annuity" style="color: #3CBC8D">Monthly Revenue - annuity: $</label><input type = "number" id = "monthlyrevenue-annuity" readonly style="width: 6em">
+</td>
+<td>
+<label for="monthlyrevenue-annuity" style="color: #3CBC8D">Monthly Revenue - Annuity: $</label><input type = "number" id = "monthlyrevenue-annuity" readonly style="width: 6em">
+</td>
 <!--
 <label for="annuityincluded" style="color: #3CBC8D">Use Annuity :</label><input type="checkbox" id="annuityincluded">
 -->
+</tr>
+</table>
 <br>
 
 <table>
@@ -248,7 +291,7 @@ function calculate(){
 	cost=tetrationprice[document.getElementById("tetrationoptions").selectedIndex]*(1-Number(document.getElementById("discount").value)/100);
 	console.log(cost);
 	revenue = (Number(document.getElementById("mrr").value)*Number(document.getElementById("applicationnumber").value)*12*Number(document.getElementById("years").value));
-	document.getElementById("revenue").value=revenue;
+	//document.getElementById("revenue").value=revenue;
 	document.getElementById("revenue-cost").value = revenue-cost;
 
 
@@ -270,13 +313,11 @@ console.log('monthly:'+monthly);
 a = monthly;
 console.log('a:'+a);
 document.getElementById("annuity").value = a.toFixed(0);
-//document.getElementById("paymentwithinterest").value = (monthly * payments).toFixed(2);
-//document.getElementById("interestpayed").value = ((monthly * payments) - principal).toFixed(2);
 
 
-//#######monthly revenue - annuity 
+	//#######monthly revenue - annuity 
 	monthlyrevenue = Number(document.getElementById("mrr").value)*Number(document.getElementById("applicationnumber").value);
-	document.getElementById("monthlyrevenue").value=monthlyrevenue;
+	//document.getElementById("monthlyrevenue").value=monthlyrevenue;
 	monthlyrevenuelessannuity=monthlyrevenue-a;
 	document.getElementById("monthlyrevenue-annuity").value = Number(monthlyrevenuelessannuity).toFixed(0);
 
@@ -338,6 +379,56 @@ document.getElementById("annuity").value = a.toFixed(0);
                         al2++;
                 }
         }
+
+
+	cost=tetrationprice[document.getElementById("tetrationoptions").selectedIndex]*(1-Number(document.getElementById("discount").value)/100);
+	yearlyrevenue = Number(document.getElementById("mrr").value)*Number(document.getElementById("applicationnumber").value)*12;
+
+var canvas = document.getElementById("can");
+var ctx = canvas.getContext("2d");
+
+var itemName=["Y1", "Y2", "Y3", "Y4", "Y5"];
+var scores = [yearlyrevenue-cost, yearlyrevenue*2-cost,yearlyrevenue*3-cost,yearlyrevenue*4-cost,yearlyrevenue*5-cost];
+var scoreswithciscocapital = [yearlyrevenue-a*12, yearlyrevenue*2-a*12*2,yearlyrevenue*3-a*12*3,yearlyrevenue*4-a*12*4,yearlyrevenue*5-a*12*5];
+
+var width = 10;
+var currX = 50;
+var base = 200;
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = 'blue';
+for (var i=0; i< years;i++) {
+	var h = scores[i]/10000;
+	ctx.fillStyle = 'blue';
+	ctx.fillRect(currX,canvas.height/2 - h,width/2,h);
+	var h = scoreswithciscocapital[i]/10000;
+	ctx.fillStyle = 'red';
+        ctx.fillRect(currX+width/2,canvas.height/2 - h,width/2,h);
+	//ctx.fillText(Number(scores[i]/100000).toFixed(0),currX+width/4,canvas.height*7/8);
+	ctx.fillText(itemName[i],currX+width/3,canvas.height*6/7);
+	currX += width + 10;
+}
+
+//        cost=tetrationprice[document.getElementById("tetrationoptions").selectedIndex]*(1-Number(document.getElementById("discount").value)/100);
+//        yearlyrevenue = Number(document.getElementById("mrr").value)*Number(document.getElementById("applicationnumber").value)*12;
+
+//var canvas = document.getElementById("can2");
+//var ctx = canvas.getContext("2d");
+
+//var itemName=["Y1", "Y2", "Y3", "Y4", "Y5"];
+//var scores = [yearlyrevenue-a, yearlyrevenue*2-a*2,yearlyrevenue*3-a*3,yearlyrevenue*4-a*4,yearlyrevenue*5-a*5];
+
+//var width = 10;
+//var currX = 50;
+//var base = 200;
+//ctx.clearRect(0, 0, canvas.width, canvas.height);
+//ctx.fillStyle = 'red';
+//for (var i=0; i< years;i++) {
+//        var h = scores[i]/10000;
+//        ctx.fillRect(currX,canvas.height/2 - h,width,h);
+//        ctx.fillText(Number(scores[i]/100000).toFixed(0),currX+width/4,canvas.height*3/4);
+//        ctx.fillText(itemName[i],currX+width/3,canvas.height*6/7);
+//        currX += width + 10;
+//}
 
 }
 </script>
