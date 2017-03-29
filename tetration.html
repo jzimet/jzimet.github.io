@@ -18,8 +18,31 @@
 <label for="applicationnumber" style="color: #3CBC8D">Number of Applications:</label><input type="range" min="0" max="1000" value="100" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="applicationnumber" oninput="sliderOutputUpdateForApplicationNumber(value)"><output for="applications" id="volumeforapplicationnumber" style="color: #3CBC8D">100</output>
 <label for="frequencyofadm" style="color: #3CBC8D">Application Dependency Map Runs per Year:</label><input type="range" min="1" max="10" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="frequencyofadm" oninput="sliderOutputUpdateForFrequencyOfADM(value)"><output for="applications" id="volumeforfrequencyofadm" style="color: #3CBC8D">1</output>
 <br>
-<label for=benefit" style="color: #3CBC8D">Cisco Tetration benefits : $</label><input type = "number" id = "benefit" readonly style="width: 6em">
-<input type = "number" id = "benefitpercentage" readonly style="width: 3em"><label for=benefitpercentage" style="color: #3CBC8D">%</label>
+<label for="savingsinhours" style="color: #3CBC8D">Cisco Tetration savings in hours</label><input type = "number" id = "savingsinhours" readonly style="width: 6em">
+<label for="benefit" style="color: #3CBC8D">savings in $</label><input type = "number" id = "benefit" readonly style="width: 6em">
+<input type = "number" id = "benefitpercentage" readonly style="width: 3em"><label for="benefitpercentage" style="color: #3CBC8D">% less staff time</label>
+<br>
+<label for="mrr" style="color: #3CBC8D">Monthly Recurring Revenue:</label><input type="range" min="0" max="1000" value="100" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="mrr" oninput="sliderOutputUpdateForMRR(value)"><output for="mrr" id="volumeformrr" style="color: #3CBC8D">$100</output>
+
+<label for="years" style="color: #3CBC8D">Years:</label><input type="range" min="1" max="5" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="years" oninput="sliderOutputUpdateForYears(value)"><output for="years" id="volumeforyears" style="color: #3CBC8D">1</output>
+<label for="revenue" style="color: #3CBC8D">Revenue: $</label><input type = "number" id = "revenue" readonly style="width: 6em">
+<br>
+<label for "tetrationoptions" style="color: #3CBC8D">Appliance:</label>
+<select id="tetrationoptions" onchange="calculate()">
+<option> Small </option>
+<option> Medium </option>
+<option> SaaS </option>
+</select>
+<label for="discount" style="color: #3CBC8D">Discount:</label><input type="range" min="0" max="100" value="20" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="discount" oninput="sliderOutputUpdateForDiscount(value)"><output for="mrr" id="volumefordiscount" style="color: #3CBC8D">20%</output>
+<label for="revenue-cost" style="color: #3CBC8D">Revenue - Cost : $</label><input type = "number" id = "revenue-cost" readonly style="width: 6em">
+<br>
+<label for="interest" style="color: #3CBC8D">Interest:</label><input type="range" min="0" max="5" value="2" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="interest" oninput="sliderOutputUpdateForInterest(value)"><output for="interest" id="volumeforinterest" style="color: #3CBC8D">2%</output>
+<label for="monthlyrevenue" style="color: #3CBC8D">Monthly Revenue : $</label><input type = "number" id = "monthlyrevenue" readonly style="width: 6em">
+<label for="annuity" style="color: #3CBC8D">Annuity : $</label><input type = "number" id = "annuity" readonly style="width: 6em">
+<label for="monthlyrevenue-annuity" style="color: #3CBC8D">Monthly Revenue - annuity: $</label><input type = "number" id = "monthlyrevenue-annuity" readonly style="width: 6em">
+<!--
+<label for="annuityincluded" style="color: #3CBC8D">Use Annuity :</label><input type="checkbox" id="annuityincluded">
+-->
 <br>
 
 <table>
@@ -156,9 +179,43 @@ function sliderOutputUpdateForFrequencyOfADM(vol) {
         document.querySelector('#volumeforfrequencyofadm').value = vol;
         calculate();
 }
+function sliderOutputUpdateForMRR(vol) {
+        document.querySelector('#volumeformrr').value = '$'+vol;
+        calculate();
+}
+function sliderOutputUpdateForYears(vol) {
+        document.querySelector('#volumeforyears').value = vol;
+        calculate();
+}
+
+function sliderOutputUpdateForDiscount(vol) {
+        document.querySelector('#volumefordiscount').value = vol+'%';
+        calculate();
+}
+
+function sliderOutputUpdateForInterest(vol) {
+        document.querySelector('#volumeforinterest').value = vol+'%';
+        calculate();
+}
+
 calculate();
 
 function calculate(){
+	
+	var tetrationprice=[1000000,1500000];
+	var cost=0;
+	var revenue=0;
+	var a=0;
+	var annuity=0;
+	var monthly=0;
+	var principal=0;
+	var years=0;
+	var interest=0;
+	var payments=0;
+	var x=0;
+	var savingsinhours=0;
+	var savingsindolars=0;
+
 	document.getElementById("stuffhouradmmanual").value=document.getElementById("applicationnumber").value*document.getElementById("stuffhouradm").value;
 	document.getElementById("stuffcostadmmanual").value=document.getElementById("stuffhouradmmanual").value*document.getElementById("stuffcostadm").value;
 	document.getElementById("stuffhouradmtetration").value=document.getElementById("stuffhouradmmanual").value/3.2;
@@ -167,8 +224,61 @@ function calculate(){
 	document.getElementById("stuffcostztomanual").value=document.getElementById("stuffhourztomanual").value*document.getElementById("stuffcostzto").value;
 	document.getElementById("stuffhourztoaci").value=document.getElementById("stuffhourztomanual").value/4;
 	document.getElementById("stuffcostztoaci").value=document.getElementById("stuffhourztoaci").value*document.getElementById("stuffcostzto").value;
-	document.getElementById("benefit").value=Number(Number(document.getElementById("frequencyofadm").value)*((Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value)))).toFixed(0);
+	
+	//###### savings in hours 
+	savingsinhours = (Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value));
+	console.log('savingsinhours:'+savingsinhours + 'freq of adm:'+Number(document.getElementById("frequencyofadm").value) + 'num of years:' +Number(document.getElementById("years").value));
+	savingsinhours = Number(document.getElementById("frequencyofadm").value)*Number(document.getElementById("years").value)*savingsinhours;
+	document.getElementById("savingsinhours").value=savingsinhours;
+	console.log('savingsinhours:'+savingsinhours);
+	
+	//###### savings in dolars
+	savingsindolars = (Number(document.getElementById("stuffcostadmmanual").value) - Number(document.getElementById("stuffcostadmtetration").value));
+	console.log('savingsindolars:'+savingsindolars);
+	savingsindolars += (Number(document.getElementById("stuffcostztomanual").value) - Number(document.getElementById("stuffcostztoaci").value));
+	console.log('savingsindolars:'+savingsindolars);
+	savingsindolars = savingsindolars*Number(document.getElementById("frequencyofadm").value)*Number(document.getElementById("years").value);
+	document.getElementById("benefit").value=savingsindolars;
+	console.log('savingsindolars:'+savingsindolars);
+	
+	//###### savings in percentage
 	document.getElementById("benefitpercentage").value=Number(100*((Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value)))/(Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))).toFixed(0);
+	
+	//###### cost revenue
+	cost=tetrationprice[document.getElementById("tetrationoptions").selectedIndex]*(1-Number(document.getElementById("discount").value)/100);
+	console.log(cost);
+	revenue = (Number(document.getElementById("mrr").value)*Number(document.getElementById("applicationnumber").value)*12*Number(document.getElementById("years").value));
+	document.getElementById("revenue").value=revenue;
+	document.getElementById("revenue-cost").value = revenue-cost;
+
+
+//####### calculation for annuity
+
+principal = cost;
+console.log('principal:'+principal);
+years = Number(document.getElementById("years").value);
+console.log('years:'+years);
+interest = Number(document.getElementById("interest").value) / 100 / 12;
+console.log('interest:'+interest);
+payments = years * 12;
+console.log('payments:'+payments);
+//payments = document.getElementById("loanperiodinyears").value * 12;
+x = Math.pow(1 + interest, payments);
+console.log('x:'+x);
+monthly = Number((principal*x*interest)/(x-1));
+console.log('monthly:'+monthly);
+a = monthly;
+console.log('a:'+a);
+document.getElementById("annuity").value = a.toFixed(0);
+//document.getElementById("paymentwithinterest").value = (monthly * payments).toFixed(2);
+//document.getElementById("interestpayed").value = ((monthly * payments) - principal).toFixed(2);
+
+
+//#######monthly revenue - annuity 
+	monthlyrevenue = Number(document.getElementById("mrr").value)*Number(document.getElementById("applicationnumber").value);
+	document.getElementById("monthlyrevenue").value=monthlyrevenue;
+	monthlyrevenuelessannuity=monthlyrevenue-a;
+	document.getElementById("monthlyrevenue-annuity").value = Number(monthlyrevenuelessannuity).toFixed(0);
 
 
         benefitpercentage=document.getElementById("benefitpercentage").value;
@@ -189,7 +299,8 @@ function calculate(){
                 ctx1.font="20px bebas"
                 ctx1.textAlign = 'center';
                 ctx1.fillText(Number(benefitpercentage).toFixed(0) +'%', cw1*.5, ch1*.5+2, cw1);
-                //ctx1.fillText('$'+benefit, cw1/2+2, ch1/2+14, cw1/2);
+                ctx1.font="15px bebas"
+                ctx1.fillText('less stuff time ', cw1/2+2, ch1/2+14, cw1/2);
                 ctx1.beginPath();
                 ctx1.arc(cw1*.5,ch1*.5,60,start1,diff1/10+start1,false);
                 ctx1.stroke();
