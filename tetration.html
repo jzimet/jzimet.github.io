@@ -1,0 +1,228 @@
+
+
+<!---######## number of app
+-->
+
+<table>
+<td>
+<canvas id="mycanvas1" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
+</td>
+<td>
+<canvas id="mycanvas2" width="150" height="150" style="border:1px dashed #CCC;">price per user per month</canvas>
+</td>
+<td>
+<img src="tetration.png" align="center" width="300" height="150">
+</td>
+</table>
+<br>
+<label for="applicationnumber" style="color: #3CBC8D">Number of applications:</label><input type="range" min="0" max="200" value="100" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="applicationnumber" oninput="sliderOutputUpdateForApplicationNumber(value)"><output for="applications" id="volumeforapplicationnumber" style="color: #3CBC8D">100</output>
+
+<label for=benefit" style="color: #3CBC8D">Cisco Tetration benefits : $</label><input type = "number" id = "benefit" readonly>
+<input type = "number" id = "benefitpercentage" readonly><label for=benefitpercentage" style="color: #3CBC8D">%</label>
+<br>
+
+<table>
+<td>
+
+<fieldset>
+<legend> Application Dependency Map</legend>
+
+<table>
+<tr>
+<td colspan="3">
+<!---######## stuff hours admp
+-->
+<label for="stuffhouradm" style="color: #3CBC8D">Stuff Hours per Application:</label><input type="range" min="0" max="200" value="40" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="stuffhouradm" oninput="sliderOutputUpdateForStuffHouradm(value)"><output for="stuffhouradm" id="volumeforstuffhouradm" style="color: #3CBC8D">40</output>
+<br>
+<!---######## stuff cost admp
+-->
+<label for="stuffcostadm" style="color: #3CBC8D">Stuff Costs per Application:</label><input type="range" min="0" max="200" value="100" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="stuffcostadm" oninput="sliderOutputUpdateForStuffCostadm(value)"><output for="stuffcostadm" id="volumeforstuffcostadm" style="color: #3CBC8D">100</output>
+<td>
+<tr>
+<th>
+</th>
+<th>
+Manual
+</th>
+<th>
+Cisco Tetration
+</th>
+</tr>
+<tr>
+<td>
+Staff Hours
+</td>
+<td>
+<input type="number" id="stuffhouradmmanual" readonly>
+</td>
+<td>
+<input type="number" id="stuffhouradmtetration" readonly>
+</td>
+</tr>
+<tr>
+<td font-color="#3CBC8D">
+FTE costs
+</td>
+<td>
+<input type="number" id="stuffcostadmmanual" readonly>
+</td>
+<td>
+<input type="number" id="stuffcostadmtetration" readonly>
+</td>
+</tr>
+</table>
+</fieldset>
+
+</td>
+<td>
+
+<fieldset>
+<legend>Zero Trust Operations</legend>
+
+<table>
+<tr>
+<td colspan="3">
+
+<!---######## stuff hours zto
+-->
+<label for="stuffhourzto" style="color: #3CBC8D">Stuff Hours per Application:</label><input type="range" min="0" max="200" value="12" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="stuffhourzto" oninput="sliderOutputUpdateForStuffHourzto(value)"><output for="stuffhourzto" id="volumeforstuffhourzto" style="color: #3CBC8D">12</output>
+<br>
+<!---######## stuff cost zto
+-->
+<label for="stuffcostzto" style="color: #3CBC8D">Stuff costs per Application:</label><input type="range" min="0" max="200" value="100" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="stuffcostzto" oninput="sliderOutputUpdateForStuffCostzto(value)"><output for="stuffcostztm" id="volumeforstuffcostzto" style="color: #3CBC8D">100</output>
+</td>
+<tr>
+<th>
+</th>
+<th>
+Manual
+</th>
+<th>
+Cisco SDN (Cisco ACI)
+</th>
+</tr>
+<tr>
+<td>
+Staff Hours
+</td>
+<td>
+<input type="number" id="stuffhourztomanual" readonly>
+</td>
+<td>
+<input type="number" id="stuffhourztoaci" readonly>
+</td>
+</tr>
+<tr>
+<td style="color:green">
+FTE Costs
+</td>
+<td>
+<input type="number" id="stuffcostztomanual" readonly>
+</td>
+<td>
+<input type="number" id="stuffcostztoaci" readonly>
+</td>
+</tr>
+</table>
+</fieldset>
+</td>
+</table>
+
+<script>
+
+function sliderOutputUpdateForApplicationNumber(vol) {
+        document.querySelector('#volumeforapplicationnumber').value = vol;
+	calculate();
+}
+function sliderOutputUpdateForStuffHouradm(vol) {
+        document.querySelector('#volumeforstuffhouradm').value = vol + "(40)";
+	calculate();
+}
+function sliderOutputUpdateForStuffCostadm(vol) {
+        document.querySelector('#volumeforstuffcostadm').value = vol + "(100)";
+	calculate();
+}
+function sliderOutputUpdateForStuffHourzto(vol) {
+        document.querySelector('#volumeforstuffhourzto').value = vol + "(12)";
+	calculate();
+}
+function sliderOutputUpdateForStuffCostzto(vol) {
+        document.querySelector('#volumeforstuffcostzto').value = vol + "(100)";
+	calculate();
+}
+calculate();
+
+function calculate(){
+	document.getElementById("stuffhouradmmanual").value=document.getElementById("applicationnumber").value*document.getElementById("stuffhouradm").value;
+	document.getElementById("stuffcostadmmanual").value=document.getElementById("stuffhouradmmanual").value*document.getElementById("stuffcostadm").value;
+	document.getElementById("stuffhouradmtetration").value=document.getElementById("stuffhouradmmanual").value/3.2;
+	document.getElementById("stuffcostadmtetration").value=document.getElementById("stuffhouradmtetration").value*document.getElementById("stuffcostadm").value;
+	document.getElementById("stuffhourztomanual").value=document.getElementById("applicationnumber").value*document.getElementById("stuffhourzto").value;
+	document.getElementById("stuffcostztomanual").value=document.getElementById("stuffhourztomanual").value*document.getElementById("stuffcostzto").value;
+	document.getElementById("stuffhourztoaci").value=document.getElementById("stuffhourztomanual").value/4;
+	document.getElementById("stuffcostztoaci").value=document.getElementById("stuffhourztoaci").value*document.getElementById("stuffcostzto").value;
+	//document.getElementById("benefit").value=(Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value));
+	document.getElementById("benefit").value=(Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value));
+	document.getElementById("benefitpercentage").value=Number(100*((Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value)))/(Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))).toFixed(2);
+
+
+        benefitpercentage=document.getElementById("benefitpercentage").value;
+        benefit=document.getElementById("benefit").value;
+	var al1=0;
+        var id1 = setInterval(frame1,10);
+        function frame1() {
+                var cnv1 = document.getElementById('mycanvas1');
+                var ctx1 = cnv1.getContext('2d');
+                var cw1 = ctx1.canvas.width;
+                var ch1 = ctx1.canvas.height;
+                var start1 = 4.72;
+                diff1 = ((al1 / 100) * Math.PI*2*10).toFixed(2);
+                ctx1.clearRect(0, 0, cw1, ch1);
+                ctx1.lineWidth = 7;
+                ctx1.fillStyle = '#09F';
+                ctx1.strokeStyle = '#09F';
+                ctx1.font="20px bebas"
+                ctx1.textAlign = 'center';
+                ctx1.fillText(Number(benefitpercentage).toFixed(0) +'%', cw1*.5, ch1*.5+2, cw1);
+                //ctx1.fillText('$'+benefit, cw1/2+2, ch1/2+14, cw1/2);
+                ctx1.beginPath();
+                ctx1.arc(cw1*.5,ch1*.5,60,start1,diff1/10+start1,false);
+                ctx1.stroke();
+                if (al1 >= benefitpercentage) {
+                        clearInterval(id1);
+                } else {
+                        al1++;
+                }
+        }
+
+        benefitpercentage=document.getElementById("benefitpercentage").value;
+        benefit=document.getElementById("benefit").value;
+        var al2=0;
+        var id2 = setInterval(frame2,10);
+        function frame2() {
+                var cnv2 = document.getElementById('mycanvas2');
+                var ctx2 = cnv2.getContext('2d');
+                var cw2 = ctx2.canvas.width;
+                var ch2 = ctx2.canvas.height;
+                var start2 = 4.72;
+                diff2 = ((al2 / 100) * Math.PI*2*10).toFixed(2);
+                ctx2.clearRect(0, 0, cw2, ch2);
+                ctx2.lineWidth = 7;
+                ctx2.fillStyle = 'red';
+                ctx2.strokeStyle = 'red';
+                ctx2.font="20px bebas"
+                ctx2.textAlign = 'center';
+                ctx2.fillText('$'+Number(benefit).toFixed(0), cw2*.5, ch2*.5+2, cw2);
+                ctx2.beginPath();
+                ctx2.arc(cw2*.5,ch2*.5,60,start2,diff2/10+start2,false);
+                ctx2.stroke();
+                if (al2 >= benefit) {
+                        clearInterval(id2);
+                } else {
+                        al2++;
+                }
+        }
+
+}
+</script>
+
