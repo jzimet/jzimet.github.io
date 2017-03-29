@@ -15,10 +15,11 @@
 </td>
 </table>
 <br>
-<label for="applicationnumber" style="color: #3CBC8D">Number of applications:</label><input type="range" min="0" max="200" value="100" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="applicationnumber" oninput="sliderOutputUpdateForApplicationNumber(value)"><output for="applications" id="volumeforapplicationnumber" style="color: #3CBC8D">100</output>
-
-<label for=benefit" style="color: #3CBC8D">Cisco Tetration benefits : $</label><input type = "number" id = "benefit" readonly>
-<input type = "number" id = "benefitpercentage" readonly><label for=benefitpercentage" style="color: #3CBC8D">%</label>
+<label for="applicationnumber" style="color: #3CBC8D">Number of Applications:</label><input type="range" min="0" max="200" value="100" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="applicationnumber" oninput="sliderOutputUpdateForApplicationNumber(value)"><output for="applications" id="volumeforapplicationnumber" style="color: #3CBC8D">100</output>
+<label for="frequencyofadm" style="color: #3CBC8D">Application Dependency Map Runs per Year:</label><input type="range" min="1" max="10" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="frequencyofadm" oninput="sliderOutputUpdateForFrequencyOfADM(value)"><output for="applications" id="volumeforfrequencyofadm" style="color: #3CBC8D">1</output>
+<br>
+<label for=benefit" style="color: #3CBC8D">Cisco Tetration benefits : $</label><input type = "number" id = "benefit" readonly style="width: 6em">
+<input type = "number" id = "benefitpercentage" readonly style="width: 3em"><label for=benefitpercentage" style="color: #3CBC8D">%</label>
 <br>
 
 <table>
@@ -150,6 +151,11 @@ function sliderOutputUpdateForStuffCostzto(vol) {
         document.querySelector('#volumeforstuffcostzto').value = vol + "(100)";
 	calculate();
 }
+
+function sliderOutputUpdateForFrequencyOfADM(vol) {
+        document.querySelector('#volumeforfrequencyofadm').value = vol;
+        calculate();
+}
 calculate();
 
 function calculate(){
@@ -161,9 +167,8 @@ function calculate(){
 	document.getElementById("stuffcostztomanual").value=document.getElementById("stuffhourztomanual").value*document.getElementById("stuffcostzto").value;
 	document.getElementById("stuffhourztoaci").value=document.getElementById("stuffhourztomanual").value/4;
 	document.getElementById("stuffcostztoaci").value=document.getElementById("stuffhourztoaci").value*document.getElementById("stuffcostzto").value;
-	//document.getElementById("benefit").value=(Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value));
-	document.getElementById("benefit").value=(Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value));
-	document.getElementById("benefitpercentage").value=Number(100*((Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value)))/(Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))).toFixed(2);
+	document.getElementById("benefit").value=Number(Number(document.getElementById("frequencyofadm").value)*((Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value)))).toFixed(0);
+	document.getElementById("benefitpercentage").value=Number(100*((Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))-(Number(document.getElementById("stuffhouradmtetration").value)+Number(document.getElementById("stuffhourztoaci").value)))/(Number(document.getElementById("stuffhouradmmanual").value)+Number(document.getElementById("stuffhourztomanual").value))).toFixed(0);
 
 
         benefitpercentage=document.getElementById("benefitpercentage").value;
