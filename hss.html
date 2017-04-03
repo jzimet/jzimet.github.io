@@ -47,16 +47,6 @@
 							</td>
 							</tr>
 						</table>
-<!--
-                                                <label for="discount" style="color: #3CBC8D">Discount</label>
-                                                <input type="range" min="0" max="100" value="20" step = "5" style="width: 4em; -webkit-appearance: slider-horizontal; orient= horizontal" id="discount" oninput="sliderOutputUpdateForDiscount(value)">
-                                                <output for="discount" id="volumefordiscount" style="color: #3CBC8D">20 %</output>
-                                                <br>
-                                                <label for="yearsslider" style="color: #3CBC8D">Years</label>
-                                                <input type="range" min="1" max="5" value="1" step = "2" style="width: 4em; -webkit-appearance: slider-horizontal; orient= horizontal" id="yearsslider" oninput="sliderforyears(value)">
-                                                <output for="yearsslider" id="volumeforyears" style="color: #3CBC8D">1</output>
-                                                <br>
--->
                         		</td>
 				</tr>
 				<tr>
@@ -85,20 +75,19 @@
 						<br>
                                         </td>
 					<td>
-<!--
-
-						<label for="discount" style="color: #3CBC8D">Discount</label>
-						<input type="range" min="0" max="100" value="20" step = "5" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="discount" oninput="sliderOutputUpdateForDiscount(value)">
-						<output for="discount" id="volumefordiscount" style="color: #3CBC8D">20 %</output>
-						<br>
-						<label for="yearsslider" style="color: #3CBC8D">Years</label>
-						<input type="range" min="1" max="5" value="1" step = "2" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="yearsslider" oninput="sliderforyears(value)">
-						<output for="yearsslider" id="volumeforyears" style="color: #3CBC8D">1</output>
-						<br>
--->
-					</td>
-					<td>
 					
+
+                                                <input type = "number" style="width:50px;text-align:right;color: #3CBC8D" id = "numberoftenants" readonly>
+                                                <label for "numberoftenants" style="color: #3CBC8D">Tenants</label>
+                                                <br>
+                                                <input type = "number" style="width:50px;text-align:right;color: #3CBC8D" id = "numberofusers" readonly>
+                                                <label for "numberofusers" style="color: #3CBC8D">Users</label>
+                                                <br>
+                                                <input type = "number" style="width:50px;text-align:right;color: #3CBC8D" id = "numberofbranch" readonly>
+                                                <label for "numberofbranch" style="color: #3CBC8D">Branch</label>
+
+						<br>
+
                                                 <input type="text" style="width:60px;text-align:right;color: #3CBC8D" id="resources" readonly>
                                                 <label for "resources" style="color: #3CBC8D">core/ram/hdd</label>
                                                 <br>
@@ -128,20 +117,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
-                                                <input type = "number" style="width:50px;text-align:right;color: #3CBC8D" id = "numberoftenants" readonly>
-                                                <label for "numberoftenants" style="color: #3CBC8D">Tenants</label>
-                                                <br>
-                                                <input type = "number" style="width:50px;text-align:right;color: #3CBC8D" id = "numberofusers" readonly>
-                                                <label for "numberofusers" style="color: #3CBC8D">Users</label>
-						<br>
-                                                <input type = "number" style="width:50px;text-align:right;color: #3CBC8D" id = "numberofbranch" readonly>
-                                                <label for "numberofbranch" style="color: #3CBC8D">Branch</label>
- 
-
-					</td>
 					<td colspan="3">
-
                                                 <label for="branch" style="color: #3CBC8D">Branch/Tenant:</label>
                                                 <input type="range" min="1" max="10" value="1" step = "1" style="width: 8em; -webkit-appearance: slider-horizontal; orient= horizontal" id="branch" oninput="sliderOutputUpdateForBranch(value)">
                                                 <output for="branch" id="volumeforbranch" style="color: #3CBC8D">1</output>
@@ -169,9 +145,6 @@
 			</fieldset>
 		</td>
 	</tr>
-<!--
-</table>
--->
 
 <td colspan="2">
 
