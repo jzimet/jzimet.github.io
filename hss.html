@@ -261,11 +261,11 @@
 <label for "mailsecuritypremium">premium</label>
 </td>
 <td>
-<!--
 <input type = "checkbox" style="height:20px;width:20px"  id = "mailsecurityshared" checked onclick="return false">
--->
+<!--
 <input type = "checkbox" style="height:20px;width:20px"  id = "mailsecurityshared" checked>
 <label for "mailsecurityshared">shared</label>
+-->
 </td>
 <!--
 <td>
@@ -297,11 +297,11 @@
 <label for "websecuritypremium">premium</label>
 </td>
 <td>
-<!--
 <input type = "checkbox" style="height:20px;width:20px"  id = "websecurityshared" checked onclick="return false">
--->
+<!--
 <input type = "checkbox" style="height:20px;width:20px"  id = "websecurityshared" checked>
 <label for "websecurityshared">shared</label>
+-->
 </td>
 <!--
 <td>
@@ -929,6 +929,7 @@ total += opendnsdata;
 //################
 
         mailsecurityessentialdata= document.getElementById("users").value * document.getElementById("mailsecurity").checked * mailsecurityessential * Number(document.getElementById("mailsecurityessentialradio").checked);
+
         total += document.getElementById("users").value * document.getElementById("mailsecurity").checked * mailsecurityessential * Number(document.getElementById("mailsecurityessentialradio").checked);
 
         mailsecuritypremiumdata= document.getElementById("users").value * document.getElementById("mailsecurity").checked * mailsecuritypremium * Number(document.getElementById("mailsecuritypremiumradio").checked);
@@ -1155,10 +1156,6 @@ function saveRow(row)
     	var i=row.parentNode.parentNode.rowIndex;
     	document.getElementById("table").rows[i].cells[3].innerHTML=document.getElementById("branch").value;
     	document.getElementById("table").rows[i].cells[5].innerHTML=document.getElementById("users").value;
-	console.log("branch:"+document.getElementById("branch").value);
-	console.log("branch:"+document.getElementById("users").value);
-	//console.log("slider in row :"+ i + document.getElementById("sliderinrow"+'"+j+"').value);
-	
 	calculate();
 }
 
@@ -1212,11 +1209,11 @@ function insRow()
 
 function sliderOutputUpdateNumberOfEmployee1(vol) {
         document.querySelector('#volumefornumberofemployee1').value = vol;
-        calculate();
+	calculate();
 }
 function sliderOutputUpdateNumberOfBranch1(vol) {
         document.querySelector('#volumefornumberofbranch1').value = vol;
-        calculate();
+	calculate();
 }
 
 function sliderUsers(vol) {
