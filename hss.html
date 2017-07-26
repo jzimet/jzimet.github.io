@@ -216,6 +216,7 @@
 
 <label for "cloudlockaddon">Addon</label>
 <select id="cloudlockaddonselected" onchange="calculate()">
+<option>SelectAddon</option>
 <option>Salesforce Chatter</option>
 <option>Salesforce Communities Named user</option>
 <option>Salesforce Communities Login user</option>
@@ -962,9 +963,9 @@ if (quantity < 100) {
 	cloudlock=12*Number(cloudlockprices[selectedcloudlock]);
 
 
-        cloudlockaddonprices=[0.42,1,0.33,1,1,1.50,1.50];
+        cloudlockaddonprices=[0, 0.42,1,0.33,1,1,1.50,1.50];
         selectedcloudlockaddon = Number(document.getElementById("cloudlockaddonselected").selectedIndex);
-        cloudlockaddon=12*Number(cloudlockprices[selectedcloudlockaddon]);
+        cloudlockaddon=12*Number(cloudlockaddonprices[selectedcloudlockaddon]);
 
 
 wse=[[34.84,76.65, 121.94],[33.28, 73.22, 116.48],[33.28, 73.22, 116.48]];
@@ -1071,7 +1072,8 @@ cloudlockdata= document.getElementById("cloudlock").checked*document.getElementB
 total += cloudlockdata;
 
 
-console.log("opendns total :" + total);
+console.log("cloudlock :" + cloudlock);
+console.log("cloudlockaddon :" + cloudlockaddon);
 
 //################
 
