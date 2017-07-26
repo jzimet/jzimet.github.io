@@ -171,14 +171,72 @@
 </td>
 <td>
 </td>
-<!--
-<td>
-</td>
--->
 <td>
 <label for="mrrforvpnremoteaccess">MRR:</label><input type="range" min="0" max="100" value="1" step = "1" style="width: 8em" id="mrrforvpnremoteaccess" oninput="sliderformrrvpnremoteaccess(value)"><output for="mrrforvpnremoteaccess" id="volumeformrrvpnremoteaccess" style="color: #3CBC8D">0.1</output>
 </td>
 </tr>
+<!--################ cloudlock 
+-->
+<tr>
+<td>
+<img src="hss-cloudlock.png" align="center" width="50" height="50">
+</td>
+<td>
+<input type = "checkbox" style="height:20px;width:20px" id = "cloudlock" checked="checked" onchange="calculate()">
+<label for "cloudlock">Cloud Lock</label>
+</td>
+<td>
+<input type = "radio" style="height:20px;width:20px" name = "cloudlock" id="cloudlockradio" value="cloudlock" checked="checked" onchange="calculate()">
+<table>
+<tr>
+<td>
+<label for "cloudlock">Subscription for</label>
+<select id="cloudlockselected" onchange="calculate()">
+<option>1 Cloud Service</option>
+<option>2 Cloud Services</option>
+<option>3 Cloud Services</option>
+<option>4 Cloud Services</option>
+<option>5 Cloud Services</option>
+<option>6 Cloud Services</option>
+<option>7 Cloud Services</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>
+<label for "cloudlockcloudservices">Cloud Services</label>
+<select id="cloudlockcloudservicesselected" onchange="calculate()">
+<option>Google</option>
+<option>Salesforce</option>
+<option>DropBox</option>
+<option>Box</option>
+<option>Office365</option>
+<option>ServiceNow</option>
+<option>Slack</option>
+</select>
+
+<label for "cloudlockaddon">Addon</label>
+<select id="cloudlockaddonselected" onchange="calculate()">
+<option>Salesforce Chatter</option>
+<option>Salesforce Communities Named user</option>
+<option>Salesforce Communities Login user</option>
+<option>Okta</option>
+<option>OneLogin</option>
+<option>Student License for K12</option>
+<option>Student License for Higher Education</option>
+</select>
+</td>
+</tr>
+</table>
+</td>
+<td>
+</td>
+<td>
+<label for="mrrforcloudlock">MRR:</label><input type="range" min="0" max="100" value="1" step = "1" style="width: 8em" id="mrrforcloudlock" oninput="sliderformrrcloudlock(value)"><output for="mrrforcloudlock" id="volumeformrrcloudlock" style="color: #3CBC8D">0.1</output>
+</td>
+</tr>
+
+
 <!--################ open dns
 -->
 <tr>
@@ -188,14 +246,22 @@
 </td>
 <td>
 <input type = "checkbox" style="height:20px;width:20px" id = "opendns" checked="checked" onchange="calculate()">
-<label for "opendns">Open DNS, Cloud Lock</label>
+<label for "opendns">Open DNS</label>
 </td>
+
 <td>
+
+<table>
+<tr>
+<td>
+
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforroaminguserradio" value="opendnsforroaminguser" checked="checked" onchange="calculate()">
-<label for "opendnsforroaminguser">for roaming user</label>
+<label for "opendnsforroaminguser"> Entry roaming</label>
+
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforbranchradio" value="opendnsforbranch" onchange="calculate()">
-<label for "opendnsforbranch">for branch</label>
-<select id="opendnsforbranchselected">
+<label for "opendnsforbranch">Entry branch</label>
+<select id="opendnsforbranchselected" onchange="calculate()">
+<option>4221</option>
 <option>4321</option>
 <option>4331</option>
 <option>4351</option>
@@ -203,14 +269,26 @@
 <option>4451</option>
 </select>
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforwlanradio" value="opendnsforwlan" onchange="calculate()">
-<label for "opendnsforwlan">for wlan</label>
+<label for "opendnsforwlan">Entry wlan</label>
+</td>
+</tr>
+<tr>
+<td>
+<input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnssmallradio" value="opendnssmall" onchange="calculate()">
+<label for "opendnssmall">Small Proffesional</label>
+
+<input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsmediumradio" value="opendnsmedium" onchange="calculate()">
+<label for "opendnsmedium">Medium Insights</label>
+
+<input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnslargeradio" value="opendnslarge" onchange="calculate()">
+<label for "opendnslarge">Large Platform</label>
+</td>
+</tr>
+</table>
+
 </td>
 <td>
 </td>
-<!--
-<td>
-</td>
--->
 <td>
 <label for="mrrforopendns">MRR:</label><input type="range" min="0" max="100" value="1" step = "1" style="width: 8em" id="mrrforopendns" oninput="sliderformrropendns(value)"><output for="mrrforopendns" id="volumeformrropendns" style="color: #3CBC8D">0.1</output>
 </td>
@@ -793,12 +871,9 @@ if (document.getElementById("yearsslider").value==1) {
 //var selectedyear = Number(document.getElementById("years").options[document.getElementById("years").selectedIndex].text);
 var selectedyear = Number(document.getElementById("yearsslider").value);
 
-var opendnsforbranchoptions=[33.33, 45.83, 91.67, 125, 200];
-opendnsforbranch=document.getElementById("opendnsforbranchselected").selectedIndex;
-opendnsforwlan=26/5;
-
 var mrr = 0;
 mrr += Number(document.getElementById("vpn").checked)*Number(document.getElementById("mrrforvpnremoteaccess").value)/10;
+mrr += Number(document.getElementById("cloudlock").checked)*Number(document.getElementById("mrrforcloudlock").value)/10;
 mrr += Number(document.getElementById("opendns").checked)*Number(document.getElementById("mrrforopendns").value)/10;
 mrr += Number(document.getElementById("mailsecurity").checked)*Number(document.getElementById("mrrforemailsecurity").value)/10;
 mrr += Number(document.getElementById("websecurity").checked)*Number(document.getElementById("mrrforwebsecurity").value)/10;
@@ -813,28 +888,85 @@ document.getElementById("mrr").value=mrr;
 if (quantity < 26) {
 	var vpnclient=150/25;
 	var clientlessvpn=360/25;
-	var opendnsforroaminguser=12*2.33;
-
 } else if (quantity > 25 && quantity < 51) {
         var vpnclient=300/50;
         var clientlessvpn=550/50;
-	var opendnsforroaminguser=12*2.33;
-
 } else if (quantity >50 && quantity < 101) {
         var vpnclient=500/100;
         var clientlessvpn=1000/100;
-	var opendnsforroaminguser=12*2.08;
-
 } else if (quantity > 100 && quantity < 251) {
         var vpnclient=750/250;
         var clientlessvpn=2150/250;
-	var opendnsforroaminguser=12*1.63;
 } else { 
         var vpnclient=1125/500;
         var clientlessvpn=3200/500;
-	var opendnsforroaminguser=12*1.38;
-
 }
+
+
+
+if (quantity < 100) {
+        var opendnsforroaminguser=12*2.33;
+        var opendnssmall=12*4.08;
+        var opendnsmedium=12*6.08;
+        var opendnslarge=12*6.67;
+} else if (quantity > 99 && quantity < 250) {
+        var opendnsforroaminguser=12*2.08;
+        var opendnssmall=12*3.58;
+        var opendnsmedium=12*5.17;
+        var opendnslarge=12*6.67;
+} else if (quantity > 249 && quantity < 500) {
+        var opendnsforroaminguser=12*1.63;
+        var opendnssmall=12*2.92;
+        var opendnsmedium=12*4.17;
+        var opendnslarge=12*6.67;
+} else if (quantity > 499 && quantity < 1000) {
+        var opendnsforroaminguser=12*1.38;
+        var opendnssmall=12*2.25;
+        var opendnsmedium=12*3.92;
+        var opendnslarge=12*6.67;
+} else if (quantity > 999 && quantity < 2500) {
+        var opendnsforroaminguser=12*1.25;
+        var opendnssmall=12*2.08;
+        var opendnsmedium=12*3.58;
+        var opendnslarge=12*5.58;
+} else if (quantity > 2499 && quantity < 5000) {
+        var opendnsforroaminguser=12*1.17;
+        var opendnssmall=12*2;
+        var opendnsmedium=12*3.33;
+        var opendnslarge=12*4.75;
+} else if (quantity > 4999 && quantity < 10000) {
+        var opendnsforroaminguser=12*1.08;
+        var opendnssmall=12*1.92;
+        var opendnsmedium=12*3.08;
+        var opendnslarge=12*3.92;
+} else if (quantity > 9999 && quantity < 25000) {
+        var opendnsforroaminguser=12*1.04;
+        var opendnssmall=12*1.83;
+        var opendnsmedium=12*2.92;
+        var opendnslarge=12*3.67;
+} else {
+        var opendnsforroaminguser=12*1;
+        var opendnssmall=12*1.75;
+        var opendnsmedium=12*2.83;
+        var opendnslarge=12*3.58;
+}
+
+        opendnsforwlan=12*26;
+	opendnsforbranchprices=[20, 35.33,45.83,91.67,125,200];
+	selectedopendnsforbranch = Number(document.getElementById("opendnsforbranchselected").selectedIndex);
+	opendnsforbranch=12*Number(opendnsforbranchprices[selectedopendnsforbranch]);
+	console.log("price"+opendnsforbranch);
+	console.log("selected index"+selectedopendnsforbranch);
+
+	cloudlockprices=[5.38,6.67,7.50,7.92,8.33,8.75,9.17];
+	selectedcloudlock = Number(document.getElementById("cloudlockselected").selectedIndex);
+	cloudlock=12*Number(cloudlockprices[selectedcloudlock]);
+
+
+        cloudlockaddonprices=[0.42,1,0.33,1,1,1.50,1.50];
+        selectedcloudlockaddon = Number(document.getElementById("cloudlockaddonselected").selectedIndex);
+        cloudlockaddon=12*Number(cloudlockprices[selectedcloudlockaddon]);
+
 
 wse=[[34.84,76.65, 121.94],[33.28, 73.22, 116.48],[33.28, 73.22, 116.48]];
 wsp=[[69.99,153.98,244.97],[59.06, 129.33,206.71],[59.06, 129.33,206.71]];
@@ -898,6 +1030,7 @@ document.getElementById("priceperuserpermonth").value = 0;
 
 var vpnclientdata=0;
 var clientlessvpndata=0;
+var cloudlockdata=0;
 var opendnsdata=0;
 var websecurityessentialdata=0;
 var websecuritypremiumdata=0;
@@ -931,12 +1064,24 @@ clientlessvpndata = document.getElementById("users").value * document.getElement
 
 total += document.getElementById("users").value * document.getElementById("vpn").checked * clientlessvpn * Number(document.getElementById("clientlessvpnradio").checked);
 
+
 //################
 
-opendnsdata= document.getElementById("opendns").checked*(document.getElementById("users").value* opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked)+opendnsforbranch*Number(document.getElementById("opendnsforbranchradio").checked)+opendnsforwlan*document.getElementById("users").value*Number(document.getElementById("opendnsforwlanradio").checked));
+cloudlockdata= document.getElementById("cloudlock").checked*document.getElementById("users").value*(cloudlock+cloudlockaddon);
 
-//total += document.getElementById("users").value * document.getElementById("opendns").checked * opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked);
+total += cloudlockdata;
+
+
+console.log("opendns total :" + total);
+
+//################
+
+opendnsdata= document.getElementById("opendns").checked*(document.getElementById("users").value* opendnsforroaminguser  * Number(document.getElementById("opendnsforroaminguserradio").checked)+opendnsforbranch*Number(document.getElementById("opendnsforbranchradio").checked)+opendnsforwlan*Number(document.getElementById("opendnsforwlanradio").checked) + document.getElementById("users").value* opendnssmall  * Number(document.getElementById("opendnssmallradio").checked) + document.getElementById("users").value* opendnsmedium  * Number(document.getElementById("opendnsmediumradio").checked) + document.getElementById("users").value* opendnslarge  * Number(document.getElementById("opendnslargeradio").checked));
+
 total += opendnsdata;
+
+
+console.log("opendns total :" + total);
 
 //################
 
@@ -1071,11 +1216,11 @@ document.getElementById("priceperuserpermonth").value = priceperuserpermonth;
 //#################
 
 
-var datanames = ['ipsec vpn','ssl vpn','opendns','wsa-essential','wsa-premium','esa-essential','esa-premium','fw-Small','fw-Medium','fw-Large','r-bronze', 'r-silver','r-gold','r-platinum','ngfw','amp-pub','amp-priv','amppriv-airgap','tg-pub', 'tg-priv'];
+var datanames = ['ipsec vpn','ssl vpn','cloudlock', 'opendns','wsa-essential','wsa-premium','esa-essential','esa-premium','fw-Small','fw-Medium','fw-Large','r-bronze', 'r-silver','r-gold','r-platinum','ngfw','amp-pub','amp-priv','amppriv-airgap','tg-pub', 'tg-priv'];
 
-var myColor = ['#50B432','#ED561B','#DDDF00','#24CBE5','#64E572','#FF9655','#FFF263','#6AF9C4', '#F0F8FF', '#FAEBD7', '#00FFFF', '#7FFFD4', '#F0FFFF', '#F5F5DC', '#FFE4C4', '#1E90FF', '#9ACD32', '#FFFF00', '#F5F5F5', '#FFFFFF'];
+var myColor = ['#50B432','#ED561C', '#ED561B','#DDDF00','#24CBE5','#64E572','#FF9655','#FFF263','#6AF9C4', '#F0F8FF', '#FAEBD7', '#00FFFF', '#7FFFD4', '#F0FFFF', '#F5F5DC', '#FFE4C4', '#1E90FF', '#9ACD32', '#FFFF00', '#F5F5F5', '#FFFFFF'];
 	
-var data = [vpnclientdata*Number(document.getElementById("vpn").checked),clientlessvpndata*Number(document.getElementById("vpn").checked),opendnsdata*Number(document.getElementById("opendns").checked),websecurityessentialdata*Number(document.getElementById("websecurity").checked),websecuritypremiumdata*Number(document.getElementById("websecurity").checked),mailsecurityessentialdata*Number(document.getElementById("mailsecurity").checked),mailsecuritypremiumdata*Number(document.getElementById("mailsecurity").checked),firewallsmalldata*Number(document.getElementById("firewall").checked),firewallmediumdata*Number(document.getElementById("firewall").checked),firewalllargedata*Number(document.getElementById("firewall").checked),routerbronzedata*Number(document.getElementById("router").checked), routersilverdata*Number(document.getElementById("router").checked),routergolddata*Number(document.getElementById("router").checked),routerplatinumdata*Number(document.getElementById("router").checked),ngfirewalldata*Number(document.getElementById("ngfirewall").checked),amppublicdata*Number(document.getElementById("amp").checked), ampprivatedata*Number(document.getElementById("amp").checked),ampprivateairgapdata*Number(document.getElementById("amp").checked),tgpublicdata*Number(document.getElementById("tg").checked), tgprivatedata*Number(document.getElementById("tg").checked)];
+var data = [vpnclientdata*Number(document.getElementById("vpn").checked),clientlessvpndata*Number(document.getElementById("vpn").checked),cloudlockdata*Number(document.getElementById("cloudlock").checked),opendnsdata*Number(document.getElementById("opendns").checked),websecurityessentialdata*Number(document.getElementById("websecurity").checked),websecuritypremiumdata*Number(document.getElementById("websecurity").checked),mailsecurityessentialdata*Number(document.getElementById("mailsecurity").checked),mailsecuritypremiumdata*Number(document.getElementById("mailsecurity").checked),firewallsmalldata*Number(document.getElementById("firewall").checked),firewallmediumdata*Number(document.getElementById("firewall").checked),firewalllargedata*Number(document.getElementById("firewall").checked),routerbronzedata*Number(document.getElementById("router").checked), routersilverdata*Number(document.getElementById("router").checked),routergolddata*Number(document.getElementById("router").checked),routerplatinumdata*Number(document.getElementById("router").checked),ngfirewalldata*Number(document.getElementById("ngfirewall").checked),amppublicdata*Number(document.getElementById("amp").checked), ampprivatedata*Number(document.getElementById("amp").checked),ampprivateairgapdata*Number(document.getElementById("amp").checked),tgpublicdata*Number(document.getElementById("tg").checked), tgprivatedata*Number(document.getElementById("tg").checked)];
 
 //#################
 
