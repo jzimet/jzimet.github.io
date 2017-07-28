@@ -260,10 +260,6 @@
 <option>6 Cloud Services</option>
 <option>7 Cloud Services</option>
 </select>
-</td>
-</tr>
-<tr>
-<td>
 <label for "cloudlockcloudservices">Cloud Services</label>
 <select id="cloudlockcloudservicesselected" onchange="calculate()">
 <option>Google</option>
@@ -274,7 +270,10 @@
 <option>ServiceNow</option>
 <option>Slack</option>
 </select>
-
+</td>
+</tr>
+<tr>
+<td>
 <label for "cloudlockaddon">Addon</label>
 <select id="cloudlockaddonselected" onchange="calculate()">
 <option>SelectAddon</option>
@@ -302,8 +301,11 @@
 -->
 <tr>
 <td>
+<!--
 <img src="hss-opendns.png" align="center" width="50" height="50">
 <img src="hss-umbrella.png" align="center" width="50" height="50">
+-->
+<img src="hss-cisco-umbrella.png" align="center" width="150" height="100">
 </td>
 <td>
 <input type = "checkbox" style="height:20px;width:20px" id = "opendns" checked="checked" onchange="calculate()">
@@ -317,10 +319,15 @@
 <td>
 
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforroaminguserradio" value="opendnsforroaminguser" checked="checked" onchange="calculate()">
-<label for "opendnsforroaminguser"> Entry - Roaming (off VPN)</label>
+<label for "opendnsforroaminguser">Entry</label>
+
+<div style="color: #3CBC8D" class="popup" onclick="myFunctionRoaming()">Roaming
+  <span class="popuptext" id="myPopupRoaming">Off VPN</span>
+</div>
+
 
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforbranchradio" value="opendnsforbranch" onchange="calculate()">
-<label for "opendnsforbranch">Entry - Branch</label>
+<label for "opendnsforbranch">Entry (Branch)</label>
 <select id="opendnsforbranchselected" onchange="calculate()">
 <option>4221</option>
 <option>4321</option>
@@ -330,7 +337,7 @@
 <option>4451</option>
 </select>
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforwlanradio" value="opendnsforwlan" onchange="calculate()">
-<label for "opendnsforwlan">Entry - wlan</label>
+<label for "opendnsforwlan">Entry (wlan)</label>
 </td>
 </tr>
 <tr>
@@ -774,6 +781,10 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 
 <script>
 
+function myFunctionRoaming() {
+    var popup = document.getElementById("myPopupRoaming");
+    popup.classList.toggle("show");
+}
 
 function myFunctionSmall() {
     var popup = document.getElementById("myPopupSmall");
