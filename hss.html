@@ -317,10 +317,10 @@
 <td>
 
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforroaminguserradio" value="opendnsforroaminguser" checked="checked" onchange="calculate()">
-<label for "opendnsforroaminguser"> Entry roaming</label>
+<label for "opendnsforroaminguser"> Entry - Roaming (off VPN)</label>
 
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforbranchradio" value="opendnsforbranch" onchange="calculate()">
-<label for "opendnsforbranch">Entry branch</label>
+<label for "opendnsforbranch">Entry - Branch</label>
 <select id="opendnsforbranchselected" onchange="calculate()">
 <option>4221</option>
 <option>4321</option>
@@ -330,7 +330,7 @@
 <option>4451</option>
 </select>
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsforwlanradio" value="opendnsforwlan" onchange="calculate()">
-<label for "opendnsforwlan">Entry wlan</label>
+<label for "opendnsforwlan">Entry - wlan</label>
 </td>
 </tr>
 <tr>
@@ -338,21 +338,21 @@
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnssmallradio" value="opendnssmall" onchange="calculate()">
 <label for "opendnssmall">S</label>
 
-<div class="popup" onclick="myFunctionSmall()">Proffesional
-  <span class="popuptext" id="myPopupSmall">Malware, phishing, ransomware, web filtering and reporting</span>
+<div style="color: #3CBC8D" class="popup" onclick="myFunctionSmall()">Proffesional
+  <span class="popuptext" id="myPopupSmall">Malware, phishing, ransomware, web filtering, reporting and roaming (off VPN)</span>
 </div>
 
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsmediumradio" value="opendnsmedium" onchange="calculate()">
 <label for "opendnsmedium">M 100+</label>
 
-<div class="popup" onclick="myFunctionMedium()">Insight
+<div style="color: #3CBC8D" class="popup" onclick="myFunctionMedium()">Insight
   <span class="popuptext" id="myPopupMedium">integration with active directory, user based policy, retain logs forewer, more reporting, identify targeted attacks by comparing to the world internet requests</span>
 </div>
 
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnslargeradio" value="opendnslarge" onchange="calculate()">
 <label for "opendnslarge">L 500+</label>
 
-<div class="popup" onclick="myFunctionLarge()">Platform
+<div style="color: #3CBC8D" class="popup" onclick="myFunctionLarge()">Platform
   <span class="popuptext" id="myPopupLarge">pre built integrations, custom API, access to threat inteligence for deper context during investigation</span>
 </div>
 
