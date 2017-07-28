@@ -3,6 +3,63 @@
 <head>
 <TITLE> CLoud Tool </TITLE>
 <style>
+/* Popup container - can be anything you want */
+/* https://www.w3schools.com/howto/howto_js_popup.asp */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
 </style>
 </head>   
 <body>   
@@ -279,13 +336,26 @@
 <tr>
 <td>
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnssmallradio" value="opendnssmall" onchange="calculate()">
-<label for "opendnssmall">Small Proffesional</label>
+<label for "opendnssmall">S</label>
+
+<div class="popup" onclick="myFunctionSmall()">Proffesional
+  <span class="popuptext" id="myPopupSmall">Malware, phishing, ransomware, web filtering and reporting</span>
+</div>
 
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnsmediumradio" value="opendnsmedium" onchange="calculate()">
-<label for "opendnsmedium">Medium Insights</label>
+<label for "opendnsmedium">M 100+</label>
+
+<div class="popup" onclick="myFunctionMedium()">Insight
+  <span class="popuptext" id="myPopupMedium">integration with active directory, user based policy, retain logs forewer, more reporting, identify targeted attacks by comparing to the world internet requests</span>
+</div>
 
 <input type = "radio" style="height:20px;width:20px" name = "opendns" id="opendnslargeradio" value="opendnslarge" onchange="calculate()">
-<label for "opendnslarge">Large Platform</label>
+<label for "opendnslarge">L 500+</label>
+
+<div class="popup" onclick="myFunctionLarge()">Platform
+  <span class="popuptext" id="myPopupLarge">pre built integrations, custom API, access to threat inteligence for deper context during investigation</span>
+</div>
+
 </td>
 </tr>
 </table>
@@ -704,6 +774,21 @@ https://www.w3schools.com/jsref/prop_select_selectedindex.asp
 
 <script>
 
+
+function myFunctionSmall() {
+    var popup = document.getElementById("myPopupSmall");
+    popup.classList.toggle("show");
+}
+
+function myFunctionMedium() {
+    var popup = document.getElementById("myPopupMedium");
+    popup.classList.toggle("show");
+}
+
+function myFunctionLarge() {
+    var popup = document.getElementById("myPopupLarge");
+    popup.classList.toggle("show");
+}
 document.getElementById("ngfirewall").checked=false;
 document.getElementById("amp").checked=false;
 document.getElementById("tg").checked=false;
