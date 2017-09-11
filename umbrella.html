@@ -67,6 +67,15 @@
 <h1>Cisco Umbrella:
 <img src="captain_harlock.png" align="center" width="50" height="50">
 </h1>
+
+<table>
+<tr>
+<td>
+
+<fieldset>
+<table>
+<tr>
+<td>
 <label for="infected-endpoint">Assuming:</label><input type="range" min="0" max="100000" value="50" step = "1" style="width: 8em" id="infected-endpoint" oninput="slider1(value)"><output for="time-for-infected-endpoint" id="volume-for-infected-endpoint" style="color: #3CBC8D">50</output> infected endpoints (incidents)
 <br>
 <label for="time-for-re-image">Assuming:</label><input type="range" min="0" max="10" value="5" step = "1" style="width: 8em" id="time-for-re-image" oninput="slider2(value)"><output for="time-for-re-image" id="volume-for-re-image" style="color: #3CBC8D">5</output> hours to re-image endpoint
@@ -74,7 +83,15 @@
 <label for="salary-for-it">Assuming IT is paid:</label><input type="range" min="0" max="50" value="35" step = "5" style="width: 8em" id="salary-for-it" oninput="slider3(value)"><output for="salary-for-it" id="volume-for-it" style="color: #3CBC8D">35</output> $/hour
 <br>
 <label for="prevention-ratio">Assuming, Umbrella prevents:</label><input type="range" min="0" max="100" value="90" step = "5" style="width: 8em" id="prevention-ratio" oninput="slider4(value)"><output for="prevention-ratio" id="volume-for-prevention-ratio" style="color: #3CBC8D">90</output> % of incidents
-<table>
+<br>
+<label for="discount">Discount:</label><input type="range" min="0" max="100" value="20" step = "1" style="width: 8em" id="discount" oninput="slider5(value)"><output for="discount" id="volume-for-discount" style="color: #3CBC8D">20</output> %
+</td>
+</tr>
+</table>
+</fieldset>
+</td>
+</tr>
+
 <tr>
 <td>
 
@@ -83,12 +100,6 @@
 <table>
 <tr>
 <td align="center">
-Hours:
-</td>
-<td>
-</td>
-<td align="center">
-Cost:
 </td>
 <td>
 </td>
@@ -97,7 +108,10 @@ Cost:
 <td>
 </td>
 <td align="center">
-Cost:
+</td>
+<td>
+</td>
+<td align="center">
 </td>
 </tr>
 
@@ -161,7 +175,8 @@ $ per month
 <td align="center">
 Cost avoidance
 </td>
-<td>
+<td align="center">
+<img src="opendns.png" align="center" width="50" height="50">
 </td>
 <td align="center">
 Cost avoidance
@@ -199,30 +214,30 @@ $ per year
 
 <tr>
 <th>
-Type
+License
 </th>
 <th>
-Monthly Cost :
-</th>
-<th>
-quantity
+Monthly Invoice :
 </th>
 <th>
 Quantity
 </th>
 <th>
-Yearly Cost
+Quantity
+</th>
+<th>
+Yearly Invoice
 </th>
 </tr>
 
 <tr>
-<td>
+<td align="right">
 <div style="color: #3CBC8D" class="popup" onclick="myFunctionRoaming()">Roaming
   <span class="popuptext" id="myPopupRoaming">Off VPN</span>
 </div>
 </td>
-<td>
-<input type = "number" id = "roaming-cost" readonly>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "roaming-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100000" value="0" step = "1" style="width: 8em" id="roaming" oninput="slidera(value)"><output id="volumea" style="color: #3CBC8D">0</output>
@@ -236,13 +251,13 @@ Yearly Cost
 </tr>
 
 <tr>
-<td>
+<td align="right">
 <div style="color: #3CBC8D" class="popup" onclick="myFunctionSmall()">Proffesional
   <span class="popuptext" id="myPopupSmall">Malware, phishing, ransomware, web filtering, reporting and roaming (off VPN)</span>
 </div>
 </td>
-<td>
-<input type = "number" id = "proffesional-cost" readonly>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "proffesional-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100000" value="0" step = "1" style="width: 8em" id="proffesional" oninput="sliderb(value)"><output id="volumeb" style="color: #3CBC8D">0</output>
@@ -254,12 +269,12 @@ Yearly Cost
 </tr>
 
 <tr>
-<td>
+<td align="right">
 <div style="color: #3CBC8D" class="popup" onclick="myFunctionMedium()">Insight
   <span class="popuptext" id="myPopupMedium">integration with active directory, user based policy, retain logs forewer, more reporting, identify targeted attacks by comparing to the world internet requests</span>
 </div>
-<td>
-<input type = "number" id = "insight-cost" readonly>
+<td align="center"> 
+<input type = "number" style="width:50px;text-align:center;" id = "insight-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100000" value="0" step = "1" style="width: 8em" id="insight" oninput="sliderc(value)"><output id="volumec" style="color: #3CBC8D">0</output>
@@ -271,13 +286,13 @@ Yearly Cost
 </tr>
 
 <tr>
-<td>
+<td align="right">
 <div style="color: #3CBC8D" class="popup" onclick="myFunctionLarge()">Platform
   <span class="popuptext" id="myPopupLarge">pre built integrations, custom API, access to threat inteligence for deper context during investigation</span>
 </div>
 </td>
-<td>
-<input type = "number" id = "platform-cost" readonly>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "platform-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100000" value="0" step = "1" style="width: 8em" id="platform" oninput="sliderd(value)"><output id="volumed" style="color: #3CBC8D">0</output>
@@ -289,11 +304,13 @@ Yearly Cost
 </tr>
 
 <tr>
-<td>
-Branch 4221
+<td align="right">
+<div style="color: #3CBC8D" class="popup" onclick="myFunction4221()">Branch 4221
+  <span class="popuptext" id="myPopup4221">35-75Mbps</span>
+</div>
 </td>
-<td>
-<input type = "number" id = "4221-cost" readonly>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "4221-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100" value="0" step = "1" style="width: 8em" id="4221" oninput="slidere(value)"><output id="volumee" style="color: #3CBC8D">0</output>
@@ -305,11 +322,13 @@ Branch 4221
 </tr>
 
 <tr>
-<td>
-Branch 4321
+<td align="right">
+<div style="color: #3CBC8D" class="popup" onclick="myFunction4321()">Branch 4321
+  <span class="popuptext" id="myPopup4321">50-100Mbps</span>
+</div>
 </td>
-<td>
-<input type = "number" id = "4321-cost" readonly>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "4321-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100" value="0" step = "1" style="width: 8em" id="4321" oninput="sliderf(value)"><output id="volumef" style="color: #3CBC8D">0</output>
@@ -321,11 +340,13 @@ Branch 4321
 </tr>
 
 <tr>
-<td>
-Branch 4331
+<td align="right">
+<div style="color: #3CBC8D" class="popup" onclick="myFunction4331()">Branch 4331
+  <span class="popuptext" id="myPopup4331">100-300Mbps</span>
+</div>
 </td>
-<td>
-<input type = "number" id = "4331-cost" readonly>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "4331-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100" value="0" step = "1" style="width: 8em" id="4331" oninput="sliderg(value)"><output id="volumeg" style="color: #3CBC8D">0</output>
@@ -337,11 +358,13 @@ Branch 4331
 </tr>
 
 <tr>
-<td>
-Branch 4351
+<td align="right">
+<div style="color: #3CBC8D" class="popup" onclick="myFunction4351()">Branch 4351
+  <span class="popuptext" id="myPopup4351">200-400Mbps</span>
+</div>
 </td>
-<td>
-<input type = "number" id = "4351-cost" readonly>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "4351-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100" value="0" step = "1" style="width: 8em" id="4351" oninput="sliderh(value)"><output id="volumeh" style="color: #3CBC8D">0</output>
@@ -353,11 +376,13 @@ Branch 4351
 </tr>
 
 <tr>
-<td>
-Branch 4431
+<td align="right">
+<div style="color: #3CBC8D" class="popup" onclick="myFunction4431()">Branch 4431
+  <span class="popuptext" id="myPopup4431">500Mbps-1Gbps</span>
+</div>
 </td>
-<td>
-<input type = "number" id = "4431-cost" readonly>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "4431-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100" value="0" step = "1" style="width: 8em" id="4431" oninput="slideri(value)"><output id="volumei" style="color: #3CBC8D">0</output>
@@ -369,11 +394,13 @@ Branch 4431
 </tr>
 
 <tr>
-<td>
-Branch 4451
+<td align="right">
+<div style="color: #3CBC8D" class="popup" onclick="myFunction4451()">Branch 4451
+  <span class="popuptext" id="myPopup4451">1-2Gbps</span>
+</div>
 </td>
-<td>
-<input type = "number" id = "4451-cost" readonly>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "4451-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100" value="0" step = "1" style="width: 8em" id="4451" oninput="sliderj(value)"><output id="volumej" style="color: #3CBC8D">0</output>
@@ -385,10 +412,10 @@ Branch 4451
 </tr>
 
 <tr>
-<td>
+<td align="right">
 wlan
-<td>
-<input type = "number" id = "wlan-cost" readonly>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "wlan-cost" readonly>
 </td>
 <td>
 <input type="range" min="0" max="100" value="0" step = "1" style="width: 8em" id="wlan" oninput="sliderk(value)"><output id="volumek" style="color: #3CBC8D">0</output>
@@ -445,6 +472,36 @@ function myFunctionLarge() {
     popup.classList.toggle("show");
 }
 
+function myFunction4221() {
+    var popup = document.getElementById("myPopup4221");
+    popup.classList.toggle("show");
+}
+
+function myFunction4321() {
+    var popup = document.getElementById("myPopup4321");
+    popup.classList.toggle("show");
+}  
+
+function myFunction4331() {
+    var popup = document.getElementById("myPopup4331");
+    popup.classList.toggle("show");
+} 
+
+function myFunction4351() {
+    var popup = document.getElementById("myPopup4351");
+    popup.classList.toggle("show");
+}
+
+function myFunction4431() {
+    var popup = document.getElementById("myPopup4431");
+    popup.classList.toggle("show");
+}
+
+function myFunction4451() {
+    var popup = document.getElementById("myPopup4451");
+    popup.classList.toggle("show");
+}
+
 function slider1(vol) {
         document.querySelector('#volume-for-infected-endpoint').value = vol;
 	calculate();
@@ -459,6 +516,10 @@ function slider3(vol) {
 }
 function slider4(vol) {
         document.querySelector('#volume-for-prevention-ratio').value = vol;
+        calculate();
+}
+function slider5(vol) {
+        document.querySelector('#volume-for-discount').value = vol;
         calculate();
 }
 function slidera(vol) {
@@ -519,6 +580,8 @@ var rq=0;
 var pq=0;
 var iq=0;
 var plq=0;
+discount = Number(document.getElementById("discount").value);
+console.log('disocunt:'+discount);
 
 document.getElementById("hour-per-incident").value = a;
 document.getElementById("cost-per-incident").value = b;
@@ -620,17 +683,17 @@ if (plq < 100) {
 }
 
 
-document.getElementById("roaming-cost").value = Number(roaming/12).toFixed(2);
-document.getElementById("proffesional-cost").value = Number(proffesional/12).toFixed(2);
-document.getElementById("insight-cost").value = Number(insight/12).toFixed(2);
-document.getElementById("platform-cost").value = Number(platform/12).toFixed(2);
-document.getElementById("4221-cost").value = 20;
-document.getElementById("4321-cost").value = 35.33;
-document.getElementById("4331-cost").value = 45.83;
-document.getElementById("4351-cost").value = 91.87;
-document.getElementById("4431-cost").value = 125;
-document.getElementById("4451-cost").value = 200;
-document.getElementById("wlan-cost").value = 26;
+document.getElementById("roaming-cost").value = Number(roaming/12*(1-discount/100)).toFixed(2);
+document.getElementById("proffesional-cost").value = Number(proffesional/12*(1-discount/100)).toFixed(2);
+document.getElementById("insight-cost").value = Number(insight/12*(1-discount/100)).toFixed(2);
+document.getElementById("platform-cost").value = Number(platform/12*(1-discount/100)).toFixed(2);
+document.getElementById("4221-cost").value = Number(20*(1-discount/100)).toFixed(2);
+document.getElementById("4321-cost").value = Number(35.33*(1-discount/100)).toFixed(2);
+document.getElementById("4331-cost").value = Number(45.83*(1-discount/100)).toFixed(2);
+document.getElementById("4351-cost").value = Number(91.87*(1-discount/100)).toFixed(2);
+document.getElementById("4431-cost").value = Number(125*(1-discount/100)).toFixed(2);
+document.getElementById("4451-cost").value = Number(200*(1-discount/100)).toFixed(2);
+document.getElementById("wlan-cost").value = Number(26*(1-discount/100)).toFixed(2);
 
 cost += document.getElementById("roaming-cost").value*document.getElementById("roaming").value;
 cost += document.getElementById("proffesional-cost").value*document.getElementById("proffesional").value;
