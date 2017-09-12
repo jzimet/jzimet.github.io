@@ -233,7 +233,7 @@ Yearly Invoice
 <tr>
 <td align="right">
 <div style="color: #3CBC8D" class="popup" onclick="myFunctionRoaming()">Roaming
-  <span class="popuptext" id="myPopupRoaming">Off VPN</span>
+  <span class="popuptext" id="myPopupRoaming">Off VPN - Min 10</span>
 </div>
 </td>
 <td align="center">
@@ -245,15 +245,15 @@ Yearly Invoice
 <td rowspan="4">
 <input type = "number" style="background-color:yellow;height:90px;width:100px;text-align:center;color: #3CBC8D;font-size:15px;" id = "quant" readonly>
 </td>
-<td rowspan="11">
-<input type = "number" style="background-color:yellow;height:270px;width:100px;text-align:center;color: #3CBC8D;font-size:15px;" id = "cost" readonly>
+<td rowspan="12">
+<input type = "number" style="background-color:yellow;height:400px;width:100px;text-align:center;color: #3CBC8D;font-size:15px;" id = "cost" readonly>
 </td>
 </tr>
 
 <tr>
 <td align="right">
 <div style="color: #3CBC8D" class="popup" onclick="myFunctionSmall()">Proffesional
-  <span class="popuptext" id="myPopupSmall">Malware, phishing, ransomware, web filtering, reporting and roaming (off VPN)</span>
+  <span class="popuptext" id="myPopupSmall">Malware, phishing, ransomware, web filtering, reporting and roaming (off VPN) - Min 10</span>
 </div>
 </td>
 <td align="center">
@@ -271,7 +271,7 @@ Yearly Invoice
 <tr>
 <td align="right">
 <div style="color: #3CBC8D" class="popup" onclick="myFunctionMedium()">Insight
-  <span class="popuptext" id="myPopupMedium">integration with active directory, user based policy, retain logs forewer, more reporting, identify targeted attacks by comparing to the world internet requests</span>
+  <span class="popuptext" id="myPopupMedium">integration with active directory, user based policy, retain logs forewer, more reporting, identify targeted attacks by comparing to the world internet requests - Min 10</span>
 </div>
 <td align="center"> 
 <input type = "number" style="width:50px;text-align:center;" id = "insight-cost" readonly>
@@ -288,7 +288,7 @@ Yearly Invoice
 <tr>
 <td align="right">
 <div style="color: #3CBC8D" class="popup" onclick="myFunctionLarge()">Platform
-  <span class="popuptext" id="myPopupLarge">pre built integrations, custom API, access to threat inteligence for deper context during investigation</span>
+  <span class="popuptext" id="myPopupLarge">pre built integrations, custom API, access to threat inteligence for deper context during investigation - Min 500</span>
 </div>
 </td>
 <td align="center">
@@ -413,7 +413,9 @@ Yearly Invoice
 
 <tr>
 <td align="right">
-wlan
+<div style="color: #3CBC8D" class="popup" onclick="myFunctionwlan()">wlan
+  <span class="popuptext" id="myPopupwlan">Min 5</span>
+</div>
 <td align="center">
 <input type = "number" style="width:50px;text-align:center;" id = "wlan-cost" readonly>
 </td>
@@ -422,15 +424,38 @@ wlan
 </td>
 <td>
 </td>
-</tr>
 <td>
 </td>
+</tr>
+
+<tr>
+<td align="right">
+<input type="checkbox" checked id = "google" onchange="calculate()">google
+<input type="checkbox" checked id = "sfdc" onchange="calculate()">sfdc<br>
+<input type="checkbox" id = "dropbox" onchange="calculate()">dropbox
+<input type="checkbox" id = "box" onchange="calculate()">box<br>
+<input type="checkbox" id = "office365" onchange="calculate()">office365
+<input type="checkbox" id = "servicenow" onchange="calculate()">servicenow<br>
+<input type="checkbox" id = "slack" onchange="calculate()">slack
+</td>
+<td align="center">
+<input type = "number" style="width:50px;text-align:center;" id = "cloudlock-cost" readonly>
+</td>
+<td>
+<input type="range" min="0" max="100" value="0" step = "1" style="width: 8em" id="cloudlockslider" oninput="sliderl(value)"><output id="volumel" style="color: #3CBC8D">0</output>
+</td>
+<td>
+</td>
+<td>
+<!--
+<input type = "number" style="background-color:yellow;height:100px;width:100px;text-align:center;color: #3CBC8D;font-size:15px;" id = "cost2" readonly>
+-->
+</td>
+</tr>
+
+</tr>
 </table>
 
-<!--
-quantity <input type = "number" style="background-color:yellow;height:30px;width:100px;text-align:center;color: #3CBC8D;font-size:15px;" id = "quant" readonly>
-Yearly cost <input type = "number" style="background-color:yellow;height:30px;width:100px;text-align:center;color: #3CBC8D;font-size:15px;" id = "cost" readonly>
--->
 <table>
 <tr>
 <td rowspan="2">
@@ -459,6 +484,7 @@ Yearly cost <input type = "number" style="background-color:yellow;height:30px;wi
 <script>
 
 calculate();
+
 
 function myFunctionRoaming() {
     var popup = document.getElementById("myPopupRoaming");
@@ -507,6 +533,11 @@ function myFunction4431() {
 
 function myFunction4451() {
     var popup = document.getElementById("myPopup4451");
+    popup.classList.toggle("show");
+}
+
+function myFunctionwlan() {
+    var popup = document.getElementById("myPopupwlan");
     popup.classList.toggle("show");
 }
 
@@ -572,6 +603,11 @@ function sliderj(vol) {
 }
 function sliderk(vol) {
         document.querySelector('#volumek').value = vol;
+        calculate();
+}
+
+function sliderl(vol) {
+        document.querySelector('#volumel').value = vol;
         calculate();
 }
 
@@ -691,6 +727,35 @@ if (plq < 100) {
 }
 
 
+cloudservices=0;
+cloudlock=0;
+cloudservices+=Number(document.getElementById("google").checked)
+cloudservices+=Number(document.getElementById("sfdc").checked)
+cloudservices+=Number(document.getElementById("dropbox").checked)
+cloudservices+=Number(document.getElementById("box").checked)
+cloudservices+=Number(document.getElementById("office365").checked)
+cloudservices+=Number(document.getElementById("servicenow").checked)
+cloudservices+=Number(document.getElementById("slack").checked)
+console.log("checkbox" + cloudservices);
+
+if (cloudservices==1) {
+        cloudlock=5.36;
+} else if (cloudservices==2) {
+        cloudlock=6.67;
+} else if (cloudservices==3) {
+        cloudlock=7.5;
+} else if (cloudservices==4) {
+        cloudlock=7.92;
+} else if (cloudservices==5) {
+        cloudlock=8.33;
+} else if (cloudservices==6) {
+        cloudlock=8.75;
+} else if (cloudservices==7) {
+        cloudlock=9.17;
+} else {
+        cloudlock=0;
+}
+
 document.getElementById("roaming-cost").value = Number(roaming/12*(1-discount/100)).toFixed(2);
 document.getElementById("proffesional-cost").value = Number(proffesional/12*(1-discount/100)).toFixed(2);
 document.getElementById("insight-cost").value = Number(insight/12*(1-discount/100)).toFixed(2);
@@ -702,6 +767,7 @@ document.getElementById("4351-cost").value = Number(91.87*(1-discount/100)).toFi
 document.getElementById("4431-cost").value = Number(125*(1-discount/100)).toFixed(2);
 document.getElementById("4451-cost").value = Number(200*(1-discount/100)).toFixed(2);
 document.getElementById("wlan-cost").value = Number(26*(1-discount/100)).toFixed(2);
+document.getElementById("cloudlock-cost").value = Number(cloudlock*(1-discount/100)).toFixed(2);
 
 cost += document.getElementById("roaming-cost").value*document.getElementById("roaming").value;
 cost += document.getElementById("proffesional-cost").value*document.getElementById("proffesional").value;
@@ -714,7 +780,11 @@ cost += document.getElementById("4351-cost").value*document.getElementById("4351
 cost += document.getElementById("4431-cost").value*document.getElementById("4431").value;
 cost += document.getElementById("4451-cost").value*document.getElementById("4451").value;
 cost += document.getElementById("wlan-cost").value*document.getElementById("wlan").value;
+cost += Number(document.getElementById("cloudlock-cost").value*12*document.getElementById("cloudlockslider").value).toFixed(2);
 document.getElementById("cost").value = Number(cost*12).toFixed(2);
+
+
+//document.getElementById("cost2").value = Number(document.getElementById("cloudlock-cost").value*12*document.getElementById("cloudlockslider").value).toFixed(2);
 
 }
 </script>
