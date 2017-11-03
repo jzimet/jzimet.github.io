@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<TITLE> CLoud Tool </TITLE>
+<style>
+input[type="number"] {
+   width:70px;
+}
+</style>
+</head>
+<body>
+<center>
+<h1>Managed Services:
+<img src="captain_harlock.png" align="center" width="50" height="50">
+</h1>
+</body>
+<table>
+<tr>
+<td>Country</td>
+<td>SVK</td>
+<td>CZE</td>
+<td>SLO</td>
+<td>POL</td>
+<td>BUL</td>
+<td>SRB</td>
+<td>BIH</td>
+<td>HUN</td>
+</tr>
+<tr>
+<td>Population (Mil)</td>
+<td><input type ="number" id ="11"></td>
+<td><input type ="number" id ="12"></td>
+<td><input type ="number" id ="13"></td>
+<td><input type ="number" id ="14"></td>
+<td><input type ="number" id ="15"></td>
+<td><input type ="number" id ="16"></td>
+<td><input type ="number" id ="17"></td>
+<td><input type ="number" id ="18"></td>
+</tr>
+<tr>
+<td>Large</td>
+<td><input type ="number" id ="21"></td>
+<td><input type ="number" id ="22"></td>
+<td><input type ="number" id ="23"></td>
+<td><input type ="number" id ="24"></td>
+<td><input type ="number" id ="25"></td>
+<td><input type ="number" id ="26"></td>
+<td><input type ="number" id ="27"></td>
+<td><input type ="number" id ="28"></td>
+</tr>
+<tr>
+<td>Medium</td>
+<td><input type ="number" id ="31"></td>
+<td><input type ="number" id ="32"></td>
+<td><input type ="number" id ="33"></td>
+<td><input type ="number" id ="34"></td>
+<td><input type ="number" id ="35"></td>
+<td><input type ="number" id ="36"></td>
+<td><input type ="number" id ="37"></td>
+<td><input type ="number" id ="38"></td>
+</tr>
+<tr>
+<td>Small</td>
+<td><input type ="number" id ="41"></td>
+<td><input type ="number" id ="42"></td>
+<td><input type ="number" id ="43"></td>
+<td><input type ="number" id ="44"></td>
+<td><input type ="number" id ="45"></td>
+<td><input type ="number" id ="46"></td>
+<td><input type ="number" id ="47"></td>
+<td><input type ="number" id ="48"></td>
+</tr>
+<tr>
+<td>Total SMB</td>
+<td><input type ="number" id ="51"></td>
+<td><input type ="number" id ="52"></td>
+<td><input type ="number" id ="53"></td>
+<td><input type ="number" id ="54"></td>
+<td><input type ="number" id ="55"></td>
+<td><input type ="number" id ="56"></td>
+<td><input type ="number" id ="57"></td>
+<td><input type ="number" id ="58"></td>
+</tr>
+<tr>
+<td rowspan="2">Year 1 percentage of SMB</td>
+<td colspan="8">
+<input type="range" min="1" max="1000" value="2" step = "1"  style="width : 55em" id="yearsslider" oninput="sliderforyears(value)"><output for="yearsslider" id="volumeforyears" style="color: #3CBC8D">0.2</output><label for="yearsslider" style="color: #3CBC8D">%</label>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><input type ="number" id ="61"></td>
+<td><input type ="number" id ="62"></td>
+<td><input type ="number" id ="63"></td>
+<td><input type ="number" id ="64"></td>
+<td><input type ="number" id ="65"></td>
+<td><input type ="number" id ="66"></td>
+<td><input type ="number" id ="67"></td>
+<td><input type ="number" id ="68"></td>
+</tr>
+<tr>
+<td><img src="meraki.png" align="center" width="40" height="15"> Meraki CPE (for small) <input id ="70" type="checkbox" checked onchange="calculate()"><select><option>Z1</option><option>MX</option></select></td>
+<td><input type ="number" id ="71"></td>
+<td><input type ="number" id ="72"></td>
+<td><input type ="number" id ="73"></td>
+<td><input type ="number" id ="74"></td>
+<td><input type ="number" id ="75"></td>
+<td><input type ="number" id ="76"></td>
+<td><input type ="number" id ="77"></td>
+<td><input type ="number" id ="78"></td>
+</tr>
+<tr>
+<td><img src="viptela.png" align="center" width="40" height="15"> Viptela CPE (for Medium) <input id ="80" type="checkbox" checked onchange="calculate()"><select><option>vedge100</option><option>vedge1000</option><option>vedge2000</option></select></td>
+<td><input type ="number" id ="81"></td>
+<td><input type ="number" id ="82"></td>
+<td><input type ="number" id ="83"></td>
+<td><input type ="number" id ="84"></td>
+<td><input type ="number" id ="85"></td>
+<td><input type ="number" id ="86"></td>
+<td><input type ="number" id ="87"></td>
+<td><input type ="number" id ="88"></td>
+</tr>
+<tr>
+<td><img src="cisco.png" align="center" width="40" height="15"> Cisco CPE (for Large) <input id ="90" type="checkbox" checked onchange="calculate()"><select><option>cisco800</option><option>ASR1100</option></select></td>
+<td><input type ="number" id ="91"></td>
+<td><input type ="number" id ="92"></td>
+<td><input type ="number" id ="93"></td>
+<td><input type ="number" id ="94"></td>
+<td><input type ="number" id ="95"></td>
+<td><input type ="number" id ="96"></td>
+<td><input type ="number" id ="97"></td>
+<td><input type ="number" id ="98"></td>
+</tr>
+<tr>
+<td><img src="ciscospark.png" align="center" width="40" height="15"> Cisco Spark (HCS) <input id ="100" type="checkbox" checked onchange="calculate()"><select><option>call</option><option>call+message</option><option>call+message+meet</option></select></td>
+<td><input type ="number" id ="101"></td>
+<td><input type ="number" id ="102"></td>
+<td><input type ="number" id ="103"></td>
+<td><input type ="number" id ="104"></td>
+<td><input type ="number" id ="105"></td>
+<td><input type ="number" id ="106"></td>
+<td><input type ="number" id ="107"></td>
+<td><input type ="number" id ="108"></td>
+</tr>
+<tr>
+<td><img src="3pcc.png" align="center" width="40" height="15">IPT 3rd party call control <input id ="110" type="checkbox" checked onchange="calculate()"><select><option>broadsoft</option><option>asteriks</option><option>metaswitch</option><option>centille</option><option>7811</option><option>7821</option><option>7841</option><option>7861</option><option>8811</option><option>8841</option><option>8845</option><option>8851</option><option>8861</option><option>8865</option><option>cloud provisioning</option></select></td>
+<td><input type ="number" id ="111"></td>
+<td><input type ="number" id ="112"></td>
+<td><input type ="number" id ="113"></td>
+<td><input type ="number" id ="114"></td>
+<td><input type ="number" id ="115"></td>
+<td><input type ="number" id ="116"></td>
+<td><input type ="number" id ="117"></td>
+<td><input type ="number" id ="118"></td>
+</tr>
+<tr>
+<td><img src="ciscoumbrella.png" align="center" width="40" height="15"> Cisco Umbrella for SP <input id ="120" type="checkbox" checked onchange="calculate()"><select><option>circuit attach</option><option>mobile</option><option>mssp</option><option>roaming</option><option>proffesional</option><option>insight</option><option>platform</option><option>4221</option><option>4321</option><option>4331</option><option>4351</option><option>4431</option><option>4451</option><option>wlan</option></select></td>
+<td><input type ="number" id ="121"></td>
+<td><input type ="number" id ="122"></td>
+<td><input type ="number" id ="123"></td>
+<td><input type ="number" id ="124"></td>
+<td><input type ="number" id ="125"></td>
+<td><input type ="number" id ="126"></td>
+<td><input type ="number" id ="127"></td>
+<td><input type ="number" id ="128"></td>
+</tr>
+<tr>
+<td><img src="ciscosnort.png" align="center" width="40" height="15"> Cloud UTD <input id ="130" type="checkbox" checked onchange="calculate()"><select><option>vpn</option><option>firewall</option><option>ips snort</option><option>url filtering</option></select></td>
+<td><input type ="number" id ="131"></td>
+<td><input type ="number" id ="132"></td>
+<td><input type ="number" id ="133"></td>
+<td><input type ="number" id ="134"></td>
+<td><input type ="number" id ="135"></td>
+<td><input type ="number" id ="136"></td>
+<td><input type ="number" id ="137"></td>
+<td><input type ="number" id ="138"></td>
+</tr>
+<tr>
+<td><img src="sb.png" align="center" width="40" height="15"> Spark Board - CEO Office <input id ="140" type="checkbox" checked onchange="calculate()"><select><option>spark board 55</option><option>sparkboard 70</option></select></td>
+<td><input type ="number" id ="141"></td>
+<td><input type ="number" id ="142"></td>
+<td><input type ="number" id ="143"></td>
+<td><input type ="number" id ="144"></td>
+<td><input type ="number" id ="145"></td>
+<td><input type ="number" id ="146"></td>
+<td><input type ="number" id ="147"></td>
+<td><input type ="number" id ="148"></td>
+</tr>
+<tr>
+<td>Year 1 (Mil)</td>
+<td><input type ="number" id ="151"></td>
+<td><input type ="number" id ="152"></td>
+<td><input type ="number" id ="153"></td>
+<td><input type ="number" id ="154"></td>
+<td><input type ="number" id ="155"></td>
+<td><input type ="number" id ="156"></td>
+<td><input type ="number" id ="157"></td>
+<td><input type ="number" id ="158"></td>
+</tr>
+<tr>
+<td>Year 1 (Mil) </td>
+<td colspan="8"><input type ="text" style="font-size: 48pt; color: #3CBC8D;text-align:center" id ="161"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+<script>
+function sliderforyears(vol) {
+        document.querySelector('#volumeforyears').value = vol/10;
+	calculate();
+}
+
+function calculate(){
+
+meraki = 200;
+viptela = 300;
+cisco = 400;
+percentage = Number(document.getElementById("yearsslider").value/1000);
+hcs=2.6;
+ipt=41;
+umbrellasmall=0.6;
+umbrellamedium=1.8;
+cloudutd=2520/100;
+sb=7427;
+console.log(Number(document.getElementById("70").checked));
+document.getElementById("11").value=(5415949/1000000).toFixed(2);
+document.getElementById("12").value=(10513800/1000000).toFixed(2);
+document.getElementById("13").value=(2061963/1000000).toFixed(2);
+document.getElementById("14").value=(38502396/1000000).toFixed(2);
+document.getElementById("15").value=(7282041/1000000).toFixed(2);
+document.getElementById("16").value=(7181506/1000000).toFixed(2);
+document.getElementById("17").value=(3791622/1000000).toFixed(2);
+document.getElementById("18").value=(8906000/1000000).toFixed(2);
+document.getElementById("21").value="4112";
+document.getElementById("22").value="10847";
+document.getElementById("23").value="2002";
+document.getElementById("24").value="29280";
+document.getElementById("25").value="4201";
+document.getElementById("26").value="2084";
+document.getElementById("27").value="1071";
+document.getElementById("28").value="4773";
+document.getElementById("31").value="18766";
+document.getElementById("32").value="42588";
+document.getElementById("33").value="7081";
+document.getElementById("34").value="148002";
+document.getElementById("35").value="22432";
+document.getElementById("36").value="9127";
+document.getElementById("37").value="24247";
+document.getElementById("38").value="29104";
+document.getElementById("41").value="425995";
+document.getElementById("42").value="1062679";
+document.getElementById("43").value="182454";
+document.getElementById("44").value="4055946";
+document.getElementById("45").value="298559";
+document.getElementById("46").value="74448";
+document.getElementById("47").value="1";
+document.getElementById("48").value="645370";
+
+document.getElementById("51").value=Number(document.getElementById("21").value)+Number(document.getElementById("31").value)+Number(document.getElementById("41").value);
+document.getElementById("52").value=Number(document.getElementById("22").value)+Number(document.getElementById("32").value)+Number(document.getElementById("42").value);
+document.getElementById("53").value=Number(document.getElementById("23").value)+Number(document.getElementById("33").value)+Number(document.getElementById("43").value);
+document.getElementById("54").value=Number(document.getElementById("24").value)+Number(document.getElementById("34").value)+Number(document.getElementById("44").value);
+document.getElementById("55").value=Number(document.getElementById("25").value)+Number(document.getElementById("35").value)+Number(document.getElementById("45").value);
+document.getElementById("56").value=Number(document.getElementById("26").value)+Number(document.getElementById("36").value)+Number(document.getElementById("46").value);
+document.getElementById("57").value=Number(document.getElementById("27").value)+Number(document.getElementById("37").value)+Number(document.getElementById("47").value);
+document.getElementById("58").value=Number(document.getElementById("28").value)+Number(document.getElementById("38").value)+Number(document.getElementById("48").value);
+
+document.getElementById("61").value=Math.round(Number(document.getElementById("51").value)*Number(document.getElementById("yearsslider").value/1000));
+document.getElementById("62").value=Math.round(Number(document.getElementById("52").value)*Number(document.getElementById("yearsslider").value/1000));
+document.getElementById("63").value=Math.round(Number(document.getElementById("53").value)*Number(document.getElementById("yearsslider").value/1000));
+document.getElementById("64").value=Math.round(Number(document.getElementById("54").value)*Number(document.getElementById("yearsslider").value/1000));
+document.getElementById("65").value=Math.round(Number(document.getElementById("55").value)*Number(document.getElementById("yearsslider").value/1000));
+document.getElementById("66").value=Math.round(Number(document.getElementById("56").value)*Number(document.getElementById("yearsslider").value/1000));
+document.getElementById("67").value=Math.round(Number(document.getElementById("57").value)*Number(document.getElementById("yearsslider").value/1000));
+document.getElementById("68").value=Math.round(Number(document.getElementById("58").value)*Number(document.getElementById("yearsslider").value/1000));
+
+document.getElementById("71").value=Math.round(Number(document.getElementById("41").value)*percentage*meraki)*Number(document.getElementById("70").checked);
+document.getElementById("72").value=Math.round(Number(document.getElementById("42").value)*percentage*meraki)*Number(document.getElementById("70").checked);
+document.getElementById("73").value=Math.round(Number(document.getElementById("43").value)*percentage*meraki)*Number(document.getElementById("70").checked);
+document.getElementById("74").value=Math.round(Number(document.getElementById("44").value)*percentage*meraki)*Number(document.getElementById("70").checked);
+document.getElementById("75").value=Math.round(Number(document.getElementById("45").value)*percentage*meraki)*Number(document.getElementById("70").checked);
+document.getElementById("76").value=Math.round(Number(document.getElementById("46").value)*percentage*meraki)*Number(document.getElementById("70").checked);
+document.getElementById("77").value=Math.round(Number(document.getElementById("47").value)*percentage*meraki)*Number(document.getElementById("70").checked);
+document.getElementById("78").value=Math.round(Number(document.getElementById("48").value)*percentage*meraki)*Number(document.getElementById("70").checked);
+
+document.getElementById("81").value=Math.round(Number(document.getElementById("31").value)*percentage*viptela)*Number(document.getElementById("80").checked);
+document.getElementById("82").value=Math.round(Number(document.getElementById("32").value)*percentage*viptela)*Number(document.getElementById("80").checked);
+document.getElementById("83").value=Math.round(Number(document.getElementById("33").value)*percentage*viptela)*Number(document.getElementById("80").checked);
+document.getElementById("84").value=Math.round(Number(document.getElementById("34").value)*percentage*viptela)*Number(document.getElementById("80").checked);
+document.getElementById("85").value=Math.round(Number(document.getElementById("35").value)*percentage*viptela)*Number(document.getElementById("80").checked);
+document.getElementById("86").value=Math.round(Number(document.getElementById("36").value)*percentage*viptela)*Number(document.getElementById("80").checked);
+document.getElementById("87").value=Math.round(Number(document.getElementById("37").value)*percentage*viptela)*Number(document.getElementById("80").checked);
+document.getElementById("88").value=Math.round(Number(document.getElementById("38").value)*percentage*viptela)*Number(document.getElementById("80").checked);
+
+document.getElementById("91").value=Math.round(Number(document.getElementById("21").value)*percentage*cisco)*Number(document.getElementById("90").checked);
+document.getElementById("92").value=Math.round(Number(document.getElementById("22").value)*percentage*cisco)*Number(document.getElementById("90").checked);
+document.getElementById("93").value=Math.round(Number(document.getElementById("23").value)*percentage*cisco)*Number(document.getElementById("90").checked);
+document.getElementById("94").value=Math.round(Number(document.getElementById("24").value)*percentage*cisco)*Number(document.getElementById("90").checked);
+document.getElementById("95").value=Math.round(Number(document.getElementById("25").value)*percentage*cisco)*Number(document.getElementById("90").checked);
+document.getElementById("96").value=Math.round(Number(document.getElementById("26").value)*percentage*cisco)*Number(document.getElementById("90").checked);
+document.getElementById("97").value=Math.round(Number(document.getElementById("27").value)*percentage*cisco)*Number(document.getElementById("90").checked);
+document.getElementById("98").value=Math.round(Number(document.getElementById("28").value)*percentage*cisco)*Number(document.getElementById("90").checked);
+
+document.getElementById("101").value=Math.round((Number(document.getElementById("21").value)*percentage*250+Number(document.getElementById("31").value)*percentage*49+Number(document.getElementById("41").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
+document.getElementById("102").value=Math.round((Number(document.getElementById("22").value)*percentage*250+Number(document.getElementById("32").value)*percentage*49+Number(document.getElementById("42").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
+document.getElementById("103").value=Math.round((Number(document.getElementById("23").value)*percentage*250+Number(document.getElementById("33").value)*percentage*49+Number(document.getElementById("43").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
+document.getElementById("104").value=Math.round((Number(document.getElementById("24").value)*percentage*250+Number(document.getElementById("34").value)*percentage*49+Number(document.getElementById("44").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
+document.getElementById("105").value=Math.round((Number(document.getElementById("25").value)*percentage*250+Number(document.getElementById("35").value)*percentage*49+Number(document.getElementById("45").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
+document.getElementById("106").value=Math.round((Number(document.getElementById("26").value)*percentage*250+Number(document.getElementById("36").value)*percentage*49+Number(document.getElementById("46").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
+document.getElementById("107").value=Math.round((Number(document.getElementById("27").value)*percentage*250+Number(document.getElementById("37").value)*percentage*49+Number(document.getElementById("47").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
+document.getElementById("108").value=Math.round((Number(document.getElementById("28").value)*percentage*250+Number(document.getElementById("38").value)*percentage*49+Number(document.getElementById("48").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
+
+document.getElementById("111").value=Math.round((Number(document.getElementById("21").value)*percentage*250+Number(document.getElementById("31").value)*percentage*49+Number(document.getElementById("41").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
+document.getElementById("112").value=Math.round((Number(document.getElementById("22").value)*percentage*250+Number(document.getElementById("32").value)*percentage*49+Number(document.getElementById("42").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
+document.getElementById("113").value=Math.round((Number(document.getElementById("23").value)*percentage*250+Number(document.getElementById("33").value)*percentage*49+Number(document.getElementById("43").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
+document.getElementById("114").value=Math.round((Number(document.getElementById("24").value)*percentage*250+Number(document.getElementById("34").value)*percentage*49+Number(document.getElementById("44").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
+document.getElementById("115").value=Math.round((Number(document.getElementById("25").value)*percentage*250+Number(document.getElementById("35").value)*percentage*49+Number(document.getElementById("45").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
+document.getElementById("116").value=Math.round((Number(document.getElementById("26").value)*percentage*250+Number(document.getElementById("36").value)*percentage*49+Number(document.getElementById("46").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
+document.getElementById("117").value=Math.round((Number(document.getElementById("27").value)*percentage*250+Number(document.getElementById("37").value)*percentage*49+Number(document.getElementById("47").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
+document.getElementById("118").value=Math.round((Number(document.getElementById("28").value)*percentage*250+Number(document.getElementById("38").value)*percentage*49+Number(document.getElementById("48").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
+
+document.getElementById("121").value=Math.round(Number(document.getElementById("21").value)*percentage*250*umbrellamedium+Number(document.getElementById("31").value)*percentage*49*umbrellamedium+Number(document.getElementById("41").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
+document.getElementById("122").value=Math.round(Number(document.getElementById("22").value)*percentage*250*umbrellamedium+Number(document.getElementById("32").value)*percentage*49*umbrellamedium+Number(document.getElementById("42").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
+document.getElementById("123").value=Math.round(Number(document.getElementById("23").value)*percentage*250*umbrellamedium+Number(document.getElementById("33").value)*percentage*49*umbrellamedium+Number(document.getElementById("43").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
+document.getElementById("124").value=Math.round(Number(document.getElementById("24").value)*percentage*250*umbrellamedium+Number(document.getElementById("34").value)*percentage*49*umbrellamedium+Number(document.getElementById("44").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
+document.getElementById("125").value=Math.round(Number(document.getElementById("25").value)*percentage*250*umbrellamedium+Number(document.getElementById("35").value)*percentage*49*umbrellamedium+Number(document.getElementById("45").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
+document.getElementById("126").value=Math.round(Number(document.getElementById("26").value)*percentage*250*umbrellamedium+Number(document.getElementById("36").value)*percentage*49*umbrellamedium+Number(document.getElementById("46").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
+document.getElementById("127").value=Math.round(Number(document.getElementById("27").value)*percentage*250*umbrellamedium+Number(document.getElementById("37").value)*percentage*49*umbrellamedium+Number(document.getElementById("47").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
+document.getElementById("128").value=Math.round(Number(document.getElementById("28").value)*percentage*250*umbrellamedium+Number(document.getElementById("38").value)*percentage*49*umbrellamedium+Number(document.getElementById("48").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
+
+document.getElementById("131").value=Math.round(Number(document.getElementById("51").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
+document.getElementById("132").value=Math.round(Number(document.getElementById("52").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
+document.getElementById("133").value=Math.round(Number(document.getElementById("53").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
+document.getElementById("134").value=Math.round(Number(document.getElementById("54").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
+document.getElementById("135").value=Math.round(Number(document.getElementById("55").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
+document.getElementById("136").value=Math.round(Number(document.getElementById("56").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
+document.getElementById("137").value=Math.round(Number(document.getElementById("57").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
+document.getElementById("138").value=Math.round(Number(document.getElementById("58").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
+
+document.getElementById("141").value=Math.round(Number(document.getElementById("51").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("142").value=Math.round(Number(document.getElementById("52").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("143").value=Math.round(Number(document.getElementById("53").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("144").value=Math.round(Number(document.getElementById("54").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("145").value=Math.round(Number(document.getElementById("55").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("146").value=Math.round(Number(document.getElementById("56").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("147").value=Math.round(Number(document.getElementById("57").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("148").value=Math.round(Number(document.getElementById("58").value)*percentage*sb)*Number(document.getElementById("140").checked);
+
+document.getElementById("151").value=((Number(document.getElementById("71").value)+Number(document.getElementById("81").value)+Number(document.getElementById("91").value)+Number(document.getElementById("101").value)+Number(document.getElementById("111").value)+Number(document.getElementById("121").value)+Number(document.getElementById("131").value)+Number(document.getElementById("141").value))/1000000).toFixed(2);
+document.getElementById("152").value=((Number(document.getElementById("72").value)+Number(document.getElementById("82").value)+Number(document.getElementById("92").value)+Number(document.getElementById("102").value)+Number(document.getElementById("112").value)+Number(document.getElementById("122").value)+Number(document.getElementById("132").value)+Number(document.getElementById("142").value))/1000000).toFixed(2);
+document.getElementById("153").value=((Number(document.getElementById("73").value)+Number(document.getElementById("83").value)+Number(document.getElementById("93").value)+Number(document.getElementById("103").value)+Number(document.getElementById("113").value)+Number(document.getElementById("123").value)+Number(document.getElementById("133").value)+Number(document.getElementById("143").value))/1000000).toFixed(2);
+document.getElementById("154").value=((Number(document.getElementById("74").value)+Number(document.getElementById("84").value)+Number(document.getElementById("94").value)+Number(document.getElementById("104").value)+Number(document.getElementById("114").value)+Number(document.getElementById("124").value)+Number(document.getElementById("134").value)+Number(document.getElementById("144").value))/1000000).toFixed(2);
+document.getElementById("155").value=((Number(document.getElementById("75").value)+Number(document.getElementById("85").value)+Number(document.getElementById("95").value)+Number(document.getElementById("105").value)+Number(document.getElementById("115").value)+Number(document.getElementById("125").value)+Number(document.getElementById("135").value)+Number(document.getElementById("145").value))/1000000).toFixed(2);
+document.getElementById("156").value=((Number(document.getElementById("76").value)+Number(document.getElementById("86").value)+Number(document.getElementById("96").value)+Number(document.getElementById("106").value)+Number(document.getElementById("116").value)+Number(document.getElementById("126").value)+Number(document.getElementById("136").value)+Number(document.getElementById("146").value))/1000000).toFixed(2);
+document.getElementById("157").value=((Number(document.getElementById("77").value)+Number(document.getElementById("87").value)+Number(document.getElementById("97").value)+Number(document.getElementById("107").value)+Number(document.getElementById("117").value)+Number(document.getElementById("127").value)+Number(document.getElementById("137").value)+Number(document.getElementById("147").value))/1000000).toFixed(2);
+document.getElementById("158").value=((Number(document.getElementById("78").value)+Number(document.getElementById("88").value)+Number(document.getElementById("98").value)+Number(document.getElementById("108").value)+Number(document.getElementById("118").value)+Number(document.getElementById("128").value)+Number(document.getElementById("138").value)+Number(document.getElementById("148").value))/1000000).toFixed(2);
+
+document.getElementById("161").value=((Number(document.getElementById("151").value)+Number(document.getElementById("152").value)+Number(document.getElementById("153").value)+Number(document.getElementById("154").value)+Number(document.getElementById("155").value)+Number(document.getElementById("156").value)+Number(document.getElementById("157").value)+Number(document.getElementById("158").value))/1).toFixed(2);
+}
+calculate();
+
+</script>
+
