@@ -104,7 +104,7 @@ input[type="text"] {
 <tr>
 <td align="right" style="color: #3CBC8D">What if in Year 1, we focus on</td>
 <td colspan="8">
-<input type="range" min="1" max="1000" value="2" step = "1"  style="width : 30em" id="yearsslider" oninput="sliderforyears(value)"><output for="yearsslider" id="volumeforyears" style="color: #3CBC8D">0.2</output><label for="yearsslider" align="left" style="color: #3CBC8D">% of Total SMB, Total SMB becomes :</label>
+<input type="range" min="0.1" max="100" value="2" step = "0.1"  style="width : 30em" id="yearsslider" oninput="sliderforyears(value)"><output for="yearsslider" id="volumeforyears" style="color: #3CBC8D">2</output><label for="yearsslider" align="left" style="color: #3CBC8D">% of Total SMB, Total SMB becomes :</label>
 </td>
 </tr>
 <tr>
@@ -227,7 +227,7 @@ input[type="text"] {
 
 <script>
 function sliderforyears(vol) {
-        document.querySelector('#volumeforyears').value = vol/10;
+        document.querySelector('#volumeforyears').value = vol;
 	calculate();
 }
 
@@ -236,7 +236,7 @@ function calculate(){
 meraki = 200;
 viptela = 300;
 cisco = 400;
-percentage = Number(document.getElementById("yearsslider").value/1000);
+percentage = Number(document.getElementById("yearsslider").value/100);
 hcs=2.6;
 ipt=41;
 umbrellasmall=0.6;
@@ -358,14 +358,14 @@ document.getElementById("136").value=Math.round(Number(document.getElementById("
 document.getElementById("137").value=Math.round(Number(document.getElementById("57").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
 document.getElementById("138").value=Math.round(Number(document.getElementById("58").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
 
-document.getElementById("141").value=Math.round(Number(document.getElementById("51").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("142").value=Math.round(Number(document.getElementById("52").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("143").value=Math.round(Number(document.getElementById("53").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("144").value=Math.round(Number(document.getElementById("54").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("145").value=Math.round(Number(document.getElementById("55").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("146").value=Math.round(Number(document.getElementById("56").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("147").value=Math.round(Number(document.getElementById("57").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("148").value=Math.round(Number(document.getElementById("58").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("141").value=Math.round(Number(document.getElementById("21").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("142").value=Math.round(Number(document.getElementById("22").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("143").value=Math.round(Number(document.getElementById("23").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("144").value=Math.round(Number(document.getElementById("24").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("145").value=Math.round(Number(document.getElementById("25").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("146").value=Math.round(Number(document.getElementById("26").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("147").value=Math.round(Number(document.getElementById("27").value)*percentage*sb)*Number(document.getElementById("140").checked);
+document.getElementById("148").value=Math.round(Number(document.getElementById("28").value)*percentage*sb)*Number(document.getElementById("140").checked);
 
 document.getElementById("151").value=((Number(document.getElementById("71").value)+Number(document.getElementById("81").value)+Number(document.getElementById("91").value)+Number(document.getElementById("101").value)+Number(document.getElementById("111").value)+Number(document.getElementById("121").value)+Number(document.getElementById("131").value)+Number(document.getElementById("141").value))/1000000).toFixed(2);
 document.getElementById("152").value=((Number(document.getElementById("72").value)+Number(document.getElementById("82").value)+Number(document.getElementById("92").value)+Number(document.getElementById("102").value)+Number(document.getElementById("112").value)+Number(document.getElementById("122").value)+Number(document.getElementById("132").value)+Number(document.getElementById("142").value))/1000000).toFixed(2);
