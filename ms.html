@@ -17,7 +17,7 @@ input[type="number"] {
 
 <table>
 <tr>
-<td align="center" rowspan="19"><img src="tom.png" align="center" width="200" height="200"></td>
+<td align="center" rowspan="21"><img src="tom.png" align="center" width="200" height="200"></td>
 <td align="right">Country</td>
 <td><img src="svk.png" align="center" width="30" height="20">SVK</td>
 <td><img src="zce.png" align="center" width="30" height="20">CZE</td>
@@ -84,12 +84,16 @@ input[type="number"] {
 <td><input type ="number" id ="58"></td>
 </tr>
 <tr>
-<td align="right" rowspan="2">Year 1 percentage of SMB</td>
+<td colspan="8">-</td>
+</tr>
+<tr>
+<td align="right" style="color: #3CBC8D">What if, in Year 1 we focus on</td>
 <td colspan="9">
-<input type="range" min="1" max="1000" value="2" step = "1"  style="width : 55em" id="yearsslider" oninput="sliderforyears(value)"><output for="yearsslider" id="volumeforyears" style="color: #3CBC8D">0.2</output><label for="yearsslider" style="color: #3CBC8D">%</label>
+<input type="range" min="1" max="1000" value="2" step = "1"  style="width : 30em" id="yearsslider" oninput="sliderforyears(value)"><output for="yearsslider" id="volumeforyears" style="color: #3CBC8D">0.2</output><label for="yearsslider" style="color: #3CBC8D">% of Total SMB</label>
 </td>
 </tr>
 <tr>
+<td align="right" style="color: #3CBC8D">Total SMB becomes:</td>
 <td><input type ="number" id ="61"></td>
 <td><input type ="number" id ="62"></td>
 <td><input type ="number" id ="63"></td>
