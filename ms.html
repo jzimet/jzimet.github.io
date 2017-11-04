@@ -4,10 +4,34 @@
 <TITLE> CLoud Tool </TITLE>
 <style>
 input[type="number"] {
-   width:70px;
+   width:80px;
+   text-align: center;
 }
 input[type="text"] {
-   width:70px;
+   width:80px;
+   text-align: center;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  border-radius: 1px;
+  height: 1px;
+  border: 1px solid #bdc3c7;
+  background-color: #fff; 
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+table td {
+    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
 }
 </style>
 </head>
@@ -22,7 +46,7 @@ input[type="text"] {
 
 <table>
 <tr>
-<td align="center" rowspan="22"><img src="tom.png" align="center" width="300" height="400"></td>
+<td align="center" rowspan="32"><img src="tom.png" align="center" width="300" height="400"></td>
 <td align="right" rowspan="2"></td>
 <td align="center" style="color: #3CBC8D">SVK</td>
 <td align="center" style="color: #3CBC8D">CZE</td>
@@ -56,48 +80,82 @@ input[type="text"] {
 </tr>
 <tr>
 <td align="right">Large SMB (50-250)</td>
-<td><input type ="number" id ="21" readonly></td>
-<td><input type ="number" id ="22" readonly></td>
-<td><input type ="number" id ="23" readonly></td>
-<td><input type ="number" id ="24" readonly></td>
-<td><input type ="number" id ="25" readonly></td>
-<td><input type ="number" id ="26" readonly></td>
-<td><input type ="number" id ="27" readonly></td>
-<td><input type ="number" id ="28" readonly></td>
+<td><input type ="text" id ="21" readonly></td>
+<td><input type ="text" id ="22" readonly></td>
+<td><input type ="text" id ="23" readonly></td>
+<td><input type ="text" id ="24" readonly></td>
+<td><input type ="text" id ="25" readonly></td>
+<td><input type ="text" id ="26" readonly></td>
+<td><input type ="text" id ="27" readonly></td>
+<td><input type ="text" id ="28" readonly></td>
+</tr>
+<tr>
+<td></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="211" oninput="sliderfor211(value)"><output for="211" id="volumefor211">2</output><label for="211">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="221" oninput="sliderfor221(value)"><output for="221" id="volumefor221">2</output><label for="221">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="231" oninput="sliderfor231(value)"><output for="231" id="volumefor231">2</output><label for="231">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="241" oninput="sliderfor241(value)"><output for="241" id="volumefor241">2</output><label for="241">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="251" oninput="sliderfor251(value)"><output for="251" id="volumefor251">2</output><label for="251">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="261" oninput="sliderfor261(value)"><output for="261" id="volumefor261">2</output><label for="261">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="271" oninput="sliderfor271(value)"><output for="271" id="volumefor271">2</output><label for="271">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="281" oninput="sliderfor281(value)"><output for="281" id="volumefor281">2</output><label for="281">%</label></td>
 </tr>
 <tr>
 <td align="right">Medium SMB (10-49)</td>
-<td><input type ="number" id ="31" readonly></td>
-<td><input type ="number" id ="32" readonly></td>
-<td><input type ="number" id ="33" readonly></td>
-<td><input type ="number" id ="34" readonly></td>
-<td><input type ="number" id ="35" readonly></td>
-<td><input type ="number" id ="36" readonly></td>
-<td><input type ="number" id ="37" readonly></td>
-<td><input type ="number" id ="38" readonly></td>
+<td><input type ="text" id ="31" readonly></td>
+<td><input type ="text" id ="32" readonly></td>
+<td><input type ="text" id ="33" readonly></td>
+<td><input type ="text" id ="34" readonly></td>
+<td><input type ="text" id ="35" readonly></td>
+<td><input type ="text" id ="36" readonly></td>
+<td><input type ="text" id ="37" readonly></td>
+<td><input type ="text" id ="38" readonly></td>
+</tr>
+<tr>
+<td></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="311" oninput="sliderfor311(value)"><output for="311" id="volumefor311">2</output><label for="311">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="321" oninput="sliderfor321(value)"><output for="321" id="volumefor321">2</output><label for="321">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="331" oninput="sliderfor331(value)"><output for="331" id="volumefor331">2</output><label for="331">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="341" oninput="sliderfor341(value)"><output for="341" id="volumefor341">2</output><label for="341">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="351" oninput="sliderfor351(value)"><output for="351" id="volumefor351">2</output><label for="351">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="361" oninput="sliderfor361(value)"><output for="361" id="volumefor361">2</output><label for="361">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="371" oninput="sliderfor371(value)"><output for="371" id="volumefor371">2</output><label for="371">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="381" oninput="sliderfor381(value)"><output for="381" id="volumefor381">2</output><label for="381">%</label></td>
 </tr>
 <tr>
 <td align="right">SOHO/Small SMB (0-9)</td>
-<td><input type ="number" id ="41" readonly></td>
-<td><input type ="number" id ="42" readonly></td>
-<td><input type ="number" id ="43" readonly></td>
-<td><input type ="number" id ="44" readonly></td>
-<td><input type ="number" id ="45" readonly></td>
-<td><input type ="number" id ="46" readonly></td>
-<td><input type ="number" id ="47" readonly></td>
-<td><input type ="number" id ="48" readonly></td>
+<td><input type ="text" id ="41" readonly></td>
+<td><input type ="text" id ="42" readonly></td>
+<td><input type ="text" id ="43" readonly></td>
+<td><input type ="text" id ="44" readonly></td>
+<td><input type ="text" id ="45" readonly></td>
+<td><input type ="text" id ="46" readonly></td>
+<td><input type ="text" id ="47" readonly></td>
+<td><input type ="text" id ="48" readonly></td>
+</tr>
+<tr>
+<td></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="411" oninput="sliderfor411(value)"><output for="411" id="volumefor411">2</output><label for="411">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="421" oninput="sliderfor421(value)"><output for="421" id="volumefor421">2</output><label for="421">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="431" oninput="sliderfor431(value)"><output for="431" id="volumefor431">2</output><label for="431">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="441" oninput="sliderfor441(value)"><output for="441" id="volumefor441">2</output><label for="441">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="451" oninput="sliderfor451(value)"><output for="451" id="volumefor451">2</output><label for="451">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="461" oninput="sliderfor461(value)"><output for="461" id="volumefor461">2</output><label for="461">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="471" oninput="sliderfor471(value)"><output for="471" id="volumefor471">2</output><label for="471">%</label></td>
+<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="481" oninput="sliderfor481(value)"><output for="481" id="volumefor481">2</output><label for="481">%</label></td>
 </tr>
 <tr>
 <td align="right">Total SMB</td>
-<td><input type ="number" id ="51" readonly></td>
-<td><input type ="number" id ="52" readonly></td>
-<td><input type ="number" id ="53" readonly></td>
-<td><input type ="number" id ="54" readonly></td>
-<td><input type ="number" id ="55" readonly></td>
-<td><input type ="number" id ="56" readonly></td>
-<td><input type ="number" id ="57" readonly></td>
-<td><input type ="number" id ="58" readonly></td>
+<td><input type ="text" id ="51" readonly></td>
+<td><input type ="text" id ="52" readonly></td>
+<td><input type ="text" id ="53" readonly></td>
+<td><input type ="text" id ="54" readonly></td>
+<td><input type ="text" id ="55" readonly></td>
+<td><input type ="text" id ="56" readonly></td>
+<td><input type ="text" id ="57" readonly></td>
+<td><input type ="text" id ="58" readonly></td>
 </tr>
+<!--
 <tr>
 <td colspan="8">-</td>
 </tr>
@@ -107,6 +165,8 @@ input[type="text"] {
 <input type="range" min="0.1" max="100" value="2" step = "0.1"  style="width : 30em" id="yearsslider" oninput="sliderforyears(value)"><output for="yearsslider" id="volumeforyears" style="color: #3CBC8D">2</output><label for="yearsslider" align="left" style="color: #3CBC8D">% of Total SMB, Total SMB becomes :</label>
 </td>
 </tr>
+-->
+<!--
 <tr>
 <td align="right" style="color: #3CBC8D"></td>
 <td><input type ="number" id ="61" readonly></td>
@@ -118,11 +178,12 @@ input[type="text"] {
 <td><input type ="number" id ="67" readonly></td>
 <td><input type ="number" id ="68" readonly></td>
 </tr>
+-->
 <tr>
 <td colspan="8">-</td>
 </tr>
 <tr>
-<td align="right"><img src="meraki.png" align="center" width="40" height="15"><select><option>Meraki CPE</option><option>Z1,$200</option><option>MX, $300</option></select><input id ="70" type="checkbox" checked onchange="calculate()"></td>
+<td align="right"><img src="meraki.png" align="center" width="40" height="15"><select><option>Meraki CPE</option><option>Z1,$200</option><option>MX, $300</option></select><input id ="70" type="checkbox" checked onchange="setmeraki()"></td>
 <td><input type ="number" id ="71" readonly></td>
 <td><input type ="number" id ="72" readonly></td>
 <td><input type ="number" id ="73" readonly></td>
@@ -133,81 +194,169 @@ input[type="text"] {
 <td><input type ="number" id ="78" readonly></td>
 </tr>
 <tr>
-<td align="right"><img src="viptela.png" align="center" width="40" height="15"><select><option>Viptela CPE</option><option>vedge100, $300</option><option>vedge1000, $400</option><option>vedge2000, $500</option></select><input id ="80" type="checkbox" checked onchange="calculate()"></td>
-<td><input type ="number" id ="81" readonly></td>
-<td><input type ="number" id ="82" readonly></td>
-<td><input type ="number" id ="83" readonly></td>
-<td><input type ="number" id ="84" readonly></td>
-<td><input type ="number" id ="85" readonly></td>
-<td><input type ="number" id ="86" readonly></td>
-<td><input type ="number" id ="87" readonly></td>
-<td><input type ="number" id ="88" readonly></td>
+<td></td>
+<td align="center"><input id ="711" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="721" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="731" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="741" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="751" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="761" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="771" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="781" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
-<td align="right"><img src="cisco.png" align="center" width="30" height="15"><select><option>Cisco CPE</option><option>cisco800, $400</option><option>ASR1100, $500</option></select><input id ="90" type="checkbox" checked onchange="calculate()"></td>
-<td><input type ="number" id ="91" readonly></td>
-<td><input type ="number" id ="92" readonly></td>
-<td><input type ="number" id ="93" readonly></td>
-<td><input type ="number" id ="94" readonly></td>
-<td><input type ="number" id ="95" readonly></td>
-<td><input type ="number" id ="96" readonly></td>
-<td><input type ="number" id ="97" readonly></td>
-<td><input type ="number" id ="98" readonly></td>
+<td align="right"><img src="viptela.png" align="center" width="40" height="15"><select><option>Viptela CPE</option><option>vedge100, $300</option><option>vedge1000, $400</option><option>vedge2000, $500</option></select><input id ="80" type="checkbox" checked onchange="setviptela()"></td>
+<td align="center"><input type ="number" id ="81" readonly></td>
+<td align="center"><input type ="number" id ="82" readonly></td>
+<td align="center"><input type ="number" id ="83" readonly></td>
+<td align="center"><input type ="number" id ="84" readonly></td>
+<td align="center"><input type ="number" id ="85" readonly></td>
+<td align="center"><input type ="number" id ="86" readonly></td>
+<td align="center"><input type ="number" id ="87" readonly></td>
+<td align="center"><input type ="number" id ="88" readonly></td>
 </tr>
 <tr>
-<td align="right"><img src="ciscospark.png" align="center" width="40" height="15"><select><option>Cisco Spark for SP</option><option>call, $3 pupm</option><option>call+message, $5 pupm</option><option>call+message+meet, $7 pupm</option></select><input id ="100" type="checkbox" checked onchange="calculate()"></td>
-<td><input type ="number" id ="101" readonly></td>
-<td><input type ="number" id ="102" readonly></td>
-<td><input type ="number" id ="103" readonly></td>
-<td><input type ="number" id ="104" readonly></td>
-<td><input type ="number" id ="105" readonly></td>
-<td><input type ="number" id ="106" readonly></td>
-<td><input type ="number" id ="107" readonly></td>
-<td><input type ="number" id ="108" readonly></td>
+<td></td>
+<td align="center"><input id ="811" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="821" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="831" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="841" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="851" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="861" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="871" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="881" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
-<td align="right"><img src="3pcc.png" align="center" width="60" height="20"><select><option>3rd party call control</option><option>broadsoft</option><option>asteriks</option><option>metaswitch</option><option>centille</option><option>7811, $41</option><option>7821, $54</option><option>7841, $77</option><option>7861, $83</option><option>8811, $104</option><option>8841, $108</option><option>8845, $129</option><option>8851, $150</option><option>8861, $160</option><option>8865, $170</option><option>cloud provisioning</option></select><input id ="110" type="checkbox" checked onchange="calculate()"></td>
-<td><input type ="number" id ="111" readonly></td>
-<td><input type ="number" id ="112" readonly></td>
-<td><input type ="number" id ="113" readonly></td>
-<td><input type ="number" id ="114" readonly></td>
-<td><input type ="number" id ="115" readonly></td>
-<td><input type ="number" id ="116" readonly></td>
-<td><input type ="number" id ="117" readonly></td>
-<td><input type ="number" id ="118" readonly></td>
+<td align="right"><img src="cisco.png" align="center" width="30" height="15"><select><option>Cisco CPE</option><option>cisco800, $400</option><option>ASR1100, $500</option></select><input id ="90" type="checkbox" checked onchange="setcisco()"></td>
+<td align="center"><input type ="number" id ="91" readonly></td>
+<td align="center"><input type ="number" id ="92" readonly></td>
+<td align="center"><input type ="number" id ="93" readonly></td>
+<td align="center"><input type ="number" id ="94" readonly></td>
+<td align="center"><input type ="number" id ="95" readonly></td>
+<td align="center"><input type ="number" id ="96" readonly></td>
+<td align="center"><input type ="number" id ="97" readonly></td>
+<td align="center"><input type ="number" id ="98" readonly></td>
 </tr>
 <tr>
-<td align="right"><img src="ciscoumbrella.png" align="center" width="40" height="10"><select><option>Cisco Umbrella for SP</option><option>circuit attach, $.6</option><option>mobile</option><option>mssp, $1.8</option><option>roaming, $1.86</option><option>proffesional, $3.26</option><option>insight, $4.88</option><option>Platform, $5.34</option><option>4221, $16</option><option>4321, $28.26</option><option>4331, $36.66</option><option>4351, $73.5</option><option>4431, $100</option><option>4451, $160</option><option>wlan, $20.8</option></select><input id ="120" type="checkbox" checked onchange="calculate()"></td>
-<td><input type ="number" id ="121" readonly></td>
-<td><input type ="number" id ="122" readonly></td>
-<td><input type ="number" id ="123" readonly></td>
-<td><input type ="number" id ="124" readonly></td>
-<td><input type ="number" id ="125" readonly></td>
-<td><input type ="number" id ="126" readonly></td>
-<td><input type ="number" id ="127" readonly></td>
-<td><input type ="number" id ="128" readonly></td>
+<td></td>
+<td align="center"><input id ="911" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="921" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="931" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="941" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="951" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="961" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="971" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="981" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
-<td align="right"><img src="ciscosnort.png" align="center" width="25" height="15"><select><option>Cloud UTD</option><option>vpn, $2 ptpm</option><option>firewall, $2 ptpm</option><option>ips snort, $2 ptpm</option><option>url filtering, $2 ptpm</option></select><input id ="130" type="checkbox" checked onchange="calculate()"></td>
-<td><input type ="number" id ="131" readonly></td>
-<td><input type ="number" id ="132" readonly></td>
-<td><input type ="number" id ="133" readonly></td>
-<td><input type ="number" id ="134" readonly></td>
-<td><input type ="number" id ="135" readonly></td>
-<td><input type ="number" id ="136" readonly></td>
-<td><input type ="number" id ="137" readonly></td>
-<td><input type ="number" id ="138" readonly></td>
+<td align="right"><img src="ciscospark.png" align="center" width="40" height="15"><select><option>Cisco Spark for SP</option><option>call, $3 pupm</option><option>call+message, $5 pupm</option><option>call+message+meet, $7 pupm</option></select><input id ="100" type="checkbox" checked onchange="setciscospark()"></td>
+<td align="center"><input type ="number" id ="101" readonly></td>
+<td align="center"><input type ="number" id ="102" readonly></td>
+<td align="center"><input type ="number" id ="103" readonly></td>
+<td align="center"><input type ="number" id ="104" readonly></td>
+<td align="center"><input type ="number" id ="105" readonly></td>
+<td align="center"><input type ="number" id ="106" readonly></td>
+<td align="center"><input type ="number" id ="107" readonly></td>
+<td align="center"><input type ="number" id ="108" readonly></td>
 </tr>
 <tr>
-<td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>Spark Board for CEO office</option><option>spark board 55, $4k</option><option>sparkboard 70, $7.5k</option></select><input id ="140" type="checkbox" checked onchange="calculate()"></td>
-<td><input type ="number" id ="141" readonly></td>
-<td><input type ="number" id ="142" readonly></td>
-<td><input type ="number" id ="143" readonly></td>
-<td><input type ="number" id ="144" readonly></td>
-<td><input type ="number" id ="145" readonly></td>
-<td><input type ="number" id ="146" readonly></td>
-<td><input type ="number" id ="147" readonly></td>
-<td><input type ="number" id ="148" readonly></td>
+<td></td>
+<td align="center"><input id ="1011" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1021" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1031" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1041" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1051" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1061" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1071" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1081" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
+<td align="right"><img src="3pcc.png" align="center" width="60" height="20"><select><option>3rd party call control</option><option>broadsoft</option><option>asteriks</option><option>metaswitch</option><option>centille</option><option>7811, $41</option><option>7821, $54</option><option>7841, $77</option><option>7861, $83</option><option>8811, $104</option><option>8841, $108</option><option>8845, $129</option><option>8851, $150</option><option>8861, $160</option><option>8865, $170</option><option>cloud provisioning</option></select><input id ="110" type="checkbox" checked onchange="set3pcc()"></td>
+<td align="center"><input type ="number" id ="111" readonly></td>
+<td align="center"><input type ="number" id ="112" readonly></td>
+<td align="center"><input type ="number" id ="113" readonly></td>
+<td align="center"><input type ="number" id ="114" readonly></td>
+<td align="center"><input type ="number" id ="115" readonly></td>
+<td align="center"><input type ="number" id ="116" readonly></td>
+<td align="center"><input type ="number" id ="117" readonly></td>
+<td align="center"><input type ="number" id ="118" readonly></td>
+</tr>
+<tr>
+<td></td>
+<td align="center"><input id ="1111" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1121" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1131" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1141" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1151" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1161" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1171" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1181" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
+<td align="right"><img src="ciscoumbrella.png" align="center" width="40" height="10"><select><option>Cisco Umbrella for SP</option><option>circuit attach, $.6</option><option>mobile</option><option>mssp, $1.8</option><option>roaming, $1.86</option><option>proffesional, $3.26</option><option>insight, $4.88</option><option>Platform, $5.34</option><option>4221, $16</option><option>4321, $28.26</option><option>4331, $36.66</option><option>4351, $73.5</option><option>4431, $100</option><option>4451, $160</option><option>wlan, $20.8</option></select><input id ="120" type="checkbox" checked onchange="setciscoumbrella()"></td>
+<td align="center"><input type ="number" id ="121" readonly></td>
+<td align="center"><input type ="number" id ="122" readonly></td>
+<td align="center"><input type ="number" id ="123" readonly></td>
+<td align="center"><input type ="number" id ="124" readonly></td>
+<td align="center"><input type ="number" id ="125" readonly></td>
+<td align="center"><input type ="number" id ="126" readonly></td>
+<td align="center"><input type ="number" id ="127" readonly></td>
+<td align="center"><input type ="number" id ="128" readonly></td>
+</tr>
+<tr>
+<td></td>
+<td align="center"><input id ="1211" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1221" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1231" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1241" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1251" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1261" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1271" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1281" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
+<td align="right"><img src="ciscosnort.png" align="center" width="25" height="15"><select><option>Cloud UTD</option><option>vpn, $2 ptpm</option><option>firewall, $2 ptpm</option><option>ips snort, $2 ptpm</option><option>url filtering, $2 ptpm</option></select><input id ="130" type="checkbox" checked onchange="setcloudutd()"></td>
+<td align="center"><input type ="number" id ="131" readonly></td>
+<td align="center"><input type ="number" id ="132" readonly></td>
+<td align="center"><input type ="number" id ="133" readonly></td>
+<td align="center"><input type ="number" id ="134" readonly></td>
+<td align="center"><input type ="number" id ="135" readonly></td>
+<td align="center"><input type ="number" id ="136" readonly></td>
+<td align="center"><input type ="number" id ="137" readonly></td>
+<td align="center"><input type ="number" id ="138" readonly></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"><input id ="1311" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1321" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1331" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1341" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1351" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1361" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1371" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1381" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
+<td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>Spark Board for CEO office</option><option>spark board 55, $4k</option><option>sparkboard 70, $7.5k</option></select><input id ="140" type="checkbox" checked onchange="setsb()"></td>
+<td align="center"><input type ="number" id ="141" readonly></td>
+<td align="center"><input type ="number" id ="142" readonly></td>
+<td align="center"><input type ="number" id ="143" readonly></td>
+<td align="center"><input type ="number" id ="144" readonly></td>
+<td align="center"><input type ="number" id ="145" readonly></td>
+<td align="center"><input type ="number" id ="146" readonly></td>
+<td align="center"><input type ="number" id ="147" readonly></td>
+<td align="center"><input type ="number" id ="148" readonly></td>
+</tr>
+<tr>
+<td></td>
+<td align="center"><input id ="1411" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1421" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1431" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1441" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1451" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1461" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1471" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input id ="1481" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
 <td align="right">Year 1 (Mil)</td>
@@ -222,161 +371,629 @@ input[type="text"] {
 </tr>
 <tr>
 <td align="right">Year 1 (Mil)</td>
-<td colspan="8"><input type ="text" style="font-size: 47pt; width:100%; color: #3CBC8D;text-align:center" id ="161"></td>
+<td colspan="4"><input type ="text" style="font-size: 47pt; width:100%; color: #3CBC8D;text-align:center" id ="161"></td>
+<td></td>
+<td colspan="2">
+<input type="range" min="1" max="100" value="2" step = "1"  style="width : 10em" id="pen" oninput="sliderforpen(value)"><output for="penslider" id="volumeforpen" style="color: #3CBC8D">2</output><label for="penslider" align="left" style="color: #3CBC8D">%</label>
+</td>
 </table>
 
 <script>
+
+function setmeraki(){
+        if (document.getElementById("70").checked) {
+		 document.getElementById("711").checked=true;
+		 document.getElementById("721").checked=true;
+		 document.getElementById("731").checked=true;
+		 document.getElementById("741").checked=true;
+		 document.getElementById("751").checked=true;
+		 document.getElementById("761").checked=true;
+		 document.getElementById("771").checked=true;
+		 document.getElementById("781").checked=true;
+	}
+	else {
+		 document.getElementById("711").checked=false;
+		 document.getElementById("721").checked=false;
+		 document.getElementById("731").checked=false;
+		 document.getElementById("741").checked=false;
+		 document.getElementById("751").checked=false;
+		 document.getElementById("761").checked=false;
+		 document.getElementById("771").checked=false;
+		 document.getElementById("781").checked=false;
+	}
+        calculate();
+}
+
+function setviptela(){
+        if (document.getElementById("80").checked) {
+                 document.getElementById("811").checked=true;
+                 document.getElementById("821").checked=true;
+                 document.getElementById("831").checked=true;
+                 document.getElementById("841").checked=true;
+                 document.getElementById("851").checked=true;
+                 document.getElementById("861").checked=true;
+                 document.getElementById("871").checked=true;
+                 document.getElementById("881").checked=true;
+        }
+        else {
+                 document.getElementById("811").checked=false;
+                 document.getElementById("821").checked=false;
+                 document.getElementById("831").checked=false;
+                 document.getElementById("841").checked=false;
+                 document.getElementById("851").checked=false;
+                 document.getElementById("861").checked=false;
+                 document.getElementById("871").checked=false;
+                 document.getElementById("881").checked=false;
+        }
+        calculate();
+}
+
+function setcisco(){
+        if (document.getElementById("90").checked) {
+                 document.getElementById("911").checked=true;
+                 document.getElementById("921").checked=true;
+                 document.getElementById("931").checked=true;
+                 document.getElementById("941").checked=true;
+                 document.getElementById("951").checked=true;
+                 document.getElementById("961").checked=true;
+                 document.getElementById("971").checked=true;
+                 document.getElementById("981").checked=true;
+        }
+        else {
+                 document.getElementById("911").checked=false;
+                 document.getElementById("921").checked=false;
+                 document.getElementById("931").checked=false;
+                 document.getElementById("941").checked=false;
+                 document.getElementById("951").checked=false;
+                 document.getElementById("961").checked=false;
+                 document.getElementById("971").checked=false;
+                 document.getElementById("981").checked=false;
+        }
+        calculate();
+}
+
+function setciscospark(){
+        if (document.getElementById("100").checked) {
+                 document.getElementById("1011").checked=true;
+                 document.getElementById("1021").checked=true;
+                 document.getElementById("1031").checked=true;
+                 document.getElementById("1041").checked=true;
+                 document.getElementById("1051").checked=true;
+                 document.getElementById("1061").checked=true;
+                 document.getElementById("1071").checked=true;
+                 document.getElementById("1081").checked=true;
+        }
+        else {
+                 document.getElementById("1011").checked=false;
+                 document.getElementById("1021").checked=false;
+                 document.getElementById("1031").checked=false;
+                 document.getElementById("1041").checked=false;
+                 document.getElementById("1051").checked=false;
+                 document.getElementById("1061").checked=false;
+                 document.getElementById("1071").checked=false;
+                 document.getElementById("1081").checked=false;
+        }
+        calculate();
+}
+
+function set3pcc(){
+        if (document.getElementById("110").checked) {
+                 document.getElementById("1111").checked=true;
+                 document.getElementById("1121").checked=true;
+                 document.getElementById("1131").checked=true;
+                 document.getElementById("1141").checked=true;
+                 document.getElementById("1151").checked=true;
+                 document.getElementById("1161").checked=true;
+                 document.getElementById("1171").checked=true;
+                 document.getElementById("1181").checked=true;
+        }
+        else {
+                 document.getElementById("1111").checked=false;
+                 document.getElementById("1121").checked=false;
+                 document.getElementById("1131").checked=false;
+                 document.getElementById("1141").checked=false;
+                 document.getElementById("1151").checked=false;
+                 document.getElementById("1161").checked=false;
+                 document.getElementById("1171").checked=false;
+                 document.getElementById("1181").checked=false;
+        }
+        calculate();
+}
+
+
+function setciscoumbrella(){
+        if (document.getElementById("120").checked) {
+                 document.getElementById("1211").checked=true;
+                 document.getElementById("1221").checked=true;
+                 document.getElementById("1231").checked=true;
+                 document.getElementById("1241").checked=true;
+                 document.getElementById("1251").checked=true;
+                 document.getElementById("1261").checked=true;
+                 document.getElementById("1271").checked=true;
+                 document.getElementById("1281").checked=true;
+        }
+        else {
+                 document.getElementById("1211").checked=false;
+                 document.getElementById("1221").checked=false;
+                 document.getElementById("1231").checked=false;
+                 document.getElementById("1241").checked=false;
+                 document.getElementById("1251").checked=false;
+                 document.getElementById("1261").checked=false;
+                 document.getElementById("1271").checked=false;
+                 document.getElementById("1281").checked=false;
+        }
+        calculate();
+}
+
+function setcloudutd(){
+        if (document.getElementById("130").checked) {
+                 document.getElementById("1311").checked=true;
+                 document.getElementById("1321").checked=true;
+                 document.getElementById("1331").checked=true;
+                 document.getElementById("1341").checked=true;
+                 document.getElementById("1351").checked=true;
+                 document.getElementById("1361").checked=true;
+                 document.getElementById("1371").checked=true;
+                 document.getElementById("1381").checked=true;
+        }
+        else {
+                 document.getElementById("1311").checked=false;
+                 document.getElementById("1321").checked=false;
+                 document.getElementById("1331").checked=false;
+                 document.getElementById("1341").checked=false;
+                 document.getElementById("1351").checked=false;
+                 document.getElementById("1361").checked=false;
+                 document.getElementById("1371").checked=false;
+                 document.getElementById("1381").checked=false;
+        }
+        calculate();
+}
+
+function setsb(){
+        if (document.getElementById("140").checked) {
+                 document.getElementById("1411").checked=true;
+                 document.getElementById("1421").checked=true;
+                 document.getElementById("1431").checked=true;
+                 document.getElementById("1441").checked=true;
+                 document.getElementById("1451").checked=true;
+                 document.getElementById("1461").checked=true;
+                 document.getElementById("1471").checked=true;
+                 document.getElementById("1481").checked=true;
+        }
+        else {
+                 document.getElementById("1411").checked=false;
+                 document.getElementById("1421").checked=false;
+                 document.getElementById("1431").checked=false;
+                 document.getElementById("1441").checked=false;
+                 document.getElementById("1451").checked=false;
+                 document.getElementById("1461").checked=false;
+                 document.getElementById("1471").checked=false;
+                 document.getElementById("1481").checked=false;
+        }
+        calculate();
+}
+
 function sliderforyears(vol) {
         document.querySelector('#volumeforyears').value = vol;
 	calculate();
 }
 
+function sliderforpen(vol) {
+        document.querySelector('#volumeforpen').value = vol;
+	document.getElementById("211").value = vol;
+	document.getElementById("221").value = vol;
+	document.getElementById("231").value = vol;
+	document.getElementById("241").value = vol;
+	document.getElementById("251").value = vol;
+	document.getElementById("261").value = vol;
+	document.getElementById("271").value = vol;
+	document.getElementById("281").value = vol;
+        document.getElementById("311").value = vol;
+        document.getElementById("321").value = vol;
+        document.getElementById("331").value = vol;
+        document.getElementById("341").value = vol;
+        document.getElementById("351").value = vol;
+        document.getElementById("361").value = vol;
+        document.getElementById("371").value = vol;
+        document.getElementById("381").value = vol;
+        document.getElementById("411").value = vol;
+        document.getElementById("421").value = vol;
+        document.getElementById("431").value = vol;
+        document.getElementById("441").value = vol;
+        document.getElementById("451").value = vol;
+        document.getElementById("461").value = vol;
+        document.getElementById("471").value = vol;
+        document.getElementById("481").value = vol;
+
+	document.querySelector('#volumefor211').value = vol;
+	document.querySelector('#volumefor221').value = vol;
+	document.querySelector('#volumefor231').value = vol;
+	document.querySelector('#volumefor241').value = vol;
+	document.querySelector('#volumefor251').value = vol;
+	document.querySelector('#volumefor261').value = vol;
+	document.querySelector('#volumefor271').value = vol;
+	document.querySelector('#volumefor281').value = vol;
+        document.querySelector('#volumefor311').value = vol;
+        document.querySelector('#volumefor321').value = vol;
+        document.querySelector('#volumefor331').value = vol;
+        document.querySelector('#volumefor341').value = vol;
+        document.querySelector('#volumefor351').value = vol;
+        document.querySelector('#volumefor361').value = vol;
+        document.querySelector('#volumefor371').value = vol;
+        document.querySelector('#volumefor381').value = vol;
+        document.querySelector('#volumefor411').value = vol;
+        document.querySelector('#volumefor421').value = vol;
+        document.querySelector('#volumefor431').value = vol;
+        document.querySelector('#volumefor441').value = vol;
+        document.querySelector('#volumefor451').value = vol;
+        document.querySelector('#volumefor461').value = vol;
+        document.querySelector('#volumefor471').value = vol;
+        document.querySelector('#volumefor481').value = vol;
+
+        calculate();
+}
+
+function sliderfor211(vol) {
+        document.querySelector('#volumefor211').value = vol;
+        calculate();
+}
+
+function sliderfor221(vol) {
+        document.querySelector('#volumefor221').value = vol;
+        calculate();
+}
+
+function sliderfor231(vol) {
+        document.querySelector('#volumefor231').value = vol;
+        calculate();
+}
+
+function sliderfor241(vol) {
+        document.querySelector('#volumefor241').value = vol;
+        calculate();
+}
+
+function sliderfor251(vol) {
+        document.querySelector('#volumefor251').value = vol;
+        calculate();
+}
+
+function sliderfor261(vol) {
+        document.querySelector('#volumefor261').value = vol;
+        calculate();
+}
+function sliderfor271(vol) {
+        document.querySelector('#volumefor271').value = vol;
+        calculate();
+}
+
+function sliderfor281(vol) {
+        document.querySelector('#volumefor281').value = vol;
+        calculate();
+}
+
+function sliderfor311(vol) {
+        document.querySelector('#volumefor311').value = vol;
+        calculate();
+}
+
+function sliderfor321(vol) {
+        document.querySelector('#volumefor321').value = vol;
+        calculate();
+}
+
+function sliderfor331(vol) {
+        document.querySelector('#volumefor331').value = vol;
+        calculate();
+}
+
+function sliderfor341(vol) {
+        document.querySelector('#volumefor341').value = vol;
+        calculate();
+}
+
+function sliderfor351(vol) {
+        document.querySelector('#volumefor351').value = vol;
+        calculate();
+}
+
+function sliderfor361(vol) {
+        document.querySelector('#volumefor361').value = vol;
+        calculate();
+}
+function sliderfor371(vol) {
+        document.querySelector('#volumefor371').value = vol;
+        calculate();
+}
+
+function sliderfor381(vol) {
+        document.querySelector('#volumefor381').value = vol;
+        calculate();
+}
+
+function sliderfor411(vol) {
+        document.querySelector('#volumefor411').value = vol;
+        calculate();
+}
+
+function sliderfor421(vol) {
+        document.querySelector('#volumefor421').value = vol;
+        calculate();
+}
+
+function sliderfor431(vol) {
+        document.querySelector('#volumefor431').value = vol;
+        calculate();
+}
+
+function sliderfor441(vol) {
+        document.querySelector('#volumefor441').value = vol;
+        calculate();
+}
+
+function sliderfor451(vol) {
+        document.querySelector('#volumefor451').value = vol;
+        calculate();
+}
+
+function sliderfor461(vol) {
+        document.querySelector('#volumefor461').value = vol;
+        calculate();
+}
+function sliderfor471(vol) {
+        document.querySelector('#volumefor471').value = vol;
+        calculate();
+}
+
+function sliderfor481(vol) {
+        document.querySelector('#volumefor481').value = vol;
+        calculate();
+}
+
 function calculate(){
+
+var data=[[4112,18766,425995,5415949],[10847,42588,1062697,10513800],[2002,7081,182454,2061963],[29280,148002,4055946,38502396],[4201,22432,298559,7282041],[2084,9127,74448,7181506],[1071,24247,1,3791622],[4773,29104,645370,890600]];
 
 meraki = 200;
 viptela = 300;
 cisco = 400;
-percentage = Number(document.getElementById("yearsslider").value/100);
+//percentage = Number(document.getElementById("yearsslider").value/100);
 hcs=2.6;
 ipt=41;
 umbrellasmall=0.6;
 umbrellamedium=1.8;
 cloudutd=2520/100;
 sb=7427;
-console.log(Number(document.getElementById("70").checked));
-document.getElementById("11").value=(5415949/1000000).toFixed(2);
-document.getElementById("12").value=(10513800/1000000).toFixed(2);
-document.getElementById("13").value=(2061963/1000000).toFixed(2);
-document.getElementById("14").value=(38502396/1000000).toFixed(2);
-document.getElementById("15").value=(7282041/1000000).toFixed(2);
-document.getElementById("16").value=(7181506/1000000).toFixed(2);
-document.getElementById("17").value=(3791622/1000000).toFixed(2);
-document.getElementById("18").value=(8906000/1000000).toFixed(2);
-document.getElementById("21").value="4112";
-document.getElementById("22").value="10847";
-document.getElementById("23").value="2002";
-document.getElementById("24").value="29280";
-document.getElementById("25").value="4201";
-document.getElementById("26").value="2084";
-document.getElementById("27").value="1071";
-document.getElementById("28").value="4773";
-document.getElementById("31").value="18766";
-document.getElementById("32").value="42588";
-document.getElementById("33").value="7081";
-document.getElementById("34").value="148002";
-document.getElementById("35").value="22432";
-document.getElementById("36").value="9127";
-document.getElementById("37").value="24247";
-document.getElementById("38").value="29104";
-document.getElementById("41").value="425995";
-document.getElementById("42").value="1062679";
-document.getElementById("43").value="182454";
-document.getElementById("44").value="4055946";
-document.getElementById("45").value="298559";
-document.getElementById("46").value="74448";
-document.getElementById("47").value="1";
-document.getElementById("48").value="645370";
 
-document.getElementById("51").value=Number(document.getElementById("21").value)+Number(document.getElementById("31").value)+Number(document.getElementById("41").value);
-document.getElementById("52").value=Number(document.getElementById("22").value)+Number(document.getElementById("32").value)+Number(document.getElementById("42").value);
-document.getElementById("53").value=Number(document.getElementById("23").value)+Number(document.getElementById("33").value)+Number(document.getElementById("43").value);
-document.getElementById("54").value=Number(document.getElementById("24").value)+Number(document.getElementById("34").value)+Number(document.getElementById("44").value);
-document.getElementById("55").value=Number(document.getElementById("25").value)+Number(document.getElementById("35").value)+Number(document.getElementById("45").value);
-document.getElementById("56").value=Number(document.getElementById("26").value)+Number(document.getElementById("36").value)+Number(document.getElementById("46").value);
-document.getElementById("57").value=Number(document.getElementById("27").value)+Number(document.getElementById("37").value)+Number(document.getElementById("47").value);
-document.getElementById("58").value=Number(document.getElementById("28").value)+Number(document.getElementById("38").value)+Number(document.getElementById("48").value);
+svkl=data[0][0]*Number(document.getElementById("211").value)/100;
+svkm=data[0][1]*Number(document.getElementById("311").value)/100;
+svks=data[0][2]*Number(document.getElementById("411").value)/100;
+svkmeraki=svkl*meraki*Number(document.getElementById("711").checked);
+svkviptela=svkm*viptela*Number(document.getElementById("811").checked);
+svkcisco=svkl*cisco*Number(document.getElementById("911").checked);
+svkhcs=(svkl*250*hcs+svkm*49*hcs+svks*9*hcs)*Number(document.getElementById("1011").checked);
+svkipt=(svkl*250*ipt+svkm*49*ipt+svks*9*ipt)*Number(document.getElementById("1111").checked);
+svkumbrella=(svkl*250*umbrellamedium+svkm*49*umbrellamedium+svks*umbrellasmall)*Number(document.getElementById("1211").checked);
+svkcloudutd=(svkl+svkm)*cloudutd*Number(document.getElementById("1311").checked);
+svksb=svkl*sb*Number(document.getElementById("1411").checked);
+svktotal=svkmeraki+svkviptela+svkcisco+svkhcs+svkipt+svkumbrella+svkcloudutd+svksb;
+document.getElementById("71").value=(svkmeraki/1000000).toFixed(2);
+document.getElementById("81").value=(svkviptela/1000000).toFixed(2);
+document.getElementById("91").value=(svkcisco/1000000).toFixed(2);
+document.getElementById("101").value=(svkhcs/1000000).toFixed(2);
+document.getElementById("111").value=(svkipt/1000000).toFixed(2);
+document.getElementById("121").value=(svkumbrella/1000000).toFixed(2);
+document.getElementById("131").value=(svkcloudutd/1000000).toFixed(2);
+document.getElementById("141").value=(svksb/1000000).toFixed(2);
+document.getElementById("151").value=(svktotal/1000000).toFixed(2);
 
-document.getElementById("61").value=Math.round(Number(document.getElementById("51").value)*Number(document.getElementById("yearsslider").value/1000));
-document.getElementById("62").value=Math.round(Number(document.getElementById("52").value)*Number(document.getElementById("yearsslider").value/1000));
-document.getElementById("63").value=Math.round(Number(document.getElementById("53").value)*Number(document.getElementById("yearsslider").value/1000));
-document.getElementById("64").value=Math.round(Number(document.getElementById("54").value)*Number(document.getElementById("yearsslider").value/1000));
-document.getElementById("65").value=Math.round(Number(document.getElementById("55").value)*Number(document.getElementById("yearsslider").value/1000));
-document.getElementById("66").value=Math.round(Number(document.getElementById("56").value)*Number(document.getElementById("yearsslider").value/1000));
-document.getElementById("67").value=Math.round(Number(document.getElementById("57").value)*Number(document.getElementById("yearsslider").value/1000));
-document.getElementById("68").value=Math.round(Number(document.getElementById("58").value)*Number(document.getElementById("yearsslider").value/1000));
 
-document.getElementById("71").value=Math.round(Number(document.getElementById("41").value)*percentage*meraki)*Number(document.getElementById("70").checked);
-document.getElementById("72").value=Math.round(Number(document.getElementById("42").value)*percentage*meraki)*Number(document.getElementById("70").checked);
-document.getElementById("73").value=Math.round(Number(document.getElementById("43").value)*percentage*meraki)*Number(document.getElementById("70").checked);
-document.getElementById("74").value=Math.round(Number(document.getElementById("44").value)*percentage*meraki)*Number(document.getElementById("70").checked);
-document.getElementById("75").value=Math.round(Number(document.getElementById("45").value)*percentage*meraki)*Number(document.getElementById("70").checked);
-document.getElementById("76").value=Math.round(Number(document.getElementById("46").value)*percentage*meraki)*Number(document.getElementById("70").checked);
-document.getElementById("77").value=Math.round(Number(document.getElementById("47").value)*percentage*meraki)*Number(document.getElementById("70").checked);
-document.getElementById("78").value=Math.round(Number(document.getElementById("48").value)*percentage*meraki)*Number(document.getElementById("70").checked);
+czel=(data[1][0]*Number(document.getElementById("221").value)/100);
+czem=(data[1][1]*Number(document.getElementById("321").value)/100);
+czes=(data[1][2]*Number(document.getElementById("421").value)/100);
+czemeraki=czel*meraki*Number(document.getElementById("721").checked);
+czeviptela=czem*viptela*Number(document.getElementById("821").checked);
+czecisco=czel*cisco*Number(document.getElementById("921").checked);
+czehcs=(czel*250*hcs+czem*49*ipt+czes*9*hcs)*Number(document.getElementById("1021").checked);
+czeipt=(czel*250*ipt+czem*49*ipt+czes*9*ipt)*Number(document.getElementById("1121").checked);
+czeumbrella=(czel*250*umbrellamedium+czem*49*umbrellamedium+czes*umbrellasmall)*Number(document.getElementById("1221").checked);
+czecloudutd=((czel+czem)*cloudutd)*Number(document.getElementById("1321").checked);
+czesb=czel*sb*Number(document.getElementById("1421").checked);
+czetotal=czemeraki+czeviptela+czecisco+czehcs+czeipt+czeumbrella+czecloudutd+czesb;
+document.getElementById("72").value=(czemeraki/1000000).toFixed(2);
+document.getElementById("82").value=(czeviptela/1000000).toFixed(2);
+document.getElementById("92").value=(czecisco/1000000).toFixed(2);
+document.getElementById("102").value=(czehcs/1000000).toFixed(2);
+document.getElementById("112").value=(czeipt/1000000).toFixed(2);
+document.getElementById("122").value=(czeumbrella/1000000).toFixed(2);
+document.getElementById("132").value=(czecloudutd/1000000).toFixed(2);
+document.getElementById("142").value=(czesb/1000000).toFixed(2);
+document.getElementById("152").value=(czetotal/1000000).toFixed(2);
 
-document.getElementById("81").value=Math.round(Number(document.getElementById("31").value)*percentage*viptela)*Number(document.getElementById("80").checked);
-document.getElementById("82").value=Math.round(Number(document.getElementById("32").value)*percentage*viptela)*Number(document.getElementById("80").checked);
-document.getElementById("83").value=Math.round(Number(document.getElementById("33").value)*percentage*viptela)*Number(document.getElementById("80").checked);
-document.getElementById("84").value=Math.round(Number(document.getElementById("34").value)*percentage*viptela)*Number(document.getElementById("80").checked);
-document.getElementById("85").value=Math.round(Number(document.getElementById("35").value)*percentage*viptela)*Number(document.getElementById("80").checked);
-document.getElementById("86").value=Math.round(Number(document.getElementById("36").value)*percentage*viptela)*Number(document.getElementById("80").checked);
-document.getElementById("87").value=Math.round(Number(document.getElementById("37").value)*percentage*viptela)*Number(document.getElementById("80").checked);
-document.getElementById("88").value=Math.round(Number(document.getElementById("38").value)*percentage*viptela)*Number(document.getElementById("80").checked);
 
-document.getElementById("91").value=Math.round(Number(document.getElementById("21").value)*percentage*cisco)*Number(document.getElementById("90").checked);
-document.getElementById("92").value=Math.round(Number(document.getElementById("22").value)*percentage*cisco)*Number(document.getElementById("90").checked);
-document.getElementById("93").value=Math.round(Number(document.getElementById("23").value)*percentage*cisco)*Number(document.getElementById("90").checked);
-document.getElementById("94").value=Math.round(Number(document.getElementById("24").value)*percentage*cisco)*Number(document.getElementById("90").checked);
-document.getElementById("95").value=Math.round(Number(document.getElementById("25").value)*percentage*cisco)*Number(document.getElementById("90").checked);
-document.getElementById("96").value=Math.round(Number(document.getElementById("26").value)*percentage*cisco)*Number(document.getElementById("90").checked);
-document.getElementById("97").value=Math.round(Number(document.getElementById("27").value)*percentage*cisco)*Number(document.getElementById("90").checked);
-document.getElementById("98").value=Math.round(Number(document.getElementById("28").value)*percentage*cisco)*Number(document.getElementById("90").checked);
+slol=(data[2][0]*Number(document.getElementById("231").value)/100);
+slom=(data[2][1]*Number(document.getElementById("331").value)/100);
+slos=(data[2][2]*Number(document.getElementById("431").value)/100);
+slomeraki=slol*meraki*Number(document.getElementById("731").checked);
+sloviptela=slom*viptela*Number(document.getElementById("831").checked);
+slocisco=slol*cisco*Number(document.getElementById("931").checked);
+slohcs=(slol*250*hcs+slom*49*hcs+slos*9*hcs)*Number(document.getElementById("1031").checked);
+sloipt=(slol*250*ipt+slom*49*ipt+slos*9*ipt)*Number(document.getElementById("1131").checked);
+sloumbrella=(slol*250*umbrellamedium+slom*49*umbrellamedium+slos*umbrellasmall)*Number(document.getElementById("1231").checked);
+slocloudutd=((slol+slom)*cloudutd)*Number(document.getElementById("1331").checked);
+slosb=slol*sb*Number(document.getElementById("1431").checked);
+slototal=slomeraki+sloviptela+slocisco+slohcs+sloipt+sloumbrella+slocloudutd+slosb;
+document.getElementById("73").value=(slomeraki/1000000).toFixed(2);
+document.getElementById("83").value=(sloviptela/1000000).toFixed(2);
+document.getElementById("93").value=(slocisco/1000000).toFixed(2);
+document.getElementById("103").value=(slohcs/1000000).toFixed(2);
+document.getElementById("113").value=(sloipt/1000000).toFixed(2);
+document.getElementById("123").value=(sloumbrella/1000000).toFixed(2);
+document.getElementById("133").value=(slocloudutd/1000000).toFixed(2);
+document.getElementById("143").value=(slosb/1000000).toFixed(2);
+document.getElementById("153").value=(slototal/1000000).toFixed(2);
 
-document.getElementById("101").value=Math.round((Number(document.getElementById("21").value)*percentage*250+Number(document.getElementById("31").value)*percentage*49+Number(document.getElementById("41").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
-document.getElementById("102").value=Math.round((Number(document.getElementById("22").value)*percentage*250+Number(document.getElementById("32").value)*percentage*49+Number(document.getElementById("42").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
-document.getElementById("103").value=Math.round((Number(document.getElementById("23").value)*percentage*250+Number(document.getElementById("33").value)*percentage*49+Number(document.getElementById("43").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
-document.getElementById("104").value=Math.round((Number(document.getElementById("24").value)*percentage*250+Number(document.getElementById("34").value)*percentage*49+Number(document.getElementById("44").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
-document.getElementById("105").value=Math.round((Number(document.getElementById("25").value)*percentage*250+Number(document.getElementById("35").value)*percentage*49+Number(document.getElementById("45").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
-document.getElementById("106").value=Math.round((Number(document.getElementById("26").value)*percentage*250+Number(document.getElementById("36").value)*percentage*49+Number(document.getElementById("46").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
-document.getElementById("107").value=Math.round((Number(document.getElementById("27").value)*percentage*250+Number(document.getElementById("37").value)*percentage*49+Number(document.getElementById("47").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
-document.getElementById("108").value=Math.round((Number(document.getElementById("28").value)*percentage*250+Number(document.getElementById("38").value)*percentage*49+Number(document.getElementById("48").value)*percentage*9)*hcs)*Number(document.getElementById("100").checked);
+poll=(data[3][0]*Number(document.getElementById("241").value)/100);
+polm=(data[3][1]*Number(document.getElementById("341").value)/100);
+pols=(data[3][2]*Number(document.getElementById("441").value)/100);
+polmeraki=poll*meraki*Number(document.getElementById("741").checked);
+polviptela=polm*viptela*Number(document.getElementById("841").checked);
+polcisco=poll*cisco*Number(document.getElementById("941").checked);
+polhcs=(poll*250*hcs+polm*49*hcs+pols*9*hcs)*Number(document.getElementById("1041").checked);
+polipt=(poll*250*ipt+polm*49*ipt+pols*9*ipt)*Number(document.getElementById("1141").checked);
+polumbrella=(poll*250*umbrellamedium+polm*49*umbrellamedium+pols*umbrellasmall)*Number(document.getElementById("1241").checked);
+polcloudutd=((poll+polm)*cloudutd)*Number(document.getElementById("1341").checked);
+polsb=poll*sb*Number(document.getElementById("1441").checked);
+poltotal=polmeraki+polviptela+polcisco+polhcs+polipt+polumbrella+polcloudutd+polsb;
+document.getElementById("74").value=(polmeraki/1000000).toFixed(2);
+document.getElementById("84").value=(polviptela/1000000).toFixed(2);
+document.getElementById("94").value=(polcisco/1000000).toFixed(2);
+document.getElementById("104").value=(polhcs/1000000).toFixed(2);
+document.getElementById("114").value=(polipt/1000000).toFixed(2);
+document.getElementById("124").value=(polumbrella/1000000).toFixed(2);
+document.getElementById("134").value=(polcloudutd/1000000).toFixed(2);
+document.getElementById("144").value=(polsb/1000000).toFixed(2);
+document.getElementById("154").value=(poltotal/1000000).toFixed(2);
 
-document.getElementById("111").value=Math.round((Number(document.getElementById("21").value)*percentage*250+Number(document.getElementById("31").value)*percentage*49+Number(document.getElementById("41").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
-document.getElementById("112").value=Math.round((Number(document.getElementById("22").value)*percentage*250+Number(document.getElementById("32").value)*percentage*49+Number(document.getElementById("42").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
-document.getElementById("113").value=Math.round((Number(document.getElementById("23").value)*percentage*250+Number(document.getElementById("33").value)*percentage*49+Number(document.getElementById("43").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
-document.getElementById("114").value=Math.round((Number(document.getElementById("24").value)*percentage*250+Number(document.getElementById("34").value)*percentage*49+Number(document.getElementById("44").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
-document.getElementById("115").value=Math.round((Number(document.getElementById("25").value)*percentage*250+Number(document.getElementById("35").value)*percentage*49+Number(document.getElementById("45").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
-document.getElementById("116").value=Math.round((Number(document.getElementById("26").value)*percentage*250+Number(document.getElementById("36").value)*percentage*49+Number(document.getElementById("46").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
-document.getElementById("117").value=Math.round((Number(document.getElementById("27").value)*percentage*250+Number(document.getElementById("37").value)*percentage*49+Number(document.getElementById("47").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
-document.getElementById("118").value=Math.round((Number(document.getElementById("28").value)*percentage*250+Number(document.getElementById("38").value)*percentage*49+Number(document.getElementById("48").value)*percentage*9)*ipt)*Number(document.getElementById("110").checked);
 
-document.getElementById("121").value=Math.round(Number(document.getElementById("21").value)*percentage*250*umbrellamedium+Number(document.getElementById("31").value)*percentage*49*umbrellamedium+Number(document.getElementById("41").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
-document.getElementById("122").value=Math.round(Number(document.getElementById("22").value)*percentage*250*umbrellamedium+Number(document.getElementById("32").value)*percentage*49*umbrellamedium+Number(document.getElementById("42").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
-document.getElementById("123").value=Math.round(Number(document.getElementById("23").value)*percentage*250*umbrellamedium+Number(document.getElementById("33").value)*percentage*49*umbrellamedium+Number(document.getElementById("43").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
-document.getElementById("124").value=Math.round(Number(document.getElementById("24").value)*percentage*250*umbrellamedium+Number(document.getElementById("34").value)*percentage*49*umbrellamedium+Number(document.getElementById("44").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
-document.getElementById("125").value=Math.round(Number(document.getElementById("25").value)*percentage*250*umbrellamedium+Number(document.getElementById("35").value)*percentage*49*umbrellamedium+Number(document.getElementById("45").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
-document.getElementById("126").value=Math.round(Number(document.getElementById("26").value)*percentage*250*umbrellamedium+Number(document.getElementById("36").value)*percentage*49*umbrellamedium+Number(document.getElementById("46").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
-document.getElementById("127").value=Math.round(Number(document.getElementById("27").value)*percentage*250*umbrellamedium+Number(document.getElementById("37").value)*percentage*49*umbrellamedium+Number(document.getElementById("47").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
-document.getElementById("128").value=Math.round(Number(document.getElementById("28").value)*percentage*250*umbrellamedium+Number(document.getElementById("38").value)*percentage*49*umbrellamedium+Number(document.getElementById("48").value)*percentage*umbrellasmall)*Number(document.getElementById("120").checked);
+bull=(data[4][0]*Number(document.getElementById("251").value)/100);
+bulm=(data[4][1]*Number(document.getElementById("351").value)/100);
+buls=(data[4][2]*Number(document.getElementById("451").value)/100);
+bulmeraki=bull*meraki*Number(document.getElementById("751").checked);
+bulviptela=bulm*viptela*Number(document.getElementById("851").checked);
+bulcisco=bull*cisco*Number(document.getElementById("951").checked);
+bulhcs=(bull*250*hcs+bulm*49*hcs+buls*9*hcs)*Number(document.getElementById("1051").checked);
+bulipt=(bull*250*ipt+bulm*49*ipt+buls*9*ipt)*Number(document.getElementById("1151").checked);
+bulumbrella=(bull*250*umbrellamedium+bulm*49*umbrellamedium+buls*umbrellasmall)*Number(document.getElementById("1251").checked);
+bulcloudutd=((bull+bulm)*cloudutd)*Number(document.getElementById("1351").checked);
+bulsb=bull*sb*Number(document.getElementById("1451").checked);
+bultotal=bulmeraki+bulviptela+bulcisco+bulhcs+bulipt+bulumbrella+bulcloudutd+bulsb;
+document.getElementById("75").value=(bulmeraki/1000000).toFixed(2);
+document.getElementById("85").value=(bulviptela/1000000).toFixed(2);
+document.getElementById("95").value=(bulcisco/1000000).toFixed(2);
+document.getElementById("105").value=(bulhcs/1000000).toFixed(2);
+document.getElementById("115").value=(bulipt/1000000).toFixed(2);
+document.getElementById("125").value=(bulumbrella/1000000).toFixed(2);
+document.getElementById("135").value=(bulcloudutd/1000000).toFixed(2);
+document.getElementById("145").value=(bulsb/1000000).toFixed(2);
+document.getElementById("155").value=(bultotal/1000000).toFixed(2);
 
-document.getElementById("131").value=Math.round(Number(document.getElementById("51").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
-document.getElementById("132").value=Math.round(Number(document.getElementById("52").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
-document.getElementById("133").value=Math.round(Number(document.getElementById("53").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
-document.getElementById("134").value=Math.round(Number(document.getElementById("54").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
-document.getElementById("135").value=Math.round(Number(document.getElementById("55").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
-document.getElementById("136").value=Math.round(Number(document.getElementById("56").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
-document.getElementById("137").value=Math.round(Number(document.getElementById("57").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
-document.getElementById("138").value=Math.round(Number(document.getElementById("58").value)*percentage*cloudutd)*Number(document.getElementById("130").checked);
 
-document.getElementById("141").value=Math.round(Number(document.getElementById("21").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("142").value=Math.round(Number(document.getElementById("22").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("143").value=Math.round(Number(document.getElementById("23").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("144").value=Math.round(Number(document.getElementById("24").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("145").value=Math.round(Number(document.getElementById("25").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("146").value=Math.round(Number(document.getElementById("26").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("147").value=Math.round(Number(document.getElementById("27").value)*percentage*sb)*Number(document.getElementById("140").checked);
-document.getElementById("148").value=Math.round(Number(document.getElementById("28").value)*percentage*sb)*Number(document.getElementById("140").checked);
+srbl=(data[5][0]*Number(document.getElementById("261").value)/100);
+srbm=(data[5][1]*Number(document.getElementById("361").value)/100);
+srbs=(data[5][2]*Number(document.getElementById("461").value)/100);
+srbmeraki=srbl*meraki*Number(document.getElementById("761").checked);
+srbviptela=srbm*viptela*Number(document.getElementById("861").checked);
+srbcisco=srbl*cisco*Number(document.getElementById("961").checked);
+srbhcs=(srbl*250*hcs+srbm*49*hcs+srbs*9*hcs)*Number(document.getElementById("1061").checked);
+srbipt=(srbl*250*ipt+srbm*49*ipt+srbs*9*ipt)*Number(document.getElementById("1161").checked);
+srbumbrella=(srbl*250*umbrellamedium+srbm*49*umbrellamedium+srbs*umbrellasmall)*Number(document.getElementById("1261").checked);
+srbcloudutd=((srbl+srbm)*cloudutd).toFixed(0)*Number(document.getElementById("1361").checked);
+srbsb=srbl*sb*Number(document.getElementById("1461").checked);
+srbtotal=srbmeraki+srbviptela+srbcisco+srbhcs+srbipt+srbumbrella+srbcloudutd+srbsb;
+document.getElementById("76").value=(srbmeraki/1000000).toFixed(2);
+document.getElementById("86").value=(srbviptela/1000000).toFixed(2);
+document.getElementById("96").value=(srbcisco/1000000).toFixed(2);
+document.getElementById("106").value=(srbhcs/1000000).toFixed(2);
+document.getElementById("116").value=(srbipt/1000000).toFixed(2);
+document.getElementById("126").value=(srbumbrella/1000000).toFixed(2);
+document.getElementById("136").value=(srbcloudutd/1000000).toFixed(2);
+document.getElementById("146").value=(srbsb/1000000).toFixed(2);
+document.getElementById("156").value=(srbtotal/1000000).toFixed(2);
 
-document.getElementById("151").value=((Number(document.getElementById("71").value)+Number(document.getElementById("81").value)+Number(document.getElementById("91").value)+Number(document.getElementById("101").value)+Number(document.getElementById("111").value)+Number(document.getElementById("121").value)+Number(document.getElementById("131").value)+Number(document.getElementById("141").value))/1000000).toFixed(2);
-document.getElementById("152").value=((Number(document.getElementById("72").value)+Number(document.getElementById("82").value)+Number(document.getElementById("92").value)+Number(document.getElementById("102").value)+Number(document.getElementById("112").value)+Number(document.getElementById("122").value)+Number(document.getElementById("132").value)+Number(document.getElementById("142").value))/1000000).toFixed(2);
-document.getElementById("153").value=((Number(document.getElementById("73").value)+Number(document.getElementById("83").value)+Number(document.getElementById("93").value)+Number(document.getElementById("103").value)+Number(document.getElementById("113").value)+Number(document.getElementById("123").value)+Number(document.getElementById("133").value)+Number(document.getElementById("143").value))/1000000).toFixed(2);
-document.getElementById("154").value=((Number(document.getElementById("74").value)+Number(document.getElementById("84").value)+Number(document.getElementById("94").value)+Number(document.getElementById("104").value)+Number(document.getElementById("114").value)+Number(document.getElementById("124").value)+Number(document.getElementById("134").value)+Number(document.getElementById("144").value))/1000000).toFixed(2);
-document.getElementById("155").value=((Number(document.getElementById("75").value)+Number(document.getElementById("85").value)+Number(document.getElementById("95").value)+Number(document.getElementById("105").value)+Number(document.getElementById("115").value)+Number(document.getElementById("125").value)+Number(document.getElementById("135").value)+Number(document.getElementById("145").value))/1000000).toFixed(2);
-document.getElementById("156").value=((Number(document.getElementById("76").value)+Number(document.getElementById("86").value)+Number(document.getElementById("96").value)+Number(document.getElementById("106").value)+Number(document.getElementById("116").value)+Number(document.getElementById("126").value)+Number(document.getElementById("136").value)+Number(document.getElementById("146").value))/1000000).toFixed(2);
-document.getElementById("157").value=((Number(document.getElementById("77").value)+Number(document.getElementById("87").value)+Number(document.getElementById("97").value)+Number(document.getElementById("107").value)+Number(document.getElementById("117").value)+Number(document.getElementById("127").value)+Number(document.getElementById("137").value)+Number(document.getElementById("147").value))/1000000).toFixed(2);
-document.getElementById("158").value=((Number(document.getElementById("78").value)+Number(document.getElementById("88").value)+Number(document.getElementById("98").value)+Number(document.getElementById("108").value)+Number(document.getElementById("118").value)+Number(document.getElementById("128").value)+Number(document.getElementById("138").value)+Number(document.getElementById("148").value))/1000000).toFixed(2);
 
-document.getElementById("161").value=((Number(document.getElementById("151").value)+Number(document.getElementById("152").value)+Number(document.getElementById("153").value)+Number(document.getElementById("154").value)+Number(document.getElementById("155").value)+Number(document.getElementById("156").value)+Number(document.getElementById("157").value)+Number(document.getElementById("158").value))/1).toFixed(2);
+
+bihl=(data[6][0]*Number(document.getElementById("271").value)/100);
+bihm=(data[6][1]*Number(document.getElementById("371").value)/100);
+bihs=(data[6][2]*Number(document.getElementById("471").value)/100);
+bihmeraki=bihl*meraki*Number(document.getElementById("771").checked);
+bihviptela=bihm*viptela*Number(document.getElementById("871").checked);
+bihcisco=bihl*cisco*Number(document.getElementById("971").checked);
+bihhcs=(bihl*250*hcs+bihm*49*hcs+bihs*9*hcs)*Number(document.getElementById("1071").checked);
+bihipt=(bihl*250*ipt+bihm*49*ipt+bihs*9*ipt)*Number(document.getElementById("1171").checked);
+bihumbrella=(bihl*250*umbrellamedium+bihm*49*umbrellamedium+bihs*umbrellasmall)*Number(document.getElementById("1271").checked);
+bihcloudutd=((bihl+bihm)*cloudutd)*Number(document.getElementById("1371").checked);
+bihsb=bihl*sb*Number(document.getElementById("1471").checked);
+bihtotal=bihmeraki+bihviptela+bihcisco+bihhcs+bihipt+bihumbrella+bihcloudutd+bihsb;
+document.getElementById("77").value=(bihmeraki/1000000).toFixed(2);
+document.getElementById("87").value=(bihviptela/1000000).toFixed(2);
+document.getElementById("97").value=(bihcisco/1000000).toFixed(2);
+document.getElementById("107").value=(bihhcs/1000000).toFixed(2);
+document.getElementById("117").value=(bihipt/1000000).toFixed(2);
+document.getElementById("127").value=(bihumbrella/1000000).toFixed(2);
+document.getElementById("137").value=(bihcloudutd/1000000).toFixed(2);
+document.getElementById("147").value=(bihsb/1000000).toFixed(2);
+document.getElementById("157").value=(bihtotal/1000000).toFixed(2);
+
+hunl=(data[7][0]*Number(document.getElementById("281").value)/100);
+hunm=(data[7][1]*Number(document.getElementById("381").value)/100);
+huns=(data[7][2]*Number(document.getElementById("481").value)/100);
+hunmeraki=hunl*meraki*Number(document.getElementById("781").checked);
+hunviptela=hunm*viptela*Number(document.getElementById("881").checked);
+huncisco=hunl*cisco*Number(document.getElementById("981").checked);
+hunhcs=(hunl*250*hcs+hunm*49*hcs+huns*9*hcs)*Number(document.getElementById("1081").checked);
+hunipt=(hunl*250*ipt+hunm*49*ipt+huns*9*ipt)*Number(document.getElementById("1181").checked);
+hunumbrella=(hunl*250*umbrellamedium+hunm*49*umbrellamedium+huns*umbrellasmall).toFixed(0)*Number(document.getElementById("1281").checked);
+huncloudutd=((hunl+hunm)*cloudutd)*Number(document.getElementById("1381").checked);
+hunsb=hunl*sb*Number(document.getElementById("1481").checked);
+huntotal=hunmeraki+hunviptela+huncisco+hunhcs+hunipt+hunumbrella+huncloudutd+hunsb;
+document.getElementById("78").value=(hunmeraki/1000000).toFixed(2);
+document.getElementById("88").value=(hunviptela/1000000).toFixed(2);
+document.getElementById("98").value=(huncisco/1000000).toFixed(2);
+document.getElementById("108").value=(hunhcs/1000000).toFixed(2);
+document.getElementById("118").value=(hunipt/1000000).toFixed(2);
+document.getElementById("128").value=(hunumbrella/1000000).toFixed(2);
+document.getElementById("138").value=(huncloudutd/1000000).toFixed(2);
+document.getElementById("148").value=(hunsb/1000000).toFixed(2);
+document.getElementById("158").value=(huntotal/1000000).toFixed(2);
+
+total=huntotal+bihtotal+srbtotal+bultotal+poltotal+czetotal+svktotal;
+document.getElementById("161").value=(total/1000000).toFixed(2);
+
+
+document.getElementById("11").value=((data[0][3])/1000000).toFixed(2);
+document.getElementById("12").value=((data[1][3])/1000000).toFixed(2);
+document.getElementById("13").value=((data[2][3])/1000000).toFixed(2);
+document.getElementById("14").value=((data[3][3])/1000000).toFixed(2);
+document.getElementById("15").value=((data[4][3])/1000000).toFixed(2);
+document.getElementById("16").value=((data[5][3])/1000000).toFixed(2);
+document.getElementById("17").value=((data[6][3])/1000000).toFixed(2);
+document.getElementById("18").value=((data[7][3])/1000000).toFixed(2);
+
+document.getElementById("21").value=data[0][0] + "/" + svkl.toFixed(0);
+document.getElementById("22").value=data[1][0]+ "/" + czel.toFixed(0);;
+document.getElementById("23").value=data[2][0]+ "/" + slol.toFixed(0);;
+document.getElementById("24").value=data[3][0]+ "/" + poll.toFixed(0);;
+document.getElementById("25").value=data[4][0]+ "/" + bull.toFixed(0);;
+document.getElementById("26").value=data[5][0]+ "/" + srbl.toFixed(0);;
+document.getElementById("27").value=data[6][0]+ "/" + bihl.toFixed(0);;
+document.getElementById("28").value=data[7][0]+ "/" + hunl.toFixed(0);;
+document.getElementById("31").value=data[0][1]+ "/" + svkm.toFixed(0);;
+document.getElementById("32").value=data[1][1]+ "/" + czem.toFixed(0);;
+document.getElementById("33").value=data[2][1]+ "/" + slom.toFixed(0);;
+document.getElementById("34").value=data[3][1]+ "/" + polm.toFixed(0);;
+document.getElementById("35").value=data[4][1]+ "/" + bulm.toFixed(0);;
+document.getElementById("36").value=data[5][1]+ "/" + srbm.toFixed(0);;
+document.getElementById("37").value=data[6][1]+ "/" + bihm.toFixed(0);;
+document.getElementById("38").value=data[7][1]+ "/" + hunm.toFixed(0);;
+document.getElementById("41").value=data[0][2]+ "/" + svks.toFixed(0);;
+document.getElementById("42").value=data[1][2]+ "/" + czes.toFixed(0);;
+document.getElementById("43").value=data[2][2]+ "/" + slos.toFixed(0);;
+document.getElementById("44").value=data[3][2]+ "/" + pols.toFixed(0);;
+document.getElementById("45").value=data[4][2]+ "/" + buls.toFixed(0);;
+document.getElementById("46").value=data[5][2]+ "/" + srbs.toFixed(0);;
+document.getElementById("47").value=data[6][2]+ "/" + bihs.toFixed(0);;
+document.getElementById("48").value=data[7][2]+ "/" + huns.toFixed(0);;
+
+document.getElementById("51").value=(data[0][0]+data[0][1]+data[0][2]) + "/" + (svks+svkm+svkl).toFixed(0);
+document.getElementById("52").value=(data[1][0]+data[1][1]+data[1][2]) + "/" + (czes+czem+czel).toFixed(0);
+document.getElementById("53").value=(data[2][0]+data[2][1]+data[2][2]) + "/" + (slos+slom+slol).toFixed(0);
+document.getElementById("54").value=(data[3][0]+data[3][1]+data[3][2]) + "/" + (pols+polm+poll).toFixed(0);
+document.getElementById("55").value=(data[4][0]+data[4][1]+data[4][2]) + "/" + (buls+bulm+bull).toFixed(0);
+document.getElementById("56").value=(data[5][0]+data[5][1]+data[5][2]) + "/" + (srbs+srbm+srbl).toFixed(0);
+document.getElementById("57").value=(data[6][0]+data[6][1]+data[6][2]) + "/" + (bihs+bihm+bihl).toFixed(0);
+document.getElementById("58").value=(data[7][0]+data[7][1]+data[7][2]) + "/" + (huns+hunm+hunl).toFixed(0);
+
 }
 calculate();
 
