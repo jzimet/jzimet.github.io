@@ -6,10 +6,22 @@
 input[type="number"] {
    width:80px;
    text-align: center;
+   font-size:8pt;
 }
 input[type="text"] {
    width:80px;
    text-align: center;
+   font-size:8pt;
+}
+input[type="label"] {
+   text-align: center;
+   font-size:5pt;
+}
+input[readonly]
+{
+    border: none;
+    background: none;
+    font-size:8pt;
 }
 input[type=range] {
   -webkit-appearance: none;
@@ -69,91 +81,91 @@ table td {
 </tr>
 <tr>
 <td align="right">Population (Mil)</td>
-<td><input type ="text" step="any" id ="11" readonly></td>
-<td><input type ="text" step="any" id ="12" readonly></td>
-<td><input type ="text" step="any" id ="13" readonly></td>
-<td><input type ="text" step="any" id ="14" readonly></td>
-<td><input type ="text" step="any" id ="15" readonly></td>
-<td><input type ="text" step="any" id ="16" readonly></td>
-<td><input type ="text" step="any" id ="17" readonly></td>
-<td><input type ="text" step="any" id ="18" readonly></td>
+<td align="center"><input type ="text" step="any" id ="11" readonly></td>
+<td align="center"><input type ="text" step="any" id ="12" readonly></td>
+<td align="center"><input type ="text" step="any" id ="13" readonly></td>
+<td align="center"><input type ="text" step="any" id ="14" readonly></td>
+<td align="center"><input type ="text" step="any" id ="15" readonly></td>
+<td align="center"><input type ="text" step="any" id ="16" readonly></td>
+<td align="center"><input type ="text" step="any" id ="17" readonly></td>
+<td align="center"><input type ="text" step="any" id ="18" readonly></td>
 </tr>
 <tr>
 <td align="right">Large SMB (50-250)</td>
-<td><input type ="text" id ="21" readonly></td>
-<td><input type ="text" id ="22" readonly></td>
-<td><input type ="text" id ="23" readonly></td>
-<td><input type ="text" id ="24" readonly></td>
-<td><input type ="text" id ="25" readonly></td>
-<td><input type ="text" id ="26" readonly></td>
-<td><input type ="text" id ="27" readonly></td>
-<td><input type ="text" id ="28" readonly></td>
+<td align="center"><input type ="text" id ="21" readonly></td>
+<td align="center"><input type ="text" id ="22" readonly></td>
+<td align="center"><input type ="text" id ="23" readonly></td>
+<td align="center"><input type ="text" id ="24" readonly></td>
+<td align="center"><input type ="text" id ="25" readonly></td>
+<td align="center"><input type ="text" id ="26" readonly></td>
+<td align="center"><input type ="text" id ="27" readonly></td>
+<td align="center"><input type ="text" id ="28" readonly></td>
 </tr>
 <tr>
 <td></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="211" oninput="sliderfor211(value)"><output for="211" id="volumefor211">2</output><label for="211">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="221" oninput="sliderfor221(value)"><output for="221" id="volumefor221">2</output><label for="221">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="231" oninput="sliderfor231(value)"><output for="231" id="volumefor231">2</output><label for="231">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="241" oninput="sliderfor241(value)"><output for="241" id="volumefor241">2</output><label for="241">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="251" oninput="sliderfor251(value)"><output for="251" id="volumefor251">2</output><label for="251">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="261" oninput="sliderfor261(value)"><output for="261" id="volumefor261">2</output><label for="261">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="271" oninput="sliderfor271(value)"><output for="271" id="volumefor271">2</output><label for="271">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="281" oninput="sliderfor281(value)"><output for="281" id="volumefor281">2</output><label for="281">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="211" oninput="sliderfor211(value)"><output for="211" id="volumefor211">2</output><label for="211" readonly>%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="221" oninput="sliderfor221(value)"><output for="221" id="volumefor221">2</output><label for="221" readonly>%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="231" oninput="sliderfor231(value)"><output for="231" id="volumefor231">2</output><label for="231">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="241" oninput="sliderfor241(value)"><output for="241" id="volumefor241">2</output><label for="241">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="251" oninput="sliderfor251(value)"><output for="251" id="volumefor251">2</output><label for="251">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="261" oninput="sliderfor261(value)"><output for="261" id="volumefor261">2</output><label for="261">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="271" oninput="sliderfor271(value)"><output for="271" id="volumefor271">2</output><label for="271">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="281" oninput="sliderfor281(value)"><output for="281" id="volumefor281">2</output><label for="281">%</label></td>
 </tr>
 <tr>
 <td align="right">Medium SMB (10-49)</td>
-<td><input type ="text" id ="31" readonly></td>
-<td><input type ="text" id ="32" readonly></td>
-<td><input type ="text" id ="33" readonly></td>
-<td><input type ="text" id ="34" readonly></td>
-<td><input type ="text" id ="35" readonly></td>
-<td><input type ="text" id ="36" readonly></td>
-<td><input type ="text" id ="37" readonly></td>
-<td><input type ="text" id ="38" readonly></td>
+<td align="center"><input type ="text" id ="31" readonly></td>
+<td align="center"><input type ="text" id ="32" readonly></td>
+<td align="center"><input type ="text" id ="33" readonly></td>
+<td align="center"><input type ="text" id ="34" readonly></td>
+<td align="center"><input type ="text" id ="35" readonly></td>
+<td align="center"><input type ="text" id ="36" readonly></td>
+<td align="center"><input type ="text" id ="37" readonly></td>
+<td align="center"><input type ="text" id ="38" readonly></td>
 </tr>
 <tr>
 <td></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="311" oninput="sliderfor311(value)"><output for="311" id="volumefor311">2</output><label for="311">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="321" oninput="sliderfor321(value)"><output for="321" id="volumefor321">2</output><label for="321">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="331" oninput="sliderfor331(value)"><output for="331" id="volumefor331">2</output><label for="331">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="341" oninput="sliderfor341(value)"><output for="341" id="volumefor341">2</output><label for="341">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="351" oninput="sliderfor351(value)"><output for="351" id="volumefor351">2</output><label for="351">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="361" oninput="sliderfor361(value)"><output for="361" id="volumefor361">2</output><label for="361">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="371" oninput="sliderfor371(value)"><output for="371" id="volumefor371">2</output><label for="371">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="381" oninput="sliderfor381(value)"><output for="381" id="volumefor381">2</output><label for="381">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="311" oninput="sliderfor311(value)"><output for="311" id="volumefor311">2</output><label for="311">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="321" oninput="sliderfor321(value)"><output for="321" id="volumefor321">2</output><label for="321">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="331" oninput="sliderfor331(value)"><output for="331" id="volumefor331">2</output><label for="331">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="341" oninput="sliderfor341(value)"><output for="341" id="volumefor341">2</output><label for="341">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="351" oninput="sliderfor351(value)"><output for="351" id="volumefor351">2</output><label for="351">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="361" oninput="sliderfor361(value)"><output for="361" id="volumefor361">2</output><label for="361">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="371" oninput="sliderfor371(value)"><output for="371" id="volumefor371">2</output><label for="371">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="381" oninput="sliderfor381(value)"><output for="381" id="volumefor381">2</output><label for="381">%</label></td>
 </tr>
 <tr>
 <td align="right">SOHO/Small SMB (0-9)</td>
-<td><input type ="text" id ="41" readonly></td>
-<td><input type ="text" id ="42" readonly></td>
-<td><input type ="text" id ="43" readonly></td>
-<td><input type ="text" id ="44" readonly></td>
-<td><input type ="text" id ="45" readonly></td>
-<td><input type ="text" id ="46" readonly></td>
-<td><input type ="text" id ="47" readonly></td>
-<td><input type ="text" id ="48" readonly></td>
+<td align="center"><input type ="text" id ="41" readonly></td>
+<td align="center"><input type ="text" id ="42" readonly></td>
+<td align="center"><input type ="text" id ="43" readonly></td>
+<td align="center"><input type ="text" id ="44" readonly></td>
+<td align="center"><input type ="text" id ="45" readonly></td>
+<td align="center"><input type ="text" id ="46" readonly></td>
+<td align="center"><input type ="text" id ="47" readonly></td>
+<td align="center"><input type ="text" id ="48" readonly></td>
 </tr>
 <tr>
 <td></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="411" oninput="sliderfor411(value)"><output for="411" id="volumefor411">2</output><label for="411">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="421" oninput="sliderfor421(value)"><output for="421" id="volumefor421">2</output><label for="421">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="431" oninput="sliderfor431(value)"><output for="431" id="volumefor431">2</output><label for="431">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="441" oninput="sliderfor441(value)"><output for="441" id="volumefor441">2</output><label for="441">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="451" oninput="sliderfor451(value)"><output for="451" id="volumefor451">2</output><label for="451">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="461" oninput="sliderfor461(value)"><output for="461" id="volumefor461">2</output><label for="461">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="471" oninput="sliderfor471(value)"><output for="471" id="volumefor471">2</output><label for="471">%</label></td>
-<td><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="481" oninput="sliderfor481(value)"><output for="481" id="volumefor481">2</output><label for="481">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="411" oninput="sliderfor411(value)"><output for="411" id="volumefor411">2</output><label for="411">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="421" oninput="sliderfor421(value)"><output for="421" id="volumefor421">2</output><label for="421">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="431" oninput="sliderfor431(value)"><output for="431" id="volumefor431">2</output><label for="431">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="441" oninput="sliderfor441(value)"><output for="441" id="volumefor441">2</output><label for="441">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="451" oninput="sliderfor451(value)"><output for="451" id="volumefor451">2</output><label for="451">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="461" oninput="sliderfor461(value)"><output for="461" id="volumefor461">2</output><label for="461">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="471" oninput="sliderfor471(value)"><output for="471" id="volumefor471">2</output><label for="471">%</label></td>
+<td align="center"><input type="range" min="1" max="100" value="2" step = "1"  style="width : 4em" id="481" oninput="sliderfor481(value)"><output for="481" id="volumefor481">2</output><label for="481">%</label></td>
 </tr>
 <tr>
 <td align="right">Total SMB</td>
-<td><input type ="text" id ="51" readonly></td>
-<td><input type ="text" id ="52" readonly></td>
-<td><input type ="text" id ="53" readonly></td>
-<td><input type ="text" id ="54" readonly></td>
-<td><input type ="text" id ="55" readonly></td>
-<td><input type ="text" id ="56" readonly></td>
-<td><input type ="text" id ="57" readonly></td>
-<td><input type ="text" id ="58" readonly></td>
+<td align="center"><input type ="text" id ="51" readonly></td>
+<td align="center"><input type ="text" id ="52" readonly></td>
+<td align="center"><input type ="text" id ="53" readonly></td>
+<td align="center"><input type ="text" id ="54" readonly></td>
+<td align="center"><input type ="text" id ="55" readonly></td>
+<td align="center"><input type ="text" id ="56" readonly></td>
+<td align="center"><input type ="text" id ="57" readonly></td>
+<td align="center"><input type ="text" id ="58" readonly></td>
 </tr>
 <!--
 <tr>
@@ -169,14 +181,14 @@ table td {
 <!--
 <tr>
 <td align="right" style="color: #3CBC8D"></td>
-<td><input type ="number" id ="61" readonly></td>
-<td><input type ="number" id ="62" readonly></td>
-<td><input type ="number" id ="63" readonly></td>
-<td><input type ="number" id ="64" readonly></td>
-<td><input type ="number" id ="65" readonly></td>
-<td><input type ="number" id ="66" readonly></td>
-<td><input type ="number" id ="67" readonly></td>
-<td><input type ="number" id ="68" readonly></td>
+<td align="center"><input type ="number" id ="61" readonly></td>
+<td align="center"><input type ="number" id ="62" readonly></td>
+<td align="center"><input type ="number" id ="63" readonly></td>
+<td align="center"><input type ="number" id ="64" readonly></td>
+<td align="center"><input type ="number" id ="65" readonly></td>
+<td align="center"><input type ="number" id ="66" readonly></td>
+<td align="center"><input type ="number" id ="67" readonly></td>
+<td align="center"><input type ="number" id ="68" readonly></td>
 </tr>
 -->
 <tr>
@@ -184,15 +196,16 @@ table td {
 </tr>
 <tr>
 <td align="right"><img src="meraki.png" align="center" width="40" height="15"><select><option>Meraki CPE</option><option>Z1,$200</option><option>MX, $300</option></select><input id ="70" type="checkbox" checked onchange="setmeraki()"></td>
-<td><input type ="number" id ="71" readonly></td>
-<td><input type ="number" id ="72" readonly></td>
-<td><input type ="number" id ="73" readonly></td>
-<td><input type ="number" id ="74" readonly></td>
-<td><input type ="number" id ="75" readonly></td>
-<td><input type ="number" id ="76" readonly></td>
-<td><input type ="number" id ="77" readonly></td>
-<td><input type ="number" id ="78" readonly></td>
+<td align="center"><input type ="number" id ="71" readonly><input id ="711" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="72" readonly><input id ="721" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="73" readonly><input id ="731" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="74" readonly><input id ="741" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="75" readonly><input id ="751" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="76" readonly><input id ="761" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="77" readonly><input id ="771" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="78" readonly><input id ="781" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+<!--
 <tr>
 <td></td>
 <td align="center"><input id ="711" type="checkbox" checked onchange="calculate()"></td>
@@ -204,17 +217,19 @@ table td {
 <td align="center"><input id ="771" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input id ="781" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+-->
 <tr>
 <td align="right"><img src="viptela.png" align="center" width="40" height="15"><select><option>Viptela CPE</option><option>vedge100, $300</option><option>vedge1000, $400</option><option>vedge2000, $500</option></select><input id ="80" type="checkbox" checked onchange="setviptela()"></td>
-<td align="center"><input type ="number" id ="81" readonly></td>
-<td align="center"><input type ="number" id ="82" readonly></td>
-<td align="center"><input type ="number" id ="83" readonly></td>
-<td align="center"><input type ="number" id ="84" readonly></td>
-<td align="center"><input type ="number" id ="85" readonly></td>
-<td align="center"><input type ="number" id ="86" readonly></td>
-<td align="center"><input type ="number" id ="87" readonly></td>
-<td align="center"><input type ="number" id ="88" readonly></td>
+<td align="center"><input type ="number" id ="81" readonly><input id ="811" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="82" readonly><input id ="821" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="83" readonly><input id ="831" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="84" readonly><input id ="841" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="85" readonly><input id ="851" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="86" readonly><input id ="861" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="87" readonly><input id ="871" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="88" readonly><input id ="881" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+<!--
 <tr>
 <td></td>
 <td align="center"><input id ="811" type="checkbox" checked onchange="calculate()"></td>
@@ -226,17 +241,19 @@ table td {
 <td align="center"><input id ="871" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input id ="881" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+-->
 <tr>
 <td align="right"><img src="cisco.png" align="center" width="30" height="15"><select><option>Cisco CPE</option><option>cisco800, $400</option><option>ASR1100, $500</option></select><input id ="90" type="checkbox" checked onchange="setcisco()"></td>
-<td align="center"><input type ="number" id ="91" readonly></td>
-<td align="center"><input type ="number" id ="92" readonly></td>
-<td align="center"><input type ="number" id ="93" readonly></td>
-<td align="center"><input type ="number" id ="94" readonly></td>
-<td align="center"><input type ="number" id ="95" readonly></td>
-<td align="center"><input type ="number" id ="96" readonly></td>
-<td align="center"><input type ="number" id ="97" readonly></td>
-<td align="center"><input type ="number" id ="98" readonly></td>
+<td align="center"><input type ="number" id ="91" readonly><input id ="911" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="92" readonly><input id ="921" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="93" readonly><input id ="931" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="94" readonly><input id ="941" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="95" readonly><input id ="951" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="96" readonly><input id ="961" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="97" readonly><input id ="971" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="98" readonly><input id ="981" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+<!--
 <tr>
 <td></td>
 <td align="center"><input id ="911" type="checkbox" checked onchange="calculate()"></td>
@@ -248,17 +265,19 @@ table td {
 <td align="center"><input id ="971" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input id ="981" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+-->
 <tr>
 <td align="right"><img src="ciscospark.png" align="center" width="40" height="15"><select><option>Cisco Spark for SP</option><option>call, $3 pupm</option><option>call+message, $5 pupm</option><option>call+message+meet, $7 pupm</option></select><input id ="100" type="checkbox" checked onchange="setciscospark()"></td>
-<td align="center"><input type ="number" id ="101" readonly></td>
-<td align="center"><input type ="number" id ="102" readonly></td>
-<td align="center"><input type ="number" id ="103" readonly></td>
-<td align="center"><input type ="number" id ="104" readonly></td>
-<td align="center"><input type ="number" id ="105" readonly></td>
-<td align="center"><input type ="number" id ="106" readonly></td>
-<td align="center"><input type ="number" id ="107" readonly></td>
-<td align="center"><input type ="number" id ="108" readonly></td>
+<td align="center"><input type ="number" id ="101" readonly><input id ="1011" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="102" readonly><input id ="1021" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="103" readonly><input id ="1031" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="104" readonly><input id ="1041" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="105" readonly><input id ="1051" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="106" readonly><input id ="1061" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="107" readonly><input id ="1071" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="108" readonly><input id ="1081" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+<!--
 <tr>
 <td></td>
 <td align="center"><input id ="1011" type="checkbox" checked onchange="calculate()"></td>
@@ -270,17 +289,19 @@ table td {
 <td align="center"><input id ="1071" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input id ="1081" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+-->
 <tr>
 <td align="right"><img src="3pcc.png" align="center" width="60" height="20"><select><option>3rd party call control</option><option>broadsoft</option><option>asteriks</option><option>metaswitch</option><option>centille</option><option>7811, $41</option><option>7821, $54</option><option>7841, $77</option><option>7861, $83</option><option>8811, $104</option><option>8841, $108</option><option>8845, $129</option><option>8851, $150</option><option>8861, $160</option><option>8865, $170</option><option>cloud provisioning</option></select><input id ="110" type="checkbox" checked onchange="set3pcc()"></td>
-<td align="center"><input type ="number" id ="111" readonly></td>
-<td align="center"><input type ="number" id ="112" readonly></td>
-<td align="center"><input type ="number" id ="113" readonly></td>
-<td align="center"><input type ="number" id ="114" readonly></td>
-<td align="center"><input type ="number" id ="115" readonly></td>
-<td align="center"><input type ="number" id ="116" readonly></td>
-<td align="center"><input type ="number" id ="117" readonly></td>
-<td align="center"><input type ="number" id ="118" readonly></td>
+<td align="center"><input type ="number" id ="111" readonly><input id ="1111" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="112" readonly><input id ="1121" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="113" readonly><input id ="1131" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="114" readonly><input id ="1141" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="115" readonly><input id ="1151" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="116" readonly><input id ="1161" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="117" readonly><input id ="1171" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="118" readonly><input id ="1181" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+<!--
 <tr>
 <td></td>
 <td align="center"><input id ="1111" type="checkbox" checked onchange="calculate()"></td>
@@ -292,17 +313,19 @@ table td {
 <td align="center"><input id ="1171" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input id ="1181" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+-->
 <tr>
 <td align="right"><img src="ciscoumbrella.png" align="center" width="40" height="10"><select><option>Cisco Umbrella for SP</option><option>circuit attach, $.6</option><option>mobile</option><option>mssp, $1.8</option><option>roaming, $1.86</option><option>proffesional, $3.26</option><option>insight, $4.88</option><option>Platform, $5.34</option><option>4221, $16</option><option>4321, $28.26</option><option>4331, $36.66</option><option>4351, $73.5</option><option>4431, $100</option><option>4451, $160</option><option>wlan, $20.8</option></select><input id ="120" type="checkbox" checked onchange="setciscoumbrella()"></td>
-<td align="center"><input type ="number" id ="121" readonly></td>
-<td align="center"><input type ="number" id ="122" readonly></td>
-<td align="center"><input type ="number" id ="123" readonly></td>
-<td align="center"><input type ="number" id ="124" readonly></td>
-<td align="center"><input type ="number" id ="125" readonly></td>
-<td align="center"><input type ="number" id ="126" readonly></td>
-<td align="center"><input type ="number" id ="127" readonly></td>
-<td align="center"><input type ="number" id ="128" readonly></td>
+<td align="center"><input type ="number" id ="121" readonly><input id ="1211" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="122" readonly><input id ="1221" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="123" readonly><input id ="1231" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="124" readonly><input id ="1241" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="125" readonly><input id ="1251" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="126" readonly><input id ="1261" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="127" readonly><input id ="1271" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="128" readonly><input id ="1281" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+<!--
 <tr>
 <td></td>
 <td align="center"><input id ="1211" type="checkbox" checked onchange="calculate()"></td>
@@ -314,17 +337,19 @@ table td {
 <td align="center"><input id ="1271" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input id ="1281" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+-->
 <tr>
 <td align="right"><img src="ciscosnort.png" align="center" width="25" height="15"><select><option>Cloud UTD</option><option>vpn, $2 ptpm</option><option>firewall, $2 ptpm</option><option>ips snort, $2 ptpm</option><option>url filtering, $2 ptpm</option></select><input id ="130" type="checkbox" checked onchange="setcloudutd()"></td>
-<td align="center"><input type ="number" id ="131" readonly></td>
-<td align="center"><input type ="number" id ="132" readonly></td>
-<td align="center"><input type ="number" id ="133" readonly></td>
-<td align="center"><input type ="number" id ="134" readonly></td>
-<td align="center"><input type ="number" id ="135" readonly></td>
-<td align="center"><input type ="number" id ="136" readonly></td>
-<td align="center"><input type ="number" id ="137" readonly></td>
-<td align="center"><input type ="number" id ="138" readonly></td>
+<td align="center"><input type ="number" id ="131" readonly><input id ="1311" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="132" readonly><input id ="1321" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="133" readonly><input id ="1331" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="134" readonly><input id ="1341" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="135" readonly><input id ="1351" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="136" readonly><input id ="1361" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="137" readonly><input id ="1371" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="138" readonly><input id ="1381" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+<!--
 <tr>
 <td align="center"></td>
 <td align="center"><input id ="1311" type="checkbox" checked onchange="calculate()"></td>
@@ -336,17 +361,19 @@ table td {
 <td align="center"><input id ="1371" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input id ="1381" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+-->
 <tr>
 <td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>Spark Board for CEO office</option><option>spark board 55, $4k</option><option>sparkboard 70, $7.5k</option></select><input id ="140" type="checkbox" checked onchange="setsb()"></td>
-<td align="center"><input type ="number" id ="141" readonly></td>
-<td align="center"><input type ="number" id ="142" readonly></td>
-<td align="center"><input type ="number" id ="143" readonly></td>
-<td align="center"><input type ="number" id ="144" readonly></td>
-<td align="center"><input type ="number" id ="145" readonly></td>
-<td align="center"><input type ="number" id ="146" readonly></td>
-<td align="center"><input type ="number" id ="147" readonly></td>
-<td align="center"><input type ="number" id ="148" readonly></td>
+<td align="center"><input type ="number" id ="141" readonly><input id ="1411" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="142" readonly><input id ="1421" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="143" readonly><input id ="1431" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="144" readonly><input id ="1441" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="145" readonly><input id ="1451" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="146" readonly><input id ="1461" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="147" readonly><input id ="1471" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="148" readonly><input id ="1481" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+<!--
 <tr>
 <td></td>
 <td align="center"><input id ="1411" type="checkbox" checked onchange="calculate()"></td>
@@ -358,20 +385,21 @@ table td {
 <td align="center"><input id ="1471" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input id ="1481" type="checkbox" checked onchange="calculate()"></td>
 </tr>
+-->
 <tr>
 <td align="right">Year 1 (Mil)</td>
-<td><input type ="number" step="any" id ="151" readonly></td>
-<td><input type ="number" step="any" id ="152" readonly></td>
-<td><input type ="number" step="any" id ="153" readonly></td>
-<td><input type ="number" step="any" id ="154" readonly></td>
-<td><input type ="number" step="any" id ="155" readonly></td>
-<td><input type ="number" step="any" id ="156" readonly></td>
-<td><input type ="number" step="any" id ="157" readonly></td>
-<td><input type ="number" step="any" id ="158" readonly></td>
+<td align="center"><input type ="number" step="any" id ="151" readonly></td>
+<td align="center"><input type ="number" step="any" id ="152" readonly></td>
+<td align="center"><input type ="number" step="any" id ="153" readonly></td>
+<td align="center"><input type ="number" step="any" id ="154" readonly></td>
+<td align="center"><input type ="number" step="any" id ="155" readonly></td>
+<td align="center"><input type ="number" step="any" id ="156" readonly></td>
+<td align="center"><input type ="number" step="any" id ="157" readonly></td>
+<td align="center"><input type ="number" step="any" id ="158" readonly></td>
 </tr>
 <tr>
 <td align="right">Year 1 (Mil)</td>
-<td colspan="4"><input type ="text" style="font-size: 47pt; width:100%; color: #3CBC8D;text-align:center" id ="161"></td>
+<td colspan="4"><input type ="text" style="font-size: 47pt; width:100%; color: #3CBC8D;text-align:center" id ="161"i readonly></td>
 <td></td>
 <td colspan="2">
 <input type="range" min="1" max="100" value="2" step = "1"  style="width : 10em" id="pen" oninput="sliderforpen(value)"><output for="penslider" id="volumeforpen" style="color: #3CBC8D">2</output><label for="penslider" align="left" style="color: #3CBC8D">%</label>
