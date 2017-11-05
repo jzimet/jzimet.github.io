@@ -14,6 +14,7 @@ input[type="text"] {
    font-size:8pt;
 }
 input[type="label"] {
+   color: #B4886B;
    text-align: center;
    font-size:5pt;
 }
@@ -59,7 +60,7 @@ table td {
 <table>
 <tr>
 <td align="center" rowspan="32"><img src="tom.png" align="center" width="300" height="400"></td>
-<td align="right" rowspan="2"></td>
+<td align="right" rowspan="2"><input id ="simple" type="checkbox" checked onchange="calculate()">Simple View</td>
 <td align="center" style="color: #3CBC8D">SVK</td>
 <td align="center" style="color: #3CBC8D">CZE</td>
 <td align="center" style="color: #3CBC8D">SLO</td>
@@ -167,30 +168,6 @@ table td {
 <td align="center"><input type ="text" id ="57" readonly></td>
 <td align="center"><input type ="text" id ="58" readonly></td>
 </tr>
-<!--
-<tr>
-<td colspan="8">-</td>
-</tr>
-<tr>
-<td align="right" style="color: #3CBC8D">What if in Year 1, we focus on</td>
-<td colspan="8">
-<input type="range" min="0.1" max="100" value="2" step = "0.1"  style="width : 30em" id="yearsslider" oninput="sliderforyears(value)"><output for="yearsslider" id="volumeforyears" style="color: #3CBC8D">2</output><label for="yearsslider" align="left" style="color: #3CBC8D">% of Total SMB, Total SMB becomes :</label>
-</td>
-</tr>
--->
-<!--
-<tr>
-<td align="right" style="color: #3CBC8D"></td>
-<td align="center"><input type ="number" id ="61" readonly></td>
-<td align="center"><input type ="number" id ="62" readonly></td>
-<td align="center"><input type ="number" id ="63" readonly></td>
-<td align="center"><input type ="number" id ="64" readonly></td>
-<td align="center"><input type ="number" id ="65" readonly></td>
-<td align="center"><input type ="number" id ="66" readonly></td>
-<td align="center"><input type ="number" id ="67" readonly></td>
-<td align="center"><input type ="number" id ="68" readonly></td>
-</tr>
--->
 <tr>
 <td colspan="8">-</td>
 </tr>
@@ -205,19 +182,6 @@ table td {
 <td align="center"><input type ="number" id ="77" readonly><input id ="771" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="78" readonly><input id ="781" type="checkbox" checked onchange="calculate()"></td>
 </tr>
-<!--
-<tr>
-<td></td>
-<td align="center"><input id ="711" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="721" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="731" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="741" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="751" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="761" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="771" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="781" type="checkbox" checked onchange="calculate()"></td>
-</tr>
--->
 <tr>
 <td align="right"><img src="viptela.png" align="center" width="40" height="15"><select><option>Viptela CPE</option><option>vedge100, $300</option><option>vedge1000, $400</option><option>vedge2000, $500</option></select><input id ="80" type="checkbox" checked onchange="setviptela()"></td>
 <td align="center"><input type ="number" id ="81" readonly><input id ="811" type="checkbox" checked onchange="calculate()"></td>
@@ -229,19 +193,6 @@ table td {
 <td align="center"><input type ="number" id ="87" readonly><input id ="871" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="88" readonly><input id ="881" type="checkbox" checked onchange="calculate()"></td>
 </tr>
-<!--
-<tr>
-<td></td>
-<td align="center"><input id ="811" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="821" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="831" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="841" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="851" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="861" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="871" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="881" type="checkbox" checked onchange="calculate()"></td>
-</tr>
--->
 <tr>
 <td align="right"><img src="cisco.png" align="center" width="30" height="15"><select><option>Cisco CPE</option><option>cisco800, $400</option><option>ASR1100, $500</option></select><input id ="90" type="checkbox" checked onchange="setcisco()"></td>
 <td align="center"><input type ="number" id ="91" readonly><input id ="911" type="checkbox" checked onchange="calculate()"></td>
@@ -253,19 +204,6 @@ table td {
 <td align="center"><input type ="number" id ="97" readonly><input id ="971" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="98" readonly><input id ="981" type="checkbox" checked onchange="calculate()"></td>
 </tr>
-<!--
-<tr>
-<td></td>
-<td align="center"><input id ="911" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="921" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="931" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="941" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="951" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="961" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="971" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="981" type="checkbox" checked onchange="calculate()"></td>
-</tr>
--->
 <tr>
 <td align="right"><img src="ciscospark.png" align="center" width="40" height="15"><select><option>Cisco Spark for SP</option><option>call, $3 pupm</option><option>call+message, $5 pupm</option><option>call+message+meet, $7 pupm</option></select><input id ="100" type="checkbox" checked onchange="setciscospark()"></td>
 <td align="center"><input type ="number" id ="101" readonly><input id ="1011" type="checkbox" checked onchange="calculate()"></td>
@@ -277,19 +215,6 @@ table td {
 <td align="center"><input type ="number" id ="107" readonly><input id ="1071" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="108" readonly><input id ="1081" type="checkbox" checked onchange="calculate()"></td>
 </tr>
-<!--
-<tr>
-<td></td>
-<td align="center"><input id ="1011" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1021" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1031" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1041" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1051" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1061" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1071" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1081" type="checkbox" checked onchange="calculate()"></td>
-</tr>
--->
 <tr>
 <td align="right"><img src="3pcc.png" align="center" width="60" height="20"><select><option>3rd party call control</option><option>broadsoft</option><option>asteriks</option><option>metaswitch</option><option>centille</option><option>7811, $41</option><option>7821, $54</option><option>7841, $77</option><option>7861, $83</option><option>8811, $104</option><option>8841, $108</option><option>8845, $129</option><option>8851, $150</option><option>8861, $160</option><option>8865, $170</option><option>cloud provisioning</option></select><input id ="110" type="checkbox" checked onchange="set3pcc()"></td>
 <td align="center"><input type ="number" id ="111" readonly><input id ="1111" type="checkbox" checked onchange="calculate()"></td>
@@ -301,19 +226,6 @@ table td {
 <td align="center"><input type ="number" id ="117" readonly><input id ="1171" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="118" readonly><input id ="1181" type="checkbox" checked onchange="calculate()"></td>
 </tr>
-<!--
-<tr>
-<td></td>
-<td align="center"><input id ="1111" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1121" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1131" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1141" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1151" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1161" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1171" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1181" type="checkbox" checked onchange="calculate()"></td>
-</tr>
--->
 <tr>
 <td align="right"><img src="ciscoumbrella.png" align="center" width="40" height="10"><select><option>Cisco Umbrella for SP</option><option>circuit attach, $.6</option><option>mobile</option><option>mssp, $1.8</option><option>roaming, $1.86</option><option>proffesional, $3.26</option><option>insight, $4.88</option><option>Platform, $5.34</option><option>4221, $16</option><option>4321, $28.26</option><option>4331, $36.66</option><option>4351, $73.5</option><option>4431, $100</option><option>4451, $160</option><option>wlan, $20.8</option></select><input id ="120" type="checkbox" checked onchange="setciscoumbrella()"></td>
 <td align="center"><input type ="number" id ="121" readonly><input id ="1211" type="checkbox" checked onchange="calculate()"></td>
@@ -325,19 +237,6 @@ table td {
 <td align="center"><input type ="number" id ="127" readonly><input id ="1271" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="128" readonly><input id ="1281" type="checkbox" checked onchange="calculate()"></td>
 </tr>
-<!--
-<tr>
-<td></td>
-<td align="center"><input id ="1211" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1221" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1231" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1241" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1251" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1261" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1271" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1281" type="checkbox" checked onchange="calculate()"></td>
-</tr>
--->
 <tr>
 <td align="right"><img src="ciscosnort.png" align="center" width="25" height="15"><select><option>Cloud UTD</option><option>vpn, $2 ptpm</option><option>firewall, $2 ptpm</option><option>ips snort, $2 ptpm</option><option>url filtering, $2 ptpm</option></select><input id ="130" type="checkbox" checked onchange="setcloudutd()"></td>
 <td align="center"><input type ="number" id ="131" readonly><input id ="1311" type="checkbox" checked onchange="calculate()"></td>
@@ -349,19 +248,6 @@ table td {
 <td align="center"><input type ="number" id ="137" readonly><input id ="1371" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="138" readonly><input id ="1381" type="checkbox" checked onchange="calculate()"></td>
 </tr>
-<!--
-<tr>
-<td align="center"></td>
-<td align="center"><input id ="1311" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1321" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1331" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1341" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1351" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1361" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1371" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1381" type="checkbox" checked onchange="calculate()"></td>
-</tr>
--->
 <tr>
 <td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>Spark Board for CEO office</option><option>spark board 55, $4k</option><option>sparkboard 70, $7.5k</option></select><input id ="140" type="checkbox" checked onchange="setsb()"></td>
 <td align="center"><input type ="number" id ="141" readonly><input id ="1411" type="checkbox" checked onchange="calculate()"></td>
@@ -373,33 +259,64 @@ table td {
 <td align="center"><input type ="number" id ="147" readonly><input id ="1471" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="148" readonly><input id ="1481" type="checkbox" checked onchange="calculate()"></td>
 </tr>
-<!--
 <tr>
-<td></td>
-<td align="center"><input id ="1411" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1421" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1431" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1441" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1451" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1461" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1471" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input id ="1481" type="checkbox" checked onchange="calculate()"></td>
-</tr>
--->
-<tr>
-<td align="right">Year 1 (Mil)</td>
-<td align="center"><input type ="number" step="any" id ="151" readonly></td>
-<td align="center"><input type ="number" step="any" id ="152" readonly></td>
-<td align="center"><input type ="number" step="any" id ="153" readonly></td>
-<td align="center"><input type ="number" step="any" id ="154" readonly></td>
-<td align="center"><input type ="number" step="any" id ="155" readonly></td>
-<td align="center"><input type ="number" step="any" id ="156" readonly></td>
-<td align="center"><input type ="number" step="any" id ="157" readonly></td>
-<td align="center"><input type ="number" step="any" id ="158" readonly></td>
+<td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>Cisco Storage</option><option>S3260-84TB, $17k ($200/TB)</option><option>HyperFlex Edge-7.2TB, $14k ($2k/TB)</option><option>HyperFlex 3 node-21TB, $61k ($3k/TB)</option></select><input id ="150" type="checkbox" checked onchange="setstorage()"></td>
+<td align="center"><input type ="number" id ="151" readonly><input id ="1511" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="152" readonly><input id ="1521" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="153" readonly><input id ="1531" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="154" readonly><input id ="1541" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="155" readonly><input id ="1551" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="156" readonly><input id ="1561" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="157" readonly><input id ="1571" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="158" readonly><input id ="1581" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
+<td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>Microsoft Azure</option><option> Small 4-node w 256GB RAM, 125k</option><option>medium 8-node w 512GB RAM, 245k</option></select><input id ="160" type="checkbox" checked onchange="setazure()"></td>
+<td align="center"><input type ="number" id ="161" readonly><input id ="1611" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="162" readonly><input id ="1621" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="163" readonly><input id ="1631" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="164" readonly><input id ="1641" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="165" readonly><input id ="1651" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="166" readonly><input id ="1661" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="167" readonly><input id ="1671" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="168" readonly><input id ="1681" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
+<td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>Tetration Analytics</option><option>TA Small (Virtual) 40k</option><option>TA Medium 8 RU 440k</option><option>TA Large 39RU 1Mil</option></select><input id ="170" type="checkbox" checked onchange="settetration()"></td>
+<td align="center"><input type ="number" id ="171" readonly><input id ="1711" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="172" readonly><input id ="1721" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="173" readonly><input id ="1731" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="174" readonly><input id ="1741" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="175" readonly><input id ="1751" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="176" readonly><input id ="1761" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="177" readonly><input id ="1771" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="178" readonly><input id ="1781" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
+<td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>ACI</option><option>Single/Stretched fixed baby spine 75k</option><option>Single/Stretched fixed spine 125k</option><option>MultiPod fixed baby spine 150k</option><option>MultiPod modular spine 254k</option><option>Multi Site</option></select><input id ="180" type="checkbox" checked onchange="setaci()"></td>
+<td align="center"><input type ="number" id ="181" readonly><input id ="1811" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="182" readonly><input id ="1821" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="183" readonly><input id ="1831" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="184" readonly><input id ="1841" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="185" readonly><input id ="1851" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="186" readonly><input id ="1861" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="187" readonly><input id ="1871" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="188" readonly><input id ="1881" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
 <td align="right">Year 1 (Mil)</td>
-<td colspan="4"><input type ="text" style="font-size: 47pt; width:100%; color: #3CBC8D;text-align:center" id ="161"i readonly></td>
+<td align="center"><input type ="number" step="any" id ="001" readonly></td>
+<td align="center"><input type ="number" step="any" id ="002" readonly></td>
+<td align="center"><input type ="number" step="any" id ="003" readonly></td>
+<td align="center"><input type ="number" step="any" id ="004" readonly></td>
+<td align="center"><input type ="number" step="any" id ="005" readonly></td>
+<td align="center"><input type ="number" step="any" id ="006" readonly></td>
+<td align="center"><input type ="number" step="any" id ="007" readonly></td>
+<td align="center"><input type ="number" step="any" id ="008" readonly></td>
+</tr>
+<tr>
+<td align="right">Year 1 (Mil)</td>
+<td colspan="4"><input type ="text" style="font-size: 47pt; width:100%; color: #3CBC8D;text-align:center" id ="000" readonly></td>
 <td></td>
 <td colspan="2">
 <input type="range" min="1" max="100" value="2" step = "1"  style="width : 10em" id="pen" oninput="sliderforpen(value)"><output for="penslider" id="volumeforpen" style="color: #3CBC8D">2</output><label for="penslider" align="left" style="color: #3CBC8D">%</label>
@@ -601,6 +518,104 @@ function setsb(){
         calculate();
 }
 
+function setstorage(){
+        if (document.getElementById("1450").checked) {
+                 document.getElementById("1511").checked=true;
+                 document.getElementById("1521").checked=true;
+                 document.getElementById("1531").checked=true;
+                 document.getElementById("1541").checked=true;
+                 document.getElementById("1551").checked=true;
+                 document.getElementById("1561").checked=true;
+                 document.getElementById("1571").checked=true;
+                 document.getElementById("1581").checked=true;
+        }
+        else {
+                 document.getElementById("1511").checked=false;
+                 document.getElementById("1521").checked=false;
+                 document.getElementById("1531").checked=false;
+                 document.getElementById("1541").checked=false;
+                 document.getElementById("1551").checked=false;
+                 document.getElementById("1561").checked=false;
+                 document.getElementById("1571").checked=false;
+                 document.getElementById("1581").checked=false;
+        }
+        calculate();
+}
+
+
+function setazure(){
+        if (document.getElementById("160").checked) {
+                 document.getElementById("1611").checked=true;
+                 document.getElementById("1621").checked=true;
+                 document.getElementById("1631").checked=true;
+                 document.getElementById("1641").checked=true;
+                 document.getElementById("1651").checked=true;
+                 document.getElementById("1661").checked=true;
+                 document.getElementById("1671").checked=true;
+                 document.getElementById("1681").checked=true;
+        }
+        else {
+                 document.getElementById("1611").checked=false;
+                 document.getElementById("1621").checked=false;
+                 document.getElementById("1631").checked=false;
+                 document.getElementById("1641").checked=false;
+                 document.getElementById("1651").checked=false;
+                 document.getElementById("1661").checked=false;
+                 document.getElementById("1671").checked=false;
+                 document.getElementById("1681").checked=false;
+        }
+        calculate();
+}
+
+
+function settetration(){
+        if (document.getElementById("170").checked) {
+                 document.getElementById("1711").checked=true;
+                 document.getElementById("1721").checked=true;
+                 document.getElementById("1731").checked=true;
+                 document.getElementById("1741").checked=true;
+                 document.getElementById("1751").checked=true;
+                 document.getElementById("1761").checked=true;
+                 document.getElementById("1771").checked=true;
+                 document.getElementById("1781").checked=true;
+        }
+        else {
+                 document.getElementById("1711").checked=false;
+                 document.getElementById("1721").checked=false;
+                 document.getElementById("1731").checked=false;
+                 document.getElementById("1741").checked=false;
+                 document.getElementById("1751").checked=false;
+                 document.getElementById("1761").checked=false;
+                 document.getElementById("1771").checked=false;
+                 document.getElementById("1781").checked=false;
+        }
+        calculate();
+}
+
+function setaci(){
+        if (document.getElementById("180").checked) {
+                 document.getElementById("1811").checked=true;
+                 document.getElementById("1821").checked=true;
+                 document.getElementById("1831").checked=true;
+                 document.getElementById("1841").checked=true;
+                 document.getElementById("1851").checked=true;
+                 document.getElementById("1861").checked=true;
+                 document.getElementById("1871").checked=true;
+                 document.getElementById("1881").checked=true;
+        }
+        else {
+                 document.getElementById("1811").checked=false;
+                 document.getElementById("1821").checked=false;
+                 document.getElementById("1831").checked=false;
+                 document.getElementById("1841").checked=false;
+                 document.getElementById("1851").checked=false;
+                 document.getElementById("1861").checked=false;
+                 document.getElementById("1871").checked=false;
+                 document.getElementById("1881").checked=false;
+        }
+        calculate();
+}
+
 function sliderforyears(vol) {
         document.querySelector('#volumeforyears').value = vol;
 	calculate();
@@ -792,6 +807,10 @@ umbrellasmall=0.6;
 umbrellamedium=1.8;
 cloudutd=2520/100;
 sb=7427;
+storage=17000;
+azure=125000;
+tetration=40000;
+aci=150000;
 
 svkl=data[0][0]*Number(document.getElementById("211").value)/100;
 svkm=data[0][1]*Number(document.getElementById("311").value)/100;
@@ -804,7 +823,11 @@ svkipt=(svkl*250*ipt+svkm*49*ipt+svks*9*ipt)*Number(document.getElementById("111
 svkumbrella=(svkl*250*umbrellamedium+svkm*49*umbrellamedium+svks*umbrellasmall)*Number(document.getElementById("1211").checked);
 svkcloudutd=(svkl+svkm)*cloudutd*Number(document.getElementById("1311").checked);
 svksb=svkl*sb*Number(document.getElementById("1411").checked);
-svktotal=svkmeraki+svkviptela+svkcisco+svkhcs+svkipt+svkumbrella+svkcloudutd+svksb;
+svkstorage=svkl*storage*Number(document.getElementById("1511").checked);
+svkazure=svkl*azure*Number(document.getElementById("1611").checked);
+svktetration=svkl*tetration*Number(document.getElementById("1711").checked);
+svkaci=svkl*aci*Number(document.getElementById("1811").checked);
+svktotal=svkmeraki+svkviptela+svkcisco+svkhcs+svkipt+svkumbrella+svkcloudutd+svksb+svkstorage+svkazure+svktetration+svkaci;
 document.getElementById("71").value=(svkmeraki/1000000).toFixed(2);
 document.getElementById("81").value=(svkviptela/1000000).toFixed(2);
 document.getElementById("91").value=(svkcisco/1000000).toFixed(2);
@@ -813,7 +836,11 @@ document.getElementById("111").value=(svkipt/1000000).toFixed(2);
 document.getElementById("121").value=(svkumbrella/1000000).toFixed(2);
 document.getElementById("131").value=(svkcloudutd/1000000).toFixed(2);
 document.getElementById("141").value=(svksb/1000000).toFixed(2);
-document.getElementById("151").value=(svktotal/1000000).toFixed(2);
+document.getElementById("151").value=(svkstorage/1000000).toFixed(2);
+document.getElementById("161").value=(svkazure/1000000).toFixed(2);
+document.getElementById("171").value=(svktetration/1000000).toFixed(2);
+document.getElementById("181").value=(svkaci/1000000).toFixed(2);
+document.getElementById("001").value=(svktotal/1000000).toFixed(2);
 
 
 czel=(data[1][0]*Number(document.getElementById("221").value)/100);
@@ -827,7 +854,11 @@ czeipt=(czel*250*ipt+czem*49*ipt+czes*9*ipt)*Number(document.getElementById("112
 czeumbrella=(czel*250*umbrellamedium+czem*49*umbrellamedium+czes*umbrellasmall)*Number(document.getElementById("1221").checked);
 czecloudutd=((czel+czem)*cloudutd)*Number(document.getElementById("1321").checked);
 czesb=czel*sb*Number(document.getElementById("1421").checked);
-czetotal=czemeraki+czeviptela+czecisco+czehcs+czeipt+czeumbrella+czecloudutd+czesb;
+czestorage=czel*storage*Number(document.getElementById("1521").checked);
+czeazure=czel*azure*Number(document.getElementById("1621").checked);
+czetetration=czel*tetration*Number(document.getElementById("1721").checked);
+czeaci=czel*aci*Number(document.getElementById("1821").checked);
+czetotal=czemeraki+czeviptela+czecisco+czehcs+czeipt+czeumbrella+czecloudutd+czesb+czestorage+czeazure+czetetration+czeaci;
 document.getElementById("72").value=(czemeraki/1000000).toFixed(2);
 document.getElementById("82").value=(czeviptela/1000000).toFixed(2);
 document.getElementById("92").value=(czecisco/1000000).toFixed(2);
@@ -836,7 +867,11 @@ document.getElementById("112").value=(czeipt/1000000).toFixed(2);
 document.getElementById("122").value=(czeumbrella/1000000).toFixed(2);
 document.getElementById("132").value=(czecloudutd/1000000).toFixed(2);
 document.getElementById("142").value=(czesb/1000000).toFixed(2);
-document.getElementById("152").value=(czetotal/1000000).toFixed(2);
+document.getElementById("152").value=(czestorage/1000000).toFixed(2);
+document.getElementById("162").value=(czeazure/1000000).toFixed(2);
+document.getElementById("172").value=(czetetration/1000000).toFixed(2);
+document.getElementById("182").value=(czeaci/1000000).toFixed(2);
+document.getElementById("002").value=(czetotal/1000000).toFixed(2);
 
 
 slol=(data[2][0]*Number(document.getElementById("231").value)/100);
@@ -850,7 +885,11 @@ sloipt=(slol*250*ipt+slom*49*ipt+slos*9*ipt)*Number(document.getElementById("113
 sloumbrella=(slol*250*umbrellamedium+slom*49*umbrellamedium+slos*umbrellasmall)*Number(document.getElementById("1231").checked);
 slocloudutd=((slol+slom)*cloudutd)*Number(document.getElementById("1331").checked);
 slosb=slol*sb*Number(document.getElementById("1431").checked);
-slototal=slomeraki+sloviptela+slocisco+slohcs+sloipt+sloumbrella+slocloudutd+slosb;
+slostorage=slol*storage*Number(document.getElementById("1531").checked);
+sloazure=slol*azure*Number(document.getElementById("1631").checked);
+slotetration=slol*tetration*Number(document.getElementById("1731").checked);
+sloaci=slol*aci*Number(document.getElementById("1831").checked);
+slototal=slomeraki+sloviptela+slocisco+slohcs+sloipt+sloumbrella+slocloudutd+slosb+slostorage+sloazure+slotetration+sloaci;
 document.getElementById("73").value=(slomeraki/1000000).toFixed(2);
 document.getElementById("83").value=(sloviptela/1000000).toFixed(2);
 document.getElementById("93").value=(slocisco/1000000).toFixed(2);
@@ -859,7 +898,11 @@ document.getElementById("113").value=(sloipt/1000000).toFixed(2);
 document.getElementById("123").value=(sloumbrella/1000000).toFixed(2);
 document.getElementById("133").value=(slocloudutd/1000000).toFixed(2);
 document.getElementById("143").value=(slosb/1000000).toFixed(2);
-document.getElementById("153").value=(slototal/1000000).toFixed(2);
+document.getElementById("153").value=(slostorage/1000000).toFixed(2);
+document.getElementById("163").value=(sloazure/1000000).toFixed(2);
+document.getElementById("173").value=(slotetration/1000000).toFixed(2);
+document.getElementById("183").value=(sloaci/1000000).toFixed(2);
+document.getElementById("003").value=(slototal/1000000).toFixed(2);
 
 poll=(data[3][0]*Number(document.getElementById("241").value)/100);
 polm=(data[3][1]*Number(document.getElementById("341").value)/100);
@@ -872,7 +915,11 @@ polipt=(poll*250*ipt+polm*49*ipt+pols*9*ipt)*Number(document.getElementById("114
 polumbrella=(poll*250*umbrellamedium+polm*49*umbrellamedium+pols*umbrellasmall)*Number(document.getElementById("1241").checked);
 polcloudutd=((poll+polm)*cloudutd)*Number(document.getElementById("1341").checked);
 polsb=poll*sb*Number(document.getElementById("1441").checked);
-poltotal=polmeraki+polviptela+polcisco+polhcs+polipt+polumbrella+polcloudutd+polsb;
+polstorage=poll*storage*Number(document.getElementById("1541").checked);
+polazure=poll*azure*Number(document.getElementById("1641").checked);
+poltetration=poll*tetration*Number(document.getElementById("1741").checked);
+polaci=poll*aci*Number(document.getElementById("1841").checked);
+poltotal=polmeraki+polviptela+polcisco+polhcs+polipt+polumbrella+polcloudutd+polsb+polstorage+polazure+poltetration+polaci;
 document.getElementById("74").value=(polmeraki/1000000).toFixed(2);
 document.getElementById("84").value=(polviptela/1000000).toFixed(2);
 document.getElementById("94").value=(polcisco/1000000).toFixed(2);
@@ -881,7 +928,11 @@ document.getElementById("114").value=(polipt/1000000).toFixed(2);
 document.getElementById("124").value=(polumbrella/1000000).toFixed(2);
 document.getElementById("134").value=(polcloudutd/1000000).toFixed(2);
 document.getElementById("144").value=(polsb/1000000).toFixed(2);
-document.getElementById("154").value=(poltotal/1000000).toFixed(2);
+document.getElementById("154").value=(polstorage/1000000).toFixed(2);
+document.getElementById("164").value=(polazure/1000000).toFixed(2);
+document.getElementById("174").value=(poltetration/1000000).toFixed(2);
+document.getElementById("184").value=(polaci/1000000).toFixed(2);
+document.getElementById("004").value=(poltotal/1000000).toFixed(2);
 
 
 bull=(data[4][0]*Number(document.getElementById("251").value)/100);
@@ -895,7 +946,11 @@ bulipt=(bull*250*ipt+bulm*49*ipt+buls*9*ipt)*Number(document.getElementById("115
 bulumbrella=(bull*250*umbrellamedium+bulm*49*umbrellamedium+buls*umbrellasmall)*Number(document.getElementById("1251").checked);
 bulcloudutd=((bull+bulm)*cloudutd)*Number(document.getElementById("1351").checked);
 bulsb=bull*sb*Number(document.getElementById("1451").checked);
-bultotal=bulmeraki+bulviptela+bulcisco+bulhcs+bulipt+bulumbrella+bulcloudutd+bulsb;
+bulstorage=bull*storage*Number(document.getElementById("1551").checked);
+bulazure=bull*azure*Number(document.getElementById("1651").checked);
+bultetration=bull*tetration*Number(document.getElementById("1751").checked);
+bulaci=bull*aci*Number(document.getElementById("1851").checked);
+bultotal=bulmeraki+bulviptela+bulcisco+bulhcs+bulipt+bulumbrella+bulcloudutd+bulsb+bulstorage+bulazure+bultetration+bulaci;
 document.getElementById("75").value=(bulmeraki/1000000).toFixed(2);
 document.getElementById("85").value=(bulviptela/1000000).toFixed(2);
 document.getElementById("95").value=(bulcisco/1000000).toFixed(2);
@@ -904,7 +959,11 @@ document.getElementById("115").value=(bulipt/1000000).toFixed(2);
 document.getElementById("125").value=(bulumbrella/1000000).toFixed(2);
 document.getElementById("135").value=(bulcloudutd/1000000).toFixed(2);
 document.getElementById("145").value=(bulsb/1000000).toFixed(2);
-document.getElementById("155").value=(bultotal/1000000).toFixed(2);
+document.getElementById("155").value=(bulstorage/1000000).toFixed(2);
+document.getElementById("165").value=(bulazure/1000000).toFixed(2);
+document.getElementById("175").value=(bultetration/1000000).toFixed(2);
+document.getElementById("185").value=(bulaci/1000000).toFixed(2);
+document.getElementById("005").value=(bultotal/1000000).toFixed(2);
 
 
 srbl=(data[5][0]*Number(document.getElementById("261").value)/100);
@@ -918,7 +977,11 @@ srbipt=(srbl*250*ipt+srbm*49*ipt+srbs*9*ipt)*Number(document.getElementById("116
 srbumbrella=(srbl*250*umbrellamedium+srbm*49*umbrellamedium+srbs*umbrellasmall)*Number(document.getElementById("1261").checked);
 srbcloudutd=((srbl+srbm)*cloudutd).toFixed(0)*Number(document.getElementById("1361").checked);
 srbsb=srbl*sb*Number(document.getElementById("1461").checked);
-srbtotal=srbmeraki+srbviptela+srbcisco+srbhcs+srbipt+srbumbrella+srbcloudutd+srbsb;
+srbstorage=srbl*storage*Number(document.getElementById("1561").checked);
+srbazure=srbl*azure*Number(document.getElementById("1661").checked);
+srbtetration=srbl*tetration*Number(document.getElementById("1761").checked);
+srbaci=srbl*aci*Number(document.getElementById("1861").checked);
+srbtotal=srbmeraki+srbviptela+srbcisco+srbhcs+srbipt+srbumbrella+srbcloudutd+srbsb+srbstorage+srbazure+srbtetration+srbaci;
 document.getElementById("76").value=(srbmeraki/1000000).toFixed(2);
 document.getElementById("86").value=(srbviptela/1000000).toFixed(2);
 document.getElementById("96").value=(srbcisco/1000000).toFixed(2);
@@ -927,7 +990,11 @@ document.getElementById("116").value=(srbipt/1000000).toFixed(2);
 document.getElementById("126").value=(srbumbrella/1000000).toFixed(2);
 document.getElementById("136").value=(srbcloudutd/1000000).toFixed(2);
 document.getElementById("146").value=(srbsb/1000000).toFixed(2);
-document.getElementById("156").value=(srbtotal/1000000).toFixed(2);
+document.getElementById("156").value=(srbstorage/1000000).toFixed(2);
+document.getElementById("166").value=(srbazure/1000000).toFixed(2);
+document.getElementById("176").value=(srbtetration/1000000).toFixed(2);
+document.getElementById("186").value=(srbaci/1000000).toFixed(2);
+document.getElementById("006").value=(srbtotal/1000000).toFixed(2);
 
 
 
@@ -942,7 +1009,11 @@ bihipt=(bihl*250*ipt+bihm*49*ipt+bihs*9*ipt)*Number(document.getElementById("117
 bihumbrella=(bihl*250*umbrellamedium+bihm*49*umbrellamedium+bihs*umbrellasmall)*Number(document.getElementById("1271").checked);
 bihcloudutd=((bihl+bihm)*cloudutd)*Number(document.getElementById("1371").checked);
 bihsb=bihl*sb*Number(document.getElementById("1471").checked);
-bihtotal=bihmeraki+bihviptela+bihcisco+bihhcs+bihipt+bihumbrella+bihcloudutd+bihsb;
+bihstorage=bihl*storage*Number(document.getElementById("1571").checked);
+bihazure=bihl*azure*Number(document.getElementById("1671").checked);
+bihtetration=bihl*tetration*Number(document.getElementById("1771").checked);
+bihaci=bihl*aci*Number(document.getElementById("1871").checked);
+bihtotal=bihmeraki+bihviptela+bihcisco+bihhcs+bihipt+bihumbrella+bihcloudutd+bihsb+bihstorage+bihazure+bihtetration+bihaci;
 document.getElementById("77").value=(bihmeraki/1000000).toFixed(2);
 document.getElementById("87").value=(bihviptela/1000000).toFixed(2);
 document.getElementById("97").value=(bihcisco/1000000).toFixed(2);
@@ -951,7 +1022,11 @@ document.getElementById("117").value=(bihipt/1000000).toFixed(2);
 document.getElementById("127").value=(bihumbrella/1000000).toFixed(2);
 document.getElementById("137").value=(bihcloudutd/1000000).toFixed(2);
 document.getElementById("147").value=(bihsb/1000000).toFixed(2);
-document.getElementById("157").value=(bihtotal/1000000).toFixed(2);
+document.getElementById("157").value=(bihstorage/1000000).toFixed(2);
+document.getElementById("167").value=(bihazure/1000000).toFixed(2);
+document.getElementById("177").value=(bihtetration/1000000).toFixed(2);
+document.getElementById("187").value=(bihaci/1000000).toFixed(2);
+document.getElementById("007").value=(bihtotal/1000000).toFixed(2);
 
 hunl=(data[7][0]*Number(document.getElementById("281").value)/100);
 hunm=(data[7][1]*Number(document.getElementById("381").value)/100);
@@ -964,7 +1039,11 @@ hunipt=(hunl*250*ipt+hunm*49*ipt+huns*9*ipt)*Number(document.getElementById("118
 hunumbrella=(hunl*250*umbrellamedium+hunm*49*umbrellamedium+huns*umbrellasmall).toFixed(0)*Number(document.getElementById("1281").checked);
 huncloudutd=((hunl+hunm)*cloudutd)*Number(document.getElementById("1381").checked);
 hunsb=hunl*sb*Number(document.getElementById("1481").checked);
-huntotal=hunmeraki+hunviptela+huncisco+hunhcs+hunipt+hunumbrella+huncloudutd+hunsb;
+hunstorage=hunl*storage*Number(document.getElementById("1581").checked);
+hunazure=hunl*azure*Number(document.getElementById("1681").checked);
+huntetration=hunl*tetration*Number(document.getElementById("1781").checked);
+hunaci=hunl*aci*Number(document.getElementById("1881").checked);
+huntotal=hunmeraki+hunviptela+huncisco+hunhcs+hunipt+hunumbrella+huncloudutd+hunsb+hunstorage+hunazure+huntetration+hunaci;
 document.getElementById("78").value=(hunmeraki/1000000).toFixed(2);
 document.getElementById("88").value=(hunviptela/1000000).toFixed(2);
 document.getElementById("98").value=(huncisco/1000000).toFixed(2);
@@ -973,10 +1052,14 @@ document.getElementById("118").value=(hunipt/1000000).toFixed(2);
 document.getElementById("128").value=(hunumbrella/1000000).toFixed(2);
 document.getElementById("138").value=(huncloudutd/1000000).toFixed(2);
 document.getElementById("148").value=(hunsb/1000000).toFixed(2);
-document.getElementById("158").value=(huntotal/1000000).toFixed(2);
+document.getElementById("158").value=(hunstorage/1000000).toFixed(2);
+document.getElementById("168").value=(hunazure/1000000).toFixed(2);
+document.getElementById("178").value=(huntetration/1000000).toFixed(2);
+document.getElementById("188").value=(hunaci/1000000).toFixed(2);
+document.getElementById("008").value=(huntotal/1000000).toFixed(2);
 
 total=huntotal+bihtotal+srbtotal+bultotal+poltotal+czetotal+svktotal;
-document.getElementById("161").value=(total/1000000).toFixed(2);
+document.getElementById("000").value=(total/1000000).toFixed(2);
 
 
 document.getElementById("11").value=((data[0][3])/1000000).toFixed(2);
@@ -988,39 +1071,76 @@ document.getElementById("16").value=((data[5][3])/1000000).toFixed(2);
 document.getElementById("17").value=((data[6][3])/1000000).toFixed(2);
 document.getElementById("18").value=((data[7][3])/1000000).toFixed(2);
 
-document.getElementById("21").value=data[0][0] + "/" + svkl.toFixed(0);
-document.getElementById("22").value=data[1][0]+ "/" + czel.toFixed(0);;
-document.getElementById("23").value=data[2][0]+ "/" + slol.toFixed(0);;
-document.getElementById("24").value=data[3][0]+ "/" + poll.toFixed(0);;
-document.getElementById("25").value=data[4][0]+ "/" + bull.toFixed(0);;
-document.getElementById("26").value=data[5][0]+ "/" + srbl.toFixed(0);;
-document.getElementById("27").value=data[6][0]+ "/" + bihl.toFixed(0);;
-document.getElementById("28").value=data[7][0]+ "/" + hunl.toFixed(0);;
-document.getElementById("31").value=data[0][1]+ "/" + svkm.toFixed(0);;
-document.getElementById("32").value=data[1][1]+ "/" + czem.toFixed(0);;
-document.getElementById("33").value=data[2][1]+ "/" + slom.toFixed(0);;
-document.getElementById("34").value=data[3][1]+ "/" + polm.toFixed(0);;
-document.getElementById("35").value=data[4][1]+ "/" + bulm.toFixed(0);;
-document.getElementById("36").value=data[5][1]+ "/" + srbm.toFixed(0);;
-document.getElementById("37").value=data[6][1]+ "/" + bihm.toFixed(0);;
-document.getElementById("38").value=data[7][1]+ "/" + hunm.toFixed(0);;
-document.getElementById("41").value=data[0][2]+ "/" + svks.toFixed(0);;
-document.getElementById("42").value=data[1][2]+ "/" + czes.toFixed(0);;
-document.getElementById("43").value=data[2][2]+ "/" + slos.toFixed(0);;
-document.getElementById("44").value=data[3][2]+ "/" + pols.toFixed(0);;
-document.getElementById("45").value=data[4][2]+ "/" + buls.toFixed(0);;
-document.getElementById("46").value=data[5][2]+ "/" + srbs.toFixed(0);;
-document.getElementById("47").value=data[6][2]+ "/" + bihs.toFixed(0);;
-document.getElementById("48").value=data[7][2]+ "/" + huns.toFixed(0);;
+if (document.getElementById("simple").checked) {
+        document.getElementById("21").value=svkl.toFixed(0);
+        document.getElementById("22").value=czel.toFixed(0);
+        document.getElementById("23").value=slol.toFixed(0);
+        document.getElementById("24").value=poll.toFixed(0);
+        document.getElementById("25").value=bull.toFixed(0);
+        document.getElementById("26").value=srbl.toFixed(0);
+        document.getElementById("27").value=bihl.toFixed(0);
+        document.getElementById("28").value=hunl.toFixed(0);
+        document.getElementById("31").value=svkm.toFixed(0);
+        document.getElementById("32").value=czem.toFixed(0);
+        document.getElementById("33").value=slom.toFixed(0);
+        document.getElementById("34").value=polm.toFixed(0);
+        document.getElementById("35").value=bulm.toFixed(0);
+        document.getElementById("36").value=srbm.toFixed(0);
+        document.getElementById("37").value=bihm.toFixed(0);
+        document.getElementById("38").value=hunm.toFixed(0);
+        document.getElementById("41").value=svks.toFixed(0);
+        document.getElementById("42").value=czes.toFixed(0);
+        document.getElementById("43").value=slos.toFixed(0);
+        document.getElementById("44").value=pols.toFixed(0);
+        document.getElementById("45").value=buls.toFixed(0);
+        document.getElementById("46").value=srbs.toFixed(0);
+        document.getElementById("47").value=bihs.toFixed(0);
+        document.getElementById("48").value=huns.toFixed(0);
 
-document.getElementById("51").value=(data[0][0]+data[0][1]+data[0][2]) + "/" + (svks+svkm+svkl).toFixed(0);
-document.getElementById("52").value=(data[1][0]+data[1][1]+data[1][2]) + "/" + (czes+czem+czel).toFixed(0);
-document.getElementById("53").value=(data[2][0]+data[2][1]+data[2][2]) + "/" + (slos+slom+slol).toFixed(0);
-document.getElementById("54").value=(data[3][0]+data[3][1]+data[3][2]) + "/" + (pols+polm+poll).toFixed(0);
-document.getElementById("55").value=(data[4][0]+data[4][1]+data[4][2]) + "/" + (buls+bulm+bull).toFixed(0);
-document.getElementById("56").value=(data[5][0]+data[5][1]+data[5][2]) + "/" + (srbs+srbm+srbl).toFixed(0);
-document.getElementById("57").value=(data[6][0]+data[6][1]+data[6][2]) + "/" + (bihs+bihm+bihl).toFixed(0);
-document.getElementById("58").value=(data[7][0]+data[7][1]+data[7][2]) + "/" + (huns+hunm+hunl).toFixed(0);
+        document.getElementById("51").value=(svks+svkm+svkl).toFixed(0);
+        document.getElementById("52").value=(czes+czem+czel).toFixed(0);
+        document.getElementById("53").value=(slos+slom+slol).toFixed(0);
+        document.getElementById("54").value=(pols+polm+poll).toFixed(0);
+        document.getElementById("55").value=(buls+bulm+bull).toFixed(0);
+        document.getElementById("56").value=(srbs+srbm+srbl).toFixed(0);
+        document.getElementById("57").value=(bihs+bihm+bihl).toFixed(0);
+        document.getElementById("58").value=(huns+hunm+hunl).toFixed(0);
+}
+else {
+	document.getElementById("21").value=data[0][0] + "/" + svkl.toFixed(0);
+	document.getElementById("22").value=data[1][0]+ "/" + czel.toFixed(0);
+	document.getElementById("23").value=data[2][0]+ "/" + slol.toFixed(0);
+	document.getElementById("24").value=data[3][0]+ "/" + poll.toFixed(0);
+	document.getElementById("25").value=data[4][0]+ "/" + bull.toFixed(0);
+	document.getElementById("26").value=data[5][0]+ "/" + srbl.toFixed(0);
+	document.getElementById("27").value=data[6][0]+ "/" + bihl.toFixed(0);
+	document.getElementById("28").value=data[7][0]+ "/" + hunl.toFixed(0);
+	document.getElementById("31").value=data[0][1]+ "/" + svkm.toFixed(0);
+	document.getElementById("32").value=data[1][1]+ "/" + czem.toFixed(0);
+	document.getElementById("33").value=data[2][1]+ "/" + slom.toFixed(0);
+	document.getElementById("34").value=data[3][1]+ "/" + polm.toFixed(0);
+	document.getElementById("35").value=data[4][1]+ "/" + bulm.toFixed(0);
+	document.getElementById("36").value=data[5][1]+ "/" + srbm.toFixed(0);
+	document.getElementById("37").value=data[6][1]+ "/" + bihm.toFixed(0);
+	document.getElementById("38").value=data[7][1]+ "/" + hunm.toFixed(0);
+	document.getElementById("41").value=data[0][2]+ "/" + svks.toFixed(0);
+	document.getElementById("42").value=data[1][2]+ "/" + czes.toFixed(0);
+	document.getElementById("43").value=data[2][2]+ "/" + slos.toFixed(0);
+	document.getElementById("44").value=data[3][2]+ "/" + pols.toFixed(0);
+	document.getElementById("45").value=data[4][2]+ "/" + buls.toFixed(0);
+	document.getElementById("46").value=data[5][2]+ "/" + srbs.toFixed(0);
+	document.getElementById("47").value=data[6][2]+ "/" + bihs.toFixed(0);
+	document.getElementById("48").value=data[7][2]+ "/" + huns.toFixed(0);
+
+	document.getElementById("51").value=(data[0][0]+data[0][1]+data[0][2]) + "/" + (svks+svkm+svkl).toFixed(0);
+	document.getElementById("52").value=(data[1][0]+data[1][1]+data[1][2]) + "/" + (czes+czem+czel).toFixed(0);
+	document.getElementById("53").value=(data[2][0]+data[2][1]+data[2][2]) + "/" + (slos+slom+slol).toFixed(0);
+	document.getElementById("54").value=(data[3][0]+data[3][1]+data[3][2]) + "/" + (pols+polm+poll).toFixed(0);
+	document.getElementById("55").value=(data[4][0]+data[4][1]+data[4][2]) + "/" + (buls+bulm+bull).toFixed(0);
+	document.getElementById("56").value=(data[5][0]+data[5][1]+data[5][2]) + "/" + (srbs+srbm+srbl).toFixed(0);
+	document.getElementById("57").value=(data[6][0]+data[6][1]+data[6][2]) + "/" + (bihs+bihm+bihl).toFixed(0);
+	document.getElementById("58").value=(data[7][0]+data[7][1]+data[7][2]) + "/" + (huns+hunm+hunl).toFixed(0);
+}
 
 }
 calculate();
