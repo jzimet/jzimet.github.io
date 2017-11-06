@@ -304,6 +304,40 @@ table td {
 <td align="center"><input type ="number" id ="188" readonly><input id ="1881" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
+<td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>WIFI Analytics</option><option>cmx connect, $6  pappm</option><option>cmx + presence, $8 pappm</option><option>cmx engage, $8 pappm</option><option>cmx engage advanced, $43 pappm</option><option>cmx beacoun center</option></select><input id ="190" type="checkbox" checked onchange="setwifi()"></td>
+<td align="center"><input type ="number" id ="191" readonly><input id ="1911" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="192" readonly><input id ="1921" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="193" readonly><input id ="1931" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="194" readonly><input id ="1941" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="195" readonly><input id ="1951" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="196" readonly><input id ="1961" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="197" readonly><input id ="1971" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="198" readonly><input id ="1981" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
+<tr>
+<td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>virtualization</option><option>VMWare</option><option>Openstack Horizon</option><option>Google Kubernetes</option></select><input id ="200" type="checkbox" checked onchange="setvirtualization()"></td>
+<td align="center"><input type ="number" id ="201" readonly><input id ="2011" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="202" readonly><input id ="2021" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="203" readonly><input id ="2031" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="204" readonly><input id ="2041" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="205" readonly><input id ="2051" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="206" readonly><input id ="2061" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="207" readonly><input id ="2071" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="208" readonly><input id ="2081" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
+<td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>cloud management</option><option>UCS Director</option><option>Cloud Center</option><option>UCS Director + Cloud Center</option><option>4</option><option>5</option></select><input id ="2210" type="checkbox" checked onchange="setcloudmanagement()"></td>
+<td align="center"><input type ="number" id ="2211" readonly><input id ="22111" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="2212" readonly><input id ="22121" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="2213" readonly><input id ="22131" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="2214" readonly><input id ="22141" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="2215" readonly><input id ="22151" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="2216" readonly><input id ="22161" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="2217" readonly><input id ="22171" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="2218" readonly><input id ="22181" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
 <td align="right">Year 1 (Mil)</td>
 <td align="center"><input type ="number" step="any" id ="001" readonly></td>
 <td align="center"><input type ="number" step="any" id ="002" readonly></td>
@@ -519,7 +553,7 @@ function setsb(){
 }
 
 function setstorage(){
-        if (document.getElementById("1450").checked) {
+        if (document.getElementById("150").checked) {
                  document.getElementById("1511").checked=true;
                  document.getElementById("1521").checked=true;
                  document.getElementById("1531").checked=true;
@@ -615,6 +649,79 @@ function setaci(){
         }
         calculate();
 }
+
+function setwifi(){
+        if (document.getElementById("190").checked) {
+                 document.getElementById("1911").checked=true;
+                 document.getElementById("1921").checked=true;
+                 document.getElementById("1931").checked=true;
+                 document.getElementById("1941").checked=true;
+                 document.getElementById("1951").checked=true;
+                 document.getElementById("1961").checked=true;
+                 document.getElementById("1971").checked=true;
+                 document.getElementById("1981").checked=true;
+        }
+        else {
+                 document.getElementById("1911").checked=false;
+                 document.getElementById("1921").checked=false;
+                 document.getElementById("1931").checked=false;
+                 document.getElementById("1941").checked=false;
+                 document.getElementById("1951").checked=false;
+                 document.getElementById("1961").checked=false;
+                 document.getElementById("1971").checked=false;
+                 document.getElementById("1981").checked=false;
+        }
+        calculate();
+}
+
+function setvirtualization(){
+        if (document.getElementById("200").checked) {
+                 document.getElementById("2011").checked=true;
+                 document.getElementById("2021").checked=true;
+                 document.getElementById("2031").checked=true;
+                 document.getElementById("2041").checked=true;
+                 document.getElementById("2051").checked=true;
+                 document.getElementById("2061").checked=true;
+                 document.getElementById("2071").checked=true;
+                 document.getElementById("2081").checked=true;
+        }
+        else {
+                 document.getElementById("2011").checked=false;
+                 document.getElementById("2021").checked=false;
+                 document.getElementById("2031").checked=false;
+                 document.getElementById("2041").checked=false;
+                 document.getElementById("2051").checked=false;
+                 document.getElementById("2061").checked=false;
+                 document.getElementById("2071").checked=false;
+                 document.getElementById("2081").checked=false;
+        }
+        calculate();
+}
+
+function setcloudmanagement(){
+        if (document.getElementById("2210").checked) {
+                 document.getElementById("22111").checked=true;
+                 document.getElementById("22121").checked=true;
+                 document.getElementById("22131").checked=true;
+                 document.getElementById("22141").checked=true;
+                 document.getElementById("22151").checked=true;
+                 document.getElementById("22161").checked=true;
+                 document.getElementById("22171").checked=true;
+                 document.getElementById("22181").checked=true;
+        }
+        else {
+                 document.getElementById("22111").checked=false;
+                 document.getElementById("22121").checked=false;
+                 document.getElementById("22131").checked=false;
+                 document.getElementById("22141").checked=false;
+                 document.getElementById("22151").checked=false;
+                 document.getElementById("22161").checked=false;
+                 document.getElementById("22171").checked=false;
+                 document.getElementById("22181").checked=false;
+        }
+        calculate();
+}
+
 
 function sliderforyears(vol) {
         document.querySelector('#volumeforyears').value = vol;
@@ -811,6 +918,9 @@ storage=17000;
 azure=125000;
 tetration=40000;
 aci=150000;
+wifi=100;
+virtualization=40000;
+cloudmanagement=735;
 
 svkl=data[0][0]*Number(document.getElementById("211").value)/100;
 svkm=data[0][1]*Number(document.getElementById("311").value)/100;
@@ -827,7 +937,10 @@ svkstorage=svkl*storage*Number(document.getElementById("1511").checked);
 svkazure=svkl*azure*Number(document.getElementById("1611").checked);
 svktetration=svkl*tetration*Number(document.getElementById("1711").checked);
 svkaci=svkl*aci*Number(document.getElementById("1811").checked);
-svktotal=svkmeraki+svkviptela+svkcisco+svkhcs+svkipt+svkumbrella+svkcloudutd+svksb+svkstorage+svkazure+svktetration+svkaci;
+svkwifi=svkl*wifi*Number(document.getElementById("1911").checked);
+svkvirtualization=svkl*virtualization*Number(document.getElementById("2011").checked);
+svkcloudmanagement=svkl*cloudmanagement*Number(document.getElementById("22111").checked);
+svktotal=svkmeraki+svkviptela+svkcisco+svkhcs+svkipt+svkumbrella+svkcloudutd+svksb+svkstorage+svkazure+svktetration+svkaci+svkwifi+svkvirtualization+svkcloudmanagement;
 document.getElementById("71").value=(svkmeraki/1000000).toFixed(2);
 document.getElementById("81").value=(svkviptela/1000000).toFixed(2);
 document.getElementById("91").value=(svkcisco/1000000).toFixed(2);
@@ -840,6 +953,9 @@ document.getElementById("151").value=(svkstorage/1000000).toFixed(2);
 document.getElementById("161").value=(svkazure/1000000).toFixed(2);
 document.getElementById("171").value=(svktetration/1000000).toFixed(2);
 document.getElementById("181").value=(svkaci/1000000).toFixed(2);
+document.getElementById("191").value=(svkwifi/1000000).toFixed(2);
+document.getElementById("201").value=(svkvirtualization/1000000).toFixed(2);
+document.getElementById("2211").value=(svkcloudmanagement/1000000).toFixed(2);
 document.getElementById("001").value=(svktotal/1000000).toFixed(2);
 
 
@@ -858,7 +974,10 @@ czestorage=czel*storage*Number(document.getElementById("1521").checked);
 czeazure=czel*azure*Number(document.getElementById("1621").checked);
 czetetration=czel*tetration*Number(document.getElementById("1721").checked);
 czeaci=czel*aci*Number(document.getElementById("1821").checked);
-czetotal=czemeraki+czeviptela+czecisco+czehcs+czeipt+czeumbrella+czecloudutd+czesb+czestorage+czeazure+czetetration+czeaci;
+czewifi=czel*wifi*Number(document.getElementById("1921").checked);
+czevirtualization=czel*virtualization*Number(document.getElementById("2021").checked);
+czecloudmanagement=czel*cloudmanagement*Number(document.getElementById("22121").checked);
+czetotal=czemeraki+czeviptela+czecisco+czehcs+czeipt+czeumbrella+czecloudutd+czesb+czestorage+czeazure+czetetration+czeaci+czewifi+czevirtualization+czecloudmanagement;
 document.getElementById("72").value=(czemeraki/1000000).toFixed(2);
 document.getElementById("82").value=(czeviptela/1000000).toFixed(2);
 document.getElementById("92").value=(czecisco/1000000).toFixed(2);
@@ -871,6 +990,9 @@ document.getElementById("152").value=(czestorage/1000000).toFixed(2);
 document.getElementById("162").value=(czeazure/1000000).toFixed(2);
 document.getElementById("172").value=(czetetration/1000000).toFixed(2);
 document.getElementById("182").value=(czeaci/1000000).toFixed(2);
+document.getElementById("192").value=(czewifi/1000000).toFixed(2);
+document.getElementById("202").value=(czevirtualization/1000000).toFixed(2);
+document.getElementById("2212").value=(czecloudmanagement/1000000).toFixed(2);
 document.getElementById("002").value=(czetotal/1000000).toFixed(2);
 
 
@@ -889,7 +1011,10 @@ slostorage=slol*storage*Number(document.getElementById("1531").checked);
 sloazure=slol*azure*Number(document.getElementById("1631").checked);
 slotetration=slol*tetration*Number(document.getElementById("1731").checked);
 sloaci=slol*aci*Number(document.getElementById("1831").checked);
-slototal=slomeraki+sloviptela+slocisco+slohcs+sloipt+sloumbrella+slocloudutd+slosb+slostorage+sloazure+slotetration+sloaci;
+slowifi=slol*wifi*Number(document.getElementById("1931").checked);
+slovirtualization=slol*virtualization*Number(document.getElementById("2031").checked);
+slocloudmanagement=slol*cloudmanagement*Number(document.getElementById("22131").checked);
+slototal=slomeraki+sloviptela+slocisco+slohcs+sloipt+sloumbrella+slocloudutd+slosb+slostorage+sloazure+slotetration+sloaci+slowifi+slovirtualization+slocloudmanagement;
 document.getElementById("73").value=(slomeraki/1000000).toFixed(2);
 document.getElementById("83").value=(sloviptela/1000000).toFixed(2);
 document.getElementById("93").value=(slocisco/1000000).toFixed(2);
@@ -902,6 +1027,9 @@ document.getElementById("153").value=(slostorage/1000000).toFixed(2);
 document.getElementById("163").value=(sloazure/1000000).toFixed(2);
 document.getElementById("173").value=(slotetration/1000000).toFixed(2);
 document.getElementById("183").value=(sloaci/1000000).toFixed(2);
+document.getElementById("193").value=(slowifi/1000000).toFixed(2);
+document.getElementById("203").value=(slovirtualization/1000000).toFixed(2);
+document.getElementById("2213").value=(slocloudmanagement/1000000).toFixed(2);
 document.getElementById("003").value=(slototal/1000000).toFixed(2);
 
 poll=(data[3][0]*Number(document.getElementById("241").value)/100);
@@ -919,7 +1047,10 @@ polstorage=poll*storage*Number(document.getElementById("1541").checked);
 polazure=poll*azure*Number(document.getElementById("1641").checked);
 poltetration=poll*tetration*Number(document.getElementById("1741").checked);
 polaci=poll*aci*Number(document.getElementById("1841").checked);
-poltotal=polmeraki+polviptela+polcisco+polhcs+polipt+polumbrella+polcloudutd+polsb+polstorage+polazure+poltetration+polaci;
+polwifi=poll*aci*Number(document.getElementById("1941").checked);
+polvirtualization=poll*virtualization*Number(document.getElementById("2041").checked);
+polcloudmanagement=poll*cloudmanagement*Number(document.getElementById("22141").checked);
+poltotal=polmeraki+polviptela+polcisco+polhcs+polipt+polumbrella+polcloudutd+polsb+polstorage+polazure+poltetration+polaci+polwifi+polvirtualization+polcloudmanagement;
 document.getElementById("74").value=(polmeraki/1000000).toFixed(2);
 document.getElementById("84").value=(polviptela/1000000).toFixed(2);
 document.getElementById("94").value=(polcisco/1000000).toFixed(2);
@@ -932,6 +1063,9 @@ document.getElementById("154").value=(polstorage/1000000).toFixed(2);
 document.getElementById("164").value=(polazure/1000000).toFixed(2);
 document.getElementById("174").value=(poltetration/1000000).toFixed(2);
 document.getElementById("184").value=(polaci/1000000).toFixed(2);
+document.getElementById("194").value=(polwifi/1000000).toFixed(2);
+document.getElementById("204").value=(polvirtualization/1000000).toFixed(2);
+document.getElementById("2214").value=(polcloudmanagement/1000000).toFixed(2);
 document.getElementById("004").value=(poltotal/1000000).toFixed(2);
 
 
@@ -950,7 +1084,10 @@ bulstorage=bull*storage*Number(document.getElementById("1551").checked);
 bulazure=bull*azure*Number(document.getElementById("1651").checked);
 bultetration=bull*tetration*Number(document.getElementById("1751").checked);
 bulaci=bull*aci*Number(document.getElementById("1851").checked);
-bultotal=bulmeraki+bulviptela+bulcisco+bulhcs+bulipt+bulumbrella+bulcloudutd+bulsb+bulstorage+bulazure+bultetration+bulaci;
+bulwifi=bull*wifi*Number(document.getElementById("1951").checked);
+bulvirtualization=bull*virtualization*Number(document.getElementById("2051").checked);
+bulcloudmanagement=bull*cloudmanagement*Number(document.getElementById("22151").checked);
+bultotal=bulmeraki+bulviptela+bulcisco+bulhcs+bulipt+bulumbrella+bulcloudutd+bulsb+bulstorage+bulazure+bultetration+bulaci+bulwifi+bulvirtualization+bulcloudmanagement;
 document.getElementById("75").value=(bulmeraki/1000000).toFixed(2);
 document.getElementById("85").value=(bulviptela/1000000).toFixed(2);
 document.getElementById("95").value=(bulcisco/1000000).toFixed(2);
@@ -963,6 +1100,9 @@ document.getElementById("155").value=(bulstorage/1000000).toFixed(2);
 document.getElementById("165").value=(bulazure/1000000).toFixed(2);
 document.getElementById("175").value=(bultetration/1000000).toFixed(2);
 document.getElementById("185").value=(bulaci/1000000).toFixed(2);
+document.getElementById("195").value=(bulwifi/1000000).toFixed(2);
+document.getElementById("205").value=(bulvirtualization/1000000).toFixed(2);
+document.getElementById("2215").value=(bulcloudmanagement/1000000).toFixed(2);
 document.getElementById("005").value=(bultotal/1000000).toFixed(2);
 
 
@@ -981,7 +1121,10 @@ srbstorage=srbl*storage*Number(document.getElementById("1561").checked);
 srbazure=srbl*azure*Number(document.getElementById("1661").checked);
 srbtetration=srbl*tetration*Number(document.getElementById("1761").checked);
 srbaci=srbl*aci*Number(document.getElementById("1861").checked);
-srbtotal=srbmeraki+srbviptela+srbcisco+srbhcs+srbipt+srbumbrella+srbcloudutd+srbsb+srbstorage+srbazure+srbtetration+srbaci;
+srbwifi=srbl*wifi*Number(document.getElementById("1961").checked);
+srbvirtualization=srbl*virtualization*Number(document.getElementById("2061").checked);
+srbcloudmanagement=srbl*cloudmanagement*Number(document.getElementById("22161").checked);
+srbtotal=srbmeraki+srbviptela+srbcisco+srbhcs+srbipt+srbumbrella+srbcloudutd+srbsb+srbstorage+srbazure+srbtetration+srbaci+srbwifi+srbvirtualization+srbcloudmanagement;
 document.getElementById("76").value=(srbmeraki/1000000).toFixed(2);
 document.getElementById("86").value=(srbviptela/1000000).toFixed(2);
 document.getElementById("96").value=(srbcisco/1000000).toFixed(2);
@@ -994,6 +1137,9 @@ document.getElementById("156").value=(srbstorage/1000000).toFixed(2);
 document.getElementById("166").value=(srbazure/1000000).toFixed(2);
 document.getElementById("176").value=(srbtetration/1000000).toFixed(2);
 document.getElementById("186").value=(srbaci/1000000).toFixed(2);
+document.getElementById("196").value=(srbwifi/1000000).toFixed(2);
+document.getElementById("206").value=(srbvirtualization/1000000).toFixed(2);
+document.getElementById("2216").value=(srbcloudmanagement/1000000).toFixed(2);
 document.getElementById("006").value=(srbtotal/1000000).toFixed(2);
 
 
@@ -1013,7 +1159,10 @@ bihstorage=bihl*storage*Number(document.getElementById("1571").checked);
 bihazure=bihl*azure*Number(document.getElementById("1671").checked);
 bihtetration=bihl*tetration*Number(document.getElementById("1771").checked);
 bihaci=bihl*aci*Number(document.getElementById("1871").checked);
-bihtotal=bihmeraki+bihviptela+bihcisco+bihhcs+bihipt+bihumbrella+bihcloudutd+bihsb+bihstorage+bihazure+bihtetration+bihaci;
+bihwifi=bihl*wifi*Number(document.getElementById("1971").checked);
+bihvirtualization=bihl*virtualization*Number(document.getElementById("2071").checked);
+bihcloudmanagement=bihl*cloudmanagement*Number(document.getElementById("22171").checked);
+bihtotal=bihmeraki+bihviptela+bihcisco+bihhcs+bihipt+bihumbrella+bihcloudutd+bihsb+bihstorage+bihazure+bihtetration+bihaci+bihwifi+bihvirtualization+bihcloudmanagement;
 document.getElementById("77").value=(bihmeraki/1000000).toFixed(2);
 document.getElementById("87").value=(bihviptela/1000000).toFixed(2);
 document.getElementById("97").value=(bihcisco/1000000).toFixed(2);
@@ -1026,6 +1175,9 @@ document.getElementById("157").value=(bihstorage/1000000).toFixed(2);
 document.getElementById("167").value=(bihazure/1000000).toFixed(2);
 document.getElementById("177").value=(bihtetration/1000000).toFixed(2);
 document.getElementById("187").value=(bihaci/1000000).toFixed(2);
+document.getElementById("197").value=(bihwifi/1000000).toFixed(2);
+document.getElementById("207").value=(bihvirtualization/1000000).toFixed(2);
+document.getElementById("2217").value=(bihcloudmanagement/1000000).toFixed(2);
 document.getElementById("007").value=(bihtotal/1000000).toFixed(2);
 
 hunl=(data[7][0]*Number(document.getElementById("281").value)/100);
@@ -1043,7 +1195,10 @@ hunstorage=hunl*storage*Number(document.getElementById("1581").checked);
 hunazure=hunl*azure*Number(document.getElementById("1681").checked);
 huntetration=hunl*tetration*Number(document.getElementById("1781").checked);
 hunaci=hunl*aci*Number(document.getElementById("1881").checked);
-huntotal=hunmeraki+hunviptela+huncisco+hunhcs+hunipt+hunumbrella+huncloudutd+hunsb+hunstorage+hunazure+huntetration+hunaci;
+hunwifi=hunl*wifi*Number(document.getElementById("1981").checked);
+hunvirtualization=hunl*virtualization*Number(document.getElementById("2081").checked);
+huncloudmanagement=hunl*cloudmanagement*Number(document.getElementById("22181").checked);
+huntotal=hunmeraki+hunviptela+huncisco+hunhcs+hunipt+hunumbrella+huncloudutd+hunsb+hunstorage+hunazure+huntetration+hunaci+hunwifi+hunvirtualization+huncloudmanagement;
 document.getElementById("78").value=(hunmeraki/1000000).toFixed(2);
 document.getElementById("88").value=(hunviptela/1000000).toFixed(2);
 document.getElementById("98").value=(huncisco/1000000).toFixed(2);
@@ -1056,6 +1211,9 @@ document.getElementById("158").value=(hunstorage/1000000).toFixed(2);
 document.getElementById("168").value=(hunazure/1000000).toFixed(2);
 document.getElementById("178").value=(huntetration/1000000).toFixed(2);
 document.getElementById("188").value=(hunaci/1000000).toFixed(2);
+document.getElementById("198").value=(hunwifi/1000000).toFixed(2);
+document.getElementById("208").value=(hunvirtualization/1000000).toFixed(2);
+document.getElementById("2218").value=(huncloudmanagement/1000000).toFixed(2);
 document.getElementById("008").value=(huntotal/1000000).toFixed(2);
 
 total=huntotal+bihtotal+srbtotal+bultotal+poltotal+czetotal+svktotal;
