@@ -424,7 +424,7 @@ table td {
 <td align="center" style="color: #3CBC8D" colspan="12">DATA CENTER</td>
 </tr>
 <tr>
-<td align="right"><img src="hyperflex.png" align="center" width="60" height="15"><select><option>Cisco Storage</option><option>S3260-84TB, $17k ($200/TB)</option><option>HyperFlex Edge 3-node 21TB, $42k ($2k/TB)</option><option>HyperFlex 3-node 21TB, $61k ($3k/TB)</option></select><input id ="storage_cb" type="checkbox" checked onchange="setstorage()"></td>
+<td align="right"><img src="hyperflex.png" align="center" width="60" height="15"><select><option>Cisco Storage</option><option>S3260-84TB, $17k ($200/TB)</option><option>HyperFlex Edge 3-node 21TB, $42k ($2k/TB)</option><option>HyperFlex 3-node 21TB, $61k ($3k/TB)</option><option>VMWare VSAN 2 nodes</option><option>Microsoft Storage spaces</option></select><input id ="storage_cb" type="checkbox" checked onchange="setstorage()"></td>
 <td align="center"><input type ="number" id ="storage_tb_1" readonly><input id ="storage_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="storage_tb_2" readonly><input id ="storage_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="storage_tb_3" readonly><input id ="storage_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -437,20 +437,7 @@ table td {
 <td align="center"><input type ="number" id ="storage_tb_10" readonly><input id ="storage_cb_10" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
-<td align="right"><img src="apic.png" align="center" width="40" height="20"><select><option>ACI</option><option>Single/Stretched fixed baby spine 75k</option><option>Single/Stretched fixed spine 125k</option><option>MultiPod fixed baby spine 150k</option><option>MultiPod modular spine 254k</option><option>Multi Site</option></select><input id ="aci_cb" type="checkbox" checked onchange="setaci()"></td>
-<td align="center"><input type ="number" id ="aci_tb_1" readonly><input id ="aci_cb_1" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_2" readonly><input id ="aci_cb_2" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_3" readonly><input id ="aci_cb_3" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_4" readonly><input id ="aci_cb_4" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_5" readonly><input id ="aci_cb_5" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_6" readonly><input id ="aci_cb_6" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_7" readonly><input id ="aci_cb_7" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_8" readonly><input id ="aci_cb_8" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_9" readonly><input id ="aci_cb_9" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_10" readonly><input id ="aci_cb_10" type="checkbox" checked onchange="calculate()"></td>
-</tr>
-<tr>
-<td align="right"><img src="ciscogoogle.png" align="center" width="40" height="20"><select><option>hybrid cloud</option>Microsoft Azure Small 4-node w 256GB RAM, 125k</option><option>Microsoft Azure medium 8-node w 512GB RAM, 245k</option><option>VMWare 2 nodes</option><option>Openstack 3 nodes</option><option>Google Kubernetes 3 nodes</option></select><input id ="virt_cb" type="checkbox" checked onchange="setvirtualization()"></td>
+<td align="right"><img src="ciscogoogle.png" align="center" width="40" height="20"><select><option>hybrid cloud</option><option>Microsoft Azure Small 4-node w 256GB RAM, 125k</option><option>Microsoft Azure medium 8-node w 512GB RAM, 245k</option><option>VMWare 2 nodes</option><option>Openstack 3 nodes</option><option>Google Kubernetes 3 nodes</option></select><input id ="virt_cb" type="checkbox" checked onchange="setvirtualization()"></td>
 <td align="center"><input type ="number" id ="virt_tb_1" readonly><input id ="virt_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="virt_tb_2" readonly><input id ="virt_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="virt_tb_3" readonly><input id ="virt_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -503,6 +490,19 @@ table td {
 <td align="center"><input type ="number" id ="ta_tb_8" readonly><input id ="ta_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="ta_tb_9" readonly><input id ="ta_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="ta_tb_10" readonly><input id ="ta_cb_10" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
+<td align="right"><img src="apic.png" align="center" width="40" height="20"><select><option>ACI</option><option>Single/Stretched fixed baby spine 75k</option><option>Single/Stretched fixed spine 125k</option><option>MultiPod fixed baby spine 150k</option><option>MultiPod modular spine 254k</option><option>Multi Site</option></select><input id ="aci_cb" type="checkbox" checked onchange="setaci()"></td>
+<td align="center"><input type ="number" id ="aci_tb_1" readonly><input id ="aci_cb_1" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_2" readonly><input id ="aci_cb_2" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_3" readonly><input id ="aci_cb_3" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_4" readonly><input id ="aci_cb_4" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_5" readonly><input id ="aci_cb_5" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_6" readonly><input id ="aci_cb_6" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_7" readonly><input id ="aci_cb_7" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_8" readonly><input id ="aci_cb_8" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_9" readonly><input id ="aci_cb_9" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_10" readonly><input id ="aci_cb_10" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
 <td align="right">Data Center</td>
