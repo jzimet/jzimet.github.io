@@ -59,7 +59,7 @@ table td {
 
 <table>
 <tr>
-<td align="right"><input id ="simple" type="checkbox" checked onchange="calculate()">Simple View</td>
+<td align="right"><a href ="https://jzimet.github.io/hss-bom.xls"><img src="xls.png" align="center" width="20" height="20"></a><input id ="simple" type="checkbox" checked onchange="calculate()">Simple View</td>
 <td align="center" style="color: #3CBC8D">AUT</td>
 <td align="center" style="color: #3CBC8D">ROM</td>
 <td align="center" style="color: #3CBC8D">SVK</td>
@@ -395,6 +395,19 @@ table td {
 <td align="center"><input type ="number" id ="utd_tb_10" readonly><input id ="utd_cb_10" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
+<td align="right"><img src="ampforsp.png" align="center" width="60" height="15"><select><option>AMP for SP</option><input id ="azure_cb" type="checkbox" checked onchange="setazure()"></td>
+<td align="center"><input type ="number" id ="azure_tb_1" readonly><input id ="azure_cb_1" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="azure_tb_2" readonly><input id ="azure_cb_2" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="azure_tb_3" readonly><input id ="azure_cb_3" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="azure_tb_4" readonly><input id ="azure_cb_4" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="azure_tb_5" readonly><input id ="azure_cb_5" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="azure_tb_6" readonly><input id ="azure_cb_6" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="azure_tb_7" readonly><input id ="azure_cb_7" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="azure_tb_8" readonly><input id ="azure_cb_8" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="azure_tb_9" readonly><input id ="azure_cb_9" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="azure_tb_10" readonly><input id ="azure_cb_10" type="checkbox" checked onchange="calculate()"></td>
+</tr>
+<tr>
 <td align="right">Security</td>
 <td align="center"><input type ="text" id ="security1" readonly></td>
 <td align="center"><input type ="text" id ="security2" readonly></td>
@@ -424,19 +437,6 @@ table td {
 <td align="center"><input type ="number" id ="storage_tb_10" readonly><input id ="storage_cb_10" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
-<td align="right"><img src="microsoftazurestack.png" align="center" width="60" height="15"><select><option>Microsoft Azure</option><option> Small 4-node w 256GB RAM, 125k</option><option>medium 8-node w 512GB RAM, 245k</option></select><input id ="azure_cb" type="checkbox" checked onchange="setazure()"></td>
-<td align="center"><input type ="number" id ="azure_tb_1" readonly><input id ="azure_cb_1" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="azure_tb_2" readonly><input id ="azure_cb_2" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="azure_tb_3" readonly><input id ="azure_cb_3" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="azure_tb_4" readonly><input id ="azure_cb_4" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="azure_tb_5" readonly><input id ="azure_cb_5" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="azure_tb_6" readonly><input id ="azure_cb_6" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="azure_tb_7" readonly><input id ="azure_cb_7" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="azure_tb_8" readonly><input id ="azure_cb_8" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="azure_tb_9" readonly><input id ="azure_cb_9" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="azure_tb_10" readonly><input id ="azure_cb_10" type="checkbox" checked onchange="calculate()"></td>
-</tr>
-<tr>
 <td align="right"><img src="apic.png" align="center" width="40" height="20"><select><option>ACI</option><option>Single/Stretched fixed baby spine 75k</option><option>Single/Stretched fixed spine 125k</option><option>MultiPod fixed baby spine 150k</option><option>MultiPod modular spine 254k</option><option>Multi Site</option></select><input id ="aci_cb" type="checkbox" checked onchange="setaci()"></td>
 <td align="center"><input type ="number" id ="aci_tb_1" readonly><input id ="aci_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="aci_tb_2" readonly><input id ="aci_cb_2" type="checkbox" checked onchange="calculate()"></td>
@@ -450,7 +450,7 @@ table td {
 <td align="center"><input type ="number" id ="aci_tb_10" readonly><input id ="aci_cb_10" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
-<td align="right"><img src="ciscogoogle.png" align="center" width="40" height="20"><select><option>virtualization</option><option>VMWare</option><option>Openstack Horizon</option><option>Google Kubernetes</option></select><input id ="virt_cb" type="checkbox" checked onchange="setvirtualization()"></td>
+<td align="right"><img src="ciscogoogle.png" align="center" width="40" height="20"><select><option>hybrid cloud</option>Microsoft Azure Small 4-node w 256GB RAM, 125k</option><option>Microsoft Azure medium 8-node w 512GB RAM, 245k</option><option>VMWare 2 nodes</option><option>Openstack 3 nodes</option><option>Google Kubernetes 3 nodes</option></select><input id ="virt_cb" type="checkbox" checked onchange="setvirtualization()"></td>
 <td align="center"><input type ="number" id ="virt_tb_1" readonly><input id ="virt_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="virt_tb_2" readonly><input id ="virt_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="virt_tb_3" readonly><input id ="virt_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -463,7 +463,7 @@ table td {
 <td align="center"><input type ="number" id ="virt_tb_10" readonly><input id ="virt_cb_10" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
-<td align="right"><img src="cliqr.png" align="center" width="40" height="20"><select><option>cloud management</option><option>UCS Director</option><option>Cloud Center</option><option>UCS Director + Cloud Center</option><option>4</option><option>5</option></select><input id ="orch_cb" type="checkbox" checked onchange="setcloudmanagement()"></td>
+<td align="right"><img src="cliqr.png" align="center" width="40" height="20"><select><option>cloud management</option><option>UCS Director</option><option>Cloud Center</option><option>InterSight</option></select><input id ="orch_cb" type="checkbox" checked onchange="setcloudmanagement()"></td>
 <td align="center"><input type ="number" id ="orch_tb_1" readonly><input id ="orch_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="orch_tb_2" readonly><input id ="orch_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="orch_tb_3" readonly><input id ="orch_cb_3" type="checkbox" checked onchange="calculate()"></td>
