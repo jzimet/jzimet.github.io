@@ -369,7 +369,7 @@ table td {
 <td align="center"><input type ="number" id ="umbrella_tb_10" readonly><input id ="umbrella_cb_10" type="checkbox" checked onchange="calculate()"></td>
 </tr>
 <tr>
-<td align="right"><img src="cloudlock.png" align="center" width="40" height="10"><select><option>Cisco CloudLock</option><option>1 cloud service, $430 user/month</option><option>2 cloud services $533 user/month</option><option>3 cloud services $600 user/month</option><option>4 cloud services $633 user/month</option><option>5 cloud services $666 user/month</option><option>6 cloud services $700 user/month</option><option>7 cloud services $733 user/month</option>></select><input id ="umbrella_cb" type="checkbox" checked onchange="setciscoumbrella()"></td>
+<td align="right"><img src="cloudlock.png" align="center" width="40" height="10"><select><option>Cisco CloudLock</option><option>1 cloud service, $430 user/month</option><option>2 cloud services $533 user/month</option><option>3 cloud services $600 user/month</option><option>4 cloud services $633 user/month</option><option>5 cloud services $666 user/month</option><option>6 cloud services $700 user/month</option><option>7 cloud services $733 user/month</option>></select><input id ="cloudlock_cb" type="checkbox" checked onchange="setcloudlock()"></td>
 <td align="center"><input type ="number" id ="cloudlock_tb_1" readonly><input id ="cloudlock_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cloudlock_tb_2" readonly><input id ="cloudlock_cb_2"" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cloudlock_tb_3" readonly><input id ="cloudlock_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -424,7 +424,7 @@ table td {
 <td align="center" style="color: #3CBC8D" colspan="12">DATA CENTER</td>
 </tr>
 <tr>
-<td align="right"><img src="hyperflex.png" align="center" width="60" height="15"><select><option>Cisco Storage</option><option>S3260-84TB, $17k ($200/TB)</option><option>HyperFlex Edge 3-node 21TB, $42k ($2k/TB)</option><option>HyperFlex 3-node 21TB, $61k ($3k/TB)</option><option>VMWare VSAN 2 nodes</option><option>Microsoft Storage spaces</option></select><input id ="storage_cb" type="checkbox" checked onchange="setstorage()"></td>
+<td align="right"><img src="hyperflex.png" align="center" width="60" height="15"><select><option>Cisco Storage</option><option>S3260-84TB, $17k ($200/TB)</option><option>HyperFlex Edge 3-node 21TB, $42k ($2k/TB)</option><option>HyperFlex 3-node 21TB, $61k ($3k/TB)</option><option>VMWare VSAN 2 nodes</option><option>Microsoft Storage spaces</option></select><input id ="storage_cb" checked type="checkbox" onchange="setstorage()"></td>
 <td align="center"><input type ="number" id ="storage_tb_1" readonly><input id ="storage_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="storage_tb_2" readonly><input id ="storage_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="storage_tb_3" readonly><input id ="storage_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -1217,7 +1217,7 @@ function slider_change_for_small_10(vol) {
 
 function calculate(){
 
-var data=[[7956759,609669,133572,8700000],[18017028,1380515,302456,19700000],[4112,18766,425995,5415949],[10847,42588,1062697,10513800],[2002,7081,182454,2061963],[29280,148002,4055946,38502396],[4201,22432,298559,7282041],[2084,9127,74448,7181506],[1071,24247,1,3791622],[4773,29104,645370,890600]];
+var data=[[133572, 609669,7956759,8700000],[302456,1380515, 18017028,19700000],[4112,18766,425995,5415949],[10847,42588,1062697,10513800],[2002,7081,182454,2061963],[29280,148002,4055946,38502396],[4201,22432,298559,7282041],[2084,9127,74448,7181506],[1071,24247,1,3791622],[4773,29104,645370,890600]];
 
 var routing=[4047012, 3405263, 373772, 943327, 162267, 1938743, 52483, 292660, 213535914911, 1282187, 168364,0];
 var collaboration=[1808391, 582506, 166582, 60937, 201475, 954265, 1460, 68925, 0, 792078, 854269, 20227, 0];
