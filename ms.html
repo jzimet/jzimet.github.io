@@ -59,7 +59,7 @@ table td {
 
 <table>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><input id ="simple" type="checkbox" checked onchange="calculate()">Simple View</td>
+<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><input id ="simple" type="checkbox" checked onchange="calculate()">Simple View<input id ="2016" type="checkbox" onchange="calculate()">2016<input id ="2017" type="checkbox" checked onchange="calculate()">2017</td>
 <td align="center" style="color: #3CBC8D">AUT</td>
 <td align="center" style="color: #3CBC8D">ROM</td>
 <td align="center" style="color: #3CBC8D">SVK</td>
@@ -70,19 +70,21 @@ table td {
 <td align="center" style="color: #3CBC8D">SRB</td>
 <td align="center" style="color: #3CBC8D">BIH</td>
 <td align="center" style="color: #3CBC8D">HUN</td>
+<td>MRR</td>
 </tr>
 <tr>
 <td></td>
-<td align="center"><img src="austria.png" align="center" width="30" height="20"></td>
-<td align="center"><img src="romania.png" align="center" width="30" height="20"></td>
-<td align="center"><img src="svk.png" align="center" width="30" height="20"></td>
-<td align="center"><img src="zce.png" align="center" width="30" height="20"></td>
-<td align="center"><img src="slo.png" align="center" width="30" height="20"></td>
-<td align="center"><img src="pol.png" align="center" width="30" height="20"></td>
-<td align="center"><img src="bul.png" align="center" width="30" height="20"></td>
-<td align="center"><img src="srb.png" align="center" width="30" height="20"></td>
-<td align="center"><img src="bih.png" align="center" width="30" height="20"></td>
-<td align="center"><img src="hun.png" align="center" width="30" height="20"></td>
+<td align="center"><img src="austria.png" align="center" width="30" height="20"><input id ="country_1" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><img src="romania.png" align="center" width="30" height="20"><input id ="country_2" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><img src="svk.png" align="center" width="30" height="20"><input id ="country_3" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><img src="zce.png" align="center" width="30" height="20"><input id ="country_4" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><img src="slo.png" align="center" width="30" height="20"><input id ="country_5" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><img src="pol.png" align="center" width="30" height="20"><input id ="country_6" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><img src="bul.png" align="center" width="30" height="20"><input id ="country_7" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><img src="srb.png" align="center" width="30" height="20"><input id ="country_8" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><img src="bih.png" align="center" width="30" height="20"><input id ="country_9" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><img src="hun.png" align="center" width="30" height="20"><input id ="country_10" type="checkbox" checked onchange="calculate()"></td>
+<td><img src="dolar.png" align="center" width="15" height="30"></td>
 </tr>
 <tr>
 <td align="right">Population (Mil)</td>
@@ -96,6 +98,7 @@ table td {
 <td align="center"><input type ="text" step="any" id ="18" readonly></td>
 <td align="center"><input type ="text" step="any" id ="19" readonly></td>
 <td align="center"><input type ="text" step="any" id ="20" readonly></td>
+<td></td>
 </tr>
 <tr>
 <td align="right">Country Booking/Managed Services booking (Mil)</td>
@@ -109,6 +112,7 @@ table td {
 <td align="center"><input type ="text" step="any" id ="18" readonly></td>
 <td align="center"><input type ="text" step="any" id ="19" readonly></td>
 <td align="center"><input type ="text" step="any" id ="20" readonly></td>
+<td></td>
 </tr>
 <!--
 <tr>
@@ -123,6 +127,7 @@ table td {
 <td align="center"><input type ="text" step="any" id ="18" readonly></td>
 <td align="center"><input type ="text" step="any" id ="19" readonly></td>
 <td align="center"><input type ="text" step="any" id ="20" readonly></td>
+<td></td>
 </tr>
 -->
 <tr>
@@ -137,6 +142,7 @@ table td {
 <td align="center"><input type ="text" id ="28" readonly></td>
 <td align="center"><input type ="text" id ="29" readonly></td>
 <td align="center"><input type ="text" id ="30" readonly></td>
+<td></td>
 </tr>
 <tr>
 <td></td>
@@ -149,7 +155,8 @@ table td {
 <td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_large_7" oninput="slider_change_for_large_7(value)"><output for="slider_for_large_7" id="volume_for_slider_for_large_7">2</output><label for="slider_for_large_7">%</label></td>
 <td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_large_8" oninput="slider_change_for_large_8(value)"><output for="slider_for_large_8" id="volume_for_slider_for_large_8">2</output><label for="slider_for_large_8">%</label></td>
 <td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_large_9" oninput="slider_change_for_large_9(value)"><output for="slider_for_large_9" id="volume_for_slider_for_large_9">2</output><label for="slider_for_large_9">%</label></td>
-<td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_large_10" oninput="slider_change_for_large_10(value)"><output for="slider_for_large_10" id="volume_for_slider_for_large_10">2</output><label for="slider_for_large_10">%</label></td>
+<td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_large_10" oninput="slider_change_for_large_10(value)"><output for="slider_for_large_10" id="volume_for_slider_for_large_10">2</output><label for="slider_for_large_10">$</label></td>
+<td></td>
 </tr>
 <tr>
 <td align="right">Medium SMB (10-49)</td>
@@ -163,6 +170,7 @@ table td {
 <td align="center"><input type ="text" id ="38" readonly></td>
 <td align="center"><input type ="text" id ="39" readonly></td>
 <td align="center"><input type ="text" id ="40" readonly></td>
+<td></td>
 </tr>
 <tr>
 <td></td>
@@ -175,7 +183,8 @@ table td {
 <td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_medium_7" oninput="slider_change_for_medium_7(value)"><output for="slider_for_medium_7" id="volume_for_slider_for_medium_7">2</output><label for="slider_for_medium_7">%</label></td>
 <td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_medium_8" oninput="slider_change_for_medium_8(value)"><output for="slider_for_medium_8" id="volume_for_slider_for_medium_8">2</output><label for="slider_for_medium_8">%</label></td>
 <td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_medium_9" oninput="slider_change_for_medium_9(value)"><output for="slider_for_medium_9" id="volume_for_slider_for_medium_9">2</output><label for="slider_for_medium_9">%</label></td>
-<td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_medium_10" oninput="slider_change_for_medium_10(value)"><output for="slider_for_medium_10" id="volume_for_slider_for_medium_10">2</output><label for="slider_for_medium_10">%</label></td>
+<td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_medium_10" oninput="slider_change_for_medium_10(value)"><output for="slider_for_medium_10" id="volume_for_slider_for_medium_10">2</output><label for="slider_for_medium_10">$</label></td>
+<td></td>
 </tr>
 <tr>
 <td align="right">SOHO/Small SMB (0-9)</td>
@@ -189,6 +198,7 @@ table td {
 <td align="center"><input type ="text" id ="48" readonly></td>
 <td align="center"><input type ="text" id ="49" readonly></td>
 <td align="center"><input type ="text" id ="50" readonly></td>
+<td></td>
 </tr>
 <tr>
 <td></td>
@@ -201,7 +211,8 @@ table td {
 <td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_small_7" oninput="slider_change_for_small_7(value)"><output for="slider_for_small_7" id="volume_for_slider_for_small_7">2</output><label for="slider_for_small_7">%</label></td>
 <td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_small_8" oninput="slider_change_for_small_8(value)"><output for="slider_for_small_8" id="volume_for_slider_for_small_8">2</output><label for="slider_for_small_8">%</label></td>
 <td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_small_9" oninput="slider_change_for_small_9(value)"><output for="slider_for_small_9" id="volume_for_slider_for_small_9">2</output><label for="slider_for_small_9">%</label></td>
-<td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_small_10" oninput="slider_change_for_small_10(value)"><output for="slider_for_small_10" id="volume_for_slider_for_small_10">2</output><label for="slider_for_small_10">%</label></td>
+<td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_small_10" oninput="slider_change_for_small_10(value)"><output for="slider_for_small_10" id="volume_for_slider_for_small_10">2</output><label for="slider_for_small_10">$</label></td>
+<td></td>
 </tr>
 <tr>
 <td align="right">Total SMB</td>
@@ -215,9 +226,10 @@ table td {
 <td align="center"><input type ="text" id ="58" readonly></td>
 <td align="center"><input type ="text" id ="59" readonly></td>
 <td align="center"><input type ="text" id ="60" readonly></td>
+<td></td>
 </tr>
 <tr>
-<td align="center" style="color: #3CBC8D" colspan="12">ROUTING</td>
+<td align="center" style="color: #3CBC8D" colspan="13">ROUTING</td>
 </tr>
 <tr>
 <td align="right"><img src="meraki.png" align="center" width="40" height="15"><select><option>Meraki CPE</option><option>Z1,$200</option><option>MX, $300</option></select><input id ="meraki_cb" type="checkbox" checked onchange="setmeraki()"></td>
@@ -231,6 +243,7 @@ table td {
 <td align="center"><input type ="number" id ="meraki_tb_8" readonly><input id ="meraki_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="meraki_tb_9" readonly><input id ="meraki_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="meraki_tb_10" readonly><input id ="meraki_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="25" step = "1"  style="width : 4em" id="slider_for_mrr_1" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_1" id="volume_for_slider_for_mrr_1">25</output><label for="slider_for_mrr_1">$</label></td>
 </tr>
 <tr>
 <td align="right"><img src="viptela.png" align="center" width="40" height="15"><select><option>Viptela CPE</option><option>vedge100, $300</option><option>vedge1000, $400</option><option>vedge2000, $500</option></select><input id ="viptela_cb" type="checkbox" checked onchange="setviptela()"></td>
@@ -244,6 +257,7 @@ table td {
 <td align="center"><input type ="number" id ="viptela_tb_8" readonly><input id ="viptela_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="viptela_tb_9" readonly><input id ="viptela_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="viptela_tb_10" readonly><input id ="viptela_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="30" step = "1"  style="width : 4em" id="slider_for_mrr_2" oninput="slider_change_for_mrr_2(value)"><output for="slider_for_mrr_2" id="volume_for_slider_for_mrr_2">30</output><label for="slider_for_mrr_2">$</label></td>
 </tr>
 <tr>
 <td align="right"><img src="cisco.png" align="center" width="30" height="15"><select><option>Cisco CPE</option><option>cisco800, $400</option><option>ASR1100, $500</option></select><input id ="cisco_cpe_cb" type="checkbox" checked onchange="setcisco()"></td>
@@ -257,6 +271,7 @@ table td {
 <td align="center"><input type ="number" id ="cisco_cpe_tb_8" readonly><input id ="cisco_cpe_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cisco_cpe_tb_9" readonly><input id ="cisco_cpe_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cisco_cpe_tb_10" readonly><input id ="cisco_cpe_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="40" step = "1"  style="width : 4em" id="slider_for_mrr_1" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_1" id="volume_for_slider_for_mrr_1">40</output><label for="slider_for_mrr_1">$</label></td>
 </tr>
 <tr>
 <td align="right">Routing</td>
@@ -270,6 +285,7 @@ table td {
 <td align="center"><input type ="text" id ="routing8" readonly></td>
 <td align="center"><input type ="text" id ="routing9" readonly></td>
 <td align="center"><input type ="text" id ="routing10" readonly></td>
+<td></td>
 </tr>
 <tr>
 <td align="right">Meraki</td>
@@ -283,6 +299,7 @@ table td {
 <td align="center"><input type ="text" id ="meraki8" readonly></td>
 <td align="center"><input type ="text" id ="meraki9" readonly></td>
 <td align="center"><input type ="text" id ="meraki10" readonly></td>
+<td></td>
 </tr>
 <tr>
 <td align="right">Wireless</td>
@@ -296,9 +313,10 @@ table td {
 <td align="center"><input type ="text" id ="wireless8" readonly></td>
 <td align="center"><input type ="text" id ="wireless9" readonly></td>
 <td align="center"><input type ="text" id ="wireless10" readonly></td>
+<td></td>
 </tr>
 <tr>
-<td align="center" style="color: #3CBC8D" colspan="12">COLLABORATION</td>
+<td align="center" style="color: #3CBC8D" colspan="13">COLLABORATION</td>
 </tr>
 <tr>
 <td align="right"><img src="ciscospark.png" align="center" width="40" height="15"><select><option>Cisco Spark for SP</option><option>call, $3 pupm</option><option>call+message, $5 pupm</option><option>call+message+meet, $7 pupm</option></select><input id ="spark_cb" type="checkbox" checked onchange="setciscospark()"></td>
@@ -312,6 +330,7 @@ table td {
 <td align="center"><input type ="number" id ="spark_tb_8" readonly><input id ="spark_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="spark_tb_9" readonly><input id ="spark_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="spark_tb_10" readonly><input id ="spark_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="3" step = "1"  style="width : 4em" id="slider_for_mrr_1" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_1" id="volume_for_slider_for_mrr_1">3</output><label for="slider_for_mrr_1">$</label></td>
 </tr>
 <tr>
 <td align="right"><img src="3pcc.png" align="center" width="60" height="20"><select><option>3rd party call control</option><option>broadsoft</option><option>asteriks</option><option>metaswitch</option><option>centille</option><option>7811, $41</option><option>7821, $54</option><option>7841, $77</option><option>7861, $83</option><option>8811, $104</option><option>8841, $108</option><option>8845, $129</option><option>8851, $150</option><option>8861, $160</option><option>8865, $170</option><option>cloud provisioning</option></select><input id ="3pcc_cb" type="checkbox" checked onchange="set3pcc()"></td>
@@ -325,6 +344,7 @@ table td {
 <td align="center"><input type ="number" id ="3pcc_tb_8" readonly><input id ="3pcc_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="3pcc_tb_9" readonly><input id ="3pcc_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="3pcc_tb_10" readonly><input id ="3pcc_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="3" step = "1"  style="width : 4em" id="slider_for_mrr_1" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_1" id="volume_for_slider_for_mrr_1">3</output><label for="slider_for_mrr_1">$</label></td>
 </tr>
 <tr>
 <td align="right"><img src="sb.png" align="center" width="40" height="20"><select><option>Spark Board for CEO office</option><option>spark board 55, $4k</option><option>sparkboard 70, $7.5k</option></select><input id ="sb_cb" type="checkbox" checked onchange="setsb()"></td>
@@ -338,6 +358,7 @@ table td {
 <td align="center"><input type ="number" id ="sb_tb_8" readonly><input id ="sb_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="sb_tb_9" readonly><input id ="sb_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="sb_tb_10" readonly><input id ="sb_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="300" step = "1"  style="width : 4em" id="slider_for_mrr_1" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_1" id="volume_for_slider_for_mrr_1">300</output><label for="slider_for_mrr_1">$</label></td>
 </tr>
 <tr>
 <td align="right">Collaboration</td>
@@ -351,9 +372,10 @@ table td {
 <td align="center"><input type ="text" id ="collaboration8" readonly></td>
 <td align="center"><input type ="text" id ="collaboration9" readonly></td>
 <td align="center"><input type ="text" id ="collaboration10" readonly></td>
+<td></td>
 </tr>
 <tr>
-<td align="center" style="color: #3CBC8D" colspan="12">SECURITY</td>
+<td align="center" style="color: #3CBC8D" colspan="13">SECURITY</td>
 </tr>
 <tr>
 <td align="right"><img src="ciscoumbrella.png" align="center" width="40" height="10"><select><option>Cisco Umbrella for SP</option><option>circuit attach, $.6</option><option>mobile</option><option>mssp, $1.8</option><option>roaming, $1.86</option><option>proffesional, $3.26</option><option>insight, $4.88</option><option>Platform, $5.34</option><option>4221, $16</option><option>4321, $28.26</option><option>4331, $36.66</option><option>4351, $73.5</option><option>4431, $100</option><option>4451, $160</option><option>wlan, $20.8</option></select><input id ="umbrella_cb" type="checkbox" checked onchange="setciscoumbrella()"></td>
@@ -367,6 +389,7 @@ table td {
 <td align="center"><input type ="number" id ="umbrella_tb_8" readonly><input id ="umbrella_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="umbrella_tb_9" readonly><input id ="umbrella_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="umbrella_tb_10" readonly><input id ="umbrella_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="1" step = "1"  style="width : 4em" id="slider_for_mrr_1" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_1" id="volume_for_slider_for_mrr_1">1</output><label for="slider_for_mrr_1">$</label></td>
 </tr>
 <tr>
 <td align="right"><img src="cloudlock.png" align="center" width="40" height="10"><select><option>Cisco CloudLock</option><option>1 cloud service, $430 user/month</option><option>2 cloud services $533 user/month</option><option>3 cloud services $600 user/month</option><option>4 cloud services $633 user/month</option><option>5 cloud services $666 user/month</option><option>6 cloud services $700 user/month</option><option>7 cloud services $733 user/month</option>></select><input id ="cloudlock_cb" type="checkbox" checked onchange="setcloudlock()"></td>
@@ -380,10 +403,11 @@ table td {
 <td align="center"><input type ="number" id ="cloudlock_tb_8" readonly><input id ="cloudlock_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cloudlock_tb_9" readonly><input id ="cloudlock_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cloudlock_tb_10" readonly><input id ="cloudlock_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_mrr_2" oninput="slider_change_for_mrr_2(value)"><output for="slider_for_mrr_2" id="volume_for_slider_for_mrr_2">2</output><label for="slider_for_mrr_2">$</label></td>
 </tr>
 <tr>
 <td align="right"><img src="ciscosnort.png" align="center" width="25" height="15"><select><option>Cloud UTD</option><option>vpn, $2 ptpm</option><option>firewall, $2 ptpm</option><option>ips snort, $2 ptpm</option><option>url filtering, $2 ptpm</option></select><input id ="utd_cb" type="checkbox" checked onchange="setcloudutd()"></td>
-<td align="center"><input type ="number" id ="utd_tb_1" readonly><input id ="utd_cb_1" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="utd_tb_1" readonly>430<input id ="utd_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="utd_tb_2" readonly><input id ="utd_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="utd_tb_3" readonly><input id ="utd_cb_3" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="utd_tb_4" readonly><input id ="utd_cb_4" type="checkbox" checked onchange="calculate()"></td>
@@ -393,6 +417,7 @@ table td {
 <td align="center"><input type ="number" id ="utd_tb_8" readonly><input id ="utd_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="utd_tb_9" readonly><input id ="utd_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="utd_tb_10" readonly><input id ="utd_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_mrr_3" oninput="slider_change_for_mrr_3(value)"><output for="slider_for_mrr_3" id="volume_for_slider_for_mrr_3">2</output><label for="slider_for_mrr_3">$</label></td>
 </tr>
 <tr>
 <td align="right"><img src="ampforsp.png" align="center" width="60" height="15"><select><option>AMP for SP</option><input id ="azure_cb" type="checkbox" checked onchange="setazure()"></td>
@@ -406,6 +431,7 @@ table td {
 <td align="center"><input type ="number" id ="azure_tb_8" readonly><input id ="azure_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="azure_tb_9" readonly><input id ="azure_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="azure_tb_10" readonly><input id ="azure_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_mrr_4" oninput="slider_change_for_mrr_4(value)"><output for="slider_for_mrr_4" id="volume_for_slider_for_mrr_4">2</output><label for="slider_for_mrr_4">$</label></td>
 </tr>
 <tr>
 <td align="right">Security</td>
@@ -419,90 +445,97 @@ table td {
 <td align="center"><input type ="text" id ="security8" readonly></td>
 <td align="center"><input type ="text" id ="security9" readonly></td>
 <td align="center"><input type ="text" id ="security10" readonly></td>
+<td></td>
 </tr>
 <tr>
-<td align="center" style="color: #3CBC8D" colspan="12">DATA CENTER</td>
+<td align="center" style="color: #3CBC8D" colspan="13">DATA CENTER</td>
 </tr>
 <tr>
-<td align="right"><img src="hyperflex.png" align="center" width="60" height="15"><select><option>Cisco Storage</option><option>S3260-84TB, $17k ($200/TB)</option><option>HyperFlex Edge 3-node 21TB, $42k ($2k/TB)</option><option>HyperFlex 3-node 21TB, $61k ($3k/TB)</option><option>VMWare VSAN 2 nodes</option><option>Microsoft Storage spaces</option></select><input id ="storage_cb" checked type="checkbox" onchange="setstorage()"></td>
-<td align="center"><input type ="number" id ="storage_tb_1" readonly><input id ="storage_cb_1" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="storage_tb_2" readonly><input id ="storage_cb_2" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="storage_tb_3" readonly><input id ="storage_cb_3" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="storage_tb_4" readonly><input id ="storage_cb_4" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="storage_tb_5" readonly><input id ="storage_cb_5" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="storage_tb_6" readonly><input id ="storage_cb_6" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="storage_tb_7" readonly><input id ="storage_cb_7" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="storage_tb_8" readonly><input id ="storage_cb_8" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="storage_tb_9" readonly><input id ="storage_cb_9" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="storage_tb_10" readonly><input id ="storage_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="right"><img src="hyperflex.png" align="center" width="60" height="15"><select><option>Cisco Storage</option><option>S3260-84TB, $17k ($200/TB)</option><option>HyperFlex Edge 3-node 21TB, $42k ($2k/TB)</option><option>HyperFlex 3-node 21TB, $61k ($3k/TB)</option><option>VMWare VSAN 2 nodes</option><option>Microsoft Storage spaces</option></select><input id ="storage_cb" type="checkbox" onchange="setstorage()"></td>
+<td align="center"><input type ="number" id ="storage_tb_1" readonly><input id ="storage_cb_1" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="storage_tb_2" readonly><input id ="storage_cb_2" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="storage_tb_3" readonly><input id ="storage_cb_3" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="storage_tb_4" readonly><input id ="storage_cb_4" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="storage_tb_5" readonly><input id ="storage_cb_5" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="storage_tb_6" readonly><input id ="storage_cb_6" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="storage_tb_7" readonly><input id ="storage_cb_7" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="storage_tb_8" readonly><input id ="storage_cb_8" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="storage_tb_9" readonly><input id ="storage_cb_9" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="storage_tb_10" readonly><input id ="storage_cb_10" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="16" step = "1"  style="width : 4em" id="slider_for_mrr_5" oninput="slider_change_for_mrr_5(value)"><output for="slider_for_mrr_5" id="volume_for_slider_for_mrr_5">16</output><label for="slider_for_mrr_5">$</label></td>
 </tr>
 <tr>
-<td align="right"><img src="ciscogoogle.png" align="center" width="40" height="20"><select><option>hybrid cloud</option><option>Microsoft Azure Small 4-node w 256GB RAM, 125k</option><option>Microsoft Azure medium 8-node w 512GB RAM, 245k</option><option>VMWare 2 nodes</option><option>Openstack 3 nodes</option><option>Google Kubernetes 3 nodes</option></select><input id ="virt_cb" type="checkbox" checked onchange="setvirtualization()"></td>
-<td align="center"><input type ="number" id ="virt_tb_1" readonly><input id ="virt_cb_1" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="virt_tb_2" readonly><input id ="virt_cb_2" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="virt_tb_3" readonly><input id ="virt_cb_3" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="virt_tb_4" readonly><input id ="virt_cb_4" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="virt_tb_5" readonly><input id ="virt_cb_5" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="virt_tb_6" readonly><input id ="virt_cb_6" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="virt_tb_7" readonly><input id ="virt_cb_7" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="virt_tb_8" readonly><input id ="virt_cb_8" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="virt_tb_9" readonly><input id ="virt_cb_9" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="virt_tb_10" readonly><input id ="virt_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="right"><img src="ciscogoogle.png" align="center" width="40" height="20"><select><option>hybrid cloud</option><option>Microsoft Azure Small 4-node w 256GB RAM, 125k</option><option>Microsoft Azure medium 8-node w 512GB RAM, 245k</option><option>VMWare 2 nodes</option><option>Openstack 3 nodes</option><option>Google Kubernetes 3 nodes</option></select><input id ="virt_cb" type="checkbox" onchange="setvirtualization()"></td>
+<td align="center"><input type ="number" id ="virt_tb_1" readonly><input id ="virt_cb_1" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="virt_tb_2" readonly><input id ="virt_cb_2" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="virt_tb_3" readonly><input id ="virt_cb_3" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="virt_tb_4" readonly><input id ="virt_cb_4" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="virt_tb_5" readonly><input id ="virt_cb_5" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="virt_tb_6" readonly><input id ="virt_cb_6" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="virt_tb_7" readonly><input id ="virt_cb_7" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="virt_tb_8" readonly><input id ="virt_cb_8" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="virt_tb_9" readonly><input id ="virt_cb_9" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="virt_tb_10" readonly><input id ="virt_cb_10" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="166" step = "1"  style="width : 4em" id="slider_for_mrr_6" oninput="slider_change_for_mrr_6(value)"><output for="slider_for_mrr_6" id="volume_for_slider_for_mrr_6">166</output><label for="slider_for_mrr_6">$</label></td>
 </tr>
 <tr>
-<td align="right"><img src="cliqr.png" align="center" width="40" height="20"><select><option>cloud management</option><option>UCS Director</option><option>Cloud Center</option><option>InterSight</option></select><input id ="orch_cb" type="checkbox" checked onchange="setcloudmanagement()"></td>
-<td align="center"><input type ="number" id ="orch_tb_1" readonly><input id ="orch_cb_1" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="orch_tb_2" readonly><input id ="orch_cb_2" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="orch_tb_3" readonly><input id ="orch_cb_3" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="orch_tb_4" readonly><input id ="orch_cb_4" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="orch_tb_5" readonly><input id ="orch_cb_5" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="orch_tb_6" readonly><input id ="orch_cb_6" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="orch_tb_7" readonly><input id ="orch_cb_7" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="orch_tb_8" readonly><input id ="orch_cb_8" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="orch_tb_9" readonly><input id ="orch_cb_9" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="orch_tb_10" readonly><input id ="orch_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="right"><img src="cliqr.png" align="center" width="40" height="20"><select><option>cloud management</option><option>UCS Director</option><option>Cloud Center</option><option>InterSight</option></select><input id ="orch_cb" type="checkbox" onchange="setcloudmanagement()"></td>
+<td align="center"><input type ="number" id ="orch_tb_1" readonly><input id ="orch_cb_1" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="orch_tb_2" readonly><input id ="orch_cb_2" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="orch_tb_3" readonly><input id ="orch_cb_3" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="orch_tb_4" readonly><input id ="orch_cb_4" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="orch_tb_5" readonly><input id ="orch_cb_5" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="orch_tb_6" readonly><input id ="orch_cb_6" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="orch_tb_7" readonly><input id ="orch_cb_7" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="orch_tb_8" readonly><input id ="orch_cb_8" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="orch_tb_9" readonly><input id ="orch_cb_9" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="orch_tb_10" readonly><input id ="orch_cb_10" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="125" step = "1"  style="width : 4em" id="slider_for_mrr_7" oninput="slider_change_for_mrr_7(value)"><output for="slider_for_mrr_7" id="volume_for_slider_for_mrr_7">125</output><label for="slider_for_mrr_7">$</label></td>
 </tr>
 <tr>
-<td align="center" style="color: #3CBC8D" colspan="12">Analytics - unsupervised machine learning</td>
+<td align="center" style="color: #3CBC8D" colspan="13">Analytics - unsupervised machine learning</td>
 </tr>
 <tr>
-<td align="right"><img src="cmx-cloud.png" align="center" width="60" height="40"><select><option>CMX Cloud SaaS WIFI Analytics</option><option>cmx connect, $6  pappm</option><option>cmx + presence, $8 pappm</option><option>cmx engage, $8 pappm</option><option>cmx engage advanced, $43 pappm</option><option>cmx beacoun center</option></select><input id ="cmx_cb" type="checkbox" checked onchange="setwifi()"></td>
-<td align="center"><input type ="number" id ="cmx_tb_1" readonly><input id ="cmx_cb_1" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="cmx_tb_2" readonly><input id ="cmx_cb_2" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="cmx_tb_3" readonly><input id ="cmx_cb_3" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="cmx_tb_4" readonly><input id ="cmx_cb_4" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="cmx_tb_5" readonly><input id ="cmx_cb_5" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="cmx_tb_6" readonly><input id ="cmx_cb_6" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="cmx_tb_7" readonly><input id ="cmx_cb_7" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="cmx_tb_8" readonly><input id ="cmx_cb_8" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="cmx_tb_9" readonly><input id ="cmx_cb_9" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="cmx_tb_10" readonly><input id ="cmx_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="right"><img src="cmx-cloud.png" align="center" width="60" height="40"><select><option>CMX Cloud SaaS WIFI Analytics</option><option>cmx connect, $6  pappm</option><option>cmx + presence, $8 pappm</option><option>cmx engage, $8 pappm</option><option>cmx engage advanced, $43 pappm</option><option>cmx beacoun center</option></select><input id ="cmx_cb" type="checkbox" onchange="setwifi()"></td>
+<td align="center"><input type ="number" id ="cmx_tb_1" readonly><input id ="cmx_cb_1" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="cmx_tb_2" readonly><input id ="cmx_cb_2" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="cmx_tb_3" readonly><input id ="cmx_cb_3" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="cmx_tb_4" readonly><input id ="cmx_cb_4" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="cmx_tb_5" readonly><input id ="cmx_cb_5" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="cmx_tb_6" readonly><input id ="cmx_cb_6" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="cmx_tb_7" readonly><input id ="cmx_cb_7" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="cmx_tb_8" readonly><input id ="cmx_cb_8" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="cmx_tb_9" readonly><input id ="cmx_cb_9" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="cmx_tb_10" readonly><input id ="cmx_cb_10" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="6" step = "1"  style="width : 4em" id="slider_for_mrr_8" oninput="slider_change_for_mrr_8(value)"><output for="slider_for_mrr_8" id="volume_for_slider_for_mrr_8">6</output><label for="slider_for_mrr_8">$</label></td>
 </tr>
 <tr>
-<td align="right"><img src="tetrationanalytics.png" align="center" width="60" height="40"><select><option>Tetration Analytics</option><option>TA Small (Virtual) 40k</option><option>TA Medium 8 RU 440k</option><option>TA Large 39RU 1Mil</option></select><input id ="ta_cb" type="checkbox" checked onchange="settetration()"></td>
-<td align="center"><input type ="number" id ="ta_tb_1" readonly><input id ="ta_cb_1" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="ta_tb_2" readonly><input id ="ta_cb_2" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="ta_tb_3" readonly><input id ="ta_cb_3" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="ta_tb_4" readonly><input id ="ta_cb_4" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="ta_tb_5" readonly><input id ="ta_cb_5" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="ta_tb_6" readonly><input id ="ta_cb_6" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="ta_tb_7" readonly><input id ="ta_cb_7" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="ta_tb_8" readonly><input id ="ta_cb_8" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="ta_tb_9" readonly><input id ="ta_cb_9" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="ta_tb_10" readonly><input id ="ta_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="right"><img src="tetrationanalytics.png" align="center" width="60" height="40"><select><option>Tetration Analytics</option><option>TA Small (Virtual) 40k</option><option>TA Medium 8 RU 440k</option><option>TA Large 39RU 1Mil</option></select><input id ="ta_cb" type="checkbox" onchange="settetration()"></td>
+<td align="center"><input type ="number" id ="ta_tb_1" readonly><input id ="ta_cb_1" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="ta_tb_2" readonly><input id ="ta_cb_2" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="ta_tb_3" readonly><input id ="ta_cb_3" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="ta_tb_4" readonly><input id ="ta_cb_4" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="ta_tb_5" readonly><input id ="ta_cb_5" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="ta_tb_6" readonly><input id ="ta_cb_6" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="ta_tb_7" readonly><input id ="ta_cb_7" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="ta_tb_8" readonly><input id ="ta_cb_8" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="ta_tb_9" readonly><input id ="ta_cb_9" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="ta_tb_10" readonly><input id ="ta_cb_10" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="33" step = "1"  style="width : 4em" id="slider_for_mrr_9" oninput="slider_change_for_mrr_9(value)"><output for="slider_for_mrr_9" id="volume_for_slider_for_mrr_9">33</output><label for="slider_for_mrr_9">$</label></td>
 </tr>
 <tr>
-<td align="right"><img src="apic.png" align="center" width="40" height="20"><select><option>ACI</option><option>Single/Stretched fixed baby spine 75k</option><option>Single/Stretched fixed spine 125k</option><option>MultiPod fixed baby spine 150k</option><option>MultiPod modular spine 254k</option><option>Multi Site</option></select><input id ="aci_cb" type="checkbox" checked onchange="setaci()"></td>
-<td align="center"><input type ="number" id ="aci_tb_1" readonly><input id ="aci_cb_1" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_2" readonly><input id ="aci_cb_2" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_3" readonly><input id ="aci_cb_3" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_4" readonly><input id ="aci_cb_4" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_5" readonly><input id ="aci_cb_5" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_6" readonly><input id ="aci_cb_6" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_7" readonly><input id ="aci_cb_7" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_8" readonly><input id ="aci_cb_8" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_9" readonly><input id ="aci_cb_9" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type ="number" id ="aci_tb_10" readonly><input id ="aci_cb_10" type="checkbox" checked onchange="calculate()"></td>
+<td align="right"><img src="apic.png" align="center" width="40" height="20"><select><option>ACI</option><option>Single/Stretched fixed baby spine 75k</option><option>Single/Stretched fixed spine 125k</option><option>MultiPod fixed baby spine 150k</option><option>MultiPod modular spine 254k</option><option>Multi Site</option></select><input id ="aci_cb" type="checkbox" onchange="setaci()"></td>
+<td align="center"><input type ="number" id ="aci_tb_1" readonly><input id ="aci_cb_1" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_2" readonly><input id ="aci_cb_2" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_3" readonly><input id ="aci_cb_3" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_4" readonly><input id ="aci_cb_4" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_5" readonly><input id ="aci_cb_5" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_6" readonly><input id ="aci_cb_6" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_7" readonly><input id ="aci_cb_7" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_8" readonly><input id ="aci_cb_8" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_9" readonly><input id ="aci_cb_9" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type ="number" id ="aci_tb_10" readonly><input id ="aci_cb_10" type="checkbox" onchange="calculate()"></td>
+<td align="center"><input type="range" min="0" max="100" value="32" step = "1"  style="width : 4em" id="slider_for_mrr_10" oninput="slider_change_for_mrr_10(value)"><output for="slider_for_mrr_10" id="volume_for_slider_for_mrr_10">32</output><label for="slider_for_mrr_10">$</label></td>
 </tr>
 <tr>
 <td align="right">Data Center</td>
@@ -516,6 +549,7 @@ table td {
 <td align="center"><input type ="text" id ="datacenter8" readonly></td>
 <td align="center"><input type ="text" id ="datacenter9" readonly></td>
 <td align="center"><input type ="text" id ="datacenter10" readonly></td>
+<td></td>
 </tr>
 <tr>
 <td align="right">Year 1 (Mil)</td>
@@ -529,12 +563,13 @@ table td {
 <td align="center"><input type ="number" step="any" id ="008" readonly></td>
 <td align="center"><input type ="number" step="any" id ="009" readonly></td>
 <td align="center"><input type ="number" step="any" id ="010" readonly></td>
+<td></td>
 </tr>
 <tr>
 <td align="right">Year 1 (Mil)</td>
 <td colspan="4"><input type ="text" style="font-size: 47pt; width:100%; color: #3CBC8D;text-align:center" id ="000" readonly></td>
 <td></td>
-<td colspan="2">
+<td colspan="3">
 <input type="range" min="1" max="100" value="2" step = "1"  style="width : 10em" id="pen" oninput="sliderforpen(value)"><output for="penslider" id="volumeforpen" style="color: #3CBC8D">2</output><label for="penslider" align="left" style="color: #3CBC8D">%</label>
 </table>
 
@@ -1213,8 +1248,47 @@ function slider_change_for_small_10(vol) {
         calculate();
 }
 
+function slider_change_for_mrr_1(vol) {
+        document.querySelector('#volume_for_slider_for_mrr_1').value = vol;
+        calculate();
+}
 
-
+function slider_change_for_mrr_12(vol) {
+        document.querySelector('#volume_for_slider_for_mrr_2').value = vol;
+        calculate();
+}
+function slider_change_for_mrr_3(vol) {
+        document.querySelector('#volume_for_slider_for_mrr_3').value = vol;
+        calculate();
+}
+function slider_change_for_mrr_4(vol) {
+        document.querySelector('#volume_for_slider_for_mrr_4').value = vol;
+        calculate();
+}
+function slider_change_for_mrr_5(vol) {
+        document.querySelector('#volume_for_slider_for_mrr_5').value = vol;
+        calculate();
+}
+function slider_change_for_mrr_6(vol) {
+        document.querySelector('#volume_for_slider_for_mrr_6').value = vol;
+        calculate();
+}
+function slider_change_for_mrr_7(vol) {
+        document.querySelector('#volume_for_slider_for_mrr_7').value = vol;
+        calculate();
+}
+function slider_change_for_mrr_8(vol) {
+        document.querySelector('#volume_for_slider_for_mrr_8').value = vol;
+        calculate();
+}
+function slider_change_for_mrr_9(vol) {
+        document.querySelector('#volume_for_slider_for_mrr_9').value = vol;
+        calculate();
+}
+function slider_change_for_mrr_10(vol) {
+        document.querySelector('#volume_for_slider_for_mrr_10').value = vol;
+        calculate();
+}
 function calculate(){
 
 var data=[[133572, 609669,7956759,8700000],[302456,1380515, 18017028,19700000],[4112,18766,425995,5415949],[10847,42588,1062697,10513800],[2002,7081,182454,2061963],[29280,148002,4055946,38502396],[4201,22432,298559,7282041],[2084,9127,74448,7181506],[1071,24247,1,3791622],[4773,29104,645370,890600]];
