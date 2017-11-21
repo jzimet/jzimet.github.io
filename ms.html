@@ -1783,7 +1783,7 @@ function slider_change_for_mrr_17(vol) {
 }
 function calculate(){
 
-var data=[[6941, 38247, 575835,8500000],[302456,1380515, 18017028,19700000],[4112,18766,425995,5415949],[10847,42588,1062697,10513800],[2002,7081,182454,2061963],[29280,148002,4055946,38502396],[4201,22432,298559,7282041],[2084,9127,74448,7181506],[1071,24247,1,3791622],[4773,29104,645370,890600]];
+var data=[[6941, 38247, 575835,8500000],[6674,35069, 835328,18700000],[4112,18766,425995,5415949],[10847,42588,1062697,10513800],[2002,7081,182454,2061963],[29280,148002,4055946,38502396],[4201,22432,298559,7282041],[2084,9127,74448,7181506],[1071,24247,1,3791622],[4773,29104,645370,890600]];
 
 var routing2017=[4047012, 3405263, 373772, 943327, 162267, 1938743, 52483, 292660, 213535914911, 1282187, 168364,0];
 var collaboration2017=[1808391, 582506, 166582, 60937, 201475, 954265, 1460, 68925, 0, 792078, 854269, 20227, 0];
@@ -2229,24 +2229,24 @@ polwifi_mrr=poll*Number(document.getElementById("slider_for_mrr_16").value)*Numb
 poltetration=poll*tetration*Number(document.getElementById("ta_cb_6").checked);
 poltetration_mrr=poll*Number(document.getElementById("slider_for_mrr_17").value)*Number(document.getElementById("ta_cb_6").checked);
 poltotal=polmeraki+polviptela+polcisco+polhcs+polipt+polumbrella+polcloudutd+polsb+polstorage+polamp+poltetration+polcloudwebsecurity+polwifi+polvirtualization+polcloudmanagement+polcloudlock+polhss;
-document.getElementById("meraki_tb_6").value=(polmeraki/1000000).toFixed(2);
-document.getElementById("viptela_tb_6").value=(polviptela/1000000).toFixed(2);
-document.getElementById("cisco_cpe_tb_6").value=(polcisco/1000000).toFixed(2);
-document.getElementById("spark_tb_6").value=(polhcs/1000000).toFixed(2);
-document.getElementById("3pcc_tb_6").value=(polipt/1000000).toFixed(2);
-document.getElementById("umbrella_tb_6").value=(polumbrella/1000000).toFixed(2);
-document.getElementById("cloudlock_tb_6").value=(polcloudlock/1000000).toFixed(2);
-document.getElementById("utd_tb_6").value=(polcloudutd/1000000).toFixed(2);
-document.getElementById("hss_tb_6").value=(polhss/1000000).toFixed(2);
-document.getElementById("sb_tb_6").value=(polsb/1000000).toFixed(2);
-document.getElementById("storage_tb_6").value=(polstorage/1000000).toFixed(2);
-document.getElementById("azure_tb_6").value=(polamp/1000000).toFixed(2);
-document.getElementById("ta_tb_6").value=(poltetration/1000000).toFixed(2);
-document.getElementById("aci_tb_6").value=(polcloudwebsecurity/1000000).toFixed(2);
-document.getElementById("cmx_tb_6").value=(polwifi/1000000).toFixed(2);
-document.getElementById("virt_tb_6").value=(polvirtualization/1000000).toFixed(2);
-document.getElementById("orch_tb_6").value=(polcloudmanagement/1000000).toFixed(2);
-document.getElementById("006").value=(poltotal/1000000).toFixed(2);
+document.getElementById("meraki_tb_6").value=(slomeraki/1000000).toFixed(2);
+document.getElementById("viptela_tb_6").value=(sloviptela/1000000).toFixed(2);
+document.getElementById("cisco_cpe_tb_6").value=(slocisco/1000000).toFixed(2);
+document.getElementById("spark_tb_6").value=(slohcs/1000000).toFixed(2);
+document.getElementById("3pcc_tb_6").value=(sloipt/1000000).toFixed(2);
+document.getElementById("umbrella_tb_6").value=(sloumbrella/1000000).toFixed(2);
+document.getElementById("cloudlock_tb_6").value=(slocloudlock/1000000).toFixed(2);
+document.getElementById("utd_tb_6").value=(slocloudutd/1000000).toFixed(2);
+document.getElementById("hss_tb_6").value=(slohss/1000000).toFixed(2);
+document.getElementById("sb_tb_6").value=(slosb/1000000).toFixed(2);
+document.getElementById("storage_tb_6").value=(slostorage/1000000).toFixed(2);
+document.getElementById("azure_tb_6").value=(sloamp/1000000).toFixed(2);
+document.getElementById("ta_tb_6").value=(slotetration/1000000).toFixed(2);
+document.getElementById("aci_tb_6").value=(slocloudwebsecurity/1000000).toFixed(2);
+document.getElementById("cmx_tb_6").value=(slowifi/1000000).toFixed(2);
+document.getElementById("virt_tb_6").value=(slovirtualization/1000000).toFixed(2);
+document.getElementById("orch_tb_6").value=(slocloudmanagement/1000000).toFixed(2);
+document.getElementById("006").value=(slototal/1000000).toFixed(2);
 
 
 bull=(data[6][0]*Number(document.getElementById("slider_for_large_7").value)/100);
@@ -2480,7 +2480,7 @@ document.getElementById("virt_tb_10").value=(hunvirtualization/1000000).toFixed(
 document.getElementById("orch_tb_10").value=(huncloudmanagement/1000000).toFixed(2);
 document.getElementById("010").value=(huntotal/1000000).toFixed(2);
 
-total=huntotal+bihtotal+srbtotal+bultotal+poltotal+czetotal+svktotal+attotal+romtotal;
+total=huntotal+bihtotal+srbtotal+bultotal+poltotal+slototal+czetotal+svktotal+attotal+romtotal;
 document.getElementById("000").value=(total/1000000).toFixed(2);
 mrr_meraki=atmeraki_mrr+rommeraki_mrr+svkmeraki_mrr+czemeraki_mrr+slomeraki_mrr+polmeraki_mrr+bulmeraki_mrr+srbmeraki_mrr+bihmeraki_mrr+hunmeraki_mrr;
 mrr_viptela=atviptela_mrr+romviptela_mrr+svkviptela_mrr+czeviptela_mrr+sloviptela_mrr+polviptela_mrr+bulviptela_mrr+srbviptela_mrr+bihviptela_mrr+hunviptela_mrr;
