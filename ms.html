@@ -232,7 +232,7 @@ table td {
 <td align="center" style="color: #0000FF" colspan="13"><img src="superman.png" align="center" width="30" height="20">ROUTING</td>
 </tr>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="meraki.png" align="center" width="40" height="15"><select id="meraki_drop_down" onchange="calculate()"><option>Meraki CPE</option><option>Z1,$200</option><option>MR33,$400</option><option>MR42,$700</option><option>MR52,$900</option><option>MX64, $500</option><option>MX64-sec, $800</option></select><input type="radio" name ="meraki_cpe_size" checked disabled>S<input type="radio" name="meraki_cpe_size" disabled>M<input type="radio" name ="meraki_cpe_size" disabled>L<input id ="meraki_cb" type="checkbox" checked onchange="setmeraki()"></td>
+<td align="right"><a href ="https://jzimet.github.io/meraki.pdf"><img src="xls.png" align="center" width="20" height="20"></a><img src="meraki.png" align="center" width="40" height="15"><select id="meraki_drop_down" onchange="calculate()"><option>Meraki CPE</option><option>Z1,$37 month</option><option>MR33,$66/month</option><option>MR42,$104/month</option><option>MR52,$129/month</option><option>MX64, $74/month</option><option>MX64-sec, $99/month</option></select><input type="radio" name ="meraki_cpe_size" checked disabled>S<input type="radio" name="meraki_cpe_size" disabled>M<input type="radio" name ="meraki_cpe_size" disabled>L<input id ="meraki_cb" type="checkbox" checked onchange="setmeraki()"></td>
 <td align="center"><input type ="text" id ="meraki_tb_1" readonly><input id ="meraki_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="meraki_tb_2" readonly><input id ="meraki_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="meraki_tb_3" readonly><input id ="meraki_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -243,10 +243,10 @@ table td {
 <td align="center"><input type ="number" id ="meraki_tb_8" readonly><input id ="meraki_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="meraki_tb_9" readonly><input id ="meraki_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="meraki_tb_10" readonly><input id ="meraki_cb_10" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type="range" min="0" max="100" value="15" step = "1"  style="width : 4em" id="slider_for_mrr_1" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_1" id="volume_for_slider_for_mrr_1">15</output><label for="slider_for_mrr_1">$</label></td>
+<td align="center"><input type="range" min="0" max="100" value="37" step = "1"  style="width : 4em" id="slider_for_mrr_1" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_1" id="volume_for_slider_for_mrr_1">37</output><label for="slider_for_mrr_1">$</label></td>
 </tr>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="viptela.png" align="center" width="40" height="15"><select id="viptela_drop_down" onchange="calculate()"><option>Viptela CPE</option><option>vedge100, $300</option><option>vedge1000, $400</option><option>vedge2000, $500</option></select><input type="radio" name="viptela_size" disabled>S<input type="radio" name = "viptela_size" checked disabled>M<input type="radio" name="viptela_size" disabled>L<input id ="viptela_cb" type="checkbox" checked onchange="setviptela()"></td>
+<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="viptela.png" align="center" width="40" height="15"><select id="viptela_drop_down" onchange="calculate()"><option>Viptela CPE</option><option>vedge100, $172/month</option><option>vedge1000 $300/month</option><option>vedge2000 $500/month</option><option>vedge cloud $340/month</option></select><input type="radio" name="viptela_size" disabled>S<input type="radio" name = "viptela_size" checked disabled>M<input type="radio" name="viptela_size" disabled>L<input id ="viptela_cb" type="checkbox" checked onchange="setviptela()"></td>
 <td align="center"><input type ="number" id ="viptela_tb_1" readonly><input id ="viptela_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="viptela_tb_2" readonly><input id ="viptela_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="viptela_tb_3" readonly><input id ="viptela_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -257,10 +257,10 @@ table td {
 <td align="center"><input type ="number" id ="viptela_tb_8" readonly><input id ="viptela_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="viptela_tb_9" readonly><input id ="viptela_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="viptela_tb_10" readonly><input id ="viptela_cb_10" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type="range" min="0" max="100" value="25" step = "1"  style="width : 4em" id="slider_for_mrr_2" oninput="slider_change_for_mrr_2(value)"><output for="slider_for_mrr_2" id="volume_for_slider_for_mrr_2">25</output><label for="slider_for_mrr_2">$</label></td>
+<td align="center"><input type="range" min="0" max="100" value="172" step = "1"  style="width : 4em" id="slider_for_mrr_2" oninput="slider_change_for_mrr_2(value)"><output for="slider_for_mrr_2" id="volume_for_slider_for_mrr_2">172</output><label for="slider_for_mrr_2">$</label></td>
 </tr>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="cisco.png" align="center" width="30" height="15"><select id="cisco_drop_down" onchange="calculate()"><option>Cisco CPE</option><option>rv340, $400</option><option>cisco881, $800</option><option>ISR1100, $1000</option><option>ISR1941, $2500</option><option>ISR4321, $4500</select><input type="radio" name="cisco_cpe_size" disabled>S<input type="radio" name = "cisco_cpe_size" disabled>M<input type="radio" name="cisco_cpe_size" checked disabled>L<input id ="cisco_cpe_cb" type="checkbox" checked onchange="setcisco()"></td>
+<td align="right"><a href ="https://jzimet.github.io/cisco_cpe.pdf"><img src="xls.png" align="center" width="20" height="20"></a><img src="cisco.png" align="center" width="30" height="15"><select id="cisco_drop_down" onchange="calculate()"><option>Cisco CPE</option><option>rv340, $39/month</option><option>cisco881, $67/month</option><option>ISR1100, $100/month</option><option>ISR1941, $157/month</option><option>ISR4321, $189/month</select><input type="radio" name="cisco_cpe_size" disabled>S<input type="radio" name = "cisco_cpe_size" disabled>M<input type="radio" name="cisco_cpe_size" checked disabled>L<input id ="cisco_cpe_cb" type="checkbox" checked onchange="setcisco()"></td>
 <td align="center"><input type ="number" id ="cisco_cpe_tb_1" readonly><input id ="cisco_cpe_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cisco_cpe_tb_2" readonly><input id ="cisco_cpe_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cisco_cpe_tb_3" readonly><input id ="cisco_cpe_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -271,7 +271,7 @@ table td {
 <td align="center"><input type ="number" id ="cisco_cpe_tb_8" readonly><input id ="cisco_cpe_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cisco_cpe_tb_9" readonly><input id ="cisco_cpe_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cisco_cpe_tb_10" readonly><input id ="cisco_cpe_cb_10" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type="range" min="0" max="100" value="30" step = "1"  style="width : 4em" id="slider_for_mrr_3" oninput="slider_change_for_mrr_3(value)"><output for="slider_for_mrr_3" id="volume_for_slider_for_mrr_3">30</output><label for="slider_for_mrr_3">$</label></td>
+<td align="center"><input type="range" min="0" max="100" value="39" step = "1"  style="width : 4em" id="slider_for_mrr_3" oninput="slider_change_for_mrr_3(value)"><output for="slider_for_mrr_3" id="volume_for_slider_for_mrr_3">39</output><label for="slider_for_mrr_3">$</label></td>
 </tr>
 <tr>
 <td style="color: #0000FF" align="right">Routing</td>
@@ -319,7 +319,7 @@ table td {
 <td align="center" style="color: #FF1493" colspan="13"><img src="wanderwoman.png" align="center" width="30" height="20">COLLABORATION</td>
 </tr>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="ciscospark.png" align="center" width="40" height="15"><select id="hcs_drop_down" onchange="calculate()"><option>Cisco Spark for SP</option><option>call, $3 pupm</option><option>call+message, $5 pupm</option><option>call+message+meet, $7 pupm</option></select><input type="checkbox" name="spark_s" checked disabled>S<input type="checkbox" name = "spark_m" checked disabled>M<input type="checkbox" name="spark_l" checked disabled>L<input id ="spark_cb" type="checkbox" checked onchange="setciscospark()"></td>
+<td align="right"><a href ="https://jzimet.github.io/sparkflex.pdf"><img src="xls.png" align="center" width="20" height="20"></a><img src="ciscospark.png" align="center" width="40" height="15"><select id="hcs_drop_down" onchange="calculate()"><option>Cisco Spark for SP</option><option>call, $3/month</option><option>m1, $4.5/month</option><option>m3, $12.5/month</option><option>c1, $16.25/month</option><option>c2, $24.25/month</option><option>c3, $24.25/month</select><input type="checkbox" name="spark_s" checked disabled>S<input type="checkbox" name = "spark_m" checked disabled>M<input type="checkbox" name="spark_l" checked disabled>L<input id ="spark_cb" type="checkbox" checked onchange="setciscospark()"></td>
 <td align="center"><input type ="number" id ="spark_tb_1" readonly><input id ="spark_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="spark_tb_2" readonly><input id ="spark_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="spark_tb_3" readonly><input id ="spark_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -333,7 +333,7 @@ table td {
 <td align="center"><input type="range" min="0" max="100" value="3" step = "1"  style="width : 4em" id="slider_for_mrr_4" oninput="slider_change_for_mrr_4(value)"><output for="slider_for_mrr_4" id="volume_for_slider_for_mrr_4">3</output><label for="slider_for_mrr_4">$</label></td>
 </tr>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="3pcc.png" align="center" width="60" height="20"><select id="ipt_drop_down" onchange="calculate()"><option>3rd party call control</option><option>7811, $41</option><option>7821, $54</option><option>7841, $77</option><option>7861, $83</option><option>8811, $104</option><option>8841, $108</option><option>8845, $129</option><option>8851, $150</option><option>8861, $160</option><option>8865, $170</option></select><input type="checkbox" name="3pcc_s" checked disabled>S<input type="checkbox" name = "3pcc_m" checked disabled>M<input type="checkbox" name="3pcc_l" checked disabled>L<input id ="3pcc_cb" type="checkbox" checked onchange="set3pcc()"></td>
+<td align="right"><a href ="https://jzimet.github.io/3pcc.pdf"><img src="xls.png" align="center" width="20" height="20"></a><img src="3pcc.png" align="center" width="60" height="20"><select id="ipt_drop_down" onchange="calculate()"><option>3rd party call control</option><option>7811, $18/month</option><option>7821, $23.64/month</option><option>7841, $32.81</option><option>7861, $35/month</option><option>8811, $43/month</option><option>8841, $45/month</option><option>8851, $53/month</option><option>8861, $61/month</option></select><input type="checkbox" name="3pcc_s" checked disabled>S<input type="checkbox" name = "3pcc_m" checked disabled>M<input type="checkbox" name="3pcc_l" checked disabled>L<input id ="3pcc_cb" type="checkbox" checked onchange="set3pcc()"></td>
 <td align="center"><input type ="number" id ="3pcc_tb_1" readonly><input id ="3pcc_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="3pcc_tb_2" readonly><input id ="3pcc_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="3pcc_tb_3" readonly><input id ="3pcc_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -344,10 +344,10 @@ table td {
 <td align="center"><input type ="number" id ="3pcc_tb_8" readonly><input id ="3pcc_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="3pcc_tb_9" readonly><input id ="3pcc_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="3pcc_tb_10" readonly><input id ="3pcc_cb_10" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type="range" min="0" max="100" value="3" step = "1"  style="width : 4em" id="slider_for_mrr_5" oninput="slider_change_for_mrr_5(value)"><output for="slider_for_mrr_5" id="volume_for_slider_for_mrr_5">3</output><label for="slider_for_mrr_5">$</label></td>
+<td align="center"><input type="range" min="0" max="100" value="18" step = "1"  style="width : 4em" id="slider_for_mrr_5" oninput="slider_change_for_mrr_5(value)"><output for="slider_for_mrr_5" id="volume_for_slider_for_mrr_5">18</output><label for="slider_for_mrr_5">$</label></td>
 </tr>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="sb.png" align="center" width="40" height="20"><select id="sb_drop_down" onchange="calculate()"><option>Spark Board for CEO office</option><option>spark board 55, $333/month</option><option>sparkboard 70, $625/month</option></select><input type="checkbox" name="sb_s" checked disabled>S<input type="checkbox" name = "sb_m" checked disabled>M<input type="checkbox" name="sb_l" checked disabled>L<input id ="sb_cb" type="checkbox" checked onchange="setsb()"></td>
+<td align="right"><a href ="https://jzimet.github.io/sb.pdf"><img src="xls.png" align="center" width="20" height="20"></a><img src="sb.png" align="center" width="40" height="20"><select id="sb_drop_down" onchange="calculate()"><option>Spark Board for CEO office</option><option>spark board 55, $826/month</option><option>sparkboard 70, $1355/month</option></select><input type="checkbox" name="sb_s" checked disabled>S<input type="checkbox" name = "sb_m" checked disabled>M<input type="checkbox" name="sb_l" checked disabled>L<input id ="sb_cb" type="checkbox" checked onchange="setsb()"></td>
 <td align="center"><input type ="number" id ="sb_tb_1" readonly><input id ="sb_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="sb_tb_2" readonly><input id ="sb_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="sb_tb_3" readonly><input id ="sb_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -358,7 +358,7 @@ table td {
 <td align="center"><input type ="number" id ="sb_tb_8" readonly><input id ="sb_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="sb_tb_9" readonly><input id ="sb_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="sb_tb_10" readonly><input id ="sb_cb_10" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type="range" min="0" max="100" value="300" step = "1"  style="width : 4em" id="slider_for_mrr_6" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_6" id="volume_for_slider_for_mrr_6">300</output><label for="slider_for_mrr_6">$</label></td>
+<td align="center"><input type="range" min="0" max="100" value="826" step = "1"  style="width : 4em" id="slider_for_mrr_6" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_6" id="volume_for_slider_for_mrr_6">826</output><label for="slider_for_mrr_6">$</label></td>
 </tr>
 <tr>
 <td style="color: #FF1493" align="right">Collaboration</td>
@@ -378,7 +378,7 @@ table td {
 <td align="center" style="color: #000000" colspan="13"><img src="batman.png" align="center" width="30" height="20">SECURITY</td>
 </tr>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="ciscoumbrella.png" align="center" width="40" height="10"><select id="umbrela_drop_down" onchange="calculate()"><option>Cisco Umbrella for SP</option><option>circuit attach, $.6</option><option>mssp, $1.8</option><option>roaming, $1.86</option><option>proffesional, $3.26</option><option>insight, $4.88</option><option>Platform, $5.34</option><option>4221, $16</option><option>4321, $26.66</option><option>4331, $36.66</option><option>4351, $73.33</option><option>4431, $100</option><option>4451, $160</option><option>wlan, $20.8</option></select><input type="checkbox" name="umbrella_s" checked disabled>S<input type="checkbox" name = "umbrella_m" checked disabled>M<input type="checkbox" name="umbrella_l" checked disabled>L<input id ="umbrella_cb" type="checkbox" checked onchange="setciscoumbrella()"></td>
+<td align="right"><a href ="https://jzimet.github.io/umbrella.pdf"><img src="xls.png" align="center" width="20" height="20"></a><img src="ciscoumbrella.png" align="center" width="40" height="10"><select id="umbrela_drop_down" onchange="calculate()"><option>Cisco Umbrella for SP</option><option>circuit attach, $.6</option><option>mssp, $1.8</option><option>roaming, $1.86</option><option>proffesional, $3.26</option><option>insight, $4.88</option><option>Platform, $5.34</option><option>4221, $16</option><option>4321, $26.66</option><option>4331, $36.66</option><option>4351, $73.33</option><option>4431, $100</option><option>4451, $160</option><option>wlan, $20.8</option></select><input type="checkbox" name="umbrella_s" checked disabled>S<input type="checkbox" name = "umbrella_m" checked disabled>M<input type="checkbox" name="umbrella_l" checked disabled>L<input id ="umbrella_cb" type="checkbox" checked onchange="setciscoumbrella()"></td>
 <td align="center"><input type ="number" id ="umbrella_tb_1" readonly><input id ="umbrella_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="umbrella_tb_2" readonly><input id ="umbrella_cb_2"" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="umbrella_tb_3" readonly><input id ="umbrella_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -392,7 +392,7 @@ table td {
 <td align="center"><input type="range" min="0" max="100" value="1" step = "1"  style="width : 4em" id="slider_for_mrr_7" oninput="slider_change_for_mrr_7(value)"><output for="slider_for_mrr_7" id="volume_for_slider_for_mrr_7">1</output><label for="slider_for_mrr_7">$</label></td>
 </tr>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="cloudlock.png" align="center" width="40" height="10"><select id="cloudlock_drop_down" onchange="calculate()"><option>Cisco CloudLock</option><option>1 cloud service, $4.3 user/month</option><option>2 cloud services $5.3 user/month</option><option>3 cloud services $$6 user/month</option><option>4 cloud services $6.3 user/month</option><option>5 cloud services $6.6 user/month</option><option>6 cloud services $7 user/month</option><option>7 cloud services $7.3 user/month</option>></select><input type="checkbox" name="cloudlock_s" checked disabled>S<input type="checkbox" name = "cloudlock_m" checked disabled>M<input type="checkbox" name="cloudlock_l" checked disabled>L<input id ="cloudlock_cb" type="checkbox" checked onchange="setcloudlock()"></td>
+<td align="right"><a href ="https://jzimet.github.io/cloudlock.pdf"><img src="xls.png" align="center" width="20" height="20"></a><img src="cloudlock.png" align="center" width="40" height="10"><select id="cloudlock_drop_down" onchange="calculate()"><option>Cisco CloudLock</option><option>1 cloud service, $4.3 user/month</option><option>2 cloud services $5.3 user/month</option><option>3 cloud services $$6 user/month</option><option>4 cloud services $6.3 user/month</option><option>5 cloud services $6.6 user/month</option><option>6 cloud services $7 user/month</option><option>7 cloud services $7.3 user/month</option>></select><input type="checkbox" name="cloudlock_s" checked disabled>S<input type="checkbox" name = "cloudlock_m" checked disabled>M<input type="checkbox" name="cloudlock_l" checked disabled>L<input id ="cloudlock_cb" type="checkbox" checked onchange="setcloudlock()"></td>
 <td align="center"><input type ="number" id ="cloudlock_tb_1" readonly><input id ="cloudlock_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cloudlock_tb_2" readonly><input id ="cloudlock_cb_2"" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="cloudlock_tb_3" readonly><input id ="cloudlock_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -406,7 +406,7 @@ table td {
 <td align="center"><input type="range" min="0" max="100" value="4" step = "1"  style="width : 4em" id="slider_for_mrr_8" oninput="slider_change_for_mrr_8(value)"><output for="slider_for_mrr_8" id="volume_for_slider_for_mrr_8">4</output><label for="slider_for_mrr_8">$</label></td>
 </tr>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="ciscosnort.png" align="center" width="25" height="15"><select id="cloudutd_drop_down" onchange="calculate()"><option>Cloud UTD</option><option>vpn, $2 ptpm</option><option>firewall, $2 ptpm</option><option>ips snort, $2 ptpm</option><option>url filtering, $2 ptpm</option></select><input type="checkbox" name="cloudutd_s" checked disabled>S<input type="checkbox" name = "cloudutd_m" checked disabled>M<input type="checkbox" name="cloudutd_l" checked disabled>L<input id ="utd_cb" type="checkbox" checked onchange="setcloudutd()"></td>
+<td align="right"><a href ="https://jzimet.github.io/cloudutd.pdf"><img src="xls.png" align="center" width="20" height="20"></a><img src="ciscosnort.png" align="center" width="25" height="15"><select id="cloudutd_drop_down" onchange="calculate()"><option>Cloud UTD</option><option>vpn, $3.2 ptpm</option><option>firewall, $3.2 ptpm</option><option>ips snort, $3.2 ptpm</option><option>url filtering, $3.2 ptpm</option></select><input type="checkbox" name="cloudutd_s" checked disabled>S<input type="checkbox" name = "cloudutd_m" checked disabled>M<input type="checkbox" name="cloudutd_l" checked disabled>L<input id ="utd_cb" type="checkbox" checked onchange="setcloudutd()"></td>
 <td align="center"><input type ="number" id ="utd_tb_1" readonly><input id ="utd_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="utd_tb_2" readonly><input id ="utd_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="utd_tb_3" readonly><input id ="utd_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -417,10 +417,10 @@ table td {
 <td align="center"><input type ="number" id ="utd_tb_8" readonly><input id ="utd_cb_8" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="utd_tb_9" readonly><input id ="utd_cb_9" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="utd_tb_10" readonly><input id ="utd_cb_10" type="checkbox" checked onchange="calculate()"></td>
-<td align="center"><input type="range" min="0" max="100" value="2" step = "1"  style="width : 4em" id="slider_for_mrr_9" oninput="slider_change_for_mrr_3(value)"><output for="slider_for_mrr_9" id="volume_for_slider_for_mrr_9">2</output><label for="slider_for_mrr_9">$</label></td>
+<td align="center"><input type="range" min="0" max="100" value="3" step = "1"  style="width : 4em" id="slider_for_mrr_9" oninput="slider_change_for_mrr_3(value)"><output for="slider_for_mrr_9" id="volume_for_slider_for_mrr_9">3</output><label for="slider_for_mrr_9">$</label></td>
 </tr>
 <tr>
-<td align="right"><a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a><img src="ampforsp.png" align="center" width="60" height="15"><select id="amp_drop_down" onchange="calculate()"><option>AMP for SP</option><option>amp for end host, $4.4</option><option>amp for email, $0.8</option><option>amp for web security, $2</option><option>amp for cloud web security, $2</option></option>amp for cloud email security, $0.64</select><input type="checkbox" name="amp_s" checked disabled>S<input type="checkbox" name = "amp_m" checked disabled>M<input type="checkbox" name="amp_l" checked disabled>L<input id ="azure_cb" type="checkbox" checked onchange="setazure()"></td>
+<td align="right"><a href ="https://jzimet.github.io/amp.pdf"><img src="xls.png" align="center" width="20" height="20"></a><img src="ampforsp.png" align="center" width="60" height="15"><select id="amp_drop_down" onchange="calculate()"><option>AMP for SP</option><option>amp for end host, $5.5</option><option>amp for email, $1</option><option>amp for web security, $2.58</option><option>amp for cloud web security, $2.58</option><option>amp for cloud email security, $1</option></select><input type="checkbox" name="amp_s" checked disabled>S<input type="checkbox" name = "amp_m" checked disabled>M<input type="checkbox" name="amp_l" checked disabled>L<input id ="azure_cb" type="checkbox" checked onchange="setazure()"></td>
 <td align="center"><input type ="number" id ="azure_tb_1" readonly><input id ="azure_cb_1" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="azure_tb_2" readonly><input id ="azure_cb_2" type="checkbox" checked onchange="calculate()"></td>
 <td align="center"><input type ="number" id ="azure_tb_3" readonly><input id ="azure_cb_3" type="checkbox" checked onchange="calculate()"></td>
@@ -1881,18 +1881,18 @@ document.getElementById("datacenter8").value=Number(document.getElementById("201
 document.getElementById("datacenter9").value=Number(document.getElementById("2017").checked)*(datacenter2017[8]/1000000).toFixed(2)+Number(document.getElementById("2016").checked)*(datacenter2016[8]/1000000).toFixed(2);
 document.getElementById("datacenter10").value=Number(document.getElementById("2017").checked)*(datacenter2017[9]/1000000).toFixed(2)+Number(document.getElementById("2016").checked)*(datacenter2016[9]/1000000).toFixed(2);
 
-//title, z1, mr33, mr42, mr52, mr64, mx64, mx-64 +sec lic
-merakioptions=[0, 200, 400, 700, 900, 500, 800];
+//title, z1, mr33, mr42, mr52, mr64, mx64, mx-64+sec
+merakioptions=[0, 445, 799,1249,1549,895,1195];
 meraki = merakioptions[document.getElementById("meraki_drop_down").selectedIndex];
 
-//title, 100, 1000, 2000
-viptelaoptions=[0,300,400,500];
+//title, 100, 1000, 2000, virtual
+viptelaoptions=[0,2070,2500,3000,4080];
 viptela = viptelaoptions[document.getElementById("viptela_drop_down").selectedIndex];
 console.log("selected index" + document.getElementById("viptela_drop_down").selectedIndex);
 console.log("viptela"+viptela);
 
 //title, rv340,881,1100, 1941, 4321
-ciscooptions=[0,400,800,1000,2500,4500];
+ciscooptions=[0,469,807,1200,1895,2277];
 cisco = ciscooptions[document.getElementById("cisco_drop_down").selectedIndex];
 console.log("selected index cisco" + document.getElementById("cisco_drop_down").selectedIndex);
 console.log("cisco"+cisco);
@@ -1900,18 +1900,18 @@ console.log("cisco"+cisco);
 
 //percentage = Number(document.getElementById("yearsslider").value/100);
 
-//title, call,call+message,call+message+meet
-hcsoptions=[0,3,5,7];
+//title, call, m1, m3, c1, c2, c3
+hcsoptions=[0,3,4.5,12.5,16.25,24.25,24.25];
 hcs = hcsoptions[document.getElementById("hcs_drop_down").selectedIndex];
 //hcs=2.6;
 
-//title, 7811,7821,7841,7861, 8811, 8841, 8845, 8851, 8861, 8865, 
-iptoptions=[0,41,54,77,83,104,108,129,150,160,170];
+//title, 7811,7821,7832,7841,7861, 8811, 8841,8851, 8861 
+iptoptions=[0,223.75,283.75,1059.4,393.75,423.75,523.75,543.75,643.75,643.75,743.75];
 ipt = iptoptions[document.getElementById("ipt_drop_down").selectedIndex];
 //ipt=41;
 
 //title, 55,70, 
-sboptions=[0,333,625];
+sboptions=[0,9913,16268];
 sb = sboptions[document.getElementById("sb_drop_down").selectedIndex];
 //sb=7427;
 console.log(document.getElementById("sb_drop_down").selectedIndex);
@@ -1928,17 +1928,17 @@ cloudlockoptions=[0,4.3,5.3,6,6.3,6.6,7,7.3];
 cloudlock = cloudlockoptions[document.getElementById("cloudlock_drop_down").selectedIndex];
 //cloudlock=4.3;
 
-//title, 1,2,3,4,5,6,7
-cloudutdoptions=[0,4.3,5.3,6,6.3,6.6,7,7.3];
+//title, vpn, firewall, ips snort, url filtering
+cloudutdoptions=[0,3.2,3.2,3.2,3.4];
 cloudutd = cloudutdoptions[document.getElementById("cloudutd_drop_down").selectedIndex];
 //cloudutd=2520/100;
 
-//title, amp for end host, amp for email,amp for web security, amp for cloud web security
-ampoptions=[0,4.4,0.8,2,2];
+//title, amp for end host, amp for email,amp for web security, amp for cloud web security, amp for cloud mail
+ampoptions=[0,5.5,1,2.58,2.58,1];
 amp = ampoptions[document.getElementById("amp_drop_down").selectedIndex];
 //amp=4;
 
-//title, amp for end host, amp for email,amp for web security, amp for cloud web security
+//title, essential, premium, essential+amp, premium + amp, cloud essential, cloud premium, cloud essential + amp, cloud premium + amp
 emailsecurityoptions=[0,15,25,25,35,1,1.8,0.8,1.6];
 hss = emailsecurityoptions[document.getElementById("emailsecurity_drop_down").selectedIndex];
 //hss=1;
