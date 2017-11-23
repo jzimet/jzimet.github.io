@@ -581,10 +581,13 @@ table td {
 </tr>
 <tr>
 <td align="right">Year 1 (Mil)</td>
-<td colspan="4"><input type ="text" style="font-size: 47pt; width:100%; color: #3CBC8D;text-align:center" id ="000" readonly></td>
+<td colspan="3"><input type ="text" style="font-size: 47pt; width:100%; color: #3CBC8D;text-align:center" id ="000" readonly></td>
 <td></td>
 <td colspan="3">
-<input type="range" min="0" max="100" value="2" step = "1"  style="width : 10em" id="pen" oninput="sliderforpen(value)"><output for="penslider" id="volumeforpen" style="color: #3CBC8D">2</output><label for="penslider" align="left" style="color: #3CBC8D">%</label>
+Percentage of TAM<input type="range" min="0" max="100" value="2" step = "1"  style="width : 7em" id="pen" oninput="sliderforpen(value)"><output for="penslider" id="volumeforpen" style="color: #3CBC8D">2</output><label for="penslider" align="left" style="color: #3CBC8D">%</label>
+<td colspan="3">
+Discount<input type="range" min="0" max="100" value="20" step = "1"  style="width : 7em" id="discount" oninput="sliderfordiscount(value)"><output for="discountslider" id="volumefordiscount" style="color: #3CBC8D">20</output><label for="discountslider" align="left" style="color: #3CBC8D">%</label>
+</td>
 </table>
 
 
@@ -1781,6 +1784,11 @@ function slider_change_for_mrr_17(vol) {
         document.querySelector('#volume_for_slider_for_mrr_17').value = vol;
         calculate();
 }
+
+function sliderfordiscount(vol) {
+        document.querySelector('#volumefordiscount').value = vol;
+        calculate();
+}
 function calculate(){
 
 var data=[[5454, 35734, 286302,8500000],[8624,48054,455560,18700000],[4112,18766,425995,5415949],[10847,42588,1062697,10513800],[2002,7081,182454,2061963],[29280,148002,4055946,38502396],[4201,22432,298559,7282041],[2084,9127,74448,7181506],[1071,24247,1,3791622],[4773,29104,645370,9906000]];
@@ -1884,18 +1892,17 @@ document.getElementById("datacenter10").value=Number(document.getElementById("20
 //title, z1, mr33, mr42, mr52, mr64, mx64, mx-64+sec
 merakioptions=[0, 445, 799,1249,1549,895,1195];
 meraki = merakioptions[document.getElementById("meraki_drop_down").selectedIndex];
+meraki= meraki*(1-document.getElementById("discount").value/100)
 
 //title, 100, 1000, 2000, virtual
 viptelaoptions=[0,2070,2500,3000,4080];
 viptela = viptelaoptions[document.getElementById("viptela_drop_down").selectedIndex];
-console.log("selected index" + document.getElementById("viptela_drop_down").selectedIndex);
-console.log("viptela"+viptela);
+viptela= viptela*(1-document.getElementById("discount").value/100)
 
 //title, rv340,881,1100, 1941, 4321
 ciscooptions=[0,469,807,1200,1895,2277];
 cisco = ciscooptions[document.getElementById("cisco_drop_down").selectedIndex];
-console.log("selected index cisco" + document.getElementById("cisco_drop_down").selectedIndex);
-console.log("cisco"+cisco);
+cisco= cisco*(1-document.getElementById("discount").value/100)
 //cisco = 400;
 
 //percentage = Number(document.getElementById("yearsslider").value/100);
@@ -1903,20 +1910,20 @@ console.log("cisco"+cisco);
 //title, call, m1, m3, c1, c2, c3
 hcsoptions=[0,3,4.5,12.5,16.25,24.25,24.25];
 hcs = hcsoptions[document.getElementById("hcs_drop_down").selectedIndex];
+hcs=hcs*(1-document.getElementById("discount").value/100)
 //hcs=2.6;
 
 //title, 7811,7821,7832,7841,7861, 8811, 8841,8851, 8861 
 iptoptions=[0,223.75,283.75,1059.4,393.75,423.75,523.75,543.75,643.75,643.75,743.75];
 ipt = iptoptions[document.getElementById("ipt_drop_down").selectedIndex];
+ipt=ipt*(1-document.getElementById("discount").value/100)
 //ipt=41;
 
 //title, 55,70, 
 sboptions=[0,9913,16268];
 sb = sboptions[document.getElementById("sb_drop_down").selectedIndex];
+sb=sb*(1-document.getElementById("discount").value/100)
 //sb=7427;
-console.log(document.getElementById("sb_drop_down").selectedIndex);
-console.log(sboptions[document.getElementById("sb_drop_down").selectedIndex]);
-console.log(sb);
 
 //title, circuitattach,mssp,roaming,proffesional, insights,platform, wlan, 4221, 432, 4331, 4351, 4431, 4451
 umbrela=[0,0.6,1.8,2.33,4.08,6.08,6.67,26,20,33.33,45.83,91.67,125,200];
@@ -1926,55 +1933,65 @@ umbrellamedium=1.8;
 //title, 1,2,3,4,5,6,7
 cloudlockoptions=[0,4.3,5.3,6,6.3,6.6,7,7.3];
 cloudlock = cloudlockoptions[document.getElementById("cloudlock_drop_down").selectedIndex];
+cloudlock=cloudlock*(1-document.getElementById("discount").value/100)
 //cloudlock=4.3;
 
 //title, vpn, firewall, ips snort, url filtering
 cloudutdoptions=[0,3.2,3.2,3.2,3.4];
 cloudutd = cloudutdoptions[document.getElementById("cloudutd_drop_down").selectedIndex];
+cloudutd=cloudutd*(1-document.getElementById("discount").value/100)
 //cloudutd=2520/100;
 
 //title, amp for end host, amp for email,amp for web security, amp for cloud web security, amp for cloud mail
 ampoptions=[0,5.5,1,2.58,2.58,1];
 amp = ampoptions[document.getElementById("amp_drop_down").selectedIndex];
+amp=amp*(1-document.getElementById("discount").value/100)
 //amp=4;
 
 //title, essential, premium, essential+amp, premium + amp, cloud essential, cloud premium, cloud essential + amp, cloud premium + amp
 emailsecurityoptions=[0,15,25,25,35,1,1.8,0.8,1.6];
 hss = emailsecurityoptions[document.getElementById("emailsecurity_drop_down").selectedIndex];
+hss=hss*(1-document.getElementById("discount").value/100)
 //hss=1;
 
 //title, essential, essential+amp,premium, premium+amp,cloud essential, cloud essential + amp, cloud premium, cloud premium + ampamp
 websecurityoptions=[0,2.3,4.3,4.6,6.73,4.6,6.6,8.5,10.6];
 cloudwebsecurity = websecurityoptions[document.getElementById("websecurity_drop_down").selectedIndex];
+cloudwebsecurity=cloudwebsecurity*(1-document.getElementById("discount").value/100)
 //cloudwebsecurity=2.3;
 
 
 //title, s3260, hx edge, hx 3 node, vsan, storage space 
-storageoptions=[0,16,166,250,300,400];
+storageoptions=[0,51785,172152,172152,173549,477068];
 storage = storageoptions[document.getElementById("storage_drop_down").selectedIndex];
+storage=storage*(1-document.getElementById("discount").value/100)
 //storage=17000;
 
 //title, azure small,azure medium, vmsware 2 node, openstack 3 nodes, google kubernetes 3 nodes,fixed spine 40gb, fixed spine 40/10gb, fixed spine + ipn, modular spine, multisite controller
-virtualizationoptions=[0,10,5,2000,1500,1500,65,108,65,220];
+virtualizationoptions=[0,477068,369396,173549,150000,150000,415964,417986,578834,724991];
 virtualization = virtualizationoptions[document.getElementById("virt_drop_down").selectedIndex];
+virtualization=virtualization*(1-document.getElementById("discount").value/100)
 //virtualization=40000;
 
 //title, ucsd+ecs, cc, intersight
-orchestrationoptions=[0,3,166,20];
+orchestrationoptions=[0,2299,110000,2299];
 cloudmanagement = orchestrationoptions[document.getElementById("orch_drop_down").selectedIndex];
+cloudmanagement=cloudmanagement*(1-document.getElementById("discount").value/100)
 //cloudmanagement=735;
 
 //title, connect, presence, engage,engage advanced, beacons
 cmxoptions=[0,6,8,8,43,50];
 wifi = cmxoptions[document.getElementById("cmx_drop_down").selectedIndex];
+wifi=wifi*(1-document.getElementById("discount").value/100)
 //wifi=100;
 
 //title, virtual, medium, large
-taoptions=[0,25,32,35];
+taoptions=[0,125490,939104,2210714];
 tetration = taoptions[document.getElementById("ta_drop_down").selectedIndex];
+tetrationi=tetration*(1-document.getElementById("discount").value/100)
 //tetration=40000;
 
-aci=150000;
+//aci=150000;
 
 atl=data[0][0]*Number(document.getElementById("slider_for_large_1").value)/100;
 atm=data[0][1]*Number(document.getElementById("slider_for_medium_1").value)/100;
