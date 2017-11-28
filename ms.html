@@ -2256,7 +2256,7 @@ cloudutd=cloudutd*(1-document.getElementById("discount").value/100)
 //title, amp for end host, amp for email,amp for web, amp for cloud web, amp for cloud mail
 ampoptions=[66,66,12.79,30.96,30.96,12.79];
 amp = ampoptions[document.getElementById("amp_drop_down").selectedIndex];
-amp=amp*12*(1-document.getElementById("discount").value/100)
+amp=amp*(1-document.getElementById("discount").value/100)
 //amp=4;
 
 //title, essential, premium, essential+amp, premium + amp, cloud essential, cloud premium, cloud essential + amp, cloud premium + amp, office essential, office premium, office essential + amp, office premium + amp
@@ -2268,7 +2268,7 @@ hss=hss*12*(1-document.getElementById("discount").value/100)
 //title, essential, essential+amp,premium, premium+amp,cloud essential, cloud essential + amp, cloud premium, cloud premium + amp
 websecurityoptions=[34.84,34.84,65.8,69.99,100.95,69,99.96,128.75,159.71];
 cloudwebsecurity = websecurityoptions[document.getElementById("websecurity_drop_down").selectedIndex];
-cloudwebsecurity=cloudwebsecurity*12*(1-document.getElementById("discount").value/100)
+cloudwebsecurity=cloudwebsecurity*(1-document.getElementById("discount").value/100)
 //cloudwebsecurity=2.3;
 
 
@@ -2299,7 +2299,7 @@ wifi=wifi*(1-document.getElementById("discount").value/100)
 //title, virtual, medium, large
 taoptions=[125490,125490,939104,2210714];
 tetration = taoptions[document.getElementById("ta_drop_down").selectedIndex];
-tetrationi=tetration*(1-document.getElementById("discount").value/100)
+tetration=tetration*(1-document.getElementById("discount").value/100)
 //tetration=40000;
 
 //aci=150000;
@@ -2616,9 +2616,9 @@ polcloudutd_mrr=(poll+polm+pols)*Number(document.getElementById("slider_for_mrr_
 polcloudlock_mrr=(poll*250+polm*49+pols*9)*Number(document.getElementById("slider_for_mrr_9").value)*Number(document.getElementById("cloudlock_cb_6").checked);
 polamp=(poll*250*amp+polm*49*amp+pols*9*amp)*Number(document.getElementById("azure_cb_6").checked);
 polamp_mrr=(poll*250+polm*49+pols*9)*Number(document.getElementById("slider_for_mrr_10").value)*Number(document.getElementById("azure_cb_6").checked);
-polhss=(atl*250*hss+atm*49*hss+ats*9*hss)*Number(document.getElementById("hss_cb_6").checked);
+polhss=(poll*250*hss+polm*49*hss+pols*9*hss)*Number(document.getElementById("hss_cb_6").checked);
 polhss_mrr=(poll*250+polm*49+pols*9)*Number(document.getElementById("slider_for_mrr_11").value)*Number(document.getElementById("hss_cb_6").checked);
-polcloudwebsecurity=(atl*250*cloudwebsecurity+atm*49*cloudwebsecurity+ats*9*cloudwebsecurity)*Number(document.getElementById("aci_cb_6").checked);
+polcloudwebsecurity=(poll*250*cloudwebsecurity+polm*49*cloudwebsecurity+pols*9*cloudwebsecurity)*Number(document.getElementById("aci_cb_6").checked);
 polcloudwebsecurity_mrr=(poll*250+polm*49+pols*9)*Number(document.getElementById("slider_for_mrr_12").value)*Number(document.getElementById("aci_cb_6").checked);
 polstorage=poll*storage*Number(document.getElementById("storage_cb_6").checked);
 polstorage_mrr=slol*Number(document.getElementById("slider_for_mrr_13").value)*Number(document.getElementById("storage_cb_6").checked);
