@@ -178,7 +178,7 @@ Simple View
 -->
 
 <tr>
-<td colspan="2" align="right">Cost of Living : Marlboro/Taxi</td>
+<td colspan="2" align="right">Cost of Living : Marlboro/Taxi/Internet-Utilities</td>
 <td align="center"><input type ="text" step="any" id ="col1" readonly></td>
 <td align="center"><input type ="text" step="any" id ="col2" readonly></td>
 <td align="center"><input type ="text" step="any" id ="col3" readonly></td>
@@ -2835,6 +2835,9 @@ document.getElementById("title3").value="Advanced";
 
 var data=[[5454, 35734, 286302,8500000],[8624,48054,455560,18700000],[4112,18766,425995,5415949],[10847,42588,1062697,10513800],[2002,7081,182454,2061963],[29280,148002,4055946,38502396],[4201,22432,298559,7282041],[2084,9127,74448,7181506],[1433,11099,196667,3791622],[4773,29104,645370,9906000]];
 
+//https://www.numbeo.com/cost-of-living/prices_by_country.jsp?displayCurrency=USD&itemId=33
+utilities_monthly=[26.05,8.5,17.49,18.76,31.51,13.37,10.13,16.90,25.68,15.28];
+
 //aut-0,rom-1,svk-2,cze-3,slo-4,pol-5,bul-6,srb-7,cro-8,hun-9
 var routing2017=[4047013,3405263,373773,943327,162628,1938744,52484,292670,1282188,914912,0];
 var collaboration2017=[1808391, 582507,166582,60938,201475,954266,1460,68926, 854270,792079, 0];
@@ -2857,16 +2860,16 @@ s_smb=document.getElementById("slider_for_small_smb").value;
 m_smb=document.getElementById("slider_for_medium_smb").value;
 l_smb=document.getElementById("slider_for_large_smb").value;
 
-document.getElementById("col1").value=cigaretetaxicostofliving[0][0] + "/" + cigaretetaxicostofliving[1][0];
-document.getElementById("col2").value=cigaretetaxicostofliving[0][1] + "/" + cigaretetaxicostofliving[1][1];
-document.getElementById("col3").value=cigaretetaxicostofliving[0][2] + "/" + cigaretetaxicostofliving[1][2];
-document.getElementById("col4").value=cigaretetaxicostofliving[0][3] + "/" + cigaretetaxicostofliving[1][3];
-document.getElementById("col5").value=cigaretetaxicostofliving[0][4] + "/" + cigaretetaxicostofliving[1][4];
-document.getElementById("col6").value=cigaretetaxicostofliving[0][5] + "/" + cigaretetaxicostofliving[1][5];
-document.getElementById("col7").value=cigaretetaxicostofliving[0][6] + "/" + cigaretetaxicostofliving[1][6];
-document.getElementById("col8").value=cigaretetaxicostofliving[0][7] + "/" + cigaretetaxicostofliving[1][7];
-document.getElementById("col9").value=cigaretetaxicostofliving[0][8] + "/" + cigaretetaxicostofliving[1][8];
-document.getElementById("col10").value=cigaretetaxicostofliving[0][9] + "/" + cigaretetaxicostofliving[1][9];
+document.getElementById("col1").value=cigaretetaxicostofliving[0][0] + "/" + cigaretetaxicostofliving[1][0]+"/"+ utilities_monthly[0];
+document.getElementById("col2").value=cigaretetaxicostofliving[0][1] + "/" + cigaretetaxicostofliving[1][1]+"/"+ utilities_monthly[1];
+document.getElementById("col3").value=cigaretetaxicostofliving[0][2] + "/" + cigaretetaxicostofliving[1][2]+"/"+ utilities_monthly[2];
+document.getElementById("col4").value=cigaretetaxicostofliving[0][3] + "/" + cigaretetaxicostofliving[1][3]+"/"+ utilities_monthly[3];
+document.getElementById("col5").value=cigaretetaxicostofliving[0][4] + "/" + cigaretetaxicostofliving[1][4]+"/"+ utilities_monthly[4];
+document.getElementById("col6").value=cigaretetaxicostofliving[0][5] + "/" + cigaretetaxicostofliving[1][5]+"/"+ utilities_monthly[5];
+document.getElementById("col7").value=cigaretetaxicostofliving[0][6] + "/" + cigaretetaxicostofliving[1][6]+"/"+ utilities_monthly[6];
+document.getElementById("col8").value=cigaretetaxicostofliving[0][7] + "/" + cigaretetaxicostofliving[1][7]+"/"+ utilities_monthly[7];
+document.getElementById("col9").value=cigaretetaxicostofliving[0][8] + "/" + cigaretetaxicostofliving[1][8]+"/"+ utilities_monthly[8];
+document.getElementById("col10").value=cigaretetaxicostofliving[0][9] + "/" + cigaretetaxicostofliving[1][9]+"/"+ utilities_monthly[9];
 //document.getElementById("11").value=cigaretetaxicostofliving[0][0];
 //document.getElementById("11").value=cigaretetaxicostofliving[1][0];
 
