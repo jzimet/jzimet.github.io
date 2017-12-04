@@ -88,6 +88,12 @@ Partner Margin:<input type="range" min="0" max="100" value="18" step = "1"  styl
 <td>
 <a href ="https://jzimet.github.io/for_managed_services_github.xls">
 <img src="xls.png" align="center" width="20" height="20" hidden></a>
+<!--
+<input id ="cb_to_cisco_revenue" type="checkbox" checked onchange="calculate()">To Cisco Revenue
+</br>
+<input id ="cb_to_partner_revenue" type="checkbox" checked onchange="calculate()">To Partner Revenue
+</br>
+-->
 <input id ="simple" type="checkbox" checked onchange="calculate()">
 Simple View
 <input hidden id ="2016" type="checkbox" hidden onchange="calculate()">
@@ -414,11 +420,13 @@ MRR
 <input style="width:10em; color: #008000" id ="simple_tb_12" type ="text" readonly>
 </td>
 <td align="center">
-<input type ="text" id ="simple_tb_1" readonly>
+<input type ="text" wrap="true" id ="simple_tb_1" readonly>
 </br>
-<input type ="text" id ="simple_tb_nc_1" readonly>
+<input type ="text" id ="simple_tb_to_cisco_revenue_1" readonly>
 </br>
-<input type ="text" id ="simple_tb_pr_1" readonly>
+<input type ="text" id ="simple_tb_to_partner_revenue_1" readonly>
+</br>
+<input type ="text" id ="simple_tb_number_of_companies_1" readonly>
 </br>
 <input id ="simple_cb_1" type="checkbox" checked onchange="calculate()">
 <input type ="text" id ="meraki_tb_1" hidden readonly><input id ="meraki_cb_1" type="checkbox" hidden checked onchange="calculate()">
@@ -426,9 +434,11 @@ MRR
 <td align="center">
 <input type ="text" id ="simple_tb_2" readonly>
 </br>
-<input type ="text" id ="simple_tb_nc_2" readonly>
+<input type ="text" id ="simple_tb_to_cisco_revenue_2" readonly>
 </br>
-<input type ="text" id ="simple_tb_pr_2" readonly>
+<input type ="text" id ="simple_tb_to_partner_revenue_2" readonly>
+</br>
+<input type ="text" id ="simple_tb_number_of_companies_2" readonly>
 </br>
 <input id ="simple_cb_2" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="meraki_tb_2" hidden readonly><input id ="meraki_cb_2" type="checkbox" hidden checked onchange="calculate()">
@@ -436,72 +446,88 @@ MRR
 <td align="center">
 <input type ="text" id ="simple_tb_3" readonly>
 </br>
-<input type ="text" id ="simple_tb_nc_3" readonly>
+<input type ="text" id ="simple_tb_to_cisco_revenue_3" readonly>
 </br>
-<input type ="text" id ="simple_tb_pr_3" readonly>
+<input type ="text" id ="simple_tb_to_partner_revenue_3" readonly>
+</br>
+<input type ="text" id ="simple_tb_number_of_companies_3" readonly>
 </br>
 <input id ="simple_cb_3" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="meraki_tb_3" hidden readonly><input id ="meraki_cb_3" type="checkbox" hidden checked onchange="calculate()"></td>
 <td align="center">
 <input type ="text" id ="simple_tb_4" readonly>
 </br>
-<input type ="text" id ="simple_tb_nc_4" readonly>
+<input type ="text" id ="simple_tb_to_cisco_revenue_4" readonly>
 </br>
-<input type ="text" id ="simple_tb_pr_4" readonly>
+<input type ="text" id ="simple_tb_to_partner_revenue_4" readonly>
+</br>
+<input type ="text" id ="simple_tb_number_of_companies_4" readonly>
 </br>
 <input id ="simple_cb_4" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="meraki_tb_4" hidden readonly><input id ="meraki_cb_4" type="checkbox" hidden checked onchange="calculate()"></td>
 <td align="center">
 <input type ="text" id ="simple_tb_5" readonly>
 </br>
-<input type ="text" id ="simple_tb_nc_5" readonly>
+<input type ="text" id ="simple_tb_to_cisco_revenue_5" readonly>
 </br>
-<input type ="text" id ="simple_tb_pr_5" readonly>
+<input type ="text" id ="simple_tb_to_partner_revenue_5" readonly>
+</br>
+<input type ="text" id ="simple_tb_number_of_companies_5" readonly>
 </br>
 <input id ="simple_cb_5" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="meraki_tb_5" hidden readonly><input id ="meraki_cb_5" type="checkbox" hidden checked onchange="calculate()"></td>
 <td align="center">
 <input type ="text" id ="simple_tb_6" readonly>
 </br>
-<input type ="text" id ="simple_tb_nc_6" readonly>
+<input type ="text" id ="simple_tb_to_cisco_revenue_6" readonly>
 </br>
-<input type ="text" id ="simple_tb_pr_6" readonly>
+<input type ="text" id ="simple_tb_to_partner_revenue_6" readonly>
+</br>
+<input type ="text" id ="simple_tb_number_of_companies_6" readonly>
 </br>
 <input id ="simple_cb_6" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="meraki_tb_6" hidden readonly><input id ="meraki_cb_6" type="checkbox" hidden checked onchange="calculate()"></td>
 <td align="center">
 <input type ="text" id ="simple_tb_7" readonly>
 </br>
-<input type ="text" id ="simple_tb_nc_7" readonly>
+<input type ="text" id ="simple_tb_to_cisco_revenue_7" readonly>
 </br>
-<input type ="text" id ="simple_tb_pr_7" readonly>
+<input type ="text" id ="simple_tb_to_partner_revenue_7" readonly>
+</br>
+<input type ="text" id ="simple_tb_number_of_companies_7" readonly>
 </br>
 <input id ="simple_cb_7" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="meraki_tb_7" hidden readonly><input id ="meraki_cb_7" type="checkbox" hidden checked onchange="calculate()"></td>
 <td align="center">
 <input type ="text" id ="simple_tb_8" readonly>
 </br>
-<input type ="text" id ="simple_tb_nc_8" readonly>
+<input type ="text" id ="simple_tb_to_cisco_revenue_8" readonly>
 </br>
-<input type ="text" id ="simple_tb_pr_8" readonly>
+<input type ="text" id ="simple_tb_to_partner_revenue_8" readonly>
+</br>
+<input type ="text" id ="simple_tb_number_of_companies_8" readonly>
 </br>
 <input id ="simple_cb_8" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="meraki_tb_8" hidden readonly><input id ="meraki_cb_8" type="checkbox" hidden checked onchange="calculate()"></td>
 <td align="center">
 <input type ="text" id ="simple_tb_9" readonly>
 </br>
-<input type ="text" id ="simple_tb_nc_9" readonly>
+<input type ="text" id ="simple_tb_to_cisco_revenue_9" readonly>
 </br>
-<input type ="text" id ="simple_tb_pr_9" readonly>
+<input type ="text" id ="simple_tb_to_partner_revenue_9" readonly>
+</br>
+<input type ="text" id ="simple_tb_number_of_companies_9" readonly>
 </br>
 <input id ="simple_cb_9" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="meraki_tb_9"  hidden readonly><input id ="meraki_cb_9" type="checkbox" hidden checked onchange="calculate()"></td>
 <td align="center">
 <input type ="text" id ="simple_tb_10" readonly>
 </br>
-<input type ="text" id ="simple_tb_nc_10" readonly>
+<input type ="text" id ="simple_tb_to_cisco_revenue_10" readonly>
 </br>
-<input type ="text" id ="simple_tb_pr_10" readonly>
+<input type ="text" id ="simple_tb_to_partner_revenue_10" readonly>
+</br>
+<input type ="text" id ="simple_tb_number_of_companies_10" readonly>
 </br>
 <input id ="simple_cb_10" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="meraki_tb_10" hidden readonly><input id ="meraki_cb_10" type="checkbox" hidden checked onchange="calculate()"></td>
@@ -585,7 +611,13 @@ Basic
 </td>
 
 <td align="center">
-<input type ="text" id ="basic_tb_1" readonly>
+<input type ="text" wrap="true" id ="basic_tb_1" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_cisco_revenue_1" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_partner_revenue_1" readonly>
+</br>
+<input type ="text" id ="basic_tb_number_of_companies_1" readonly>
 </br>
 <input id ="basic_cb_1" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_1" hidden readonly><input id ="viptela_cb_1" type="checkbox" hidden checked onchange="calculate()">
@@ -593,11 +625,23 @@ Basic
 <td align="center">
 <input type ="text" id ="basic_tb_2" readonly>
 </br>
+<input type ="text" id ="basic_tb_to_cisco_revenue_2" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_partner_revenue_2" readonly>
+</br>
+<input type ="text" id ="basic_tb_number_of_companies_2" readonly>
+</br>
 <input id ="basic_cb_2" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_2" hidden readonly><input id ="viptela_cb_2" type="checkbox" hidden checked onchange="calculate()">
 </td>
 <td align="center">
 <input type ="text" id ="basic_tb_3" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_cisco_revenue_3" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_partner_revenue_3" readonly>
+</br>
+<input type ="text" id ="basic_tb_number_of_companies_3" readonly>
 </br>
 <input id ="basic_cb_3" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_3" hidden readonly><input id ="viptela_cb_3" type="checkbox" hidden checked onchange="calculate()">
@@ -605,11 +649,23 @@ Basic
 <td align="center">
 <input type ="text" id ="basic_tb_4" readonly>
 </br>
+<input type ="text" id ="basic_tb_to_cisco_revenue_4" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_partner_revenue_4" readonly>
+</br>
+<input type ="text" id ="basic_tb_number_of_companies_4" readonly>
+</br>
 <input id ="basic_cb_4" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_4" hidden readonly><input id ="viptela_cb_4" type="checkbox" hidden checked onchange="calculate()">
 </td>
 <td align="center">
 <input type ="text" id ="basic_tb_5" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_cisco_revenue_5" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_partner_revenue_5" readonly>
+</br>
+<input type ="text" id ="basic_tb_number_of_companies_5" readonly>
 </br>
 <input id ="basic_cb_5" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_5" hidden readonly><input id ="viptela_cb_5" type="checkbox" hidden checked onchange="calculate()">
@@ -617,11 +673,23 @@ Basic
 <td align="center">
 <input type ="text" id ="basic_tb_6" readonly>
 </br>
+<input type ="text" id ="basic_tb_to_cisco_revenue_6" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_partner_revenue_6" readonly>
+</br>
+<input type ="text" id ="basic_tb_number_of_companies_6" readonly>
+</br>
 <input id ="basic_cb_6" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_6" hidden readonly><input id ="viptela_cb_6" type="checkbox" hidden checked onchange="calculate()">
 </td>
 <td align="center">
 <input type ="text" id ="basic_tb_7" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_cisco_revenue_7" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_partner_revenue_7" readonly>
+</br>
+<input type ="text" id ="basic_tb_number_of_companies_7" readonly>
 </br>
 <input id ="basic_cb_7" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_7" hidden readonly><input id ="viptela_cb_7" type="checkbox" hidden checked onchange="calculate()">
@@ -629,17 +697,35 @@ Basic
 <td align="center">
 <input type ="text" id ="basic_tb_8" readonly>
 </br>
+<input type ="text" id ="basic_tb_to_cisco_revenue_8" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_partner_revenue_8" readonly>
+</br>
+<input type ="text" id ="basic_tb_number_of_companies_8" readonly>
+</br>
 <input id ="basic_cb_8" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_8" hidden readonly><input id ="viptela_cb_8" type="checkbox" hidden checked onchange="calculate()">
 </td>
 <td align="center">
 <input type ="text" id ="basic_tb_9" readonly>
 </br>
+<input type ="text" id ="basic_tb_to_cisco_revenue_9" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_partner_revenue_9" readonly>
+</br>
+<input type ="text" id ="basic_tb_number_of_companies_9" readonly>
+</br>
 <input id ="basic_cb_9" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_9" hidden readonly><input id ="viptela_cb_9" type="checkbox" hidden checked onchange="calculate()">
 </td>
 <td align="center">
 <input type ="text" id ="basic_tb_10" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_cisco_revenue_10" readonly>
+</br>
+<input type ="text" id ="basic_tb_to_partner_revenue_10" readonly>
+</br>
+<input type ="text" id ="basic_tb_number_of_companies_10" readonly>
 </br>
 <input id ="basic_cb_10" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_10" hidden readonly><input id ="viptela_cb_10" type="checkbox" hidden checked onchange="calculate()">
@@ -737,11 +823,23 @@ Advanced
 <td align="center">
 <input type ="text" id ="advanced_tb_1" readonly>
 </br>
+<input type ="text" id ="advanced_tb_to_cisco_revenue_1" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_partner_revenue_1" readonly>
+</br>
+<input type ="text" id ="advanced_tb_number_of_companies_1" readonly>
+</br>
 <input id ="advanced_cb_1" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_1" hidden readonly><input id ="cisco_cpe_cb_1" type="checkbox" hidden checked onchange="calculate()">
 </td>
 <td align="center">
 <input type ="text" id ="advanced_tb_2" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_cisco_revenue_2" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_partner_revenue_2" readonly>
+</br>
+<input type ="text" id ="advanced_tb_number_of_companies_2" readonly>
 </br>
 <input id ="advanced_cb_2" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_2" hidden readonly><input id ="cisco_cpe_cb_2" type="checkbox" hidden checked onchange="calculate()">
@@ -749,11 +847,23 @@ Advanced
 <td align="center">
 <input type ="text" id ="advanced_tb_3" readonly>
 </br>
+<input type ="text" id ="advanced_tb_to_cisco_revenue_3" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_partner_revenue_3" readonly>
+</br>
+<input type ="text" id ="advanced_tb_number_of_companies_3" readonly>
+</br>
 <input id ="advanced_cb_3" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_3" hidden readonly><input id ="cisco_cpe_cb_3" type="checkbox" hidden checked onchange="calculate()">
 </td>
 <td align="center">
 <input type ="text" id ="advanced_tb_4" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_cisco_revenue_4" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_partner_revenue_4" readonly>
+</br>
+<input type ="text" id ="advanced_tb_number_of_companies_4" readonly>
 </br>
 <input id ="advanced_cb_4" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_4" hidden readonly><input id ="cisco_cpe_cb_4" type="checkbox" hidden checked onchange="calculate()">
@@ -761,11 +871,23 @@ Advanced
 <td align="center">
 <input type ="text" id ="advanced_tb_5" readonly>
 </br>
+<input type ="text" id ="advanced_tb_to_cisco_revenue_5" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_partner_revenue_5" readonly>
+</br>
+<input type ="text" id ="advanced_tb_number_of_companies_5" readonly>
+</br>
 <input id ="advanced_cb_5" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_5" hidden readonly><input id ="cisco_cpe_cb_5" type="checkbox" hidden checked onchange="calculate()">
 </td>
 <td align="center">
 <input type ="text" id ="advanced_tb_6" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_cisco_revenue_6" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_partner_revenue_6" readonly>
+</br>
+<input type ="text" id ="advanced_tb_number_of_companies_6" readonly>
 </br>
 <input id ="advanced_cb_6" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_6" hidden readonly><input id ="cisco_cpe_cb_6" type="checkbox" hidden checked onchange="calculate()">
@@ -773,11 +895,23 @@ Advanced
 <td align="center">
 <input type ="text" id ="advanced_tb_7" readonly>
 </br>
+<input type ="text" id ="advanced_tb_to_cisco_revenue_7" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_partner_revenue_7" readonly>
+</br>
+<input type ="text" id ="advanced_tb_number_of_companies_7" readonly>
+</br>
 <input id ="advanced_cb_7" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_7" hidden readonly><input id ="cisco_cpe_cb_7" type="checkbox" hidden checked onchange="calculate()">
 </td>
 <td align="center">
 <input type ="text" id ="advanced_tb_8" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_cisco_revenue_8" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_partner_revenue_8" readonly>
+</br>
+<input type ="text" id ="advanced_tb_number_of_companies_8" readonly>
 </br>
 <input id ="advanced_cb_8" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_8" hidden readonly><input id ="cisco_cpe_cb_8" type="checkbox" hidden checked onchange="calculate()">
@@ -785,11 +919,23 @@ Advanced
 <td align="center">
 <input type ="text" id ="advanced_tb_9" readonly>
 </br>
+<input type ="text" id ="advanced_tb_to_cisco_revenue_9" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_partner_revenue_9" readonly>
+</br>
+<input type ="text" id ="advanced_tb_number_of_companies_9" readonly>
+</br>
 <input id ="advanced_cb_9" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_9" hidden readonly><input id ="cisco_cpe_cb_9" type="checkbox" hidden checked onchange="calculate()">
 </td>
 <td align="center">
 <input type ="text" id ="advanced_tb_10" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_cisco_revenue_10" readonly>
+</br>
+<input type ="text" id ="advanced_tb_to_partner_revenue_10" readonly>
+</br>
+<input type ="text" id ="advanced_tb_number_of_companies_10" readonly>
 </br>
 <input id ="advanced_cb_10" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_10" hidden readonly><input id ="cisco_cpe_cb_10" type="checkbox" hidden checked onchange="calculate()">
@@ -1359,18 +1505,24 @@ DATA CENTER
 </tr>
 <tr>
 <td align="right">
-Revenue:
+Revenue to Cisco:
+</br>
+Revenue To Partner:
 </br>
 Business:
 </td>
 <td align="center">
 <input type ="text" id="country11_total_revenue" readonly>
 </br>
+<input type ="text" id="country11_total_to_partner_revenue" readonly>
+</br>
 <input type ="text" id="country11_total_company" readonly>
 </td>
 <td hidden align="right">Year 1 (Mil)</td>
 <td align="center">
 <input type ="text" id="country1_total_revenue" readonly>
+</br>
+<input type ="text" id="country1_total_to_partner_revenue" readonly>
 </br>
 <input type ="text" id="country1_total_company" readonly>
 </br>
@@ -1379,12 +1531,16 @@ Business:
 <td align="center">
 <input type ="text" id="country2_total_revenue" readonly>
 </br>
+<input type ="text" id="country2_total_to_partner_revenue" readonly>
+</br>
 <input type ="text" id="country2_total_company" readonly>
 </br>
 <input type ="number" id ="002" hidden readonly>
 </td>
 <td align="center">
 <input type ="text" id="country3_total_revenue" readonly>
+</br>
+<input type ="text" id="country3_total_to_partner_revenue" readonly>
 </br>
 <input type ="text" id="country3_total_company" readonly>
 </br>
@@ -1393,12 +1549,16 @@ Business:
 <td align="center">
 <input type ="text" id="country4_total_revenue" readonly>
 </br>
+<input type ="text" id="country4_total_to_partner_revenue" readonly>
+</br>
 <input type ="text" id="country4_total_company" readonly>
 </br>
 <input type ="number" id ="004" hidden readonly>
 </td>
 <td align="center">
 <input type ="text" id="country5_total_revenue" readonly>
+</br>
+<input type ="text" id="country5_total_to_partner_revenue" readonly>
 </br>
 <input type ="text" id="country5_total_company" readonly>
 </br>
@@ -1407,12 +1567,16 @@ Business:
 <td align="center">
 <input type ="text" id="country6_total_revenue" readonly>
 </br>
+<input type ="text" id="country6_total_to_partner_revenue" readonly>
+</br>
 <input type ="text" id="country6_total_company" readonly>
 </br>
 <input type ="number" id ="006" hidden readonly>
 </td>
 <td align="center">
 <input type ="text" id="country7_total_revenue" readonly>
+</br>
+<input type ="text" id="country7_total_to_partner_revenue" readonly>
 </br>
 <input type ="text" id="country7_total_company" readonly>
 </br>
@@ -1421,6 +1585,8 @@ Business:
 <td align="center">
 <input type ="text" id="country8_total_revenue" readonly>
 </br>
+<input type ="text" id="country8_total_to_partner_revenue" readonly>
+</br>
 <input type ="text" id="country8_total_company" readonly>
 </br>
 <input type ="number" id ="008" hidden readonly>
@@ -1428,12 +1594,16 @@ Business:
 <td align="center">
 <input type ="text" id="country9_total_revenue" readonly>
 </br>
+<input type ="text" id="country9_total_to_partner_revenue" readonly>
+</br>
 <input type ="text" id="country9_total_company" readonly>
 </br>
 <input type ="number" id ="009" hidden readonly>
 </td>
 <td align="center">
 <input type ="text" id="country10_total_revenue" readonly>
+</br>
+<input type ="text" id="country10_total_to_partner_revenue" readonly>
 </br>
 <input type ="text" id="country10_total_company" readonly>
 </br>
@@ -3240,14 +3410,22 @@ document.getElementById("virt_tb_1").value=(atvirtualization/1000000).toFixed(2)
 document.getElementById("orch_tb_1").value=(atcloudmanagement/1000000).toFixed(2);
 document.getElementById("001").value=(attotal/1000000).toFixed(2);
 
-document.getElementById("simple_tb_1").value=((ats*Number(document.getElementById("simple_cb_1").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+ats.toFixed(0)+")";
-//document.getElementById("simple_tb_nc_1").value="("+ats.toFixed(0)+")";
-//document.getElementById("simple_tb_pr_1").value=((ats*Number(document.getElementById("simple_cb_1").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+ats.toFixed(0)+")";
-document.getElementById("basic_tb_1").value=((atm*Number(document.getElementById("basic_cb_1").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+atm.toFixed(0)+")";
-document.getElementById("advanced_tb_1").value=((atl*Number(document.getElementById("advanced_cb_1").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+atl.toFixed(0)+")";
+document.getElementById("simple_tb_to_cisco_revenue_1").value=((ats*Number(document.getElementById("simple_cb_1").checked)*simple_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_to_partner_revenue_1").value=((ats*s_smb*Number(document.getElementById("simple_cb_1").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_number_of_companies_1").value="("+ats.toFixed(0)+")";
+
+document.getElementById("basic_tb_to_cisco_revenue_1").value=((atm*Number(document.getElementById("basic_cb_1").checked)*basic_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_to_partner_revenue_1").value=((atm*m_smb*Number(document.getElementById("basic_cb_1").checked)*document.getElementById("slider_for_mrr_2").value*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_number_of_companies_1").value="("+atm.toFixed(0)+")";
+
+document.getElementById("advanced_tb_to_cisco_revenue_1").value=((atl*Number(document.getElementById("advanced_cb_1").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_to_partner_revenue_1").value=((atl*l_smb*Number(document.getElementById("advanced_cb_1").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_number_of_companies_1").value="("+atl.toFixed(0)+")";
 
 document.getElementById("country1_total_revenue").value=((ats*Number(document.getElementById("simple_cb_1").checked)*simple_monthly_company*12+atm*Number(document.getElementById("basic_cb_1").checked)*basic_monthly_company*12+atl*Number(document.getElementById("advanced_cb_1").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("country1_total_to_partner_revenue").value=((ats*s_smb*Number(document.getElementById("simple_cb_1").checked)*document.getElementById("slider_for_mrr_1").value*12+atm*m_smb*Number(document.getElementById("basic_cb_1").checked)*document.getElementById("slider_for_mrr_2").value*12+atl*l_smb*Number(document.getElementById("advanced_cb_1").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country1_total_company").value="("+(ats*Number(document.getElementById("simple_cb_1").checked)+atm*Number(document.getElementById("basic_cb_1").checked)+atl*Number(document.getElementById("advanced_cb_1").checked)).toFixed(0)+")";
+
 
 roml=data[1][0]*Number(document.getElementById("slider_for_large_2").value)/100;
 romm=data[1][1]*Number(document.getElementById("slider_for_medium_2").value)/100;
@@ -3310,13 +3488,26 @@ document.getElementById("virt_tb_2").value=(romvirtualization/1000000).toFixed(2
 document.getElementById("orch_tb_2").value=(romcloudmanagement/1000000).toFixed(2);
 document.getElementById("002").value=(romtotal/1000000).toFixed(2);
 
-document.getElementById("simple_tb_2").value=((roms*Number(document.getElementById("simple_cb_2").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+roms.toFixed(0)+")";
-//document.getElementById("simple_tb_nc_2").value="("+roms.toFixed(0)+")";
-//document.getElementById("simple_tb_pr_2").value=((roms*Number(document.getElementById("simple_cb_2").checked)*simple_monthly_company*12)/1000000).toFixed(1);
-document.getElementById("basic_tb_2").value=((romm*Number(document.getElementById("basic_cb_2").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+romm.toFixed(0)+")";
-document.getElementById("advanced_tb_2").value=((roml*Number(document.getElementById("advanced_cb_2").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+roml.toFixed(0)+")";
+//document.getElementById("simple_tb_2").value=((roms*Number(document.getElementById("simple_cb_2").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+roms.toFixed(0)+")";
+//document.getElementById("basic_tb_2").value=((romm*Number(document.getElementById("basic_cb_2").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+romm.toFixed(0)+")";
+//document.getElementById("advanced_tb_2").value=((roml*Number(document.getElementById("advanced_cb_2").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+roml.toFixed(0)+")";
+
+
+document.getElementById("simple_tb_to_cisco_revenue_2").value=((roms*Number(document.getElementById("simple_cb_2").checked)*simple_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_to_partner_revenue_2").value=((roms*s_smb*Number(document.getElementById("simple_cb_2").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_number_of_companies_2").value="("+roms.toFixed(0)+")";
+
+document.getElementById("basic_tb_to_cisco_revenue_2").value=((romm*Number(document.getElementById("basic_cb_2").checked)*basic_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_to_partner_revenue_2").value=((romm*m_smb*Number(document.getElementById("basic_cb_2").checked)*document.getElementById("slider_for_mrr_2").value*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_number_of_companies_2").value="("+romm.toFixed(0)+")";
+
+document.getElementById("advanced_tb_to_cisco_revenue_2").value=((roml*Number(document.getElementById("advanced_cb_2").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_to_partner_revenue_2").value=((roml*l_smb*Number(document.getElementById("advanced_cb_2").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_number_of_companies_2").value="("+roml.toFixed(0)+")";
+
 
 document.getElementById("country2_total_revenue").value=((roms*Number(document.getElementById("simple_cb_2").checked)*simple_monthly_company*12+romm*Number(document.getElementById("basic_cb_2").checked)*basic_monthly_company*12+roml*Number(document.getElementById("advanced_cb_2").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("country2_total_to_partner_revenue").value=((roms*s_smb*Number(document.getElementById("simple_cb_2").checked)*document.getElementById("slider_for_mrr_1").value*12+romm*m_smb*Number(document.getElementById("basic_cb_2").checked)*document.getElementById("slider_for_mrr_2").value*12+roml*l_smb*Number(document.getElementById("advanced_cb_2").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country2_total_company").value="("+(roms*Number(document.getElementById("simple_cb_2").checked)+romm*Number(document.getElementById("basic_cb_2").checked)+roml*Number(document.getElementById("advanced_cb_2").checked)).toFixed(0)+")";
 
 svkl=data[2][0]*Number(document.getElementById("slider_for_large_3").value)/100;
@@ -3381,13 +3572,25 @@ document.getElementById("orch_tb_3").value=(svkcloudmanagement/1000000).toFixed(
 document.getElementById("003").value=(svktotal/1000000).toFixed(2);
 
 
-document.getElementById("simple_tb_3").value=((svks*Number(document.getElementById("simple_cb_3").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+svks.toFixed(0)+")";
-//document.getElementById("simple_tb_nc_3").value="("+svks.toFixed(0)+")";
-//document.getElementById("simple_tb_pr_3").value=((svks*Number(document.getElementById("simple_cb_3").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+svks.toFixed(0)+")";
-document.getElementById("basic_tb_3").value=((svkm*Number(document.getElementById("basic_cb_3").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+svkm.toFixed(0)+")";
-document.getElementById("advanced_tb_3").value=((svkl*Number(document.getElementById("advanced_cb_3").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+svkl.toFixed(0)+")";
+//document.getElementById("simple_tb_3").value=((svks*Number(document.getElementById("simple_cb_3").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+svks.toFixed(0)+")";
+//document.getElementById("basic_tb_3").value=((svkm*Number(document.getElementById("basic_cb_3").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+svkm.toFixed(0)+")";
+//document.getElementById("advanced_tb_3").value=((svkl*Number(document.getElementById("advanced_cb_3").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+svkl.toFixed(0)+")";
+
+
+document.getElementById("simple_tb_to_cisco_revenue_3").value=((svks*Number(document.getElementById("simple_cb_3").checked)*simple_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_to_partner_revenue_3").value=((svks*s_smb*Number(document.getElementById("simple_cb_3").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_number_of_companies_3").value="("+svks.toFixed(0)+")";
+
+document.getElementById("basic_tb_to_cisco_revenue_3").value=((svkm*Number(document.getElementById("basic_cb_3").checked)*basic_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_to_partner_revenue_3").value=((svkm*m_smb*Number(document.getElementById("basic_cb_3").checked)*document.getElementById("slider_for_mrr_2").value*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_number_of_companies_3").value="("+svkm.toFixed(0)+")";
+
+document.getElementById("advanced_tb_to_cisco_revenue_3").value=((svkl*Number(document.getElementById("advanced_cb_3").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_to_partner_revenue_3").value=((svkl*l_smb*Number(document.getElementById("advanced_cb_3").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_number_of_companies_3").value="("+svkl.toFixed(0)+")";
 
 document.getElementById("country3_total_revenue").value=((svks*Number(document.getElementById("simple_cb_3").checked)*simple_monthly_company*12+svkm*Number(document.getElementById("basic_cb_3").checked)*basic_monthly_company*12+svkl*Number(document.getElementById("advanced_cb_3").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("country3_total_to_partner_revenue").value=((svks*s_smb*Number(document.getElementById("simple_cb_3").checked)*document.getElementById("slider_for_mrr_1").value*12+svkm*m_smb*Number(document.getElementById("basic_cb_3").checked)*document.getElementById("slider_for_mrr_2").value*12+svkl*l_smb*Number(document.getElementById("advanced_cb_3").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country3_total_company").value="("+(svks*Number(document.getElementById("simple_cb_3").checked)+svkm*Number(document.getElementById("basic_cb_3").checked)+svkl*Number(document.getElementById("advanced_cb_3").checked)).toFixed(0)+")";
 
 czel=(data[3][0]*Number(document.getElementById("slider_for_large_4").value)/100);
@@ -3452,13 +3655,26 @@ document.getElementById("orch_tb_4").value=(czecloudmanagement/1000000).toFixed(
 document.getElementById("004").value=(czetotal/1000000).toFixed(2);
 
 
-document.getElementById("simple_tb_4").value=((czes*Number(document.getElementById("simple_cb_4").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+czes.toFixed(0)+")";
-//document.getElementById("simple_tb_nc_4").value="("+czes.toFixed(0)+")";
-//document.getElementById("simple_tb_pr_4").value=((czes*Number(document.getElementById("simple_cb_4").checked)*simple_monthly_company*12)/1000000).toFixed(1);
-document.getElementById("basic_tb_4").value=((czem*Number(document.getElementById("basic_cb_4").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+czem.toFixed(0)+")";
-document.getElementById("advanced_tb_4").value=((czel*Number(document.getElementById("advanced_cb_4").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+czel.toFixed(0)+")";
+//document.getElementById("simple_tb_4").value=((czes*Number(document.getElementById("simple_cb_4").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+czes.toFixed(0)+")";
+//document.getElementById("basic_tb_4").value=((czem*Number(document.getElementById("basic_cb_4").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+czem.toFixed(0)+")";
+//document.getElementById("advanced_tb_4").value=((czel*Number(document.getElementById("advanced_cb_4").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+czel.toFixed(0)+")";
+
+
+document.getElementById("simple_tb_to_cisco_revenue_4").value=((czes*Number(document.getElementById("simple_cb_4").checked)*simple_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_to_partner_revenue_4").value=((czes*s_smb*Number(document.getElementById("simple_cb_4").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_number_of_companies_4").value="("+czes.toFixed(0)+")";
+
+document.getElementById("basic_tb_to_cisco_revenue_4").value=((czem*Number(document.getElementById("basic_cb_4").checked)*basic_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_to_partner_revenue_4").value=((czem*m_smb*Number(document.getElementById("basic_cb_4").checked)*document.getElementById("slider_for_mrr_2").value*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_number_of_companies_4").value="("+czem.toFixed(0)+")";
+
+document.getElementById("advanced_tb_to_cisco_revenue_4").value=((czel*Number(document.getElementById("advanced_cb_4").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_to_partner_revenue_4").value=((czel*l_smb*Number(document.getElementById("advanced_cb_4").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_number_of_companies_4").value="("+czel.toFixed(0)+")";
+
 
 document.getElementById("country4_total_revenue").value=((czes*Number(document.getElementById("simple_cb_4").checked)*simple_monthly_company*12+czem*Number(document.getElementById("basic_cb_4").checked)*basic_monthly_company*12+czel*Number(document.getElementById("advanced_cb_4").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("country4_total_to_partner_revenue").value=((czes*s_smb*Number(document.getElementById("simple_cb_4").checked)*document.getElementById("slider_for_mrr_1").value*12+czem*m_smb*Number(document.getElementById("basic_cb_4").checked)*document.getElementById("slider_for_mrr_4").value*12+czel*l_smb*Number(document.getElementById("advanced_cb_4").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country4_total_company").value="("+(czes*Number(document.getElementById("simple_cb_4").checked)+czem*Number(document.getElementById("basic_cb_4").checked)+czel*Number(document.getElementById("advanced_cb_4").checked)).toFixed(0)+")";
 
 slol=(data[4][0]*Number(document.getElementById("slider_for_large_5").value)/100);
@@ -3523,13 +3739,26 @@ document.getElementById("orch_tb_5").value=(slocloudmanagement/1000000).toFixed(
 document.getElementById("005").value=(slototal/1000000).toFixed(2);
 
 
-document.getElementById("simple_tb_5").value=((slos*Number(document.getElementById("simple_cb_5").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+slos.toFixed(0)+")";
-//document.getElementById("simple_tb_nc_5").value="("+slos.toFixed(0)+")";
-//document.getElementById("simple_tb_pr_5").value=((slos*Number(document.getElementById("simple_cb_5").checked)*simple_monthly_company*12)/1000000).toFixed(1);
-document.getElementById("basic_tb_5").value=((slom*Number(document.getElementById("basic_cb_5").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+slom.toFixed(0)+")";
-document.getElementById("advanced_tb_5").value=((slol*Number(document.getElementById("advanced_cb_5").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+slol.toFixed(0)+")";
+//document.getElementById("simple_tb_5").value=((slos*Number(document.getElementById("simple_cb_5").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+slos.toFixed(0)+")";
+//document.getElementById("basic_tb_5").value=((slom*Number(document.getElementById("basic_cb_5").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+slom.toFixed(0)+")";
+//document.getElementById("advanced_tb_5").value=((slol*Number(document.getElementById("advanced_cb_5").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+slol.toFixed(0)+")";
+
+
+document.getElementById("simple_tb_to_cisco_revenue_5").value=((slos*Number(document.getElementById("simple_cb_5").checked)*simple_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_to_partner_revenue_5").value=((slos*s_smb*Number(document.getElementById("simple_cb_5").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_number_of_companies_5").value="("+slos.toFixed(0)+")";
+
+document.getElementById("basic_tb_to_cisco_revenue_5").value=((slom*Number(document.getElementById("basic_cb_5").checked)*basic_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_to_partner_revenue_5").value=((slom*m_smb*Number(document.getElementById("basic_cb_5").checked)*document.getElementById("slider_for_mrr_2").value*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_number_of_companies_5").value="("+slom.toFixed(0)+")";
+
+document.getElementById("advanced_tb_to_cisco_revenue_5").value=((slol*Number(document.getElementById("advanced_cb_5").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_to_partner_revenue_5").value=((slol*l_smb*Number(document.getElementById("advanced_cb_5").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_number_of_companies_5").value="("+slol.toFixed(0)+")";
+
 
 document.getElementById("country5_total_revenue").value=((slos*Number(document.getElementById("simple_cb_5").checked)*simple_monthly_company*12+slom*Number(document.getElementById("basic_cb_5").checked)*basic_monthly_company*12+slol*Number(document.getElementById("advanced_cb_5").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("country5_total_to_partner_revenue").value=((slos*s_smb*Number(document.getElementById("simple_cb_5").checked)*document.getElementById("slider_for_mrr_1").value*12+slom*m_smb*Number(document.getElementById("basic_cb_5").checked)*document.getElementById("slider_for_mrr_2").value*12+slol*l_smb*Number(document.getElementById("advanced_cb_5").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country5_total_company").value="("+(slos*Number(document.getElementById("simple_cb_5").checked)+slom*Number(document.getElementById("basic_cb_5").checked)+slol*Number(document.getElementById("advanced_cb_5").checked)).toFixed(0)+")";
 
 poll=(data[5][0]*Number(document.getElementById("slider_for_large_6").value)/100);
@@ -3594,13 +3823,26 @@ document.getElementById("orch_tb_6").value=(polcloudmanagement/1000000).toFixed(
 document.getElementById("006").value=(poltotal/1000000).toFixed(2);
 
 
-document.getElementById("simple_tb_6").value=((pols*Number(document.getElementById("simple_cb_6").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+pols.toFixed(0)+")";
-//document.getElementById("simple_tb_nc_6").value="("+pols.toFixed(0)+")";
-//document.getElementById("simple_tb_pr_6").value=((pols*Number(document.getElementById("simple_cb_6").checked)*simple_monthly_company*12)/1000000).toFixed(1);
-document.getElementById("basic_tb_6").value=((polm*Number(document.getElementById("basic_cb_6").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+polm.toFixed(0)+")";
-document.getElementById("advanced_tb_6").value=((poll*Number(document.getElementById("advanced_cb_6").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+poll.toFixed(0)+")";
+//document.getElementById("simple_tb_6").value=((pols*Number(document.getElementById("simple_cb_6").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+pols.toFixed(0)+")";
+//document.getElementById("basic_tb_6").value=((polm*Number(document.getElementById("basic_cb_6").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+polm.toFixed(0)+")";
+//document.getElementById("advanced_tb_6").value=((poll*Number(document.getElementById("advanced_cb_6").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+poll.toFixed(0)+")";
+
+
+document.getElementById("simple_tb_to_cisco_revenue_6").value=((pols*Number(document.getElementById("simple_cb_6").checked)*simple_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_to_partner_revenue_6").value=((pols*s_smb*Number(document.getElementById("simple_cb_6").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_number_of_companies_6").value="("+pols.toFixed(0)+")";
+
+document.getElementById("basic_tb_to_cisco_revenue_6").value=((polm*Number(document.getElementById("basic_cb_6").checked)*basic_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_to_partner_revenue_6").value=((polm*m_smb*Number(document.getElementById("basic_cb_6").checked)*document.getElementById("slider_for_mrr_2").value*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_number_of_companies_6").value="("+polm.toFixed(0)+")";
+
+document.getElementById("advanced_tb_to_cisco_revenue_6").value=((poll*Number(document.getElementById("advanced_cb_6").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_to_partner_revenue_6").value=((poll*l_smb*Number(document.getElementById("advanced_cb_6").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_number_of_companies_6").value="("+poll.toFixed(0)+")";
+
 
 document.getElementById("country6_total_revenue").value=((pols*Number(document.getElementById("simple_cb_6").checked)*simple_monthly_company*12+polm*Number(document.getElementById("basic_cb_6").checked)*basic_monthly_company*12+poll*Number(document.getElementById("advanced_cb_6").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("country6_total_to_partner_revenue").value=((pols*s_smb*Number(document.getElementById("simple_cb_6").checked)*document.getElementById("slider_for_mrr_1").value*12+polm*m_smb*Number(document.getElementById("basic_cb_6").checked)*document.getElementById("slider_for_mrr_2").value*12+poll*l_smb*Number(document.getElementById("advanced_cb_6").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country6_total_company").value="("+(pols*Number(document.getElementById("simple_cb_6").checked)+polm*Number(document.getElementById("basic_cb_6").checked)+poll*Number(document.getElementById("advanced_cb_6").checked)).toFixed(0)+")";
 
 bull=(data[6][0]*Number(document.getElementById("slider_for_large_7").value)/100);
@@ -3665,13 +3907,26 @@ document.getElementById("orch_tb_7").value=(bulcloudmanagement/1000000).toFixed(
 document.getElementById("007").value=(bultotal/1000000).toFixed(2);
 
 
-document.getElementById("simple_tb_7").value=((buls*Number(document.getElementById("simple_cb_7").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+buls.toFixed(0)+")";
-//document.getElementById("simple_tb_nc_7").value="("+buls.toFixed(0)+")";
-//document.getElementById("simple_tb_pr_7").value=((buls*Number(document.getElementById("simple_cb_7").checked)*simple_monthly_company*12)/1000000).toFixed(1);
-document.getElementById("basic_tb_7").value=((bulm*Number(document.getElementById("basic_cb_7").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+bulm.toFixed(0)+")";
-document.getElementById("advanced_tb_7").value=((bull*Number(document.getElementById("advanced_cb_7").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+bull.toFixed(0)+")";
+//document.getElementById("simple_tb_7").value=((buls*Number(document.getElementById("simple_cb_7").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+buls.toFixed(0)+")";
+//document.getElementById("basic_tb_7").value=((bulm*Number(document.getElementById("basic_cb_7").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+bulm.toFixed(0)+")";
+//document.getElementById("advanced_tb_7").value=((bull*Number(document.getElementById("advanced_cb_7").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+bull.toFixed(0)+")";
+
+
+document.getElementById("simple_tb_to_cisco_revenue_7").value=((buls*Number(document.getElementById("simple_cb_7").checked)*simple_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_to_partner_revenue_7").value=((buls*s_smb*Number(document.getElementById("simple_cb_7").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_number_of_companies_7").value="("+buls.toFixed(0)+")";
+
+document.getElementById("basic_tb_to_cisco_revenue_7").value=((bulm*Number(document.getElementById("basic_cb_7").checked)*basic_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_to_partner_revenue_7").value=((bulm*m_smb*Number(document.getElementById("basic_cb_7").checked)*document.getElementById("slider_for_mrr_2").value*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_number_of_companies_7").value="("+bulm.toFixed(0)+")";
+
+document.getElementById("advanced_tb_to_cisco_revenue_7").value=((bull*Number(document.getElementById("advanced_cb_7").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_to_partner_revenue_7").value=((bull*l_smb*Number(document.getElementById("advanced_cb_7").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_number_of_companies_7").value="("+bull.toFixed(0)+")";
+
 
 document.getElementById("country7_total_revenue").value=((buls*Number(document.getElementById("simple_cb_7").checked)*simple_monthly_company*12+bulm*Number(document.getElementById("basic_cb_7").checked)*basic_monthly_company*12+bull*Number(document.getElementById("advanced_cb_7").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("country7_total_to_partner_revenue").value=((buls*s_smb*Number(document.getElementById("simple_cb_7").checked)*document.getElementById("slider_for_mrr_1").value*12+bulm*m_smb*Number(document.getElementById("basic_cb_7").checked)*document.getElementById("slider_for_mrr_2").value*12+bull*l_smb*Number(document.getElementById("advanced_cb_7").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country7_total_company").value="("+(buls*Number(document.getElementById("simple_cb_7").checked)+bulm*Number(document.getElementById("basic_cb_7").checked)+bull*Number(document.getElementById("advanced_cb_7").checked)).toFixed(0)+")";
 
 srbl=(data[7][0]*Number(document.getElementById("slider_for_large_8").value)/100);
@@ -3735,13 +3990,26 @@ document.getElementById("virt_tb_8").value=(srbvirtualization/1000000).toFixed(2
 document.getElementById("orch_tb_8").value=(srbcloudmanagement/1000000).toFixed(2);
 document.getElementById("008").value=(srbtotal/1000000).toFixed(2);
 
-document.getElementById("simple_tb_8").value=((srbs*Number(document.getElementById("simple_cb_8").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+srbs.toFixed(0)+")";
-//document.getElementById("simple_tb_nc_8").value="("+srbs.toFixed(0)+")";
-//document.getElementById("simple_tb_pr_8").value=((srbs*Number(document.getElementById("simple_cb_8").checked)*simple_monthly_company*12)/1000000).toFixed(1);
-document.getElementById("basic_tb_8").value=((srbm*Number(document.getElementById("basic_cb_8").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+srbm.toFixed(0)+")";
-document.getElementById("advanced_tb_8").value=((srbl*Number(document.getElementById("advanced_cb_8").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+srbl.toFixed(0)+")";
+//document.getElementById("simple_tb_8").value=((srbs*Number(document.getElementById("simple_cb_8").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+srbs.toFixed(0)+")";
+//document.getElementById("basic_tb_8").value=((srbm*Number(document.getElementById("basic_cb_8").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+srbm.toFixed(0)+")";
+//document.getElementById("advanced_tb_8").value=((srbl*Number(document.getElementById("advanced_cb_8").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+srbl.toFixed(0)+")";
+
+
+document.getElementById("simple_tb_to_cisco_revenue_8").value=((srbs*Number(document.getElementById("simple_cb_8").checked)*simple_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_to_partner_revenue_8").value=((srbs*s_smb*Number(document.getElementById("simple_cb_8").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_number_of_companies_8").value="("+srbs.toFixed(0)+")";
+
+document.getElementById("basic_tb_to_cisco_revenue_8").value=((srbm*Number(document.getElementById("basic_cb_8").checked)*basic_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_to_partner_revenue_8").value=((srbm*m_smb*Number(document.getElementById("basic_cb_8").checked)*document.getElementById("slider_for_mrr_2").value*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_number_of_companies_8").value="("+srbm.toFixed(0)+")";
+
+document.getElementById("advanced_tb_to_cisco_revenue_8").value=((srbl*Number(document.getElementById("advanced_cb_8").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_to_partner_revenue_8").value=((srbl*l_smb*Number(document.getElementById("advanced_cb_8").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_number_of_companies_8").value="("+srbl.toFixed(0)+")";
+
 
 document.getElementById("country8_total_revenue").value=((srbs*Number(document.getElementById("simple_cb_8").checked)*simple_monthly_company*12+srbm*Number(document.getElementById("basic_cb_8").checked)*basic_monthly_company*12+srbl*Number(document.getElementById("advanced_cb_8").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("country8_total_to_partner_revenue").value=((srbs*s_smb*Number(document.getElementById("simple_cb_8").checked)*document.getElementById("slider_for_mrr_1").value*12+srbm*m_smb*Number(document.getElementById("basic_cb_8").checked)*document.getElementById("slider_for_mrr_2").value*12+srbl*l_smb*Number(document.getElementById("advanced_cb_8").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country8_total_company").value="("+(srbs*Number(document.getElementById("simple_cb_8").checked)+srbm*Number(document.getElementById("basic_cb_8").checked)+srbl*Number(document.getElementById("advanced_cb_8").checked)).toFixed(0)+")";
 
 
@@ -3806,13 +4074,25 @@ document.getElementById("virt_tb_9").value=(bihvirtualization/1000000).toFixed(2
 document.getElementById("orch_tb_9").value=(bihcloudmanagement/1000000).toFixed(2);
 document.getElementById("009").value=(bihtotal/1000000).toFixed(2);
 
-document.getElementById("simple_tb_9").value=((bihs*Number(document.getElementById("simple_cb_9").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+bihs.toFixed(0)+")";
-//document.getElementById("simple_tb_nc_9").value="("+bihs.toFixed(0)+")";
-//document.getElementById("simple_tb_pr_9").value=((bihs*Number(document.getElementById("simple_cb_9").checked)*simple_monthly_company*12)/1000000).toFixed(1);
-document.getElementById("basic_tb_9").value=((bihm*Number(document.getElementById("basic_cb_9").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+bihm.toFixed(0)+")";
-document.getElementById("advanced_tb_9").value=((bihl*Number(document.getElementById("advanced_cb_9").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+bihl.toFixed(0)+")";
+//document.getElementById("simple_tb_9").value=((bihs*Number(document.getElementById("simple_cb_9").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+bihs.toFixed(0)+")";
+//document.getElementById("basic_tb_9").value=((bihm*Number(document.getElementById("basic_cb_9").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+bihm.toFixed(0)+")";
+//document.getElementById("advanced_tb_9").value=((bihl*Number(document.getElementById("advanced_cb_9").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+bihl.toFixed(0)+")";
+
+document.getElementById("simple_tb_to_cisco_revenue_9").value=((bihs*Number(document.getElementById("simple_cb_9").checked)*simple_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_to_partner_revenue_9").value=((bihs*s_smb*Number(document.getElementById("simple_cb_9").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_number_of_companies_9").value="("+bihs.toFixed(0)+")";
+
+document.getElementById("basic_tb_to_cisco_revenue_9").value=((bihm*Number(document.getElementById("basic_cb_9").checked)*basic_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_to_partner_revenue_9").value=((bihm*m_smb*Number(document.getElementById("basic_cb_9").checked)*document.getElementById("slider_for_mrr_2").value*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_number_of_companies_9").value="("+bihm.toFixed(0)+")";
+
+document.getElementById("advanced_tb_to_cisco_revenue_9").value=((bihl*Number(document.getElementById("advanced_cb_9").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_to_partner_revenue_9").value=((bihl*l_smb*Number(document.getElementById("advanced_cb_9").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_number_of_companies_9").value="("+bihl.toFixed(0)+")";
+
 
 document.getElementById("country9_total_revenue").value=((bihs*Number(document.getElementById("simple_cb_9").checked)*simple_monthly_company*12+bihm*Number(document.getElementById("basic_cb_9").checked)*basic_monthly_company*12+bihl*Number(document.getElementById("advanced_cb_9").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("country9_total_to_partner_revenue").value=((bihs*s_smb*Number(document.getElementById("simple_cb_9").checked)*document.getElementById("slider_for_mrr_1").value*12+bihm*m_smb*Number(document.getElementById("basic_cb_9").checked)*document.getElementById("slider_for_mrr_2").value*12+bihl*l_smb*Number(document.getElementById("advanced_cb_9").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country9_total_company").value="("+(bihs*Number(document.getElementById("simple_cb_9").checked)+bihm*Number(document.getElementById("basic_cb_9").checked)+bihl*Number(document.getElementById("advanced_cb_9").checked)).toFixed(0)+")";
 
 hunl=(data[9][0]*Number(document.getElementById("slider_for_large_10").value)/100);
@@ -3877,13 +4157,26 @@ document.getElementById("orch_tb_10").value=(huncloudmanagement/1000000).toFixed
 document.getElementById("010").value=(huntotal/1000000).toFixed(2);
 
 
-document.getElementById("simple_tb_10").value=((huns*Number(document.getElementById("simple_cb_10").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+huns.toFixed(0)+")";
-//document.getElementById("simple_tb_nc_10").value="("+huns.toFixed(0)+")";
-//document.getElementById("simple_tb_pr_10").value=((huns*Number(document.getElementById("simple_cb_10").checked)*simple_monthly_company*12)/1000000).toFixed(1);
-document.getElementById("basic_tb_10").value=((hunm*Number(document.getElementById("basic_cb_10").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+hunm.toFixed(0)+")";
-document.getElementById("advanced_tb_10").value=((hunl*Number(document.getElementById("advanced_cb_10").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+hunl.toFixed(0)+")";
+//document.getElementById("simple_tb_10").value=((huns*Number(document.getElementById("simple_cb_10").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+huns.toFixed(0)+")";
+//document.getElementById("basic_tb_10").value=((hunm*Number(document.getElementById("basic_cb_10").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+hunm.toFixed(0)+")";
+//document.getElementById("advanced_tb_10").value=((hunl*Number(document.getElementById("advanced_cb_10").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+hunl.toFixed(0)+")";
+
+
+document.getElementById("simple_tb_to_cisco_revenue_10").value=((huns*Number(document.getElementById("simple_cb_10").checked)*simple_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_to_partner_revenue_10").value=((huns*s_smb*Number(document.getElementById("simple_cb_10").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
+document.getElementById("simple_tb_number_of_companies_10").value="("+huns.toFixed(0)+")";
+
+document.getElementById("basic_tb_to_cisco_revenue_10").value=((hunm*Number(document.getElementById("basic_cb_10").checked)*basic_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_to_partner_revenue_10").value=((hunm*m_smb*Number(document.getElementById("basic_cb_10").checked)*document.getElementById("slider_for_mrr_2").value*12)/1000000).toFixed(1);
+document.getElementById("basic_tb_number_of_companies_10").value="("+hunm.toFixed(0)+")";
+
+document.getElementById("advanced_tb_to_cisco_revenue_10").value=((hunl*Number(document.getElementById("advanced_cb_10").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_to_partner_revenue_10").value=((hunl*l_smb*Number(document.getElementById("advanced_cb_10").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
+document.getElementById("advanced_tb_number_of_companies_10").value="("+hunl.toFixed(0)+")";
+
 
 document.getElementById("country10_total_revenue").value=((huns*Number(document.getElementById("simple_cb_10").checked)*simple_monthly_company*12+hunm*Number(document.getElementById("basic_cb_10").checked)*basic_monthly_company*12+hunl*Number(document.getElementById("advanced_cb_10").checked)*advanced_monthly_company*12)/1000000).toFixed(1);
+document.getElementById("country10_total_to_partner_revenue").value=((huns*s_smb*Number(document.getElementById("simple_cb_10").checked)*document.getElementById("slider_for_mrr_1").value*12+hunm*m_smb*Number(document.getElementById("basic_cb_10").checked)*document.getElementById("slider_for_mrr_2").value*12+hunl*l_smb*Number(document.getElementById("advanced_cb_10").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country10_total_company").value="("+(huns*Number(document.getElementById("simple_cb_10").checked)+hunm*Number(document.getElementById("basic_cb_10").checked)+hunl*Number(document.getElementById("advanced_cb_10").checked)).toFixed(0)+")";
 
 
@@ -3897,18 +4190,13 @@ advanced_to_cisco_revenue=advanced_companies*advanced_yearly_company;
 
 simple_basic_advanced_companies=simple_companies+basic_companies+advanced_companies;
 simple_basic_advanced_to_cisco_revenue=simple_to_cisco_revenue+basic_to_cisco_revenue+advanced_to_cisco_revenue;
-document.getElementById("country11_total_revenue").value=(simple_basic_advanced_to_cisco_revenue/1000000).toFixed(1);
-document.getElementById("country11_total_company").value="("+(simple_basic_advanced_companies).toFixed(0)+")";
 
 total_to_cisco_revenue=simple_to_cisco_revenue+basic_to_cisco_revenue+advanced_to_cisco_revenue;
 
-//document.getElementById("simple_tb_11").value=(simple_to_cisco_revenue/1000000).toFixed(1)+"("+(simple_companies).toFixed(0)+")";
 document.getElementById("simple_tb_11").value="Revenue:"+(simple_to_cisco_revenue/1000000).toFixed(1);
 document.getElementById("simple_tb_12").value="Business:("+(simple_companies).toFixed(0)+")";
-//document.getElementById("basic_tb_11").value=(basic_to_cisco_revenue/1000000).toFixed(1)+"("+(basic_companies).toFixed(0)+")";
 document.getElementById("basic_tb_11").value="Revenue:"+(basic_to_cisco_revenue/1000000).toFixed(1);
 document.getElementById("basic_tb_12").value="Business:("+(basic_companies).toFixed(0)+")";
-//document.getElementById("advanced_tb_11").value=(advanced_to_cisco_revenue/1000000).toFixed(1)+"("+(advanced_companies).toFixed(0)+")";
 document.getElementById("advanced_tb_11").value="Revenue:"+(advanced_to_cisco_revenue/1000000).toFixed(1);
 document.getElementById("advanced_tb_12").value="Business:("+(advanced_companies).toFixed(0)+")";
 
@@ -3917,6 +4205,10 @@ basic_to_partner_revenue=(atm+romm+svkm+czem+slom+polm+bulm+srbm+bihm+hunm)*docu
 advanced_to_partner_revenue=(atl+roml+svkl+czel+slol+poll+bull+srbl+bihl+hunl)*document.getElementById("volume_for_slider_for_mrr_3").value*l_smb*12;
 
 total_to_partner_revenue=simple_to_partner_revenue+basic_to_partner_revenue+advanced_to_partner_revenue;
+
+document.getElementById("country11_total_revenue").value=(simple_basic_advanced_to_cisco_revenue/1000000).toFixed(1);
+document.getElementById("country11_total_to_partner_revenue").value=(total_to_partner_revenue/1000000).toFixed(1);
+document.getElementById("country11_total_company").value="("+(simple_basic_advanced_companies).toFixed(0)+")";
 
 margins=total_to_partner_revenue/total_to_cisco_revenue-1;
 
