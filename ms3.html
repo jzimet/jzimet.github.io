@@ -773,6 +773,7 @@ Advanced
         <option>ISR WiFi 1100 LTE, $2495+$400(SaaS)+$1500(Security)</option>
         <option>No connectivity</option>
 </select>
+<input style="width:2em" id="number_of_advanced_routers" type="number" value="1" min="1" max="5" step="1" onchange="calculate()">
 </br>
 <select id="cisco_drop_down" hidden onchange="calculate()">
         <option>Advanced</option>
@@ -3110,12 +3111,15 @@ document.getElementById("datacenter8").value=Number(document.getElementById("201
 document.getElementById("datacenter9").value=Number(document.getElementById("2017").checked)*(datacenter2017[8]/1000000).toFixed(2)+Number(document.getElementById("2016").checked)*(datacenter2016[8]/1000000).toFixed(2);
 document.getElementById("datacenter10").value=Number(document.getElementById("2017").checked)*(datacenter2017[9]/1000000).toFixed(2)+Number(document.getElementById("2016").checked)*(datacenter2016[9]/1000000).toFixed(2);
 
+//######################## SIMPLE
 
 discount=document.getElementById("discount").value;
 partnermargin=document.getElementById("partnermargin").value;
-simple_multiyear=document.getElementById("multiyear").value
-basic_multiyear=document.getElementById("multiyear").value
-advanced_multiyear=document.getElementById("multiyear").value
+simple_multiyear=document.getElementById("multiyear").value;
+basic_multiyear=document.getElementById("multiyear").value;
+advanced_multiyear=document.getElementById("multiyear").value;
+number_of_advanced_routers=document.getElementById("number_of_advanced_routers").value;
+console.log("number of advanced routers"+number_of_advanced_routers);
 
 //meraki 445
 simple_connectivity_array=[0,395,0];
@@ -3143,6 +3147,8 @@ document.getElementById("simple_monthly_company_$").value=(simple_monthly_compan
 document.getElementById("simple_yearly_user_$").value=(simple_yearly_user).toFixed(1)+" user/year";
 document.getElementById("simple_yearly_company_$").value=(simple_yearly_company/1000).toFixed(1)+"k company/year";
 document.getElementById("suggested_mrr_1").value="("+(simple_monthly_user).toFixed(1)+")";
+
+//################### BASIC
 
 //meraki-mx 0, 595+300/year,595+600/year,0
 basic_connectivity_array=[0,595,595,0];
@@ -3185,6 +3191,9 @@ document.getElementById("basic_yearly_user_$").value=(basic_yearly_user).toFixed
 document.getElementById("basic_yearly_company_$").value=(basic_yearly_company/1000).toFixed(1)+"k company/year";
 document.getElementById("suggested_mrr_2").value="("+(basic_monthly_user).toFixed(1)+")";
 
+
+//################### ADVANCED
+
 //viptela 895+960+1500+, isr 1100 2495+400+1500
 advanced_connectivity_array=[0,895,895,895,2495,2495,2495,0];
 if (document.getElementById("advanced_drop_down").selectedIndex==2) {
@@ -3198,8 +3207,8 @@ if (document.getElementById("advanced_drop_down").selectedIndex==2) {
 } else {
 	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex];
 }
-advanced_connectivity=(advanced_connectivity*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
-console.log("advanced connectivity="+ advanced_connectivity);
+advanced_connectivity=number_of_advanced_routers*(advanced_connectivity*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
+console.log("advanced connectivity with discount"+ advanced_connectivity);
 advanced_umbrella=(22.10*(1-discount/100)*(1+partnermargin/100))/12;
 advanced_umbrella=advanced_umbrella*Number(document.getElementById("advanced_umbrella_cb").checked);
 advanced_amp=(60*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
