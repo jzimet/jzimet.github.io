@@ -105,7 +105,23 @@ Simple View
 2017
 -->
 </td>
+<td align="center" style="color: #3CBC8D">
+<select id="country_drop_down" onchange="calculate()">
+<option>Austria</option>
+<option>Romania</option>
+<option>Slovakia</option>
+<option>Czec</option>
+<option>Slovenia</option>
+<option>Poland</option>
+<option>Bulgaria</option>
+<option>Serbia</option>
+<option>Croatia</option>
+<option>Hungary</option>
+</select>
+</td>
+<!--
 <td align="center" style="color: #3CBC8D">AUT</td>
+-->
 <td align="center" style="color: #3CBC8D">ROM</td>
 <td align="center" style="color: #3CBC8D">SVK</td>
 <td align="center" style="color: #3CBC8D">CZE</td>
@@ -126,7 +142,7 @@ Simple View
 <tr>
 <td></td>
 <td></td>
-<td align="center"><img src="austria.png" align="center" width="30" height="20"><input id ="country1" type="checkbox" checked onchange="setcountry1()"></td>
+<td align="center"><img src="austria.png" id="image_of_country" align="center" width="30" height="20"><input id ="country1" type="checkbox" checked onchange="setcountry1()"></td>
 <td align="center"><img src="romania.png" align="center" width="30" height="20"><input id ="country2" type="checkbox" checked onchange="setcountry2()"></td>
 <td align="center"><img src="svk.png" align="center" width="30" height="20"><input id ="country3" type="checkbox" checked onchange="setcountry3()"></td>
 <td align="center"><img src="zce.png" align="center" width="30" height="20"><input id ="country4" type="checkbox" checked onchange="setcountry4()"></td>
@@ -386,7 +402,10 @@ MRR
 <img src="cisco-meraki-z1.png" align="center" width="20" height="10">
 <select id="simple_drop_down" onchange="calculate()">
 <option>Simple</option>
+<!--
 <option selected>Z1,$395+$50/year</option>
+-->
+<option>MR33,$649+$150/year</option>
 <option>No connectivity</option>
 </select>
 </br>
@@ -765,12 +784,12 @@ Advanced
 <img src="cisco-isr-1100.png" align="center" width="20" height="10">
 <select id="advanced_drop_down" onchange="calculate()">
         <option>Advanced</option>
-        <option selected>Viptela WiFi LTE,$895</option>
-        <option>Viptela WiFi LTE,$895+$960(SaaS)</option>
-        <option>Viptela WiFi LTE,$895+$960(SaaS)+$1500(Security)</option>
-        <option>ISR WiFi 1100 LTE, $2495</option>
-        <option>ISR WiFi 1100 LTE, $2495+$400(SaaS)</option>
-        <option>ISR WiFi 1100 LTE, $2495+$400(SaaS)+$1500(Security)</option>
+        <option>MX64,$595+$300/year</option>
+        <option>MX64+security,$595+$600/year</option>
+        <option>Viptela WiFi LTE,$895+$960/year(SaaS)</option>
+        <option>Viptela WiFi LTE,$895+$960/year(SaaS)+$1500/year(Sec)</option>
+        <option>ISR WiFi 1100 LTE, $2495+$400/year(SaaS)</option>
+        <option>ISR WiFi 1100 LTE, $2495+$400/year(SaaS)+$1500/year(Sec)</option>
         <option>No connectivity</option>
 </select>
 <input style="width:2em" id="number_of_advanced_routers" type="number" value="1" min="1" max="5" step="1" onchange="calculate()">
@@ -1652,6 +1671,40 @@ Partner Margin<input type="range" min="0" max="100" value="18" step = "1"  style
 
 
 <script>
+
+
+if (Number(document.getElementById("country_drop_down").selectedIndex) == 0) {
+	document.getElementById("image_of_country").src="austria.png";
+}
+else if (Number(document.getElementById("country_drop_down").selectedIndex) == 1) {
+	document.getElementById("image_of_country").src="romania.png";
+}
+else if (Number(document.getElementById("country_drop_down").selectedIndex) == 2) {
+	document.getElementById("image_of_country").src="svk.png";
+}
+else if (Number(document.getElementById("country_drop_down").selectedIndex) == 3) {
+	document.getElementById("image_of_country").src="zce.png";
+}
+else if (Number(document.getElementById("country_drop_down").selectedIndex) == 4) {
+	document.getElementById("image_of_country").src="slo.png";
+}
+else if (Number(document.getElementById("country_drop_down").selectedIndex) == 5) {
+	document.getElementById("image_of_country").src="pol.png";
+}
+else if (Number(document.getElementById("country_drop_down").selectedIndex) == 6) {
+	document.getElementById("image_of_country").src="bul.png";
+}
+else if (Number(document.getElementById("country_drop_down").selectedIndex) == 7) {
+	document.getElementById("image_of_country").src="srb.png";
+}
+else if (Number(document.getElementById("country_drop_down").selectedIndex) == 8) {
+	document.getElementById("image_of_country").src="cro.png";
+}
+else if (Number(document.getElementById("country_drop_down").selectedIndex) == 9) {
+	document.getElementById("image_of_country").src="hun.png";
+}
+console.log("selected country"+document.getElementById("country_drop_down").selectedIndex);
+console.log("selected country"+document.getElementById("image_of_country").src);
 
 function setmeraki(){
         if (document.getElementById("meraki_cb").checked) {
@@ -3001,8 +3054,14 @@ function sliderforpartnermargin(vol) {
 function calculate(){
 
 document.getElementById("title1").value="Simple";
+document.getElementById("title1").style.Colour='green';
+document.getElementById("title1").color='white';
 document.getElementById("title2").value="Basic";
+document.getElementById("title2").style.Colour='blue';
+document.getElementById("title2").color='white';
 document.getElementById("title3").value="Advanced";
+document.getElementById("title3").style.Colour='red';
+document.getElementById("title3").color='white';
 
 var data=[[5454, 35734, 286302,8500000],[8624,48054,455560,18700000],[4112,18766,425995,5415949],[10847,42588,1062697,10513800],[2002,7081,182454,2061963],[29280,148002,4055946,38502396],[4201,22432,298559,7282041],[2084,9127,74448,7181506],[1433,11099,196667,3791622],[4773,29104,645370,9906000]];
 
@@ -3119,17 +3178,25 @@ simple_multiyear=document.getElementById("multiyear").value;
 basic_multiyear=document.getElementById("multiyear").value;
 advanced_multiyear=document.getElementById("multiyear").value;
 number_of_advanced_routers=document.getElementById("number_of_advanced_routers").value;
-console.log("number of advanced routers"+number_of_advanced_routers);
 
-//meraki 445
-simple_connectivity_array=[0,395,0];
+//meraki z1
+//simple_connectivity_array=[0,395,649,0];
+//if (document.getElementById("simple_drop_down").selectedIndex==1) {
+//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+50*simple_multiyear;
+//} if (document.getElementById("simple_drop_down").selectedIndex==2) {
+//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+150*simple_multiyear;
+//} else {
+//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex];
+//}
+
+//meraki mr33 suggested by ping you to replace z1 with mr33
+simple_connectivity_array=[0,649,0];
 if (document.getElementById("simple_drop_down").selectedIndex==1) {
-        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+50*simple_multiyear;
+        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+150*simple_multiyear;
 } else {
         simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex];
 }
 simple_connectivity=((simple_connectivity*(1-discount/100))*(1+partnermargin/100))/(simple_multiyear*12);
-console.log("simple connectivity="+ simple_connectivity);
 simple_umbrella=(((200*(1-discount/100))*(1+partnermargin/100))/12)/25;
 simple_umbrella=simple_umbrella*Number(document.getElementById("simple_umbrella_cb").checked);
 simple_phone=(223*(1-discount/100)*(1+partnermargin/100))/(simple_multiyear*12);
@@ -3138,9 +3205,6 @@ simple_monthly_user=(simple_connectivity+simple_umbrella+simple_phone);
 simple_monthly_company=simple_monthly_user*s_smb;
 simple_yearly_user=simple_monthly_user*12;
 simple_yearly_company=simple_monthly_company*12;
-console.log("simple connectivity" + simple_connectivity);
-console.log("simple umbrella" + simple_umbrella);
-console.log("simple phone" + simple_phone);
 
 document.getElementById("simple_monthly_user_$").value=(simple_monthly_user).toFixed(1)+" user/month";
 document.getElementById("simple_monthly_company_$").value=(simple_monthly_company).toFixed(1)+" company/month";
@@ -3154,22 +3218,19 @@ document.getElementById("suggested_mrr_1").value="("+(simple_monthly_user).toFix
 basic_connectivity_array=[0,595,595,0];
 if (document.getElementById("basic_drop_down").selectedIndex==1) {
         basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex]+300*basic_multiyear;
-	console.log("basic selected 1" + basic_connectivity);
 } else if (document.getElementById("basic_drop_down").selectedIndex==2) {
         basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex]+600*basic_multiyear;
-	console.log("basic selected 2" + basic_connectivity);
 } else {
         basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex];
 }
 basic_connectivity=(basic_connectivity*(1-discount/100)*(1+partnermargin/100))/(basic_multiyear*12);
-console.log("basic connectivity="+ basic_connectivity);
 basic_umbrella=((200*(1-discount/100)*(1+partnermargin/100))/12)/25;
 basic_umbrella=basic_umbrella*Number(document.getElementById("basic_umbrella_cb").checked);
-basic_amp=(60*(1-discount/100)*(1+partnermargin/100))/(basic_multiyear*12);
+basic_amp=(78*(1-discount/100)*(1+partnermargin/100))/(basic_multiyear*12);
 basic_amp=basic_amp*Number(document.getElementById("basic_amp_cb").checked);
 basic_phone=(223*(1-discount/100)*(1+partnermargin/100))/(basic_multiyear*12);
 basic_phone=basic_phone*Number(document.getElementById("basic_phone_cb").checked);
-basic_spark=12.02*(1-37/100)*(1+partnermargin/100);
+basic_spark=12.02*(1-37/100);
 basic_spark=basic_spark*(1-79/100)*(1+partnermargin/100);
 basic_spark=basic_spark*Number(document.getElementById("basic_spark_cb").checked);
 basic_meeting=12.23*(1-37/100)*(1+partnermargin/100);
@@ -3177,13 +3238,6 @@ basic_monthly_user=(basic_connectivity+basic_umbrella+basic_amp+basic_phone+basi
 basic_monthly_company=basic_monthly_user*m_smb;
 basic_yearly_user=basic_monthly_user*12;
 basic_yearly_company=basic_monthly_company*12;
-console.log("basic monthly company : " + basic_monthly_user + basic_connectivity + basic_umbrella + basic_amp + basic_phone + basic_spark);
-console.log("basic connectivity" + basic_connectivity);
-console.log("basic umbrella" + basic_umbrella);
-console.log("basic amp" + basic_amp);
-console.log("basic phone" + basic_phone);
-console.log("basic spark" + basic_spark);
-console.log("basic meeting" + basic_meeting);
 
 document.getElementById("basic_monthly_user_$").value=(basic_monthly_user).toFixed(1)+" user/month";
 document.getElementById("basic_monthly_company_$").value=(basic_monthly_company).toFixed(1)+" company/month";
@@ -3194,11 +3248,15 @@ document.getElementById("suggested_mrr_2").value="("+(basic_monthly_user).toFixe
 
 //################### ADVANCED
 
-//viptela 895+960+1500+, isr 1100 2495+400+1500
-advanced_connectivity_array=[0,895,895,895,2495,2495,2495,0];
-if (document.getElementById("advanced_drop_down").selectedIndex==2) {
-	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+960*advanced_multiyear;
+//mx 595+300, mx 595+600, viptela 895+960+1500+, isr 1100 2495+400+1500
+advanced_connectivity_array=[0,595,595,895,895,2495,2495,0];
+if (document.getElementById("advanced_drop_down").selectedIndex==1) {
+        advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+300*basic_multiyear;
+} else if (document.getElementById("advanced_drop_down").selectedIndex==2) {
+        advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+600*basic_multiyear;
 } else if (document.getElementById("advanced_drop_down").selectedIndex==3) {
+	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+960*advanced_multiyear;
+} else if (document.getElementById("advanced_drop_down").selectedIndex==4) {
 	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+(960+1500)*advanced_multiyear;
 } else if (document.getElementById("advanced_drop_down").selectedIndex==5) {
 	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+400*advanced_multiyear;
@@ -3208,10 +3266,9 @@ if (document.getElementById("advanced_drop_down").selectedIndex==2) {
 	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex];
 }
 advanced_connectivity=number_of_advanced_routers*(advanced_connectivity*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
-console.log("advanced connectivity with discount"+ advanced_connectivity);
 advanced_umbrella=(22.10*(1-discount/100)*(1+partnermargin/100))/12;
 advanced_umbrella=advanced_umbrella*Number(document.getElementById("advanced_umbrella_cb").checked);
-advanced_amp=(60*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
+advanced_amp=(4*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
 advanced_amp=advanced_amp*Number(document.getElementById("advanced_amp_cb").checked);
 advanced_utd=(((2855+55+315+656)*(1-discount/100)*(1+partnermargin/100))/100)/12;
 advanced_utd=advanced_utd*Number(document.getElementById("advanced_utd_cb").checked);
@@ -3221,7 +3278,7 @@ advanced_cloudlock=5.38*(1-discount/100)*(1+partnermargin/100);
 advanced_cloudlock=advanced_cloudlock*Number(document.getElementById("advanced_cloudlock_cb").checked);
 advanced_phone=(223*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
 advanced_phone=advanced_phone*Number(document.getElementById("advanced_phone_cb").checked);
-advanced_spark=12.02*(1-37/100)*(1+partnermargin/100);
+advanced_spark=12.02*(1-37/100);
 advanced_spark=advanced_spark*(1-79/100)*(1+partnermargin/100);
 advanced_spark=advanced_spark*Number(document.getElementById("advanced_spark_cb").checked);
 advanced_meeting=12.23*(1-37/100)*(1+partnermargin/100);
@@ -3231,16 +3288,6 @@ advanced_monthly_user=(advanced_connectivity+advanced_umbrella+advanced_amp+adva
 advanced_monthly_company=advanced_monthly_user*l_smb;
 advanced_yearly_user=advanced_monthly_user*12;
 advanced_yearly_company=advanced_monthly_company*12;
-console.log("advanced connectivity" + advanced_connectivity);
-console.log("advanced umbrella" + advanced_umbrella);
-console.log("advanced amp" + advanced_amp);
-console.log("advanced utd" + advanced_utd);
-console.log("advanced mail" + advanced_mail);
-console.log("advanced cloudlock" + advanced_cloudlock);
-console.log("advanced phone" + advanced_phone);
-console.log("advanced spark" + advanced_spark);
-console.log("advanced meeting" + advanced_meeting);
-console.log("advanced sparkboard" + advanced_sparkboard);
 
 document.getElementById("advanced_monthly_user_$").value=(advanced_monthly_user).toFixed(1)+" user/month";
 document.getElementById("advanced_monthly_company_$").value=(advanced_monthly_company/1000).toFixed(1)+"k company/month";
@@ -3358,9 +3405,10 @@ tetration=tetration*(1-document.getElementById("discount").value/100)
 
 //aci=150000;
 
-atl=data[0][0]*Number(document.getElementById("slider_for_large_1").value)/100;
-atm=data[0][1]*Number(document.getElementById("slider_for_medium_1").value)/100;
-ats=data[0][2]*Number(document.getElementById("slider_for_small_1").value)/100;
+//atl=data[0][0]*Number(document.getElementById("slider_for_large_1").value)/100;
+atl=data[document.getElementById("country_drop_down").selectedIndex][0]*Number(document.getElementById("slider_for_large_1").value)/100;
+atm=data[document.getElementById("country_drop_down").selectedIndex][1]*Number(document.getElementById("slider_for_medium_1").value)/100;
+ats=data[document.getElementById("country_drop_down").selectedIndex][2]*Number(document.getElementById("slider_for_small_1").value)/100;
 atmeraki=ats*meraki*Number(document.getElementById("meraki_cb_1").checked);
 atmeraki_mrr=ats*Number(document.getElementById("slider_for_mrr_1").value)*Number(document.getElementById("meraki_cb_1").checked);
 atviptela=atm*viptela*Number(document.getElementById("viptela_cb_1").checked);
@@ -4226,14 +4274,9 @@ document.getElementById("to_partner").value=(total_to_partner_revenue/1000000).t
 document.getElementById("margins").value="("+(margins).toFixed(2)*100+"%)";
 
 document.getElementById("arch-routing").value=(routing/1000000).toFixed(2);
-console.log((routing/1000000).toFixed(2));
-console.log((collaboration/1000000).toFixed(2));
 document.getElementById("arch-collaboration").value=(collaboration/1000000).toFixed(2);
-console.log((security/1000000).toFixed(2));
 document.getElementById("arch-security").value=(security/1000000).toFixed(2);
-console.log((dc/1000000).toFixed(2));
 document.getElementById("arch-dc").value=(dc/1000000).toFixed(2);
-console.log(((routing+security+collaboration+dc)/1000000).toFixed(2));
 total=huntotal+bihtotal+srbtotal+bultotal+poltotal+slototal+czetotal+svktotal+attotal+romtotal;
 document.getElementById("000").value=(total/1000000).toFixed(2);
 mrr_meraki=atmeraki_mrr+rommeraki_mrr+svkmeraki_mrr+czemeraki_mrr+slomeraki_mrr+polmeraki_mrr+bulmeraki_mrr+srbmeraki_mrr+bihmeraki_mrr+hunmeraki_mrr;
