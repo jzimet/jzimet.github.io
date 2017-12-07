@@ -457,21 +457,17 @@ MRR
 <input id ="simple_phone_cb" type="checkbox" onchange="calculate()">Phone
 </td>
 <td  align="center">
-<!--
-<input style="width:10em; color: #008000" id="simple_monthly_user_$" type="text" readonly>
+<input style="width:14em; color: #008000; font-size:7px" id="simple_yearly_per_company" type="text" readonly>
 </br>
-<input style="width:10em; color: #008000" id="simple_yearly_user_$" type="text" readonly>
+<input style="width:14em; color: #008000; font-size:7px" id="simple_total_number_of_business" type="text" readonly>
 </br>
-<input style="width:10em; color: #008000" id="simple_monthly_company_$" type="text" readonly>
+<input style="width:14em; color: #008000; font-size:7px" id="simple_yearly_per_user" type="text" readonly>
 </br>
-<input style="width:10em; color: #008000" id="simple_yearly_company_$" type="text" hidden readonly>
+<input style="width:14em; color: #008000; font-size:7px" id="simple_total_number_of_users" type="text" readonly>
 </br>
--->
-<input style="width:10em; color: green" id ="simple_tb_11" type ="text" readonly>
+<input style="width:14em; color: #008000; font-size:7px" id="simple_total_number_of_business_2" type="text" readonly>
 </br>
-<input style="width:10em; color: green" id="simple_tb_13" type="text" readonly>
-</br>
-<input style="width:10em; color: green" id ="simple_tb_12" type ="text" readonly>
+<input style="width:14em; color: green; font-size:7px" id ="simple_tb_12" type ="text" readonly>
 <input id ="meraki_cb" type="checkbox" checked onchange="setmeraki()">
 </td>
 <td align="center">
@@ -657,21 +653,17 @@ Basic
 <input id ="basic_spark_cb" type="checkbox" onchange="calculate()">Spark
 </td>
 <td align="center">
-<!--
-<input style="width:10em;color: #1E90FF" id="basic_monthly_user_$" type="text" readonly>
+<input style="width:14em; color: blue; font-size:7px" id="basic_yearly_per_company" type="text" readonly>
 </br>
-<input style="width:10em;color: #1E90FF" id="basic_yearly_user_$" type="text" readonly>
+<input style="width:14em; color: blue; font-size:7px" id="basic_total_number_of_business" type="text" readonly>
 </br>
-<input style="width:10em;color: #1E90FF" id="basic_monthly_company_$" type="text" readonly>
+<input style="width:14em; color: blue; font-size:7px" id="basic_yearly_per_user" type="text" readonly>
 </br>
-<input style="width:10em;color: #1E90FF" id="basic_yearly_company_$" type="text" hidden readonly>
+<input style="width:14em; color: blue; font-size:7px" id="basic_total_number_of_users" type="text" readonly>
 </br>
--->
-<input style="width:10em; color: blue" id ="basic_tb_11" type ="text" readonly>
+<input style="width:14em; color: blue; font-size:7px" id="basic_total_number_of_business_2" type="text" readonly>
 </br>
-<input style="width:10em; color: blue" id="basic_tb_13" type="text" readonly>
-</br>
-<input style="width:10em; color: blue" id ="basic_tb_12" type ="text" readonly>
+<input style="width:14em; color: blue" id ="basic_tb_12" type ="text" readonly>
 <input id ="viptela_cb" type="checkbox" checked onchange="setviptela()">
 </td>
 
@@ -879,21 +871,17 @@ Advanced
 <input id ="advanced_sparkboard_cb" type="checkbox" onchange="calculate()">SparkBoard
 </td>
 <td align="center">
-<!--
-<input style="width:10em;color: #FF0000" id="advanced_monthly_user_$" type="text" readonly>
+<input style="width:14em; color: red; font-size:7px" id="advanced_yearly_per_company" type="text" readonly>
 </br>
-<input style="width:10em;color: #FF0000" id="advanced_yearly_user_$" type="text" readonly>
+<input style="width:14em; color: red; font-size:7px" id="advanced_total_number_of_business" type="text" readonly>
 </br>
-<input style="width:10em;color: #FF0000" id="advanced_monthly_company_$" type="text" readonly>
+<input style="width:14em; color: red; font-size:7px" id="advanced_yearly_per_user" type="text" readonly>
 </br>
-<input style="width:10em;color: #FF0000" id="advanced_yearly_company_$" type="text" hidden readonly>
+<input style="width:14em; color: red; font-size:7px" id="advanced_total_number_of_users" type="text" readonly>
 </br>
--->
-<input style="width:10em;color: red" id ="advanced_tb_11" type ="text" readonly>
+<input style="width:14em; color: red; font-size:7px" id="advanced_total_number_of_business_2" type="text" readonly>
 </br>
-<input style="width:10em; color: red" id="advanced_tb_13" type="text" readonly>
-</br>
-<input style="width:10em;color: red" id ="advanced_tb_12" type ="text" readonly>
+<input style="width:14em;color: red" id ="advanced_tb_12" type ="text" readonly>
 <input id ="cisco_cpe_cb" type="checkbox" checked onchange="setcisco()">
 </td>
 <td align="center">
@@ -3290,7 +3278,6 @@ simple_yearly_company=simple_monthly_company*12;
 document.getElementById("simple_monthly_yearly_company_$").value="Monthly/yearly cost per company:" + (simple_monthly_company).toFixed(1)+"/"+(simple_monthly_company*12).toFixed(1);
 document.getElementById("simple_monthly_yearly_user_$").value="Monthly/yearly cost per user:"+(simple_monthly_user).toFixed(1)+"/"+(simple_monthly_user*12).toFixed(1)+" ("+s_smb+" users/company)";
 //document.getElementById("simple_yearly_user_$").value=(simple_yearly_user).toFixed(1)+" user/year";
-//document.getElementById("simple_yearly_company_$").value="Cost:"+(simple_yearly_company*12).toFixed(1);
 document.getElementById("suggested_mrr_1").value="("+(simple_monthly_user*(1+partnermargin/100)).toFixed(1)+")";
 
 //################### BASIC
@@ -4352,15 +4339,35 @@ console.log("employe  in large"+l_smb);
 total_to_partner_revenue=simple_to_partner_revenue+basic_to_partner_revenue+advanced_to_partner_revenue;
 
 
-document.getElementById("simple_tb_11").value="Cost:"+(simple_to_cisco_revenue/1000000).toFixed(1);
-document.getElementById("simple_tb_13").value="revenue:"+(simple_to_partner_revenue/1000000).toFixed(1);
-document.getElementById("simple_tb_12").value="Business:("+(simple_companies).toFixed(0)+")";
-document.getElementById("basic_tb_11").value="Cost:"+(basic_to_cisco_revenue/1000000).toFixed(1);
-document.getElementById("basic_tb_13").value="Revenue:"+(basic_to_partner_revenue/1000000).toFixed(1);
-document.getElementById("basic_tb_12").value="Business:("+(basic_companies).toFixed(0)+")";
-document.getElementById("advanced_tb_11").value="Cost:"+(advanced_to_cisco_revenue/1000000).toFixed(1);
-document.getElementById("advanced_tb_13").value="Revenue:"+(advanced_to_partner_revenue/1000000).toFixed(1);
-document.getElementById("advanced_tb_12").value="Business:("+(advanced_companies).toFixed(0)+")";
+document.getElementById("simple_yearly_per_company").value="$"+(simple_yearly_company/1000).toFixed(1) + "k business/year *";
+document.getElementById("simple_total_number_of_business").value=(simple_companies).toFixed(0) + " business = $"+ (simple_to_cisco_revenue/1000000).toFixed(1) + " Mil";
+//document.getElementById("simple_tb_11").value=(simple_to_cisco_revenue/1000000).toFixed(1) + " Mil";
+document.getElementById("simple_yearly_per_user").value="$"+(simple_yearly_user).toFixed(1) + " user/year *";
+document.getElementById("simple_total_number_of_users").value=s_smb + " users/company *";
+document.getElementById("simple_total_number_of_business_2").value=(simple_companies).toFixed(0)+" business = $" +(simple_to_partner_revenue/1000000).toFixed(1)+" Mil";
+//document.getElementById("simple_tb_13").value="$"+(simple_to_partner_revenue/1000000).toFixed(1)+" Mil";
+//document.getElementById("simple_tb_12").value="Business:("+(simple_companies).toFixed(0)+")";
+
+
+
+document.getElementById("basic_yearly_per_company").value="$"+(basic_yearly_company/1000).toFixed(1) + "k business/year *";
+document.getElementById("basic_total_number_of_business").value=(basic_companies).toFixed(0) + " business = $"+(basic_to_cisco_revenue/1000000).toFixed(1)+" Mil";
+//document.getElementById("basic_tb_11").value=(basic_to_cisco_revenue/1000000).toFixed(1)+" Mil";
+document.getElementById("basic_yearly_per_user").value="$"+(basic_yearly_user).toFixed(1) + " user/year *";
+document.getElementById("basic_total_number_of_users").value=m_smb + " users/company *";
+document.getElementById("basic_total_number_of_business_2").value=(basic_companies).toFixed(0)+ " business = $"+(basic_to_partner_revenue/1000000).toFixed(1)+" Mil";
+//document.getElementById("basic_tb_13").value="$"+(basic_to_partner_revenue/1000000).toFixed(1)+" Mil";
+//document.getElementById("basic_tb_12").value="Business:("+(basic_companies).toFixed(0)+")";
+
+
+document.getElementById("advanced_yearly_per_company").value="$"+(advanced_yearly_company/1000).toFixed(1) + "k business/year *";
+document.getElementById("advanced_total_number_of_business").value=(advanced_companies).toFixed(0) + " business = $" + (advanced_to_cisco_revenue/1000000).toFixed(1) + " Mil";
+//document.getElementById("advanced_tb_11").value=(advanced_to_cisco_revenue/1000000).toFixed(1) + " Mil";
+document.getElementById("advanced_yearly_per_user").value="$"+(advanced_yearly_user).toFixed(1) + " user/year *";
+document.getElementById("advanced_total_number_of_users").value=l_smb + " users/company *";
+document.getElementById("advanced_total_number_of_business_2").value=(advanced_companies).toFixed(0)+" business = $"+(advanced_to_partner_revenue/1000000).toFixed(1)+" Mil";
+//document.getElementById("advanced_tb_13").value="$"+(advanced_to_partner_revenue/1000000).toFixed(1)+" Mil";
+//document.getElementById("advanced_tb_12").value="Business:("+(advanced_companies).toFixed(0)+")";
 
 document.getElementById("country11_total_revenue").value=(simple_basic_advanced_to_cisco_revenue/1000000).toFixed(1);
 document.getElementById("country11_total_to_partner_revenue").value=(total_to_partner_revenue/1000000).toFixed(1);
