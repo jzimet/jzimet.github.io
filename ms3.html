@@ -3122,8 +3122,8 @@ s_smb=document.getElementById("slider_for_small_smb").value;
 m_smb=document.getElementById("slider_for_medium_smb").value;
 l_smb=document.getElementById("slider_for_large_smb").value;
 
-document.getElementById("col1").value=cigaretetaxicostofliving[document.getElementById("country_drop_down_1").selectedIndex][0] + "/" + cigaretetaxicostofliving[document.getElementById("country_drop_down_1").selectedIndex][0]+"/"+ utilities_monthly[document.getElementById("country_drop_down_1").selectedIndex];
-document.getElementById("col2").value=cigaretetaxicostofliving[document.getElementById("country_drop_down_2").selectedIndex][1] + "/" + cigaretetaxicostofliving[document.getElementById("country_drop_down_2").selectedIndex][1]+"/"+ utilities_monthly[document.getElementById("country_drop_down_2").selectedIndex];
+document.getElementById("col1").value=cigaretetaxicostofliving[0][document.getElementById("country_drop_down_1").selectedIndex] + "/" + cigaretetaxicostofliving[0][document.getElementById("country_drop_down_1").selectedIndex]+"/"+ utilities_monthly[document.getElementById("country_drop_down_1").selectedIndex];
+document.getElementById("col2").value=cigaretetaxicostofliving[0][document.getElementById("country_drop_down_2").selectedIndex] + "/" + cigaretetaxicostofliving[0][document.getElementById("country_drop_down_2").selectedIndex]+"/"+ utilities_monthly[document.getElementById("country_drop_down_2").selectedIndex];
 document.getElementById("col3").value=cigaretetaxicostofliving[0][2] + "/" + cigaretetaxicostofliving[1][2]+"/"+ utilities_monthly[2];
 document.getElementById("col4").value=cigaretetaxicostofliving[0][3] + "/" + cigaretetaxicostofliving[1][3]+"/"+ utilities_monthly[3];
 document.getElementById("col5").value=cigaretetaxicostofliving[0][4] + "/" + cigaretetaxicostofliving[1][4]+"/"+ utilities_monthly[4];
@@ -3996,11 +3996,6 @@ document.getElementById("orch_tb_7").value=(bulcloudmanagement/1000000).toFixed(
 document.getElementById("007").value=(bultotal/1000000).toFixed(2);
 
 
-//document.getElementById("simple_tb_7").value=((buls*Number(document.getElementById("simple_cb_7").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+buls.toFixed(0)+")";
-//document.getElementById("basic_tb_7").value=((bulm*Number(document.getElementById("basic_cb_7").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+bulm.toFixed(0)+")";
-//document.getElementById("advanced_tb_7").value=((bull*Number(document.getElementById("advanced_cb_7").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+bull.toFixed(0)+")";
-
-
 document.getElementById("simple_tb_to_cisco_revenue_7").value=((buls*Number(document.getElementById("simple_cb_7").checked)*simple_monthly_company*12)/1000000).toFixed(1);
 document.getElementById("simple_tb_to_partner_revenue_7").value=((buls*s_smb*Number(document.getElementById("simple_cb_7").checked)*document.getElementById("slider_for_mrr_1").value*12)/1000000).toFixed(1);
 document.getElementById("simple_tb_number_of_companies_7").value="("+buls.toFixed(0)+")";
@@ -4078,10 +4073,6 @@ document.getElementById("cmx_tb_8").value=(srbwifi/1000000).toFixed(2);
 document.getElementById("virt_tb_8").value=(srbvirtualization/1000000).toFixed(2);
 document.getElementById("orch_tb_8").value=(srbcloudmanagement/1000000).toFixed(2);
 document.getElementById("008").value=(srbtotal/1000000).toFixed(2);
-
-//document.getElementById("simple_tb_8").value=((srbs*Number(document.getElementById("simple_cb_8").checked)*simple_monthly_company*12)/1000000).toFixed(1)+"("+srbs.toFixed(0)+")";
-//document.getElementById("basic_tb_8").value=((srbm*Number(document.getElementById("basic_cb_8").checked)*basic_monthly_company*12)/1000000).toFixed(1)+"("+srbm.toFixed(0)+")";
-//document.getElementById("advanced_tb_8").value=((srbl*Number(document.getElementById("advanced_cb_8").checked)*advanced_monthly_company*12)/1000000).toFixed(1)+"("+srbl.toFixed(0)+")";
 
 
 document.getElementById("simple_tb_to_cisco_revenue_8").value=((srbs*Number(document.getElementById("simple_cb_8").checked)*simple_monthly_company*12)/1000000).toFixed(1);
@@ -4289,9 +4280,12 @@ document.getElementById("basic_tb_12").value="Business:("+(basic_companies).toFi
 document.getElementById("advanced_tb_11").value="Revenue:"+(advanced_to_cisco_revenue/1000000).toFixed(1);
 document.getElementById("advanced_tb_12").value="Business:("+(advanced_companies).toFixed(0)+")";
 
-simple_to_partner_revenue=(ats+roms+svks+czes+slos+pols+buls+srbs+bihs+huns)*document.getElementById("volume_for_slider_for_mrr_1").value*s_smb*12;
-basic_to_partner_revenue=(atm+romm+svkm+czem+slom+polm+bulm+srbm+bihm+hunm)*document.getElementById("volume_for_slider_for_mrr_2").value*m_smb*12;
-advanced_to_partner_revenue=(atl+roml+svkl+czel+slol+poll+bull+srbl+bihl+hunl)*document.getElementById("volume_for_slider_for_mrr_3").value*l_smb*12;
+simple_to_partner_revenue=(ats*Number(document.getElementById("simple_cb_1").checked)+roms*Number(document.getElementById("simple_cb_2").checked)+svks*Number(document.getElementById("simple_cb_3").checked)+czes*Number(document.getElementById("simple_cb_4").checked)+slos*Number(document.getElementById("simple_cb_5").checked)+pols*Number(document.getElementById("simple_cb_6").checked)+buls*Number(document.getElementById("simple_cb_7").checked)+srbs*Number(document.getElementById("simple_cb_8").checked)+bihs*Number(document.getElementById("simple_cb_9").checked)+huns*Number(document.getElementById("simple_cb_10").checked))*document.getElementById("volume_for_slider_for_mrr_1").value*s_smb*12;
+basic_to_partner_revenue=(atm*Number(document.getElementById("basic_cb_1").checked)+romm*Number(document.getElementById("basic_cb_2").checked)+svkm*Number(document.getElementById("basic_cb_3").checked)+czem*Number(document.getElementById("basic_cb_4").checked)+slom*Number(document.getElementById("basic_cb_5").checked)+polm*Number(document.getElementById("basic_cb_6").checked)+bulm*Number(document.getElementById("basic_cb_7").checked)+srbm*Number(document.getElementById("basic_cb_8").checked)+bihm*Number(document.getElementById("basic_cb_9").checked)+hunm*Number(document.getElementById("basic_cb_10").checked))*document.getElementById("volume_for_slider_for_mrr_2").value*m_smb*12;
+advanced_to_partner_revenue=(atl*Number(document.getElementById("advanced_cb_1").checked)+roml*Number(document.getElementById("advanced_cb_2").checked)+svkl*Number(document.getElementById("advanced_cb_3").checked)+czel*Number(document.getElementById("advanced_cb_4").checked)+slol*Number(document.getElementById("advanced_cb_5").checked)+poll*Number(document.getElementById("advanced_cb_6").checked)+bull*Number(document.getElementById("advanced_cb_7").checked)+srbl*Number(document.getElementById("advanced_cb_8").checked)+bihl*Number(document.getElementById("advanced_cb_9").checked)+hunl*Number(document.getElementById("advanced_cb_10").checked))*document.getElementById("volume_for_slider_for_mrr_3").value*l_smb*12;
+console.log("employe  in small"+s_smb);
+console.log("employe  in medium"+m_smb);
+console.log("employe  in large"+l_smb);
 
 total_to_partner_revenue=simple_to_partner_revenue+basic_to_partner_revenue+advanced_to_partner_revenue;
 
