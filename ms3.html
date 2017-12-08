@@ -70,13 +70,16 @@ table td {
 Bottom Line:$<input type ="text" style="font-size: 20pt; color: blue;text-align:center" id ="to_cisco" readonly>(Mil),
 Top Line:$<input type ="text" style="font-size: 20pt; color: red;text-align:center" id ="to_partner" readonly>(Mil),
 Margins:<input type ="text" style="font-size: 15pt; color:#FF00FF;text-align:center" id ="margins" readonly>
-% of TAM<input type="range" min="0" max="100" value="1" step = "0.1"  style="width : 7em" id="pen" oninput="sliderforpen(value)"><output for="penslider" id="volumeforpen" style="color: #3CBC8D">1</output><label for="penslider" align="left" style="color: #3CBC8D">%</label>
-Discount:<input type="range" min="0" max="100" value="20" step = "1"  style="width : 7em" id="discount" oninput="sliderfordiscount(value)"><output for="discountslider" id="volumefordiscount" style="color: #3CBC8D">20</output><label for="discountslider" align="left" style="color: #3CBC8D">%</label>
-Multi Year:<input type="range" min="1" max="5" value="1" step = "1"  style="width : 7em" id="multiyear" oninput="sliderformultiyear(value)"><output for="multiyearslider" id="volumeformultiyear" style="color: #3CBC8D">1</output><label for="multiyearslider" align="left" style="color: #3CBC8D">years</label>
-Partner Margin:<input type="range" min="0" max="100" value="18" step = "1"  style="width : 7em" id="partnermargin" oninput="sliderforpartnermargin(value)"><output for="partnermarginslider" id="volumeforpartnermargin" style="color: #3CBC8D">18</output><label for="partnermarginslider" align="left" style="color: #3CBC8D">%</label>
+% of TAM<input type="range" min="0" max="100" value="1" step = "0.1"  style="width : 4em" id="pen" oninput="sliderforpen(value)"><output for="penslider" id="volumeforpen" style="color: #3CBC8D">1</output><label for="penslider" align="left" style="color: #3CBC8D">%</label>
+Discount:<input type="range" min="0" max="100" value="20" step = "1"  style="width : 4em" id="discount" oninput="sliderfordiscount(value)"><output for="discountslider" id="volumefordiscount" style="color: #3CBC8D">20</output><label for="discountslider" align="left" style="color: #3CBC8D">%</label>
+Multi Year:<input type="range" min="1" max="5" value="1" step = "1"  style="width : 4em" id="multiyear" oninput="sliderformultiyear(value)"><output for="multiyearslider" id="volumeformultiyear" style="color: #3CBC8D">1</output><label for="multiyearslider" align="left" style="color: #3CBC8D">years</label>
+Partner Margin:<input type="range" min="0" max="100" value="18" step = "1"  style="width : 4em" id="partnermargin" oninput="sliderforpartnermargin(value)"><output for="partnermarginslider" id="volumeforpartnermargin" style="color: #3CBC8D">18</output><label for="partnermarginslider" align="left" style="color: #3CBC8D">%</label>
+</br>
+TAM to address:<input type="range" min="0" max="100" value="25" step = "1"  style="width : 4em" id="tam_to_address" oninput="slider_for_tam_to_address(value)"><output for="tam_to_address_slider" id="volume_for_tam_to_address" style="color: #3CBC8D">25</output><label for="tam_to_address_slider" align="left" style="color: #3CBC8D">%</label>
+Through SP:<input type="range" min="0" max="100" value="50" step = "1"  style="width : 4em" id="through_sp" oninput="slider_for_through_sp(value)"><output for="through_sp_slider" id="volume_for_through_sp" style="color: #3CBC8D">50</output><label for="through_sp_slider" align="left" style="color: #3CBC8D">%</label>
+Years of service:<input type="range" min="0" max="10" value="5" step = "1"  style="width : 4em" id="years_of_service" oninput="slider_for_years_of_service(value)"><output for="years_of_service_slider" id="volume_for_years_of_service" style="color: #3CBC8D">5</output><label for="years_of_service_slider" align="left" style="color: #3CBC8D">Years</label>
 </td>
 </tr>
-
 <tr>
 </tr>
 
@@ -236,6 +239,22 @@ Simple View
 <td></td>
 </tr>
 
+<tr>
+<td></td>
+<td colspan="2" align="right">suggested percentage for L/M/S (%)</td>
+<td align="center"><input type ="text" id ="suggested%1" readonly></td>
+<td align="center"><input type ="text" id ="suggested%2" readonly></td>
+<td align="center"><input type ="text" id ="suggested%3" readonly></td>
+<td align="center"><input type ="text" id ="suggested%4" readonly></td>
+<td align="center"><input type ="text" id ="suggested%5" readonly></td>
+<td align="center"><input type ="text" id ="suggested%6" readonly></td>
+<td align="center"><input type ="text" id ="suggested%7" readonly></td>
+<td align="center"><input type ="text" id ="suggested%8" readonly></td>
+<td align="center"><input type ="text" id ="suggested%9" readonly></td>
+<td align="center"><input type ="text" id ="suggested%0" readonly></td>
+<td align="center"></td>
+<td></td>
+</tr>
 
 <!--
 ######### 6th row
@@ -403,6 +422,7 @@ MRR
 (suggested MRR)
 </td>
 </tr>
+
 
 <tr hidden>
 <td align="center" style="color: #0000FF" colspan="13"><img src="superman.png" align="center" width="30" height="20">ROUTING<input type ="text" id ="arch-routing" readonly></td>
@@ -3148,7 +3168,24 @@ function sliderforpartnermargin(vol) {
         calculate();
 }
 
+function slider_for_tam_to_address(vol) {
+        document.querySelector('#volume_for_tam_to_address').value = vol;
+        calculate();
+}
+
+function slider_for_through_sp(vol) {
+        document.querySelector('#volume_for_through_sp').value = vol;
+        calculate();
+}
+
+function slider_for_years_of_service(vol) {
+        document.querySelector('#volume_for_years_of_service').value = vol;
+        calculate();
+}
+
+
 function calculate(){
+
 
 var data=[[5454, 35734, 286302,8500000],[8624,48054,455560,18700000],[4112,18766,425995,5415949],[10847,42588,1062697,10513800],[2002,7081,182454,2061963],[29280,148002,4055946,38502396],[4201,22432,298559,7282041],[2084,9127,74448,7181506],[1433,11099,196667,3791622],[4773,29104,645370,9906000]];
 
@@ -3274,31 +3311,6 @@ number_of_advanced_routers=document.getElementById("number_of_advanced_routers")
 number_of_advanced_switches=document.getElementById("number_of_advanced_switches").value;
 
 //meraki z1,z3,mr33
-//simple_connectivity_array=[0,395,595,649,0];
-//if (document.getElementById("simple_drop_down").selectedIndex==1) {
-//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+50*simple_multiyear;
-//} if (document.getElementById("simple_drop_down").selectedIndex==2) {
-//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+150*simple_multiyear;
-//} else {
-//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex];
-//}
-
-//meraki mr33 suggested by ping you to replace z1 with mr33
-//simple_connectivity_array=[0,395,495,649,0];
-//if (document.getElementById("simple_drop_down").selectedIndex==1) {
-//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+50*simple_multiyear;
-//} if (document.getElementById("simple_drop_down").selectedIndex==2) {
-//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+150*simple_multiyear;
-//} if (document.getElementById("simple_drop_down").selectedIndex==3) {
-//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+150*simple_multiyear;
-//} else {
-//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex];
-//}
-//console.log("simple selected"+document.getElementById("simple_drop_down").selectedIndex);
-//console.log("simple selected"+simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]);
-
-//simple_connectivity=((simple_connectivity*(1-discount/100))*(1+partnermargin/100))/(simple_multiyear*12);
-//simple_connectivity=((simple_connectivity*(1-discount/100))/(simple_multiyear*12))/s_smb;
 
 simple_connectivity_hw_array=[0,395,495,649,0];
 simple_connectivity_services_array=[0,50,150,150,0];
@@ -3329,17 +3341,6 @@ document.getElementById("suggested_mrr_1").value="("+(simple_monthly_user*(1+par
 //################### BASIC
 
 //meraki-mx 0, 595+300/year,595+600/year,0
-//basic_connectivity_array=[0,595,595,0];
-//if (document.getElementById("basic_drop_down").selectedIndex==1) {
-//        basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex]+300*basic_multiyear;
-//} else if (document.getElementById("basic_drop_down").selectedIndex==2) {
-//        basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex]+600*basic_multiyear;
-//} else {
-//        basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex];
-//}
-//basic_connectivity=(basic_connectivity*(1-discount/100)*(1+partnermargin/100))/(basic_multiyear*12);
-//basic_connectivity=(((basic_connectivity*(1-55/100))/m_smb))/(basic_multiyear*12);
-//basic_connectivity=((basic_connectivity*(1-discount/100))/m_smb)/(basic_multiyear*12);
 
 basic_connectivity_hw_array=[0,595,595,0];
 basic_connectivity_services_array=[0,300,600,0];
@@ -3382,25 +3383,6 @@ document.getElementById("suggested_mrr_2").value="("+(basic_monthly_user*(1+part
 //################### ADVANCED
 
 //mx 595+300, mx-sec 595+600, viptela 895+960+1500+, isr 1100 2495+400+1500
-//advanced_connectivity_array=[0,595,595,895,895,2495,2495,0];
-//if (document.getElementById("advanced_drop_down").selectedIndex==1) {
-//        advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+300*basic_multiyear;
-//} else if (document.getElementById("advanced_drop_down").selectedIndex==2) {
-//        advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+600*basic_multiyear;
-//} else if (document.getElementById("advanced_drop_down").selectedIndex==3) {
-//	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+960*advanced_multiyear;
-//} else if (document.getElementById("advanced_drop_down").selectedIndex==4) {
-//	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+(960+1500)*advanced_multiyear;
-//} else if (document.getElementById("advanced_drop_down").selectedIndex==5) {
-//	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+400*advanced_multiyear;
-//} else if (document.getElementById("advanced_drop_down").selectedIndex==6) {
-//	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+(400+1500)*advanced_multiyear;
-//} else {
-//	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex];
-//}
-//advanced_connectivity=number_of_advanced_routers*(advanced_connectivity*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
-//advanced_connectivity=(number_of_advanced_routers*((advanced_connectivity*(1-60/100))/l_smb))/(advanced_multiyear*12);
-//advanced_connectivity=(((number_of_advanced_routers*advanced_connectivity)*(1-discount/100))/(advanced_multiyear*12))/l_smb;
 
 advanced_connectivity_hw_array=[0,595,595,895,895,2495,2495,0];
 advanced_connectivity_services_array=[0,300,600,960,2460,400,1900,0];
@@ -4578,6 +4560,18 @@ else {
 	document.getElementById("59").value=(data[8][0]+data[8][1]+data[8][2]) + "/" + (bihs+bihm+bihl).toFixed(0);
 	document.getElementById("60").value=(data[9][0]+data[9][1]+data[9][2]) + "/" + (huns+hunm+hunl).toFixed(0);
 }
+
+
+tam_to_address_variable=document.getElementById("tam_to_address").value/100;
+through_sp_variable=document.getElementById("through_sp").value/100;
+years_of_service_variable=document.getElementById("years_of_service").value;
+
+
+for (i=0;i<10; i++) {
+	b="suggested%"+i;
+	document.getElementById(b).value=100*(((((data[i][0])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][0])).toFixed(2)+"%/"+100*(((((data[i][1])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][1])).toFixed(2)+"%/"+100*(((((data[i][2])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][2])).toFixed(2)+"%";
+}
+
 
 }
 calculate();
