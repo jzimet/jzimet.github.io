@@ -530,13 +530,18 @@ MRR
 <img src="cisco-phone.png" align="center" width="20" height="20">
 <input id ="simple_phone_cb" type="checkbox" onchange="calculate()">Phone
 </td>
-<td  valign="middle" align="center">
+<td  align="center">
 <input style="width:16em; color: #008000; font-size:10px" id="simple_yearly_per_company" type="text" hidden readonly>
 <input style="width:16em; color: #008000; font-size:10px" id="simple_total_number_of_business" type="text" hidden readonly>
 <input style="width:16em; color: #008000; font-size:10px" id="simple_yearly_per_user" type="text" hidden readonly>
 <input style="width:16em; color: #008000; font-size:10px" id="simple_total_number_of_users" type="text" hidden readonly>
 <input style="width:16em; color: #008000; font-size:10px" id="simple_total_number_of_business_2" type="text" hidden readonly>
-<input style="width:16em; color: green" id ="simple_tb_12" type ="text" hidden readonly>
+<input style="color: green" type ="text" id ="simple_tb_11" readonly>
+</br>
+<input style="color: green" type ="text" id ="simple_tb_13" readonly>
+</br>
+<input style="color: green" type ="text" id ="simple_tb_12" readonly>
+</br>
 <input id ="meraki_cb" type="checkbox" checked onchange="setmeraki()">
 </td>
 <td align="center">
@@ -744,13 +749,18 @@ Basic
 <img src="cisco-spark.png" align="center" width="20" height="20">
 <input id ="basic_spark_cb" type="checkbox" onchange="calculate()">Spark
 </td>
-<td valign="middle" align="center">
+<td align="center">
 <input style="width:16em; color: blue; font-size:10px" id="basic_yearly_per_company" type="text" hidden readonly>
 <input style="width:16em; color: blue; font-size:10px" id="basic_total_number_of_business" type="text" hidden readonly>
 <input style="width:16em; color: blue; font-size:10px" id="basic_yearly_per_user" type="text" hidden readonly>
 <input style="width:16em; color: blue; font-size:10px" id="basic_total_number_of_users" type="text" hidden readonly>
 <input style="width:16em; color: blue; font-size:10px" id="basic_total_number_of_business_2" type="text" hidden readonly>
-<input style="width:16em; color: blue" id ="basic_tb_12" type ="text" hidden readonly>
+<input style="color: blue" type ="text" id ="basic_tb_11" readonly>
+</br>
+<input style="color: blue" type ="text" id ="basic_tb_13" readonly>
+</br>
+<input style="color: blue" type ="text" id ="basic_tb_12" readonly>
+</br>
 <input id ="viptela_cb" type="checkbox" checked onchange="setviptela()">
 </td>
 
@@ -983,13 +993,18 @@ Advanced
 <img src="cisco-sparkboard.png" align="center" width="20" height="10">
 <input id ="advanced_sparkboard_cb" type="checkbox" onchange="calculate()">SparkBoard
 </td>
-<td valign="middle" align="center">
+<td align="center">
 <input style="width:16em; color: red; font-size:10px" id="advanced_yearly_per_company" type="text" hidden readonly>
 <input style="width:16em; color: red; font-size:10px" id="advanced_total_number_of_business" type="text" hidden readonly>
 <input style="width:16em; color: red; font-size:10px" id="advanced_yearly_per_user" type="text" hidden readonly>
 <input style="width:16em; color: red; font-size:10px" id="advanced_total_number_of_users" type="text" hidden readonly>
 <input style="width:16em; color: red; font-size:10px" id="advanced_total_number_of_business_2" type="text" hidden readonly>
-<input style="width:16em;color: red" id ="advanced_tb_12" type ="text" hidden readonly>
+<input style="color: red" type ="text" id ="advanced_tb_11" readonly>
+</br>
+<input style="color: red" type ="text" id ="advanced_tb_13" readonly>
+</br>
+<input style="color: red" type ="text" id ="advanced_tb_12" readonly>
+</br>
 <input id ="cisco_cpe_cb" type="checkbox" checked onchange="setcisco()">
 </td>
 <td align="center">
@@ -4500,12 +4515,12 @@ document.getElementById("simple_subtitle_4").value="$"+(simple_yearly_user).toFi
 
 document.getElementById("simple_yearly_per_company").value="$"+(simple_yearly_company/1000).toFixed(1) + "k business/year *";
 document.getElementById("simple_total_number_of_business").value=(simple_companies).toFixed(0) + " business = $"+ (simple_to_cisco_revenue/1000000).toFixed(1) + " Mil";
-//document.getElementById("simple_tb_11").value=(simple_to_cisco_revenue/1000000).toFixed(1) + " Mil";
 document.getElementById("simple_yearly_per_user").value="$"+(simple_yearly_user).toFixed(1) + " user/year *";
 document.getElementById("simple_total_number_of_users").value=s_smb + " users/company *";
 document.getElementById("simple_total_number_of_business_2").value=(simple_companies).toFixed(0)+" business = $" +(simple_to_partner_revenue/1000000).toFixed(1)+" Mil";
-//document.getElementById("simple_tb_13").value="$"+(simple_to_partner_revenue/1000000).toFixed(1)+" Mil";
-//document.getElementById("simple_tb_12").value="Business:("+(simple_companies).toFixed(0)+")";
+document.getElementById("simple_tb_11").value=(simple_to_cisco_revenue/1000000).toFixed(1);
+document.getElementById("simple_tb_13").value=(simple_to_partner_revenue/1000000).toFixed(1);
+document.getElementById("simple_tb_12").value="("+(simple_companies).toFixed(0)+")";
 
 document.getElementById("basic_subtitle_2").value="Monthly/yearly cost per company: $" + (basic_monthly_company).toFixed(1)+"/"+(basic_monthly_company*12).toFixed(1)+", Monthly/yearly cost per user: $"+(basic_monthly_user).toFixed(1)+"/"+(basic_monthly_user*12).toFixed(1);
 document.getElementById("basic_subtitle_3").value="$"+(basic_yearly_company/1000).toFixed(1) + "k business/year *"+(basic_companies).toFixed(0) + " business = $"+ (basic_to_cisco_revenue/1000000).toFixed(1) + " Mil";
@@ -4514,12 +4529,12 @@ document.getElementById("basic_subtitle_4").value="$"+(basic_yearly_user).toFixe
 
 document.getElementById("basic_yearly_per_company").value="$"+(basic_yearly_company/1000).toFixed(1) + "k business/year *";
 document.getElementById("basic_total_number_of_business").value=(basic_companies).toFixed(0) + " business = $"+(basic_to_cisco_revenue/1000000).toFixed(1)+" Mil";
-//document.getElementById("basic_tb_11").value=(basic_to_cisco_revenue/1000000).toFixed(1)+" Mil";
 document.getElementById("basic_yearly_per_user").value="$"+(basic_yearly_user).toFixed(1) + " user/year *";
 document.getElementById("basic_total_number_of_users").value=m_smb + " users/company *";
 document.getElementById("basic_total_number_of_business_2").value=(basic_companies).toFixed(0)+ " business = $"+(basic_to_partner_revenue/1000000).toFixed(1)+" Mil";
-//document.getElementById("basic_tb_13").value="$"+(basic_to_partner_revenue/1000000).toFixed(1)+" Mil";
-//document.getElementById("basic_tb_12").value="Business:("+(basic_companies).toFixed(0)+")";
+document.getElementById("basic_tb_11").value=(basic_to_cisco_revenue/1000000).toFixed(1);
+document.getElementById("basic_tb_13").value=(basic_to_partner_revenue/1000000).toFixed(1);
+document.getElementById("basic_tb_12").value="("+(basic_companies).toFixed(0)+")";
 
 
 document.getElementById("advanced_subtitle_2").value="Monthly/yearly cost per company: $" + (advanced_monthly_company).toFixed(1)+"/"+(advanced_monthly_company*12).toFixed(1)+", Monthly/yearly cost per user: $"+(advanced_monthly_user).toFixed(1)+"/"+(advanced_monthly_user*12).toFixed(1);
@@ -4528,12 +4543,12 @@ document.getElementById("advanced_subtitle_4").value="$"+(advanced_yearly_user).
 
 document.getElementById("advanced_yearly_per_company").value="$"+(advanced_yearly_company/1000).toFixed(1) + "k business/year *";
 document.getElementById("advanced_total_number_of_business").value=(advanced_companies).toFixed(0) + " business = $" + (advanced_to_cisco_revenue/1000000).toFixed(1) + " Mil";
-//document.getElementById("advanced_tb_11").value=(advanced_to_cisco_revenue/1000000).toFixed(1) + " Mil";
 document.getElementById("advanced_yearly_per_user").value="$"+(advanced_yearly_user).toFixed(1) + " user/year *";
 document.getElementById("advanced_total_number_of_users").value=l_smb + " users/company *";
 document.getElementById("advanced_total_number_of_business_2").value=(advanced_companies).toFixed(0)+" business = $"+(advanced_to_partner_revenue/1000000).toFixed(1)+" Mil";
-//document.getElementById("advanced_tb_13").value="$"+(advanced_to_partner_revenue/1000000).toFixed(1)+" Mil";
-//document.getElementById("advanced_tb_12").value="Business:("+(advanced_companies).toFixed(0)+")";
+document.getElementById("advanced_tb_11").value=(advanced_to_cisco_revenue/1000000).toFixed(1);
+document.getElementById("advanced_tb_13").value=(advanced_to_partner_revenue/1000000).toFixed(1);
+document.getElementById("advanced_tb_12").value="("+(advanced_companies).toFixed(0)+")";
 
 document.getElementById("country11_total_revenue").value=(simple_basic_advanced_to_cisco_revenue/1000000).toFixed(1);
 document.getElementById("country11_total_to_partner_revenue").value=(total_to_partner_revenue/1000000).toFixed(1);
@@ -4543,7 +4558,7 @@ margins=total_to_partner_revenue/total_to_cisco_revenue-1;
 
 document.getElementById("to_cisco").value=(total_to_cisco_revenue/1000000).toFixed(0);
 document.getElementById("to_partner").value=(total_to_partner_revenue/1000000).toFixed(0);
-document.getElementById("margins").value="("+(margins).toFixed(2)*100+"%)";
+document.getElementById("margins").value="("+((margins).toFixed(2)*100).toFixed(0)+"%)";
 
 document.getElementById("arch-routing").value=(routing/1000000).toFixed(2);
 document.getElementById("arch-collaboration").value=(collaboration/1000000).toFixed(2);
