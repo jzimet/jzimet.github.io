@@ -74,7 +74,6 @@ Margins:<input type ="text" style="font-size: 15pt; color:#FF00FF;text-align:cen
 Discount:<input type="range" min="0" max="100" value="20" step = "1"  style="width : 4em" id="discount" oninput="sliderfordiscount(value)"><output for="discountslider" id="volumefordiscount" style="color: #3CBC8D">20</output><label for="discountslider" align="left" style="color: #3CBC8D">%</label>
 Multi Year:<input type="range" min="1" max="5" value="1" step = "1"  style="width : 4em" id="multiyear" oninput="sliderformultiyear(value)"><output for="multiyearslider" id="volumeformultiyear" style="color: #3CBC8D">1</output><label for="multiyearslider" align="left" style="color: #3CBC8D">years</label>
 Partner Margin:<input type="range" min="0" max="100" value="18" step = "1"  style="width : 4em" id="partnermargin" oninput="sliderforpartnermargin(value)"><output for="partnermarginslider" id="volumeforpartnermargin" style="color: #3CBC8D">18</output><label for="partnermarginslider" align="left" style="color: #3CBC8D">%</label>
-</br>
 TAM to address:<input type="range" min="0" max="100" value="25" step = "1"  style="width : 4em" id="tam_to_address" oninput="slider_for_tam_to_address(value)"><output for="tam_to_address_slider" id="volume_for_tam_to_address" style="color: #3CBC8D">25</output><label for="tam_to_address_slider" align="left" style="color: #3CBC8D">%</label>
 Through SP:<input type="range" min="0" max="100" value="50" step = "1"  style="width : 4em" id="through_sp" oninput="slider_for_through_sp(value)"><output for="through_sp_slider" id="volume_for_through_sp" style="color: #3CBC8D">50</output><label for="through_sp_slider" align="left" style="color: #3CBC8D">%</label>
 Years of service:<input type="range" min="0" max="10" value="5" step = "1"  style="width : 4em" id="years_of_service" oninput="slider_for_years_of_service(value)"><output for="years_of_service_slider" id="volume_for_years_of_service" style="color: #3CBC8D">5</output><label for="years_of_service_slider" align="left" style="color: #3CBC8D">Years</label>
@@ -144,8 +143,40 @@ Simple View
 <option>Hungary</option>
 </select>
 </td>
+<!--
 <td align="center" style="color: #3CBC8D">SVK</td>
+-->
+<td align="center" style="color: #3CBC8D">
+<select id="country_drop_down_3" onchange="set_country_picture_3()">
+<option>Austria</option>
+<option>Romania</option>
+<option selected>Slovakia</option>
+<option>Czec</option>
+<option>Slovenia</option>
+<option>Poland</option>
+<option>Bulgaria</option>
+<option>Serbia</option>
+<option>Croatia</option>
+<option>Hungary</option>
+</select>
+</td>
+<!--
 <td align="center" style="color: #3CBC8D">CZE</td>
+-->
+<td align="center" style="color: #3CBC8D">
+<select id="country_drop_down_4" onchange="set_country_picture_4()">
+<option>Austria</option>
+<option>Romania</option>
+<option>Slovakia</option>
+<option selected>Czec</option>
+<option>Slovenia</option>
+<option>Poland</option>
+<option>Bulgaria</option>
+<option>Serbia</option>
+<option>Croatia</option>
+<option>Hungary</option>
+</select>
+</td>
 <td align="center" style="color: #3CBC8D">SLO</td>
 <td align="center" style="color: #3CBC8D">POL</td>
 <td align="center" style="color: #3CBC8D">BUL</td>
@@ -166,14 +197,14 @@ Simple View
 <td></td>
 <td align="center"><img src="austria.png" id="image_of_country_1" align="center" width="30" height="20"><input id ="country1" type="checkbox" checked onchange="setcountry1()"></td>
 <td align="center"><img src="romania.png" id="image_of_country_2" align="center" width="30" height="20"><input id ="country2" type="checkbox" checked onchange="setcountry2()"></td>
-<td align="center"><img src="svk.png" align="center" width="30" height="20"><input id ="country3" type="checkbox" checked onchange="setcountry3()"></td>
-<td align="center"><img src="zce.png" align="center" width="30" height="20"><input id ="country4" type="checkbox" checked onchange="setcountry4()"></td>
-<td align="center"><img src="slo.png" align="center" width="30" height="20"><input id ="country5" type="checkbox" checked onchange="setcountry5()"></td>
-<td align="center"><img src="pol.png" align="center" width="30" height="20"><input id ="country6" type="checkbox" checked onchange="setcountry6()"></td>
-<td align="center"><img src="bul.png" align="center" width="30" height="20"><input id ="country7" type="checkbox" checked onchange="setcountry7()"></td>
-<td align="center"><img src="srb.png" align="center" width="30" height="20"><input id ="country8" type="checkbox" checked onchange="setcountry8()"></td>
-<td align="center"><img src="cro.png" align="center" width="30" height="20"><input id ="country9" type="checkbox" checked onchange="setcountry9()"></td>
-<td align="center"><img src="hun.png" align="center" width="30" height="20"><input id ="country10" type="checkbox" checked onchange="setcountry10()"></td>
+<td align="center"><img src="svk.png" id="image_of_country_3" align="center" width="30" height="20"><input id ="country3" type="checkbox" checked onchange="setcountry3()"></td>
+<td align="center"><img src="zce.png" id="image_of_country_4" align="center" width="30" height="20"><input id ="country4" type="checkbox" checked onchange="setcountry4()"></td>
+<td align="center"><img src="slo.png" id="image_of_country_5" align="center" width="30" height="20"><input id ="country5" type="checkbox" checked onchange="setcountry5()"></td>
+<td align="center"><img src="pol.png" id="image_of_country_6" align="center" width="30" height="20"><input id ="country6" type="checkbox" checked onchange="setcountry6()"></td>
+<td align="center"><img src="bul.png" id="image_of_country_7" align="center" width="30" height="20"><input id ="country7" type="checkbox" checked onchange="setcountry7()"></td>
+<td align="center"><img src="srb.png" id="image_of_country_8" align="center" width="30" height="20"><input id ="country8" type="checkbox" checked onchange="setcountry8()"></td>
+<td align="center"><img src="cro.png" id="image_of_country_9" align="center" width="30" height="20"><input id ="country9" type="checkbox" checked onchange="setcountry9()"></td>
+<td align="center"><img src="hun.png" id="image_of_country_10" align="center" width="30" height="20"><input id ="country10" type="checkbox" checked onchange="setcountry10()"></td>
 <td colspan="2" rowspan="7" align="center"><img src="dolar.png" align="center" width="30" height="60"></td>
 </tr>
 
@@ -428,15 +459,29 @@ MRR
 <td align="center" style="color: #0000FF" colspan="13"><img src="superman.png" align="center" width="30" height="20">ROUTING<input type ="text" id ="arch-routing" readonly></td>
 </tr>
 
+
 <!--
 ######## Service Number 1 MERAKI
 -->
 
 <tr>
+<td>
+</td>
+<td colspan="12">
+<input style="width:5em;color: green" type="text" id="title1" readonly>
+<input style="width:8em; color: green" type="text" id="subtitle1" readonly>
+<input style="width:45em; color: green" type="text" id="simple_subtitle_2" readonly>
+<input style="width:30em; color: green" type="text" id="simple_subtitle_3" readonly>
+<input style="width:35em; color: green" type="text" id="simple_subtitle_4" readonly>
+</td>
+</tr>
+
+<tr>
 <td valign="top" align="right">
+<!--
 <input style="color: green" type="text" id="title1" readonly>
-</br>
 <input style="color: green" type="text" id="subtitle1" readonly>
+-->
 </td>
 <td align="right">
 <!--
@@ -444,8 +489,8 @@ MRR
 <img src="xls.png" align="center" width="20" height="10"></a>
 <img src="meraki.png" align="center" width="20" height="10">
 -->
-<input style="width:30em; color: green" id="simple_monthly_yearly_company_$" type="text" readonly>
-<input style="width:30em; color: green" id="simple_monthly_yearly_user_$" type="text" readonly>
+<input style="width:30em; color: green" id="simple_monthly_yearly_company_$" type="text" hidden readonly>
+<input style="width:30em; color: green" id="simple_monthly_yearly_user_$" type="text" hidden readonly>
 <!--
 <input type="radio" name ="meraki_cpe_size" checked disabled>S
 <input type="radio" name="meraki_cpe_size" disabled>M
@@ -454,7 +499,6 @@ MRR
 <!--
 <input id ="meraki_cb" type="checkbox" checked onchange="setmeraki()">
 -->
-</br>
 <img src="cisco-meraki-z1.png" align="center" width="20" height="10">
 <select id="simple_drop_down" onchange="calculate()">
 <option>Simple Router</option>
@@ -486,18 +530,13 @@ MRR
 <img src="cisco-phone.png" align="center" width="20" height="20">
 <input id ="simple_phone_cb" type="checkbox" onchange="calculate()">Phone
 </td>
-<td  align="center">
-<input style="width:16em; color: #008000; font-size:10px" id="simple_yearly_per_company" type="text" readonly>
-</br>
-<input style="width:16em; color: #008000; font-size:10px" id="simple_total_number_of_business" type="text" readonly>
-</br>
-<input style="width:16em; color: #008000; font-size:10px" id="simple_yearly_per_user" type="text" readonly>
-</br>
-<input style="width:16em; color: #008000; font-size:10px" id="simple_total_number_of_users" type="text" readonly>
-</br>
-<input style="width:16em; color: #008000; font-size:10px" id="simple_total_number_of_business_2" type="text" readonly>
-</br>
-<input style="width:16em; color: green" id ="simple_tb_12" type ="text" readonly>
+<td  valign="middle" align="center">
+<input style="width:16em; color: #008000; font-size:10px" id="simple_yearly_per_company" type="text" hidden readonly>
+<input style="width:16em; color: #008000; font-size:10px" id="simple_total_number_of_business" type="text" hidden readonly>
+<input style="width:16em; color: #008000; font-size:10px" id="simple_yearly_per_user" type="text" hidden readonly>
+<input style="width:16em; color: #008000; font-size:10px" id="simple_total_number_of_users" type="text" hidden readonly>
+<input style="width:16em; color: #008000; font-size:10px" id="simple_total_number_of_business_2" type="text" hidden readonly>
+<input style="width:16em; color: green" id ="simple_tb_12" type ="text" hidden readonly>
 <input id ="meraki_cb" type="checkbox" checked onchange="setmeraki()">
 </td>
 <td align="center">
@@ -632,15 +671,27 @@ MRR:<input type="range" min="0" max="100" value="5" step = "1"  style="width : 4
 -->
 
 <tr>
+<td>
+</td>
+<td colspan="12">
+<input style="width:5em; color: blue" type="text" id="title2" readonly>
+<input style="width:8em; color: blue" type="text" id="subtitle2" readonly>
+<input style="width:45em; color: blue" type="text" id="basic_subtitle_2" readonly>
+<input style="width:30em; color: blue" type="text" id="basic_subtitle_3" readonly>
+<input style="width:35em; color: blue" type="text" id="basic_subtitle_4" readonly>
+</td>
+</tr>
+
+<tr>
 <td valign="top" align="right">
+<!--
 <input style="color: blue" type="text" id="title2" readonly>
-</br>
 <input style="color: blue" type="text" id="subtitle2" readonly>
+-->
 </td>
 <td align="right">
-<input style="width:30em; color: blue" id="basic_monthly_yearly_company_$" type="text" readonly>
-</br>
-<input style="width:30em; color: blue" id="basic_monthly_yearly_user_$" type="text" readonly>
+<input style="width:30em; color: blue" id="basic_monthly_yearly_company_$" type="text" hidden readonly>
+<input style="width:30em; color: blue" id="basic_monthly_yearly_user_$" type="text" hidden readonly>
 <!--
 <a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="30" height="10"></a>
 <img src="viptela.png" align="center" width="30" height="10">
@@ -658,7 +709,6 @@ Basic
 <!--
 <input id ="viptela_cb" type="checkbox" checked onchange="setviptela()">
 -->
-</br>
 <img src="cisco-meraki-mx.png" align="center" width="20" height="10">
 <select id="basic_drop_down" onchange="calculate()">
         <option>Basic Router</option>
@@ -694,18 +744,13 @@ Basic
 <img src="cisco-spark.png" align="center" width="20" height="20">
 <input id ="basic_spark_cb" type="checkbox" onchange="calculate()">Spark
 </td>
-<td align="center">
-<input style="width:16em; color: blue; font-size:10px" id="basic_yearly_per_company" type="text" readonly>
-</br>
-<input style="width:16em; color: blue; font-size:10px" id="basic_total_number_of_business" type="text" readonly>
-</br>
-<input style="width:16em; color: blue; font-size:10px" id="basic_yearly_per_user" type="text" readonly>
-</br>
-<input style="width:16em; color: blue; font-size:10px" id="basic_total_number_of_users" type="text" readonly>
-</br>
-<input style="width:16em; color: blue; font-size:10px" id="basic_total_number_of_business_2" type="text" readonly>
-</br>
-<input style="width:16em; color: blue" id ="basic_tb_12" type ="text" readonly>
+<td valign="middle" align="center">
+<input style="width:16em; color: blue; font-size:10px" id="basic_yearly_per_company" type="text" hidden readonly>
+<input style="width:16em; color: blue; font-size:10px" id="basic_total_number_of_business" type="text" hidden readonly>
+<input style="width:16em; color: blue; font-size:10px" id="basic_yearly_per_user" type="text" hidden readonly>
+<input style="width:16em; color: blue; font-size:10px" id="basic_total_number_of_users" type="text" hidden readonly>
+<input style="width:16em; color: blue; font-size:10px" id="basic_total_number_of_business_2" type="text" hidden readonly>
+<input style="width:16em; color: blue" id ="basic_tb_12" type ="text" hidden readonly>
 <input id ="viptela_cb" type="checkbox" checked onchange="setviptela()">
 </td>
 
@@ -793,7 +838,7 @@ Basic
 <input id ="basic_cb_7" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_7" hidden readonly><input id ="viptela_cb_7" type="checkbox" hidden checked onchange="calculate()">
 </td>
-<td align="center">
+<td  align="center">
 <input type ="text" id ="basic_tb_8" readonly>
 </br>
 <input type ="text" id ="basic_tb_to_cisco_revenue_8" readonly>
@@ -841,11 +886,25 @@ MRR:<input type="range" min="0" max="100" value="10" step = "1"  style="width : 
 <!--
 ######## Service Number 3 VIPTELA LTE + ISR 1100 LTE
 -->
+
+<tr>
+<td>
+</td>
+<td colspan="12">
+<input style="width:5em; color: red" type="text" id="title3" readonly>
+<input style="width:8em; color: red" type="text" id="subtitle3" readonly>
+<input style="width:45em; color: red" type="text" id="advanced_subtitle_2" readonly>
+<input style="width:30em; color: red" type="text" id="advanced_subtitle_3" readonly>
+<input style="width:35em; color: red" type="text" id="advanced_subtitle_4" readonly>
+</td>
+</tr>
+
 <tr>
 <td valign="top" align="right">
+<!--
 <input style="color: red" type="text" id="title3" readonly>
-</br>
 <input style="color: red" type="text" id="subtitle3" readonly>
+-->
 </td>
 <td align="right">
 <!--
@@ -857,9 +916,8 @@ Advanced
 <a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a>
 <img src="viptela.png" align="center" width="40" height="15">
 -->
-<input style="width:30em; color: red" id="advanced_monthly_yearly_company_$" type="text" readonly>
-</br>
-<input style="width:30em; color: red" id="advanced_monthly_yearly_user_$" type="text" readonly>
+<input style="width:30em; color: red" id="advanced_monthly_yearly_company_$" type="text" hidden readonly>
+<input style="width:30em; color: red" id="advanced_monthly_yearly_user_$" type="text" hidden readonly>
 <!--
 <input type="radio" name="cisco_cpe_size" disabled>S
 <input type="radio" name = "cisco_cpe_size" disabled>M
@@ -868,7 +926,6 @@ Advanced
 <!--
 <input id ="cisco_cpe_cb" type="checkbox" checked onchange="setcisco()">
 -->
-</br>
 <img src="cisco-viptela.png" align="center" width="20" height="10">
 <img src="cisco-isr-1100.png" align="center" width="20" height="10">
 <select id="advanced_drop_down_router" onchange="calculate()">
@@ -926,18 +983,13 @@ Advanced
 <img src="cisco-sparkboard.png" align="center" width="20" height="10">
 <input id ="advanced_sparkboard_cb" type="checkbox" onchange="calculate()">SparkBoard
 </td>
-<td align="center">
-<input style="width:16em; color: red; font-size:10px" id="advanced_yearly_per_company" type="text" readonly>
-</br>
-<input style="width:16em; color: red; font-size:10px" id="advanced_total_number_of_business" type="text" readonly>
-</br>
-<input style="width:16em; color: red; font-size:10px" id="advanced_yearly_per_user" type="text" readonly>
-</br>
-<input style="width:16em; color: red; font-size:10px" id="advanced_total_number_of_users" type="text" readonly>
-</br>
-<input style="width:16em; color: red; font-size:10px" id="advanced_total_number_of_business_2" type="text" readonly>
-</br>
-<input style="width:16em;color: red" id ="advanced_tb_12" type ="text" readonly>
+<td valign="middle" align="center">
+<input style="width:16em; color: red; font-size:10px" id="advanced_yearly_per_company" type="text" hidden readonly>
+<input style="width:16em; color: red; font-size:10px" id="advanced_total_number_of_business" type="text" hidden readonly>
+<input style="width:16em; color: red; font-size:10px" id="advanced_yearly_per_user" type="text" hidden readonly>
+<input style="width:16em; color: red; font-size:10px" id="advanced_total_number_of_users" type="text" hidden readonly>
+<input style="width:16em; color: red; font-size:10px" id="advanced_total_number_of_business_2" type="text" hidden readonly>
+<input style="width:16em;color: red" id ="advanced_tb_12" type ="text" hidden readonly>
 <input id ="cisco_cpe_cb" type="checkbox" checked onchange="setcisco()">
 </td>
 <td align="center">
@@ -1822,6 +1874,58 @@ function set_country_picture_2(){
         }
         calculate();
 }
+
+function set_country_picture_3(){
+        if (Number(document.getElementById("country_drop_down_3").selectedIndex) == 0) {
+                document.getElementById("image_of_country_3").src="austria.png";
+        } else if (Number(document.getElementById("country_drop_down_3").selectedIndex) == 1) {
+                document.getElementById("image_of_country_3").src="romania.png";
+        } else if (Number(document.getElementById("country_drop_down_3").selectedIndex) == 2) {
+                document.getElementById("image_of_country_3").src="svk.png";
+        } else if (Number(document.getElementById("country_drop_down_3").selectedIndex) == 3) {
+                document.getElementById("image_of_country_3").src="zce.png";
+        } else if (Number(document.getElementById("country_drop_down_3").selectedIndex) == 4) {
+                document.getElementById("image_of_country_3").src="slo.png";
+        } else if (Number(document.getElementById("country_drop_down_3").selectedIndex) == 5) {
+                document.getElementById("image_of_country_3").src="pol.png";
+        } else if (Number(document.getElementById("country_drop_down_3").selectedIndex) == 6) {
+                document.getElementById("image_of_country_3").src="bul.png";
+        } else if (Number(document.getElementById("country_drop_down_3").selectedIndex) == 7) {
+                document.getElementById("image_of_country_3").src="srb.png";
+        } else if (Number(document.getElementById("country_drop_down_3").selectedIndex) == 8) {
+                document.getElementById("image_of_country_3").src="cro.png";
+        } else if (Number(document.getElementById("country_drop_down_3").selectedIndex) == 9) {
+                document.getElementById("image_of_country_3").src="hun.png";
+        }
+        calculate();
+}
+
+
+function set_country_picture_4(){
+        if (Number(document.getElementById("country_drop_down_4").selectedIndex) == 0) {
+                document.getElementById("image_of_country_4").src="austria.png";
+        } else if (Number(document.getElementById("country_drop_down_4").selectedIndex) == 1) {
+                document.getElementById("image_of_country_4").src="romania.png";
+        } else if (Number(document.getElementById("country_drop_down_4").selectedIndex) == 2) {
+                document.getElementById("image_of_country_4").src="svk.png";
+        } else if (Number(document.getElementById("country_drop_down_4").selectedIndex) == 3) {
+                document.getElementById("image_of_country_4").src="zce.png";
+        } else if (Number(document.getElementById("country_drop_down_4").selectedIndex) == 4) {
+                document.getElementById("image_of_country_4").src="slo.png";
+        } else if (Number(document.getElementById("country_drop_down_4").selectedIndex) == 5) {
+                document.getElementById("image_of_country_4").src="pol.png";
+        } else if (Number(document.getElementById("country_drop_down_4").selectedIndex) == 6) {
+                document.getElementById("image_of_country_4").src="bul.png";
+        } else if (Number(document.getElementById("country_drop_down_4").selectedIndex) == 7) {
+                document.getElementById("image_of_country_4").src="srb.png";
+        } else if (Number(document.getElementById("country_drop_down_4").selectedIndex) == 8) {
+                document.getElementById("image_of_country_4").src="cro.png";
+        } else if (Number(document.getElementById("country_drop_down_4").selectedIndex) == 9) {
+                document.getElementById("image_of_country_4").src="hun.png";
+        }
+        calculate();
+}
+
 
 function setmeraki(){
         if (document.getElementById("meraki_cb").checked) {
@@ -3707,9 +3811,9 @@ document.getElementById("country2_total_revenue").value=((roms*Number(document.g
 document.getElementById("country2_total_to_partner_revenue").value=((roms*s_smb*Number(document.getElementById("simple_cb_2").checked)*document.getElementById("slider_for_mrr_1").value*12+romm*m_smb*Number(document.getElementById("basic_cb_2").checked)*document.getElementById("slider_for_mrr_2").value*12+roml*l_smb*Number(document.getElementById("advanced_cb_2").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country2_total_company").value="("+(roms*Number(document.getElementById("simple_cb_2").checked)+romm*Number(document.getElementById("basic_cb_2").checked)+roml*Number(document.getElementById("advanced_cb_2").checked)).toFixed(0)+")";
 
-svkl=data[2][0]*Number(document.getElementById("slider_for_large_3").value)/100;
-svkm=data[2][1]*Number(document.getElementById("slider_for_medium_3").value)/100;
-svks=data[2][2]*Number(document.getElementById("slider_for_small_3").value)/100;
+svkl=data[document.getElementById("country_drop_down_3").selectedIndex][0]*Number(document.getElementById("slider_for_large_3").value)/100;
+svkm=data[document.getElementById("country_drop_down_3").selectedIndex][1]*Number(document.getElementById("slider_for_medium_3").value)/100;
+svks=data[document.getElementById("country_drop_down_3").selectedIndex][2]*Number(document.getElementById("slider_for_small_3").value)/100;
 svkmeraki=svks*meraki*Number(document.getElementById("meraki_cb_3").checked);
 svkmeraki_mrr=svks*Number(document.getElementById("slider_for_mrr_1").value)*Number(document.getElementById("meraki_cb_3").checked);
 svkviptela=svkm*viptela*Number(document.getElementById("viptela_cb_3").checked);
@@ -3790,9 +3894,9 @@ document.getElementById("country3_total_revenue").value=((svks*Number(document.g
 document.getElementById("country3_total_to_partner_revenue").value=((svks*s_smb*Number(document.getElementById("simple_cb_3").checked)*document.getElementById("slider_for_mrr_1").value*12+svkm*m_smb*Number(document.getElementById("basic_cb_3").checked)*document.getElementById("slider_for_mrr_2").value*12+svkl*l_smb*Number(document.getElementById("advanced_cb_3").checked)*document.getElementById("slider_for_mrr_3").value*12)/1000000).toFixed(1);
 document.getElementById("country3_total_company").value="("+(svks*Number(document.getElementById("simple_cb_3").checked)+svkm*Number(document.getElementById("basic_cb_3").checked)+svkl*Number(document.getElementById("advanced_cb_3").checked)).toFixed(0)+")";
 
-czel=(data[3][0]*Number(document.getElementById("slider_for_large_4").value)/100);
-czem=(data[3][1]*Number(document.getElementById("slider_for_medium_4").value)/100);
-czes=(data[3][2]*Number(document.getElementById("slider_for_small_4").value)/100);
+czel=(data[document.getElementById("country_drop_down_4").selectedIndex][0]*Number(document.getElementById("slider_for_large_4").value)/100);
+czem=(data[document.getElementById("country_drop_down_4").selectedIndex][1]*Number(document.getElementById("slider_for_medium_4").value)/100);
+czes=(data[document.getElementById("country_drop_down_4").selectedIndex][2]*Number(document.getElementById("slider_for_small_4").value)/100);
 czemeraki=czes*meraki*Number(document.getElementById("meraki_cb_4").checked);
 czemeraki_mrr=czes*Number(document.getElementById("slider_for_mrr_1").value)*Number(document.getElementById("meraki_cb_4").checked);
 czeviptela=czem*viptela*Number(document.getElementById("viptela_cb_4").checked);
@@ -4390,6 +4494,9 @@ console.log("employe  in large"+l_smb);
 
 total_to_partner_revenue=simple_to_partner_revenue+basic_to_partner_revenue+advanced_to_partner_revenue;
 
+document.getElementById("simple_subtitle_2").value="Monthly/yearly cost per company: $" + (simple_monthly_company).toFixed(1)+"/"+(simple_monthly_company*12).toFixed(1)+", Monthly/yearly cost per user: $"+(simple_monthly_user).toFixed(1)+"/"+(simple_monthly_user*12).toFixed(1);
+document.getElementById("simple_subtitle_3").value="$"+(simple_yearly_company/1000).toFixed(1) + "k business/year *"+(simple_companies).toFixed(0) + " business = $"+ (simple_to_cisco_revenue/1000000).toFixed(1) + " Mil";
+document.getElementById("simple_subtitle_4").value="$"+(simple_yearly_user).toFixed(1) + " user/year *"+s_smb + " users/company *"+(simple_companies).toFixed(0)+" business = $" +(simple_to_partner_revenue/1000000).toFixed(1)+" Mil";
 
 document.getElementById("simple_yearly_per_company").value="$"+(simple_yearly_company/1000).toFixed(1) + "k business/year *";
 document.getElementById("simple_total_number_of_business").value=(simple_companies).toFixed(0) + " business = $"+ (simple_to_cisco_revenue/1000000).toFixed(1) + " Mil";
@@ -4400,6 +4507,9 @@ document.getElementById("simple_total_number_of_business_2").value=(simple_compa
 //document.getElementById("simple_tb_13").value="$"+(simple_to_partner_revenue/1000000).toFixed(1)+" Mil";
 //document.getElementById("simple_tb_12").value="Business:("+(simple_companies).toFixed(0)+")";
 
+document.getElementById("basic_subtitle_2").value="Monthly/yearly cost per company: $" + (basic_monthly_company).toFixed(1)+"/"+(basic_monthly_company*12).toFixed(1)+", Monthly/yearly cost per user: $"+(basic_monthly_user).toFixed(1)+"/"+(basic_monthly_user*12).toFixed(1);
+document.getElementById("basic_subtitle_3").value="$"+(basic_yearly_company/1000).toFixed(1) + "k business/year *"+(basic_companies).toFixed(0) + " business = $"+ (basic_to_cisco_revenue/1000000).toFixed(1) + " Mil";
+document.getElementById("basic_subtitle_4").value="$"+(basic_yearly_user).toFixed(1) + " user/year *"+m_smb + " users/company *"+(basic_companies).toFixed(0)+" business = $" +(basic_to_partner_revenue/1000000).toFixed(1)+" Mil";
 
 
 document.getElementById("basic_yearly_per_company").value="$"+(basic_yearly_company/1000).toFixed(1) + "k business/year *";
@@ -4411,6 +4521,10 @@ document.getElementById("basic_total_number_of_business_2").value=(basic_compani
 //document.getElementById("basic_tb_13").value="$"+(basic_to_partner_revenue/1000000).toFixed(1)+" Mil";
 //document.getElementById("basic_tb_12").value="Business:("+(basic_companies).toFixed(0)+")";
 
+
+document.getElementById("advanced_subtitle_2").value="Monthly/yearly cost per company: $" + (advanced_monthly_company).toFixed(1)+"/"+(advanced_monthly_company*12).toFixed(1)+", Monthly/yearly cost per user: $"+(advanced_monthly_user).toFixed(1)+"/"+(advanced_monthly_user*12).toFixed(1);
+document.getElementById("advanced_subtitle_3").value="$"+(advanced_yearly_company/1000).toFixed(1) + "k business/year *"+(advanced_companies).toFixed(0) + " business = $"+ (advanced_to_cisco_revenue/1000000).toFixed(1) + " Mil";
+document.getElementById("advanced_subtitle_4").value="$"+(advanced_yearly_user).toFixed(1) + " user/year *"+l_smb + " users/company *"+(advanced_companies).toFixed(0)+" business = $" +(advanced_to_partner_revenue/1000000).toFixed(1)+" Mil";
 
 document.getElementById("advanced_yearly_per_company").value="$"+(advanced_yearly_company/1000).toFixed(1) + "k business/year *";
 document.getElementById("advanced_total_number_of_business").value=(advanced_companies).toFixed(0) + " business = $" + (advanced_to_cisco_revenue/1000000).toFixed(1) + " Mil";
