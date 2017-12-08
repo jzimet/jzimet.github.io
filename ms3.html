@@ -437,13 +437,19 @@ MRR
 </br>
 <img src="cisco-meraki-z1.png" align="center" width="20" height="10">
 <select id="simple_drop_down" onchange="calculate()">
-<option>Simple</option>
+<option>Simple Router</option>
 <option selected>Z1,$395+$50/year</option>
 <option selected>Z3,$495+$150/year</option>
 <option selected>MR33,$649+$150/year</option>
 <option>No connectivity</option>
 </select>
 </br>
+<select id="simple_drop_down_switch" onchange="calculate()">
+<option>Simple Switch</option>
+<option>24 port L2 switch, $4180+$150/year</option>
+<option>24 port L2 switch with PoE, $4865+$150/year</option>
+<option>No switch</option>
+</select>
 <select id="meraki_drop_down" hidden onchange="calculate()">
 <option>Simple</option>
 <option>Z1,$395+$50/year</option>
@@ -635,12 +641,20 @@ Basic
 </br>
 <img src="cisco-meraki-mx.png" align="center" width="20" height="10">
 <select id="basic_drop_down" onchange="calculate()">
-        <option>Basic</option>
+        <option>Basic Router</option>
         <option>MX64,$595+$300/year</option>
         <option selected>MX64-sec,$595+$600/year</option>
         <option>No connectivity</option>
 </select>
 </br>
+<select id="basic_drop_down_switch" onchange="calculate()">
+<option>Basic Switch</option>
+<option>24 port L2 switch,$4180+$150/year</option>
+<option>24 port L2 switch with PoE, $4865+$150/year</option>
+<option>24 port L3 switch,$5675+$150/year</option>
+<option>24 port L3 switch with PoE, $6455+$150/year</option>
+<option>No switch</option>
+</select>
 <select id="viptela_drop_down" hidden onchange="calculate()">
         <option>vedge100,$795+$2091/year</option>
         <option>vedge1000,$1000+$2091/year</option>
@@ -837,8 +851,8 @@ Advanced
 </br>
 <img src="cisco-viptela.png" align="center" width="20" height="10">
 <img src="cisco-isr-1100.png" align="center" width="20" height="10">
-<select id="advanced_drop_down" onchange="calculate()">
-        <option>Advanced</option>
+<select id="advanced_drop_down_router" onchange="calculate()">
+        <option>Advanced Router</option>
         <option>MX64,$595+$300/year</option>
         <option>MX64+security,$595+$600/year</option>
         <option>Viptela WiFi LTE,$895+$960/year(SaaS)</option>
@@ -848,6 +862,16 @@ Advanced
         <option>No connectivity</option>
 </select>
 <input style="width:2em" id="number_of_advanced_routers" type="number" value="5" min="1" max="5" step="1" onchange="calculate()">
+</br>
+<select id="advanced_drop_down_switch" onchange="calculate()">
+<option>Advanced Switch</option>
+<option>24 port L2 switch,$4180+$150/year</option>
+<option>24 port L2 switch with PoE, $4865+$150/year</option>
+<option>24 port L3 switch,$5675+$150/year</option>
+<option>24 port L3 switch with PoE, $6455+$150/year</option>
+<option>No switch</option>
+</select>
+<input style="width:2em" id="number_of_advanced_switches" type="number" value="1" min="1" max="5" step="1" onchange="calculate()">
 </br>
 <select id="cisco_drop_down" hidden onchange="calculate()">
         <option>Advanced</option>
@@ -3247,6 +3271,7 @@ simple_multiyear=document.getElementById("multiyear").value;
 basic_multiyear=document.getElementById("multiyear").value;
 advanced_multiyear=document.getElementById("multiyear").value;
 number_of_advanced_routers=document.getElementById("number_of_advanced_routers").value;
+number_of_advanced_switches=document.getElementById("number_of_advanced_switches").value;
 
 //meraki z1,z3,mr33
 //simple_connectivity_array=[0,395,595,649,0];
@@ -3259,28 +3284,39 @@ number_of_advanced_routers=document.getElementById("number_of_advanced_routers")
 //}
 
 //meraki mr33 suggested by ping you to replace z1 with mr33
-simple_connectivity_array=[0,395,495,649,0];
-if (document.getElementById("simple_drop_down").selectedIndex==1) {
-        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+50*simple_multiyear;
-} if (document.getElementById("simple_drop_down").selectedIndex==2) {
-        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+150*simple_multiyear;
-} if (document.getElementById("simple_drop_down").selectedIndex==3) {
-        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+150*simple_multiyear;
-} else {
-        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex];
-}
-console.log("simple selected"+document.getElementById("simple_drop_down").selectedIndex);
-console.log("simple selected"+simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]);
+//simple_connectivity_array=[0,395,495,649,0];
+//if (document.getElementById("simple_drop_down").selectedIndex==1) {
+//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+50*simple_multiyear;
+//} if (document.getElementById("simple_drop_down").selectedIndex==2) {
+//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+150*simple_multiyear;
+//} if (document.getElementById("simple_drop_down").selectedIndex==3) {
+//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]+150*simple_multiyear;
+//} else {
+//        simple_connectivity=simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex];
+//}
+//console.log("simple selected"+document.getElementById("simple_drop_down").selectedIndex);
+//console.log("simple selected"+simple_connectivity_array[document.getElementById("simple_drop_down").selectedIndex]);
 
 //simple_connectivity=((simple_connectivity*(1-discount/100))*(1+partnermargin/100))/(simple_multiyear*12);
-simple_connectivity=((simple_connectivity*(1-discount/100))/(simple_multiyear*12))/s_smb;
+//simple_connectivity=((simple_connectivity*(1-discount/100))/(simple_multiyear*12))/s_smb;
+
+simple_connectivity_hw_array=[0,395,495,649,0];
+simple_connectivity_services_array=[0,50,150,150,0];
+simple_connectivity=simple_connectivity_hw_array[document.getElementById("simple_drop_down").selectedIndex]+simple_connectivity_services_array[document.getElementById("simple_drop_down").selectedIndex]*simple_multiyear;
+simple_connectivity=((simple_connectivity*(1-discount/100))/s_smb)/(simple_multiyear*12);
+
+simple_switch_hw_array=[0,4180,4865,0];
+simple_switch_services_array=[0,150,150,0];
+simple_switch=simple_switch_hw_array[document.getElementById("simple_drop_down_switch").selectedIndex]+simple_switch_services_array[document.getElementById("simple_drop_down_switch").selectedIndex]*simple_multiyear;
+simple_switch=((simple_switch*(1-discount/100))/s_smb)/(simple_multiyear*12);
+
 //simple_umbrella=(((200*(1-discount/100))*(1+partnermargin/100))/12)/25;
 simple_umbrella=((200*(1-discount/100))/12)/25;
 simple_umbrella=simple_umbrella*Number(document.getElementById("simple_umbrella_cb").checked);
 //simple_phone=(223*(1-discount/100)*(1+partnermargin/100))/(simple_multiyear*12);
 simple_phone=(223*(1-discount/100))/(simple_multiyear*12);
 simple_phone=simple_phone*Number(document.getElementById("simple_phone_cb").checked);
-simple_monthly_user=(simple_connectivity+simple_umbrella+simple_phone);
+simple_monthly_user=(simple_connectivity+simple_umbrella+simple_phone+simple_switch);
 simple_monthly_company=simple_monthly_user*s_smb;
 simple_yearly_user=simple_monthly_user*12;
 simple_yearly_company=simple_monthly_company*12;
@@ -3293,17 +3329,28 @@ document.getElementById("suggested_mrr_1").value="("+(simple_monthly_user*(1+par
 //################### BASIC
 
 //meraki-mx 0, 595+300/year,595+600/year,0
-basic_connectivity_array=[0,595,595,0];
-if (document.getElementById("basic_drop_down").selectedIndex==1) {
-        basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex]+300*basic_multiyear;
-} else if (document.getElementById("basic_drop_down").selectedIndex==2) {
-        basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex]+600*basic_multiyear;
-} else {
-        basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex];
-}
+//basic_connectivity_array=[0,595,595,0];
+//if (document.getElementById("basic_drop_down").selectedIndex==1) {
+//        basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex]+300*basic_multiyear;
+//} else if (document.getElementById("basic_drop_down").selectedIndex==2) {
+//        basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex]+600*basic_multiyear;
+//} else {
+//        basic_connectivity=basic_connectivity_array[document.getElementById("basic_drop_down").selectedIndex];
+//}
 //basic_connectivity=(basic_connectivity*(1-discount/100)*(1+partnermargin/100))/(basic_multiyear*12);
 //basic_connectivity=(((basic_connectivity*(1-55/100))/m_smb))/(basic_multiyear*12);
-basic_connectivity=((basic_connectivity*(1-discount/100))/(basic_multiyear*12))/m_smb;
+//basic_connectivity=((basic_connectivity*(1-discount/100))/m_smb)/(basic_multiyear*12);
+
+basic_connectivity_hw_array=[0,595,595,0];
+basic_connectivity_services_array=[0,300,600,0];
+basic_connectivity=basic_connectivity_hw_array[document.getElementById("basic_drop_down").selectedIndex]+basic_connectivity_services_array[document.getElementById("basic_drop_down").selectedIndex]*simple_multiyear;
+basic_connectivity=((basic_connectivity*(1-discount/100))/m_smb)/(basic_multiyear*12);
+
+basic_switch_hw_array=[0,4180,4865,5675,6455,0];
+basic_switch_services_array=[0,150,150,150,150,0];
+basic_switch=basic_switch_hw_array[document.getElementById("basic_drop_down_switch").selectedIndex]+basic_switch_services_array[document.getElementById("basic_drop_down_switch").selectedIndex]*basic_multiyear;
+basic_switch=((basic_switch*(1-discount/100))/m_smb)/(basic_multiyear*12);
+
 //basic_umbrella=((200*(1-discount/100)*(1+partnermargin/100))/12)/25;
 basic_umbrella=((200*(1-discount/100))/12)/25;
 basic_umbrella=basic_umbrella*Number(document.getElementById("basic_umbrella_cb").checked);
@@ -3320,7 +3367,7 @@ basic_spark=basic_spark*(1-79/100);
 basic_spark=basic_spark*Number(document.getElementById("basic_spark_cb").checked);
 //basic_meeting=12.23*(1-37/100)*(1+partnermargin/100);
 basic_meeting=12.23*(1-discount/100);
-basic_monthly_user=(basic_connectivity+basic_umbrella+basic_amp+basic_phone+basic_spark);
+basic_monthly_user=(basic_connectivity+basic_umbrella+basic_amp+basic_phone+basic_spark+basic_switch);
 basic_monthly_company=basic_monthly_user*m_smb;
 basic_yearly_user=basic_monthly_user*12;
 basic_yearly_company=basic_monthly_company*12;
@@ -3335,25 +3382,38 @@ document.getElementById("suggested_mrr_2").value="("+(basic_monthly_user*(1+part
 //################### ADVANCED
 
 //mx 595+300, mx-sec 595+600, viptela 895+960+1500+, isr 1100 2495+400+1500
-advanced_connectivity_array=[0,595,595,895,895,2495,2495,0];
-if (document.getElementById("advanced_drop_down").selectedIndex==1) {
-        advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+300*basic_multiyear;
-} else if (document.getElementById("advanced_drop_down").selectedIndex==2) {
-        advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+600*basic_multiyear;
-} else if (document.getElementById("advanced_drop_down").selectedIndex==3) {
-	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+960*advanced_multiyear;
-} else if (document.getElementById("advanced_drop_down").selectedIndex==4) {
-	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+(960+1500)*advanced_multiyear;
-} else if (document.getElementById("advanced_drop_down").selectedIndex==5) {
-	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+400*advanced_multiyear;
-} else if (document.getElementById("advanced_drop_down").selectedIndex==6) {
-	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+(400+1500)*advanced_multiyear;
-} else {
-	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex];
-}
+//advanced_connectivity_array=[0,595,595,895,895,2495,2495,0];
+//if (document.getElementById("advanced_drop_down").selectedIndex==1) {
+//        advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+300*basic_multiyear;
+//} else if (document.getElementById("advanced_drop_down").selectedIndex==2) {
+//        advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+600*basic_multiyear;
+//} else if (document.getElementById("advanced_drop_down").selectedIndex==3) {
+//	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+960*advanced_multiyear;
+//} else if (document.getElementById("advanced_drop_down").selectedIndex==4) {
+//	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+(960+1500)*advanced_multiyear;
+//} else if (document.getElementById("advanced_drop_down").selectedIndex==5) {
+//	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+400*advanced_multiyear;
+//} else if (document.getElementById("advanced_drop_down").selectedIndex==6) {
+//	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex]+(400+1500)*advanced_multiyear;
+//} else {
+//	advanced_connectivity=advanced_connectivity_array[document.getElementById("advanced_drop_down").selectedIndex];
+//}
 //advanced_connectivity=number_of_advanced_routers*(advanced_connectivity*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
 //advanced_connectivity=(number_of_advanced_routers*((advanced_connectivity*(1-60/100))/l_smb))/(advanced_multiyear*12);
-advanced_connectivity=(((number_of_advanced_routers*advanced_connectivity)*(1-discount/100))/(advanced_multiyear*12))/l_smb;
+//advanced_connectivity=(((number_of_advanced_routers*advanced_connectivity)*(1-discount/100))/(advanced_multiyear*12))/l_smb;
+
+advanced_connectivity_hw_array=[0,595,595,895,895,2495,2495,0];
+advanced_connectivity_services_array=[0,300,600,960,2460,400,1900,0];
+advanced_connectivity=advanced_connectivity_hw_array[document.getElementById("advanced_drop_down_router").selectedIndex]+advanced_connectivity_services_array[document.getElementById("advanced_drop_down_router").selectedIndex]*advanced_multiyear;
+advanced_connectivity=(((number_of_advanced_routers*advanced_connectivity)*(1-discount/100))/l_smb)/(advanced_multiyear*12);
+console.log("advaned conn"+advanced_connectivity);
+
+advanced_switch_hw_array=[0,4180,4865,5675,6455,0];
+advanced_switch_services_array=[0,150,150,150,150,0];
+advanced_switch=advanced_switch_hw_array[document.getElementById("advanced_drop_down_switch").selectedIndex]+advanced_switch_services_array[document.getElementById("advanced_drop_down_switch").selectedIndex]*advanced_multiyear;
+advanced_switch=(((number_of_advanced_switches*advanced_switch)*(1-discount/100))/l_smb)/(advanced_multiyear*12);
+console.log("advaned switch"+advanced_switch);
+
 //advanced_umbrella=(22.10*(1-discount/100)*(1+partnermargin/100))/12;
 advanced_umbrella=(22.10*(1-discount/100))/12;
 advanced_umbrella=advanced_umbrella*Number(document.getElementById("advanced_umbrella_cb").checked);
@@ -3382,7 +3442,7 @@ advanced_meeting=12.23*(1-discount/100);
 //advanced_sparkboard=(16268*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
 advanced_sparkboard=(16268*(1-discount/100))/(advanced_multiyear*12);
 advanced_sparkboard=advanced_sparkboard*Number(document.getElementById("advanced_sparkboard_cb").checked);
-advanced_monthly_user=(advanced_connectivity+advanced_umbrella+advanced_amp+advanced_utd+advanced_mail+advanced_cloudlock+advanced_phone+advanced_spark+advanced_sparkboard);
+advanced_monthly_user=(advanced_connectivity+advanced_umbrella+advanced_amp+advanced_utd+advanced_mail+advanced_cloudlock+advanced_phone+advanced_spark+advanced_sparkboard+advanced_switch);
 advanced_monthly_company=advanced_monthly_user*l_smb;
 advanced_yearly_user=advanced_monthly_user*12;
 advanced_yearly_company=advanced_monthly_company*12;
