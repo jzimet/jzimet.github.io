@@ -4569,7 +4569,7 @@ years_of_service_variable=document.getElementById("years_of_service").value;
 
 for (i=0;i<10; i++) {
 	b="suggested%"+i;
-	document.getElementById(b).value=100*(((((data[i][0])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][0])).toFixed(2)+"%/"+100*(((((data[i][1])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][1])).toFixed(2)+"%/"+100*(((((data[i][2])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][2])).toFixed(2)+"%";
+	document.getElementById(b).value=(100*(((((data[i][0])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][0])).toFixed(2)).toFixed(0)+"%/"+(100*(((((data[i][1])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][1])).toFixed(2)).toFixed(0)+"%/"+(100*(((((data[i][2])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][2])).toFixed(2)).toFixed(0)+"%";
 }
 
 
