@@ -60,11 +60,10 @@ table td {
 <table>
 
 <!--
-######### 1st Row
+######### 1st Row colspan15
 -->
 
 <tr>
-<td></td>
 <td align="center" colspan="15">
 <img src="superman.png" align="center" width="70" height="50">
 Bottom Line:$<input type ="text" style="font-size: 20pt; color: blue;text-align:center" id ="to_cisco" readonly>(Mil),
@@ -76,42 +75,38 @@ Multi Year:<input type="range" min="1" max="5" value="1" step = "1"  style="widt
 Partner Margin:<input type="range" min="0" max="100" value="18" step = "1"  style="width : 4em" id="partnermargin" oninput="sliderforpartnermargin(value)"><output for="partnermarginslider" id="volumeforpartnermargin" style="color: #3CBC8D">18</output><label for="partnermarginslider" align="left" style="color: #3CBC8D">%</label>
 TAM to address:<input type="range" min="0" max="100" value="25" step = "1"  style="width : 4em" id="tam_to_address" oninput="slider_for_tam_to_address(value)"><output for="tam_to_address_slider" id="volume_for_tam_to_address" style="color: #3CBC8D">25</output><label for="tam_to_address_slider" align="left" style="color: #3CBC8D">%</label>
 Through SP:<input type="range" min="0" max="100" value="50" step = "1"  style="width : 4em" id="through_sp" oninput="slider_for_through_sp(value)"><output for="through_sp_slider" id="volume_for_through_sp" style="color: #3CBC8D">50</output><label for="through_sp_slider" align="left" style="color: #3CBC8D">%</label>
-Years of service:<input type="range" min="0" max="10" value="5" step = "1"  style="width : 4em" id="years_of_service" oninput="slider_for_years_of_service(value)"><output for="years_of_service_slider" id="volume_for_years_of_service" style="color: #3CBC8D">5</output><label for="years_of_service_slider" align="left" style="color: #3CBC8D">Years</label>
+Years of service:<input type="range" min="1" max="10" value="5" step = "1"  style="width : 4em" id="years_of_service" oninput="slider_for_years_of_service(value)"><output for="years_of_service_slider" id="volume_for_years_of_service" style="color: #3CBC8D">5</output><label for="years_of_service_slider" align="left" style="color: #3CBC8D">Years</label>
 </td>
-</tr>
-<tr>
 </tr>
 
 <!--
-######### 2nd row
+######### 2st Row colspan15
 -->
 
 <tr>
 <td></td>
-<td align="right"></td>
-<td>
-<a href ="https://jzimet.github.io/for_managed_services_github.xls">
-<img src="xls.png" align="center" width="20" height="20" hidden></a>
-<!--
-<input id ="cb_to_cisco_revenue" type="checkbox" checked onchange="calculate()">To Cisco Revenue
+<td></td>
+<td rowspan="13">
+<canvas id="can" width="300" height="150" style="border:1px dashed #CCC;"></canvas>
 </br>
-<input id ="cb_to_partner_revenue" type="checkbox" checked onchange="calculate()">To Partner Revenue
-</br>
--->
-<input id ="simple" type="checkbox" checked onchange="calculate()">
-Simple View
-<input hidden id ="2016" type="checkbox" hidden onchange="calculate()">
-<!--
-2016
--->
-<input hidden id ="2017" type="checkbox" checked hidden onchange="calculate()">
-<!--
-2017
--->
+<input id ="products_services" type="checkbox" checked onchange="calculate()">
+<input style="width:20em; color: blue" id ="canvas_subtitle" type="text" readonly>
 </td>
+</tr>
+
 <!--
-<td align="center" style="color: #3CBC8D">AUT</td>
+######### 3rd row 15 kolona
 -->
+
+<tr>
+<td></td>
+<td></td>
+<img src="xls.png" align="center" width="20" height="20" hidden></a>
+<input id ="simple" type="checkbox" checked hidden onchange="calculate()">
+<input hidden id ="2016" type="checkbox" hidden onchange="calculate()">
+<input hidden id ="2017" type="checkbox" checked hidden onchange="calculate()">
+</td>
+<td></td>
 <td align="center" style="color: #3CBC8D">
 <select id="country_drop_down_1" onchange="set_country_picture_1()">
 <option selected>Austria</option>
@@ -126,9 +121,6 @@ Simple View
 <option>Hungary</option>
 </select>
 </td>
-<!--
-<td align="center" style="color: #3CBC8D">ROM</td>
--->
 <td align="center" style="color: #3CBC8D">
 <select id="country_drop_down_2" onchange="set_country_picture_2()">
 <option>Austria</option>
@@ -143,9 +135,6 @@ Simple View
 <option>Hungary</option>
 </select>
 </td>
-<!--
-<td align="center" style="color: #3CBC8D">SVK</td>
--->
 <td align="center" style="color: #3CBC8D">
 <select id="country_drop_down_3" onchange="set_country_picture_3()">
 <option>Austria</option>
@@ -160,9 +149,6 @@ Simple View
 <option>Hungary</option>
 </select>
 </td>
-<!--
-<td align="center" style="color: #3CBC8D">CZE</td>
--->
 <td align="center" style="color: #3CBC8D">
 <select id="country_drop_down_4" onchange="set_country_picture_4()">
 <option>Austria</option>
@@ -188,7 +174,7 @@ Simple View
 </tr>
 
 <!--
-######### 3rd row
+######### 4th row 15 kolona
 -->
 
 <tr>
@@ -205,17 +191,25 @@ Simple View
 <td align="center"><img src="srb.png" id="image_of_country_8" align="center" width="30" height="20"><input id ="country8" type="checkbox" checked onchange="setcountry8()"></td>
 <td align="center"><img src="cro.png" id="image_of_country_9" align="center" width="30" height="20"><input id ="country9" type="checkbox" checked onchange="setcountry9()"></td>
 <td align="center"><img src="hun.png" id="image_of_country_10" align="center" width="30" height="20"><input id ="country10" type="checkbox" checked onchange="setcountry10()"></td>
-<td colspan="2" rowspan="7" align="center"><img src="dolar.png" align="center" width="30" height="60"></td>
+<td colspan="2" rowspan="7" align="center"><img src="dolar.png" align="center" width="30" height="60">
+</br>
+<input id ="suggested_mrr_with_partner_margins" type="checkbox" checked onchange="calculate()">
+</br>
+Suggested MRR
+</br>
+with partner
+</br>
+margins included
+</td>
 </tr>
 
 <!--
-######### 4th row
+######### 5th row 15 kolona
 -->
 
 <tr>
 <td></td>
-<td></td>
-<td align="right">Population (Mil)</td>
+<td align="right" colspan="3">Population (Mil)</td>
 <td align="center"><input type ="text" step="any" id ="11" readonly></td>
 <td align="center"><input type ="text" step="any" id ="12" readonly></td>
 <td align="center"><input type ="text" step="any" id ="13" readonly></td>
@@ -230,10 +224,10 @@ Simple View
 <td></td>
 </tr>
 
-<!--
+<!-- 15 kolona
 <tr>
 <td></td>
-<td align="right">Country Booking/Managed Services booking (Mil)</td>
+<td align="right" colspan="3">Country Booking/Managed Services booking (Mil)</td>
 <td align="center"><input type ="text" step="any" id ="11" readonly></td>
 <td align="center"><input type ="text" step="any" id ="12" readonly></td>
 <td align="center"><input type ="text" step="any" id ="13" readonly></td>
@@ -250,12 +244,12 @@ Simple View
 -->
 
 <!--
-######### 5th row
+######### 6th row 15 kolona
 -->
 
 <tr>
 <td></td>
-<td colspan="2" align="right"><img src="numbeo.png" align="center" width="30" height="10">Cost of Living : Marlboro/Taxi/Internet-Utilities</td>
+<td align="right" colspan="3"><img src="numbeo.png" align="center" width="30" height="10">Cost of Living : Marlboro/Taxi/Internet-Utilities</td>
 <td align="center"><input type ="text" step="any" id ="col1" readonly></td>
 <td align="center"><input type ="text" step="any" id ="col2" readonly></td>
 <td align="center"><input type ="text" step="any" id ="col3" readonly></td>
@@ -270,9 +264,14 @@ Simple View
 <td></td>
 </tr>
 
+<!--
+######### 7th Row colspan15
+-->
+
 <tr>
 <td></td>
-<td colspan="2" align="right">suggested percentage for L/M/S (%)</td>
+<td align="right" colspan=3">suggested percentage for L/M/S (%)</td>
+<td align="center"><input type ="text" id ="suggested%0" readonly></td>
 <td align="center"><input type ="text" id ="suggested%1" readonly></td>
 <td align="center"><input type ="text" id ="suggested%2" readonly></td>
 <td align="center"><input type ="text" id ="suggested%3" readonly></td>
@@ -282,18 +281,17 @@ Simple View
 <td align="center"><input type ="text" id ="suggested%7" readonly></td>
 <td align="center"><input type ="text" id ="suggested%8" readonly></td>
 <td align="center"><input type ="text" id ="suggested%9" readonly></td>
-<td align="center"><input type ="text" id ="suggested%0" readonly></td>
-<td align="center"></td>
+<td></td>
 <td></td>
 </tr>
 
 <!--
-######### 6th row
+######### 8th row 15 kolona
 -->
 
 <tr>
 <td></td>
-<td colspan="2" align="right"><img src="statcube.png" align="center" width="30" height="10">Large SMB (150)</td>
+<td align="right" colspan="3"><img src="statcube.png" align="center" width="30" height="10">Large SMB (150)</td>
 <td align="center"><input type ="text" id ="21" readonly></td>
 <td align="center"><input type ="text" id ="22" readonly></td>
 <td align="center"><input type ="text" id ="23" readonly></td>
@@ -310,13 +308,13 @@ Simple View
 
 
 <!--
-######### 7th row
+######### 9th row 15 kolona
 -->
 
 
 <tr>
 <td></td>
-<td colspan="2" align="right">
+<td align="right" colspan="3">
 <input type="range" min="50" max="250" value="150" step = "1"  style="width : 4em" id="slider_for_large_smb" oninput="slider_change_for_large_smb(value)">
 <output for="slider_for_large_smb" id="volume_for_slider_for_large_smb">150</output>
 <label for="slider_for_large_smb"></label>
@@ -337,12 +335,12 @@ Simple View
 
 
 <!--
-######### 8th row
+######### 10th row 15 kolona
 -->
 
 <tr>
 <td></td>
-<td colspan="2" align="right"><img src="statcube.png" align="center" width="30" height="10">Medium SMB (25)</td>
+<td align="right" colspan="3"><img src="statcube.png" align="center" width="30" height="10">Medium SMB (25)</td>
 <td align="center"><input type ="text" id ="31" readonly></td>
 <td align="center"><input type ="text" id ="32" readonly></td>
 <td align="center"><input type ="text" id ="33" readonly></td>
@@ -358,12 +356,12 @@ Simple View
 </tr>
 
 <!--
-######### 9th row
+######### 11th row 15 kolona
 -->
 
 <tr>
 <td></td>
-<td colspan="2" align="right">
+<td align="right" colspan="3">
 <input type="range" min="10" max="49" value="25" step = "1"  style="width : 4em" id="slider_for_medium_smb" oninput="slider_change_for_medium_smb(value)">
 <output for="slider_for_medium_smb" id="volume_for_slider_for_medium_smb">25</output>
 <label for="slider_for_medium_smb"></label>
@@ -384,12 +382,12 @@ Simple View
 
 
 <!--
-######### 10th row
+######### 12th row 15 kolona
 -->
 
 <tr>
 <td></td>
-<td colspan="2" align="right"><img src="statcube.png" align="center" width="30" height="10">SOHO/Small SMB (10)</td>
+<td align="right" colspan="3"><img src="statcube.png" align="center" width="30" height="10">SOHO/Small SMB (10)</td>
 <td align="center"><input type ="text" id ="41" readonly></td>
 <td align="center"><input type ="text" id ="42" readonly></td>
 <td align="center"><input type ="text" id ="43" readonly></td>
@@ -405,12 +403,12 @@ Simple View
 </tr>
 
 <!--
-######### 11th row
+######### 13th row 15 kolona
 -->
 
 <tr>
 <td></td>
-<td colspan="2" align="right">
+<td align="right" colspan="3">
 <input type="range" min="0" max="10" value="10" step = "1"  style="width : 4em" id="slider_for_small_smb" oninput="slider_change_for_small_smb(value)">
 <output for="slider_for_small_smb" id="volume_for_slider_for_small_smb">10</output>
 <label for="slider_for_small_smb"></label>
@@ -430,12 +428,12 @@ Simple View
 </tr>
 
 <!--
-######### 12th row
+######### 14th row 15 kolona
 -->
 
 <tr>
 <td></td>
-<td colspan="2" align="right">Total SMB</td>
+<td align="right" colspan="3">Total SMB</td>
 <td align="center"><input type ="text" id ="51" readonly></td>
 <td align="center"><input type ="text" id ="52" readonly></td>
 <td align="center"><input type ="text" id ="53" readonly></td>
@@ -446,8 +444,7 @@ Simple View
 <td align="center"><input type ="text" id ="58" readonly></td>
 <td align="center"><input type ="text" id ="59" readonly></td>
 <td align="center"><input type ="text" id ="60" readonly></td>
-<td align="center"></td>
-<td align="center">
+<td colspan="2" align="center">
 MRR
 </br>
 (suggested MRR)
@@ -461,13 +458,13 @@ MRR
 
 
 <!--
-######## Service Number 1 MERAKI
+######## Service Number 1 MERAKI 15 kolona
 -->
 
 <tr>
-<td>
-</td>
-<td colspan="12">
+<td></td>
+<td></td>
+<td colspan="13">
 <input style="background-color:green; width:5em;color: white" type="text" id="title1" readonly>
 <input style="background-color:green; width:8em; color: white" type="text" id="subtitle1" readonly>
 <input style="background-color:green; width:45em; color: white" type="text" id="simple_subtitle_2" readonly>
@@ -477,28 +474,11 @@ MRR
 </tr>
 
 <tr>
-<td valign="top" align="right">
-<!--
-<input style="color: green" type="text" id="title1" readonly>
-<input style="color: green" type="text" id="subtitle1" readonly>
--->
-</td>
+<td></td>
+<td valign="top" align="right"></td>
 <td align="right">
-<!--
-<a href ="https://jzimet.github.io/meraki.pdf">
-<img src="xls.png" align="center" width="20" height="10"></a>
-<img src="meraki.png" align="center" width="20" height="10">
--->
 <input style="width:30em; color: green" id="simple_monthly_yearly_company_$" type="text" hidden readonly>
 <input style="width:30em; color: green" id="simple_monthly_yearly_user_$" type="text" hidden readonly>
-<!--
-<input type="radio" name ="meraki_cpe_size" checked disabled>S
-<input type="radio" name="meraki_cpe_size" disabled>M
-<input type="radio" name ="meraki_cpe_size" disabled>L
--->
-<!--
-<input id ="meraki_cb" type="checkbox" checked onchange="setmeraki()">
--->
 <img src="cisco-meraki-z1.png" align="center" width="20" height="10">
 <select id="simple_drop_down" onchange="calculate()">
 <option>Simple Router</option>
@@ -656,14 +636,6 @@ MRR
 </br>
 <input id ="simple_cb_10" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="meraki_tb_10" hidden readonly><input id ="meraki_cb_10" type="checkbox" hidden checked onchange="calculate()"></td>
-<td></td>
-<!--
-<td align="center">
-<input type ="text" id ="simple_tb_11" readonly>
-</br>
-<input type ="text" id ="simple_tb_12" readonly>
-</td>
--->
 <td align="center">
 MRR:<input type="range" min="0" max="100" value="5" step = "1"  style="width : 4em" id="slider_for_mrr_1" oninput="slider_change_for_mrr_1(value)"><output for="slider_for_mrr_1" id="volume_for_slider_for_mrr_1">5</output><label for="slider_for_mrr_1">$</label>
 </br>
@@ -676,9 +648,9 @@ MRR:<input type="range" min="0" max="100" value="5" step = "1"  style="width : 4
 -->
 
 <tr>
-<td>
-</td>
-<td colspan="12">
+<td></td>
+<td></td>
+<td colspan="13">
 <input style="background-color:blue; width:5em; color: white" type="text" id="title2" readonly>
 <input style="background-color:blue; width:8em; color: white" type="text" id="subtitle2" readonly>
 <input style="background-color:blue; width:45em; color: white" type="text" id="basic_subtitle_2" readonly>
@@ -688,32 +660,14 @@ MRR:<input type="range" min="0" max="100" value="5" step = "1"  style="width : 4
 </tr>
 
 <tr>
+<td></td>
 <td valign="top" align="right">
-<!--
-<input style="color: blue" type="text" id="title2" readonly>
-<input style="color: blue" type="text" id="subtitle2" readonly>
--->
 </td>
 <td align="right">
 <input style="width:30em; color: blue" id="basic_monthly_yearly_company_$" type="text" hidden readonly>
 <input style="width:30em; color: blue" id="basic_monthly_yearly_user_$" type="text" hidden readonly>
-<!--
-<a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="30" height="10"></a>
 <img src="viptela.png" align="center" width="30" height="10">
 Basic
--->
-<!--
-<a href ="https://jzimet.github.io/meraki.pdf"><img src="xls.png" align="center" width="20" height="20"></a>
-<img src="meraki.png" align="center" width="40" height="15">
--->
-<!--
-<input type="radio" name="viptela_size" disabled>S
-<input type="radio" name = "viptela_size" checked disabled>M
-<input type="radio" name="viptela_size" disabled>L
--->
-<!--
-<input id ="viptela_cb" type="checkbox" checked onchange="setviptela()">
--->
 <img src="cisco-meraki-mx.png" align="center" width="20" height="10">
 <select id="basic_drop_down" onchange="calculate()">
         <option>Basic Router</option>
@@ -763,7 +717,6 @@ Basic
 </br>
 <input id ="viptela_cb" type="checkbox" checked onchange="setviptela()">
 </td>
-
 <td align="center">
 <input type ="text" wrap="true" id ="basic_tb_1" readonly>
 </br>
@@ -884,7 +837,6 @@ Basic
 <input id ="basic_cb_10" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="viptela_tb_10" hidden readonly><input id ="viptela_cb_10" type="checkbox" hidden checked onchange="calculate()">
 </td>
-<td></td>
 <td align="center">
 MRR:<input type="range" min="0" max="100" value="10" step = "1"  style="width : 4em" id="slider_for_mrr_2" oninput="slider_change_for_mrr_2(value)"><output for="slider_for_mrr_2" id="volume_for_slider_for_mrr_2">10</output><label for="slider_for_mrr_2">$</label>
 </br>
@@ -898,9 +850,9 @@ MRR:<input type="range" min="0" max="100" value="10" step = "1"  style="width : 
 -->
 
 <tr>
-<td>
-</td>
-<td colspan="12">
+<td></td>
+<td></td>
+<td colspan="13">
 <input style="background-color:red; width:5em; color: white" type="text" id="title3" readonly>
 <input style="background-color:red; width:8em; color: white" type="text" id="subtitle3" readonly>
 <input style="background-color:red; width:45em; color: white" type="text" id="advanced_subtitle_2" readonly>
@@ -910,32 +862,11 @@ MRR:<input type="range" min="0" max="100" value="10" step = "1"  style="width : 
 </tr>
 
 <tr>
-<td valign="top" align="right">
-<!--
-<input style="color: red" type="text" id="title3" readonly>
-<input style="color: red" type="text" id="subtitle3" readonly>
--->
-</td>
+<td></td>
+<td valign="top" align="right"></td>
 <td align="right">
-<!--
-<a href ="https://jzimet.github.io/cisco_cpe.pdf"><img src="xls.png" align="center" width="30" height="10"></a>
-<img src="cisco.png" align="center" width="30" height="10">
-Advanced
--->
-<!--
-<a href ="https://jzimet.github.io/for_managed_services_github.xls"><img src="xls.png" align="center" width="20" height="20"></a>
-<img src="viptela.png" align="center" width="40" height="15">
--->
 <input style="width:30em; color: red" id="advanced_monthly_yearly_company_$" type="text" hidden readonly>
 <input style="width:30em; color: red" id="advanced_monthly_yearly_user_$" type="text" hidden readonly>
-<!--
-<input type="radio" name="cisco_cpe_size" disabled>S
-<input type="radio" name = "cisco_cpe_size" disabled>M
-<input type="radio" name="cisco_cpe_size" checked disabled>L
--->
-<!--
-<input id ="cisco_cpe_cb" type="checkbox" checked onchange="setcisco()">
--->
 <img src="cisco-viptela.png" align="center" width="20" height="10">
 <img src="cisco-isr-1100.png" align="center" width="20" height="10">
 <select id="advanced_drop_down_router" onchange="calculate()">
@@ -1127,7 +1058,6 @@ Advanced
 <input id ="advanced_cb_10" type="checkbox" checked onchange="calculate()">
 <input type ="number" id ="cisco_cpe_tb_10" hidden readonly><input id ="cisco_cpe_cb_10" type="checkbox" hidden checked onchange="calculate()">
 </td>
-<td></td>
 <td align="center">
 MRR:<input type="range" min="0" max="100" value="15" step = "1"  style="width : 4em" id="slider_for_mrr_3" oninput="slider_change_for_mrr_3(value)"><output for="slider_for_mrr_3" id="volume_for_slider_for_mrr_3">15</output><label for="slider_for_mrr_3">$</label>
 </br>
@@ -1691,6 +1621,7 @@ DATA CENTER
 <td></td>
 </tr>
 <tr>
+<td></td>
 <td></td>
 <td align="right">
 Revenue to Cisco:
@@ -3441,12 +3372,11 @@ simple_switch_services_array=[0,150,150,0];
 simple_switch=simple_switch_hw_array[document.getElementById("simple_drop_down_switch").selectedIndex]+simple_switch_services_array[document.getElementById("simple_drop_down_switch").selectedIndex]*simple_multiyear;
 simple_switch=((simple_switch*(1-discount/100))/s_smb)/(simple_multiyear*12);
 
-//simple_umbrella=(((200*(1-discount/100))*(1+partnermargin/100))/12)/25;
 simple_umbrella=((200*(1-discount/100))/12)/25;
 simple_umbrella=simple_umbrella*Number(document.getElementById("simple_umbrella_cb").checked);
-//simple_phone=(223*(1-discount/100)*(1+partnermargin/100))/(simple_multiyear*12);
 simple_phone=(223*(1-discount/100))/(simple_multiyear*12);
 simple_phone=simple_phone*Number(document.getElementById("simple_phone_cb").checked);
+
 simple_monthly_user=(simple_connectivity+simple_umbrella+simple_phone+simple_switch);
 simple_monthly_company=simple_monthly_user*s_smb;
 simple_yearly_user=simple_monthly_user*12;
@@ -3454,8 +3384,22 @@ simple_yearly_company=simple_monthly_company*12;
 
 document.getElementById("simple_monthly_yearly_company_$").value="Monthly/yearly cost per company: $" + (simple_monthly_company).toFixed(1)+"/"+(simple_monthly_company*12).toFixed(1);
 document.getElementById("simple_monthly_yearly_user_$").value="Monthly/yearly cost per user: $"+(simple_monthly_user).toFixed(1)+"/"+(simple_monthly_user*12).toFixed(1);
-//document.getElementById("simple_yearly_user_$").value=(simple_yearly_user).toFixed(1)+" user/year";
 document.getElementById("suggested_mrr_1").value="("+(simple_monthly_user*(1+partnermargin/100)).toFixed(1)+")";
+
+console.log("s_smb"+s_smb);
+
+simple_hardware=0;
+simple_hardware=simple_connectivity_hw_array[document.getElementById("simple_drop_down").selectedIndex]*(1-discount/100);
+simple_hardware+=simple_switch_hw_array[document.getElementById("simple_drop_down_switch").selectedIndex]*(1-discount/100);
+simple_hardware+=simple_phone*simple_multiyear*12*s_smb
+console.log("simple hardware"+simple_hardware);
+
+simple_licences=0;
+simple_licences=simple_connectivity_services_array[document.getElementById("simple_drop_down").selectedIndex]*(1-discount/100);
+simple_licences+=simple_switch_services_array[document.getElementById("simple_drop_down_switch").selectedIndex]*(1-discount/100);
+simple_licences+=simple_umbrella*12*s_smb;
+console.log("simple licences"+simple_licences);
+
 
 //################### BASIC
 
@@ -3471,21 +3415,15 @@ basic_switch_services_array=[0,150,150,150,150,0];
 basic_switch=basic_switch_hw_array[document.getElementById("basic_drop_down_switch").selectedIndex]+basic_switch_services_array[document.getElementById("basic_drop_down_switch").selectedIndex]*basic_multiyear;
 basic_switch=((basic_switch*(1-discount/100))/m_smb)/(basic_multiyear*12);
 
-//basic_umbrella=((200*(1-discount/100)*(1+partnermargin/100))/12)/25;
 basic_umbrella=((200*(1-discount/100))/12)/25;
 basic_umbrella=basic_umbrella*Number(document.getElementById("basic_umbrella_cb").checked);
-//basic_amp=(78*(1-discount/100)*(1+partnermargin/100))/(basic_multiyear*12);
-//basic_amp=(4*(1-discount/100)*(1+partnermargin/100))/(basic_multiyear);
 basic_amp=4*(1-37/100);
 basic_amp=basic_amp*Number(document.getElementById("basic_amp_cb").checked);
-//basic_phone=(223*(1-discount/100)*(1+partnermargin/100))/(basic_multiyear*12);
 basic_phone=(223*(1-82/100))/(basic_multiyear*12);
 basic_phone=basic_phone*Number(document.getElementById("basic_phone_cb").checked);
 basic_spark=12.02*(1-discount/100);
-//basic_spark=basic_spark*(1-79/100)*(1+partnermargin/100);
 basic_spark=basic_spark*(1-79/100);
 basic_spark=basic_spark*Number(document.getElementById("basic_spark_cb").checked);
-//basic_meeting=12.23*(1-37/100)*(1+partnermargin/100);
 basic_meeting=12.23*(1-discount/100);
 basic_monthly_user=(basic_connectivity+basic_umbrella+basic_amp+basic_phone+basic_spark+basic_switch);
 basic_monthly_company=basic_monthly_user*m_smb;
@@ -3494,9 +3432,24 @@ basic_yearly_company=basic_monthly_company*12;
 
 document.getElementById("basic_monthly_yearly_company_$").value="Monthly/yearly cost per company: $"+(basic_monthly_company).toFixed(1)+"/"+(basic_monthly_company*12).toFixed(1);
 document.getElementById("basic_monthly_yearly_user_$").value="Monthly/yearly cost per user: $"+(basic_monthly_user).toFixed(1)+"/"+(basic_monthly_user*12).toFixed(1);
-//document.getElementById("basic_yearly_user_$").value=(basic_yearly_user).toFixed(1)+" user/year";
-//document.getElementById("basic_yearly_company_$").value="Cost:"+(basic_yearly_company*12).toFixed(1);
 document.getElementById("suggested_mrr_2").value="("+(basic_monthly_user*(1+partnermargin/100)).toFixed(1)+")";
+
+
+console.log("m_smb"+m_smb);
+
+basic_hardware=0;
+basic_hardware=basic_connectivity_hw_array[document.getElementById("basic_drop_down").selectedIndex]*(1-discount/100);
+basic_hardware+=basic_switch_hw_array[document.getElementById("basic_drop_down_switch").selectedIndex]*(1-discount/100);
+basic_hardware+=basic_phone*basic_multiyear*12*m_smb
+console.log("basic hardware"+basic_hardware);
+
+basic_licences=0;
+basic_licences=basic_connectivity_services_array[document.getElementById("basic_drop_down").selectedIndex]*(1-discount/100);
+basic_licences+=basic_switch_services_array[document.getElementById("basic_drop_down_switch").selectedIndex]*(1-discount/100);
+basic_licences+=basic_umbrella*12*m_smb;
+basic_licences+=basic_amp*m_smb;
+basic_licences+=basic_spark*12*m_smb;
+console.log("simple licences"+basic_licences);
 
 
 //################### ADVANCED
@@ -3515,33 +3468,23 @@ advanced_switch=advanced_switch_hw_array[document.getElementById("advanced_drop_
 advanced_switch=(((number_of_advanced_switches*advanced_switch)*(1-discount/100))/l_smb)/(advanced_multiyear*12);
 console.log("advaned switch"+advanced_switch);
 
-//advanced_umbrella=(22.10*(1-discount/100)*(1+partnermargin/100))/12;
 advanced_umbrella=(22.10*(1-discount/100))/12;
 advanced_umbrella=advanced_umbrella*Number(document.getElementById("advanced_umbrella_cb").checked);
-//advanced_amp=(78*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
-//advanced_amp=(4*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear);
 advanced_amp=4*(1-discount/100);
 advanced_amp=advanced_amp*Number(document.getElementById("advanced_amp_cb").checked);
-//advanced_utd=(((2855+55+315+656)*(1-discount/100)*(1+partnermargin/100))/100)/12;
 advanced_utd=((((2855+55+315+656)*(1-discount/100))/12)/100)/l_smb;
 advanced_utd=advanced_utd*Number(document.getElementById("advanced_utd_cb").checked);
-//advanced_mail=1.09*(1-discount/100)*(1+partnermargin/100);
 advanced_mail=1.09*(1-discount/100);
 advanced_mail=advanced_mail*Number(document.getElementById("advanced_mail_cb").checked);
-//advanced_cloudlock=5.38*(1-discount/100)*(1+partnermargin/100);
 advanced_cloudlock=5.38*(1-discount/100);
 advanced_cloudlock=advanced_cloudlock*Number(document.getElementById("advanced_cloudlock_cb").checked);
-//advanced_phone=(223*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
 advanced_phone=(223*(1-79/100))/(advanced_multiyear*12);
 advanced_phone=advanced_phone*Number(document.getElementById("advanced_phone_cb").checked);
 advanced_spark=12.02*(1-discount/100);
-//advanced_spark=advanced_spark*(1-79/100)*(1+partnermargin/100);
 advanced_spark=advanced_spark*(1-79/100);
 advanced_spark=advanced_spark*Number(document.getElementById("advanced_spark_cb").checked);
-//advanced_meeting=12.23*(1-37/100)*(1+partnermargin/100);
 advanced_meeting=12.23*(1-discount/100);
-//advanced_sparkboard=(16268*(1-discount/100)*(1+partnermargin/100))/(advanced_multiyear*12);
-advanced_sparkboard=(16268*(1-discount/100))/(advanced_multiyear*12);
+advanced_sparkboard=(12378*(1-discount/100))/(advanced_multiyear*12);
 advanced_sparkboard=advanced_sparkboard*Number(document.getElementById("advanced_sparkboard_cb").checked);
 advanced_monthly_user=(advanced_connectivity+advanced_umbrella+advanced_amp+advanced_utd+advanced_mail+advanced_cloudlock+advanced_phone+advanced_spark+advanced_sparkboard+advanced_switch);
 advanced_monthly_company=advanced_monthly_user*l_smb;
@@ -3550,9 +3493,30 @@ advanced_yearly_company=advanced_monthly_company*12;
 
 document.getElementById("advanced_monthly_yearly_company_$").value="Monthly/yearly cost per company: $"+(advanced_monthly_company).toFixed(1)+"/"+(advanced_monthly_company*12).toFixed(1);
 document.getElementById("advanced_monthly_yearly_user_$").value="Monthly/yearly cost per user: $"+(advanced_monthly_user).toFixed(1)+"/"+(advanced_monthly_user*12).toFixed(1);
-//document.getElementById("advanced_yearly_user_$").value=(advanced_yearly_user).toFixed(1)+" user/year";
-//document.getElementById("advanced_yearly_company_$").value="Cost:" + (advanced_yearly_company*12).toFixed(1);
 document.getElementById("suggested_mrr_3").value="("+(advanced_monthly_user*(1+partnermargin/100)).toFixed(1)+")";
+
+
+console.log("l_smb"+l_smb);
+
+advanced_hardware=0;
+advanced_hardware=advanced_connectivity_hw_array[document.getElementById("advanced_drop_down_router").selectedIndex]*(1-discount/100);
+advanced_hardware+=advanced_switch_hw_array[document.getElementById("advanced_drop_down_switch").selectedIndex]*(1-discount/100);
+advanced_hardware+=advanced_phone*advanced_multiyear*12*l_smb;
+advanced_hardware+=9990*(1-discount/100);
+console.log("advanced hardware"+advanced_hardware);
+
+advanced_licences=0;
+advanced_licences=advanced_connectivity_services_array[document.getElementById("advanced_drop_down_router").selectedIndex]*(1-discount/100);
+advanced_licences+=advanced_switch_services_array[document.getElementById("advanced_drop_down_switch").selectedIndex]*(1-discount/100);
+advanced_licences+=advanced_umbrella*12*l_smb;
+advanced_licences+=advanced_amp*l_smb;
+advanced_licences+=advanced_spark*12*l_smb;
+advanced_licences+=advanced_utd*12*l_smb;
+advanced_licences+=advanced_mail*12*l_smb;
+advanced_licences+=advanced_cloudlock*12*l_smb;
+advanced_licences+=199*12*(1-discount/100);
+console.log("simple licences"+basic_licences);
+
 
 routing=0;
 collaboration=0;
@@ -4500,12 +4464,42 @@ simple_basic_advanced_to_cisco_revenue=simple_to_cisco_revenue+basic_to_cisco_re
 
 total_to_cisco_revenue=simple_to_cisco_revenue+basic_to_cisco_revenue+advanced_to_cisco_revenue;
 
-simple_to_partner_revenue=(ats*Number(document.getElementById("simple_cb_1").checked)+roms*Number(document.getElementById("simple_cb_2").checked)+svks*Number(document.getElementById("simple_cb_3").checked)+czes*Number(document.getElementById("simple_cb_4").checked)+slos*Number(document.getElementById("simple_cb_5").checked)+pols*Number(document.getElementById("simple_cb_6").checked)+buls*Number(document.getElementById("simple_cb_7").checked)+srbs*Number(document.getElementById("simple_cb_8").checked)+bihs*Number(document.getElementById("simple_cb_9").checked)+huns*Number(document.getElementById("simple_cb_10").checked))*document.getElementById("volume_for_slider_for_mrr_1").value*s_smb*12;
-basic_to_partner_revenue=(atm*Number(document.getElementById("basic_cb_1").checked)+romm*Number(document.getElementById("basic_cb_2").checked)+svkm*Number(document.getElementById("basic_cb_3").checked)+czem*Number(document.getElementById("basic_cb_4").checked)+slom*Number(document.getElementById("basic_cb_5").checked)+polm*Number(document.getElementById("basic_cb_6").checked)+bulm*Number(document.getElementById("basic_cb_7").checked)+srbm*Number(document.getElementById("basic_cb_8").checked)+bihm*Number(document.getElementById("basic_cb_9").checked)+hunm*Number(document.getElementById("basic_cb_10").checked))*document.getElementById("volume_for_slider_for_mrr_2").value*m_smb*12;
-advanced_to_partner_revenue=(atl*Number(document.getElementById("advanced_cb_1").checked)+roml*Number(document.getElementById("advanced_cb_2").checked)+svkl*Number(document.getElementById("advanced_cb_3").checked)+czel*Number(document.getElementById("advanced_cb_4").checked)+slol*Number(document.getElementById("advanced_cb_5").checked)+poll*Number(document.getElementById("advanced_cb_6").checked)+bull*Number(document.getElementById("advanced_cb_7").checked)+srbl*Number(document.getElementById("advanced_cb_8").checked)+bihl*Number(document.getElementById("advanced_cb_9").checked)+hunl*Number(document.getElementById("advanced_cb_10").checked))*document.getElementById("volume_for_slider_for_mrr_3").value*l_smb*12;
-console.log("employe  in small"+s_smb);
-console.log("employe  in medium"+m_smb);
-console.log("employe  in large"+l_smb);
+simple_hardware=(simple_hardware*simple_companies);
+simple_licences=(simple_licences*simple_companies);
+console.log("simple_hardware total"+simple_hardware);
+console.log("simple_licences total"+simple_licences);
+
+basic_hardware=(basic_hardware*basic_companies);
+basic_licences=(basic_licences*basic_companies);
+console.log("basic_hardware total"+basic_hardware);
+console.log("basic_licences total"+basic_licences);
+
+advanced_hardware=(advanced_hardware*advanced_companies);
+advanced_licences=(advanced_licences*advanced_companies);
+console.log("advanced_hardware total"+advanced_hardware);
+console.log("advanced_licences total"+advanced_licences);
+
+s_b_a_hardware=((simple_hardware+basic_hardware+advanced_hardware)/1000000).toFixed(1);
+s_b_a_licences=((simple_licences+basic_licences+advanced_licences)/1000000).toFixed(1);
+
+
+if (Number(document.getElementById("suggested_mrr_with_partner_margins").checked)==0) {
+
+	//mrr without partner margins included
+	console.log(Number(document.getElementById("suggested_mrr_with_partner_margins").checked));
+	simple_to_partner_revenue=(ats*Number(document.getElementById("simple_cb_1").checked)+roms*Number(document.getElementById("simple_cb_2").checked)+svks*Number(document.getElementById("simple_cb_3").checked)+czes*Number(document.getElementById("simple_cb_4").checked)+slos*Number(document.getElementById("simple_cb_5").checked)+pols*Number(document.getElementById("simple_cb_6").checked)+buls*Number(document.getElementById("simple_cb_7").checked)+srbs*Number(document.getElementById("simple_cb_8").checked)+bihs*Number(document.getElementById("simple_cb_9").checked)+huns*Number(document.getElementById("simple_cb_10").checked))*document.getElementById("volume_for_slider_for_mrr_1").value*s_smb*12;
+	basic_to_partner_revenue=(atm*Number(document.getElementById("basic_cb_1").checked)+romm*Number(document.getElementById("basic_cb_2").checked)+svkm*Number(document.getElementById("basic_cb_3").checked)+czem*Number(document.getElementById("basic_cb_4").checked)+slom*Number(document.getElementById("basic_cb_5").checked)+polm*Number(document.getElementById("basic_cb_6").checked)+bulm*Number(document.getElementById("basic_cb_7").checked)+srbm*Number(document.getElementById("basic_cb_8").checked)+bihm*Number(document.getElementById("basic_cb_9").checked)+hunm*Number(document.getElementById("basic_cb_10").checked))*document.getElementById("volume_for_slider_for_mrr_2").value*m_smb*12;
+	advanced_to_partner_revenue=(atl*Number(document.getElementById("advanced_cb_1").checked)+roml*Number(document.getElementById("advanced_cb_2").checked)+svkl*Number(document.getElementById("advanced_cb_3").checked)+czel*Number(document.getElementById("advanced_cb_4").checked)+slol*Number(document.getElementById("advanced_cb_5").checked)+poll*Number(document.getElementById("advanced_cb_6").checked)+bull*Number(document.getElementById("advanced_cb_7").checked)+srbl*Number(document.getElementById("advanced_cb_8").checked)+bihl*Number(document.getElementById("advanced_cb_9").checked)+hunl*Number(document.getElementById("advanced_cb_10").checked))*document.getElementById("volume_for_slider_for_mrr_3").value*l_smb*12;
+
+} else if (Number(document.getElementById("suggested_mrr_with_partner_margins").checked)==1) { 
+	
+	//suggested mrr with partner margins included
+	console.log(Number(document.getElementById("suggested_mrr_with_partner_margins").checked));
+
+	simple_to_partner_revenue=(ats*Number(document.getElementById("simple_cb_1").checked)+roms*Number(document.getElementById("simple_cb_2").checked)+svks*Number(document.getElementById("simple_cb_3").checked)+czes*Number(document.getElementById("simple_cb_4").checked)+slos*Number(document.getElementById("simple_cb_5").checked)+pols*Number(document.getElementById("simple_cb_6").checked)+buls*Number(document.getElementById("simple_cb_7").checked)+srbs*Number(document.getElementById("simple_cb_8").checked)+bihs*Number(document.getElementById("simple_cb_9").checked)+huns*Number(document.getElementById("simple_cb_10").checked))*((simple_monthly_user*(1+partnermargin/100)).toFixed(1))*s_smb*12;
+	basic_to_partner_revenue=(atm*Number(document.getElementById("basic_cb_1").checked)+romm*Number(document.getElementById("basic_cb_2").checked)+svkm*Number(document.getElementById("basic_cb_3").checked)+czem*Number(document.getElementById("basic_cb_4").checked)+slom*Number(document.getElementById("basic_cb_5").checked)+polm*Number(document.getElementById("basic_cb_6").checked)+bulm*Number(document.getElementById("basic_cb_7").checked)+srbm*Number(document.getElementById("basic_cb_8").checked)+bihm*Number(document.getElementById("basic_cb_9").checked)+hunm*Number(document.getElementById("basic_cb_10").checked))*((basic_monthly_user*(1+partnermargin/100)).toFixed(1))*m_smb*12;
+	advanced_to_partner_revenue=(atl*Number(document.getElementById("advanced_cb_1").checked)+roml*Number(document.getElementById("advanced_cb_2").checked)+svkl*Number(document.getElementById("advanced_cb_3").checked)+czel*Number(document.getElementById("advanced_cb_4").checked)+slol*Number(document.getElementById("advanced_cb_5").checked)+poll*Number(document.getElementById("advanced_cb_6").checked)+bull*Number(document.getElementById("advanced_cb_7").checked)+srbl*Number(document.getElementById("advanced_cb_8").checked)+bihl*Number(document.getElementById("advanced_cb_9").checked)+hunl*Number(document.getElementById("advanced_cb_10").checked))*((advanced_monthly_user*(1+partnermargin/100)).toFixed(1))*l_smb*12;
+}
 
 total_to_partner_revenue=simple_to_partner_revenue+basic_to_partner_revenue+advanced_to_partner_revenue;
 
@@ -4698,7 +4692,81 @@ years_of_service_variable=document.getElementById("years_of_service").value;
 
 for (i=0;i<10; i++) {
 	b="suggested%"+i;
-	document.getElementById(b).value=(100*(((((data[i][0])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][0])).toFixed(2)).toFixed(0)+"%/"+(100*(((((data[i][1])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][1])).toFixed(2)).toFixed(0)+"%/"+(100*(((((data[i][2])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][2])).toFixed(2)).toFixed(0)+"%";
+	document.getElementById(b).value=(100*(((((data[i][0])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][0])).toFixed(2)).toFixed(1)+"%/"+(100*(((((data[i][1])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][1])).toFixed(2)).toFixed(1)+"%/"+(100*(((((data[i][2])*tam_to_address_variable)*through_sp_variable)/years_of_service_variable)/(data[i][2])).toFixed(2)).toFixed(1)+"%";
+}
+
+
+year_1_total_to_cisco_revenue=(total_to_cisco_revenue/1000000).toFixed(0);
+year_2_total_to_cisco_revenue=(total_to_cisco_revenue/1000000).toFixed(0);
+year_3_total_to_cisco_revenue=(total_to_cisco_revenue/1000000).toFixed(0);
+year_4_total_to_cisco_revenue=(total_to_cisco_revenue/1000000).toFixed(0);
+year_5_total_to_cisco_revenue=(total_to_cisco_revenue/1000000).toFixed(0);
+
+year_1_total_to_partner_revenue=(total_to_partner_revenue/1000000).toFixed(0);
+year_2_total_to_partner_revenue=(total_to_partner_revenue/1000000).toFixed(0);
+year_3_total_to_partner_revenue=(total_to_partner_revenue/1000000).toFixed(0);
+year_4_total_to_partner_revenue=(total_to_partner_revenue/1000000).toFixed(0);
+year_5_total_to_partner_revenue=(total_to_partner_revenue/1000000).toFixed(0);
+
+var canvas = document.getElementById("can");
+var ctx = canvas.getContext("2d");
+
+var itemName=["Y1", "Y2", "Y3", "Y4", "Y5"];
+//var scores = [(document.getElementById("totalrevenue").value-document.getElementById("totalcapex").value)/1000,((document.getElementById("totalrevenue").value)*1.20-document.getElementById("totalcapex").value)/1000 , ((document.getElementById("totalrevenue").value)*1.44-document.getElementById("totalcapex").value)/1000];
+//var scores = [document.getElementById("cashflowyear1").value/1000,document.getElementById("cashflowyear2").value/1000, document.getElementById("cashflowyear3").value/1000,document.getElementById("cashflowyear4").value/1000,document.getElementById("cashflowyear5").value/1000];
+//var scores = [[year_1_total_to_cisco_revenue,year_2_total_to_cisco_revenue,year_3_total_to_cisco_revenue,year_4_total_to_cisco_revenue,year_5_total_to_cisco_revenue],[year_1_total_to_partner_revenue,year_2_total_to_partner_revenue,year_3_total_to_partner_revenue,year_4_total_to_partner_revenue,year_5_total_to_partner_revenue]];
+
+multiyear=document.getElementById("multiyear").value;
+console.log("multiyear:"+multiyear);
+if (Number(document.getElementById("products_services").checked)==1) {
+	//document.getElementById("canvas_subtitle").value="Cisco revenue and partner revenue";
+	document.getElementById("canvas_subtitle").value="Hardware and licences";
+	if (multiyear==1) {
+		var scores = [[s_b_a_hardware,0,0,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
+	} else if (multiyear ==2) {
+		s_b_a_hardware=(s_b_a_hardware/multiyear).toFixed(1);
+		var scores = [[s_b_a_hardware,s_b_a_hardware,0,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
+	} else if (multiyear ==3) {
+		s_b_a_hardware=(s_b_a_hardware/multiyear).toFixed(1);
+		var scores = [[s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
+	} else if (multiyear ==4) {
+		s_b_a_hardware=(s_b_a_hardware/multiyear).toFixed(1);
+		var scores = [[s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
+	} else if (multiyear ==5) {
+		s_b_a_hardware=(s_b_a_hardware/multiyear).toFixed(1);
+		var scores = [[s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,s_b_a_hardware],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
+	}
+} else {
+	//document.getElementById("canvas_subtitle").value="Hardware and licences";
+	document.getElementById("canvas_subtitle").value="Cisco revenue and partner revenue";
+	var scores = [[year_1_total_to_cisco_revenue,year_2_total_to_cisco_revenue,year_3_total_to_cisco_revenue,year_4_total_to_cisco_revenue,year_5_total_to_cisco_revenue],[year_1_total_to_partner_revenue,year_2_total_to_partner_revenue,year_3_total_to_partner_revenue,year_4_total_to_partner_revenue,year_5_total_to_partner_revenue]];
+}
+
+//for (var i=0; i< document.getElementById("Ultra").value;i++) {
+//itemName[i] = i+1;
+//scores[i]= ((document.getElementById("totalrevenue").value*(i+1)*(document.getElementById("iaassmallgrowth").value/100))-document.getElementById("totalcapex").value)/1000;
+//}
+
+var width = 10;
+var currX = 10;
+var base = 100;
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+//for (var i=0; i< scores[0].length;i++) {
+for (var i=0; i< document.getElementById("multiyear").value;i++) {
+	var h = scores[0][i];
+	console.log(scores[0][i]);
+	ctx.fillStyle = 'blue';
+	ctx.fillRect(currX,canvas.height/(1.5) - h,width,h);
+	ctx.fillText(scores[0][i],currX+width/4,canvas.height*3/4);
+	currX += width + 15;
+	var h = scores[1][i];
+	console.log(scores[1][i]);
+	ctx.fillStyle = 'red';
+	ctx.fillRect(currX,canvas.height/(1.5) - h,width,h);
+	ctx.fillText(scores[1][i],currX+width/4,canvas.height*3/4);
+	ctx.fillStyle = 'green';
+	ctx.fillText(itemName[i],currX-width,canvas.height*6/7);
+	currX += width + 20;
 }
 
 
