@@ -73,6 +73,7 @@ Margins:<input type ="text" style="font-size: 15pt; color:#FF00FF;text-align:cen
 Discount:<input type="range" min="0" max="100" value="20" step = "1"  style="width : 4em" id="discount" oninput="sliderfordiscount(value)"><output for="discountslider" id="volumefordiscount" style="color: #3CBC8D">20</output><label for="discountslider" align="left" style="color: #3CBC8D">%</label>
 Multi Year:<input type="range" min="1" max="5" value="1" step = "1"  style="width : 4em" id="multiyear" oninput="sliderformultiyear(value)"><output for="multiyearslider" id="volumeformultiyear" style="color: #3CBC8D">1</output><label for="multiyearslider" align="left" style="color: #3CBC8D">years</label>
 Partner Margin:<input type="range" min="0" max="100" value="18" step = "1"  style="width : 4em" id="partnermargin" oninput="sliderforpartnermargin(value)"><output for="partnermarginslider" id="volumeforpartnermargin" style="color: #3CBC8D">18</output><label for="partnermarginslider" align="left" style="color: #3CBC8D">%</label>
+</br>
 TAM to address:<input type="range" min="0" max="100" value="25" step = "1"  style="width : 4em" id="tam_to_address" oninput="slider_for_tam_to_address(value)"><output for="tam_to_address_slider" id="volume_for_tam_to_address" style="color: #3CBC8D">25</output><label for="tam_to_address_slider" align="left" style="color: #3CBC8D">%</label>
 Through SP:<input type="range" min="0" max="100" value="50" step = "1"  style="width : 4em" id="through_sp" oninput="slider_for_through_sp(value)"><output for="through_sp_slider" id="volume_for_through_sp" style="color: #3CBC8D">50</output><label for="through_sp_slider" align="left" style="color: #3CBC8D">%</label>
 Years of service:<input type="range" min="1" max="10" value="5" step = "1"  style="width : 4em" id="years_of_service" oninput="slider_for_years_of_service(value)"><output for="years_of_service_slider" id="volume_for_years_of_service" style="color: #3CBC8D">5</output><label for="years_of_service_slider" align="left" style="color: #3CBC8D">Years</label>
@@ -4749,17 +4750,13 @@ if (Number(document.getElementById("chart_options").selectedIndex)==0) {
 	if (multiyear==1) {
 		var scores = [[s_b_a_hardware,0,0,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
 	} else if (multiyear ==2) {
-		s_b_a_hardware=(s_b_a_hardware/multiyear).toFixed(1);
-		var scores = [[s_b_a_hardware,s_b_a_hardware,0,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
+		var scores = [[s_b_a_hardware,0,0,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
 	} else if (multiyear ==3) {
-		s_b_a_hardware=(s_b_a_hardware/multiyear).toFixed(1);
-		var scores = [[s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
+		var scores = [[s_b_a_hardware,0,0,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
 	} else if (multiyear ==4) {
-		s_b_a_hardware=(s_b_a_hardware/multiyear).toFixed(1);
-		var scores = [[s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
+		var scores = [[s_b_a_hardware,0,0,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
 	} else if (multiyear ==5) {
-		s_b_a_hardware=(s_b_a_hardware/multiyear).toFixed(1);
-		var scores = [[s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,s_b_a_hardware],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
+		var scores = [[s_b_a_hardware,0,0,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
 	}
 } else if (Number(document.getElementById("chart_options").selectedIndex)==1) {
 	document.getElementById("canvas_subtitle").value="Cisco revenue and partner revenue";
