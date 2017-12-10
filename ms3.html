@@ -76,6 +76,9 @@ Partner Margin:<input type="range" min="0" max="100" value="18" step = "1"  styl
 TAM to address:<input type="range" min="0" max="100" value="25" step = "1"  style="width : 4em" id="tam_to_address" oninput="slider_for_tam_to_address(value)"><output for="tam_to_address_slider" id="volume_for_tam_to_address" style="color: #3CBC8D">25</output><label for="tam_to_address_slider" align="left" style="color: #3CBC8D">%</label>
 Through SP:<input type="range" min="0" max="100" value="50" step = "1"  style="width : 4em" id="through_sp" oninput="slider_for_through_sp(value)"><output for="through_sp_slider" id="volume_for_through_sp" style="color: #3CBC8D">50</output><label for="through_sp_slider" align="left" style="color: #3CBC8D">%</label>
 Years of service:<input type="range" min="1" max="10" value="5" step = "1"  style="width : 4em" id="years_of_service" oninput="slider_for_years_of_service(value)"><output for="years_of_service_slider" id="volume_for_years_of_service" style="color: #3CBC8D">5</output><label for="years_of_service_slider" align="left" style="color: #3CBC8D">Years</label>
+</br>
+Loan Period :<input type="range" min="1" max="5" value="2" step = "1"  style="width : 4em" id="loan_period" oninput="slider_for_loan_period(value)"><output for="loan_period_slider" id="volume_for_loan_period" style="color: #3CBC8D">2</output><label for="loan_period_slider" align="left" style="color: #3CBC8D">Years</label>
+Anual Interest :<input type="range" min="1" max="10" value="2" step = "1"  style="width : 4em" id="anual_interest" oninput="slider_for_anual_interest(value)"><output for="anual_interest_slider" id="volume_for_anual_interest" style="color: #3CBC8D">2</output><label for="anual_interest_slider" align="left" style="color: #3CBC8D">%</label>
 </td>
 </tr>
 
@@ -89,8 +92,13 @@ Years of service:<input type="range" min="1" max="10" value="5" step = "1"  styl
 <td rowspan="13">
 <canvas id="can" width="300" height="150" style="border:1px dashed #CCC;"></canvas>
 </br>
-<input id ="products_services" type="checkbox" checked onchange="calculate()">
-<input style="width:20em; color: blue" id ="canvas_subtitle" type="text" readonly>
+<select id ="chart_options" onchange="calculate()">
+<option>Cisco hardware (blue) and Cisco Licences (red)</option>
+<option>Cisco revenue (blue) and Partner Revenue (red) </option>
+<option>Cisco revenue with Cisco Capital (blue) and Partner revenue (red)</option>
+</select>
+<input id ="products_services" type="checkbox" checked hidden onchange="calculate()">
+<input style="width:20em; color: blue" id ="canvas_subtitle" type="text" hidden readonly>
 </td>
 </tr>
 
@@ -3233,6 +3241,15 @@ function slider_for_years_of_service(vol) {
         calculate();
 }
 
+function slider_for_loan_period(vol) {
+        document.querySelector('#volume_for_loan_period').value = vol;
+        calculate();
+}
+
+function slider_for_anual_interest(vol) {
+        document.querySelector('#volume_for_anual_interest').value = vol;
+        calculate();
+}
 
 function calculate(){
 
@@ -4482,6 +4499,14 @@ console.log("advanced_licences total"+advanced_licences);
 s_b_a_hardware=((simple_hardware+basic_hardware+advanced_hardware)/1000000).toFixed(1);
 s_b_a_licences=((simple_licences+basic_licences+advanced_licences)/1000000).toFixed(1);
 
+//Cisco Capital
+principal = total_to_cisco_revenue;
+interest = document.getElementById("anual_interest").value/100/12;
+loanperiod = document.getElementById("loan_period").value;
+payments = document.getElementById("loan_period").value*12;
+x = Math.pow(1 + interest, payments);
+monthly = (principal*x*interest)/(x-1);
+cisco_capital_per_year=((monthly*12)/1000000).toFixed(1);
 
 if (Number(document.getElementById("suggested_mrr_with_partner_margins").checked)==0) {
 
@@ -4715,11 +4740,11 @@ var itemName=["Y1", "Y2", "Y3", "Y4", "Y5"];
 //var scores = [(document.getElementById("totalrevenue").value-document.getElementById("totalcapex").value)/1000,((document.getElementById("totalrevenue").value)*1.20-document.getElementById("totalcapex").value)/1000 , ((document.getElementById("totalrevenue").value)*1.44-document.getElementById("totalcapex").value)/1000];
 //var scores = [document.getElementById("cashflowyear1").value/1000,document.getElementById("cashflowyear2").value/1000, document.getElementById("cashflowyear3").value/1000,document.getElementById("cashflowyear4").value/1000,document.getElementById("cashflowyear5").value/1000];
 //var scores = [[year_1_total_to_cisco_revenue,year_2_total_to_cisco_revenue,year_3_total_to_cisco_revenue,year_4_total_to_cisco_revenue,year_5_total_to_cisco_revenue],[year_1_total_to_partner_revenue,year_2_total_to_partner_revenue,year_3_total_to_partner_revenue,year_4_total_to_partner_revenue,year_5_total_to_partner_revenue]];
+console.log("chart option:"+Number(document.getElementById("chart_options").selectedIndex));
 
 multiyear=document.getElementById("multiyear").value;
-console.log("multiyear:"+multiyear);
-if (Number(document.getElementById("products_services").checked)==1) {
-	//document.getElementById("canvas_subtitle").value="Cisco revenue and partner revenue";
+
+if (Number(document.getElementById("chart_options").selectedIndex)==0) {
 	document.getElementById("canvas_subtitle").value="Hardware and licences";
 	if (multiyear==1) {
 		var scores = [[s_b_a_hardware,0,0,0,0],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
@@ -4736,38 +4761,44 @@ if (Number(document.getElementById("products_services").checked)==1) {
 		s_b_a_hardware=(s_b_a_hardware/multiyear).toFixed(1);
 		var scores = [[s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,s_b_a_hardware,s_b_a_hardware],[s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences,s_b_a_licences]];
 	}
-} else {
-	//document.getElementById("canvas_subtitle").value="Hardware and licences";
+} else if (Number(document.getElementById("chart_options").selectedIndex)==1) {
 	document.getElementById("canvas_subtitle").value="Cisco revenue and partner revenue";
-	var scores = [[year_1_total_to_cisco_revenue,year_2_total_to_cisco_revenue,year_3_total_to_cisco_revenue,year_4_total_to_cisco_revenue,year_5_total_to_cisco_revenue],[year_1_total_to_partner_revenue,year_2_total_to_partner_revenue,year_3_total_to_partner_revenue,year_4_total_to_partner_revenue,year_5_total_to_partner_revenue]];
+        var scores = [[year_1_total_to_cisco_revenue,year_2_total_to_cisco_revenue,year_3_total_to_cisco_revenue,year_4_total_to_cisco_revenue,year_5_total_to_cisco_revenue],[year_1_total_to_partner_revenue,year_2_total_to_partner_revenue,year_3_total_to_partner_revenue,year_4_total_to_partner_revenue,year_5_total_to_partner_revenue]];
+} else if (Number(document.getElementById("chart_options").selectedIndex)==2) {
+	if (loanperiod==1) {
+                var scores = [[cisco_capital_per_year,0,0,0,0],[year_1_total_to_partner_revenue,year_2_total_to_partner_revenue,year_3_total_to_partner_revenue,year_4_total_to_partner_revenue,year_5_total_to_partner_revenue]];
+        } else if (loanperiod ==2) {
+                var scores = [[cisco_capital_per_year,cisco_capital_per_year,0,0,0],[year_1_total_to_partner_revenue,year_2_total_to_partner_revenue,year_3_total_to_partner_revenue,year_4_total_to_partner_revenue,year_5_total_to_partner_revenue]];
+        } else if (loanperiod ==3) {
+                var scores = [[cisco_capital_per_year,cisco_capital_per_year,cisco_capital_per_year,0,0],[year_1_total_to_partner_revenue,year_2_total_to_partner_revenue,year_3_total_to_partner_revenue,year_4_total_to_partner_revenue,year_5_total_to_partner_revenue]];
+        } else if (loanperiod ==4) {
+                var scores = [[cisco_capital_per_year,cisco_capital_per_year,cisco_capital_per_year,cisco_capital_per_year,0],[year_1_total_to_partner_revenue,year_2_total_to_partner_revenue,year_3_total_to_partner_revenue,year_4_total_to_partner_revenue,year_5_total_to_partner_revenue]];
+        } else if (loanperiod ==5) {
+                var scores = [[cisco_capital_per_year,cisco_capital_per_year,cisco_capital_per_year,cisco_capital_per_year,cisco_capital_per_year],[year_1_total_to_partner_revenue,year_2_total_to_partner_revenue,year_3_total_to_partner_revenue,year_4_total_to_partner_revenue,year_5_total_to_partner_revenue]];
+        }
 }
 
-//for (var i=0; i< document.getElementById("Ultra").value;i++) {
-//itemName[i] = i+1;
-//scores[i]= ((document.getElementById("totalrevenue").value*(i+1)*(document.getElementById("iaassmallgrowth").value/100))-document.getElementById("totalcapex").value)/1000;
-//}
 
-var width = 10;
-var currX = 10;
-var base = 100;
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-//for (var i=0; i< scores[0].length;i++) {
-for (var i=0; i< document.getElementById("multiyear").value;i++) {
-	var h = scores[0][i];
-	console.log(scores[0][i]);
-	ctx.fillStyle = 'blue';
-	ctx.fillRect(currX,canvas.height/(1.5) - h,width,h);
-	ctx.fillText(scores[0][i],currX+width/4,canvas.height*3/4);
-	currX += width + 15;
-	var h = scores[1][i];
-	console.log(scores[1][i]);
-	ctx.fillStyle = 'red';
-	ctx.fillRect(currX,canvas.height/(1.5) - h,width,h);
-	ctx.fillText(scores[1][i],currX+width/4,canvas.height*3/4);
-	ctx.fillStyle = 'green';
-	ctx.fillText(itemName[i],currX-width,canvas.height*6/7);
-	currX += width + 20;
-}
+        var width = 10;
+        var currX = 10;
+        var base = 100;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i=0; i< multiyear;i++) {
+        var h = scores[0][i];
+        console.log(scores[0][i]);
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(currX,canvas.height/(1.5) - h,width,h);
+        ctx.fillText(scores[0][i],currX+width/4,canvas.height*3/4);
+        currX += width + 15;
+        var h = scores[1][i];
+        console.log(scores[1][i]);
+        ctx.fillStyle = 'red';
+        ctx.fillRect(currX,canvas.height/(1.5) - h,width,h);
+        ctx.fillText(scores[1][i],currX+width/4,canvas.height*3/4);
+        ctx.fillStyle = 'green';
+        ctx.fillText(itemName[i],currX-width,canvas.height*6/7);
+        currX += width + 20;
+        }
 
 
 }
