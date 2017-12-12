@@ -284,7 +284,7 @@ Cost Of Living:
 <td><input type = "text" id = "small_per_user_month" hidden readonly></td>
 <td><input type = "text" id = "small_per_business_month" hidden readonly></td>
 -->
-<td><input type = "text" style="width: 80px;" id = "small_total_cost" readonly></td>
+<td><input type = "text" style="width: 100px;" id = "small_total_cost" readonly></td>
 <td>
 <input type="range" id = "small_partner_margins" min="0" max="100" value="18" step="1" oninput="slider_for_small_partner_margins(value)">
 <output for="small_partner_margins" id="volume_for_small_partner_margins" style="color: #3CBC8D">18</output>
@@ -320,7 +320,7 @@ Cost Of Living:
 <td><input type = "text" id = "medium_per_user_month" hidden readonly></td>
 <td><input type = "text" id = "medium_per_business_month" hidden readonly></td>
 -->
-<td><input type = "text" style="width: 80px;" id = "medium_total_cost" readonly></td>
+<td><input type = "text" style="width: 100px;" id = "medium_total_cost" readonly></td>
 <td>
 <input type="range" id = "medium_partner_margins" min="0" max="100" value="18" step="1" oninput="slider_for_medium_partner_margins(value)">
 <output for="medium_partner_margins" id="volume_for_medium_partner_margins" style="color: #3CBC8D">18</output>
@@ -356,7 +356,7 @@ Cost Of Living:
 <td><input type = "text" id = "large_per_user_month" hidden readonly></td>
 <td><input type = "text" id = "large_per_business_month" hidden readonly></td>
 -->
-<td><input type = "text" style="width: 80px;" id = "large_total_cost" readonly></td>
+<td><input type = "text" style="width: 100px;" id = "large_total_cost" readonly></td>
 <td>
 <input type="range" id = "large_partner_margins" min="0" max="100" value="18" step="1" oninput="slider_for_large_partner_margins(value)">
 <output for="large_partner_margins" id="volume_for_large_partner_margins" style="color: #3CBC8D">18</output>
@@ -697,14 +697,14 @@ var scores = [[(year1_hardware/1000000).toFixed(0),0,0,0,0],[(year1_licences/100
 
 if (Number(document.getElementById("option1").checked)==1) {
 	document.getElementById("title").value="Month/Year/Employee";
-	document.getElementById("small_total_cost").value=small_service_per_user_per_month+"/"+small_service_per_user_per_month*12;
-	document.getElementById("medium_total_cost").value=medium_service_per_user_per_month+"/"+medium_service_per_user_per_month*12;
-	document.getElementById("large_total_cost").value=large_service_per_user_per_month+"/"+large_service_per_user_per_month*12;
+	document.getElementById("small_total_cost").value=(small_service_per_user_per_month).toFixed(1)+"/"+(small_service_per_user_per_month*12).toFixed(1);
+	document.getElementById("medium_total_cost").value=(medium_service_per_user_per_month).toFixed(1)+"/"+(medium_service_per_user_per_month*12).toFixed(1);
+	document.getElementById("large_total_cost").value=(large_service_per_user_per_month).toFixed(1)+"/"+(large_service_per_user_per_month*12).toFixed(1);
 } else if (Number(document.getElementById("option2").checked)==1) {
 	document.getElementById("title").value="Month/Year/Business";
-	document.getElementById("small_total_cost").value=small_service_per_business_per_month+"/"+small_service_per_business_per_month*12;
-	document.getElementById("medium_total_cost").value=medium_service_per_business_per_month+"/"+medium_service_per_business_per_month*12;
-	document.getElementById("large_total_cost").value=small_service_per_business_per_month+"/"+large_service_per_business_per_month*12;
+	document.getElementById("small_total_cost").value=(small_service_per_business_per_month).toFixed(1)+"/"+(small_service_per_business_per_month*12).toFixed(1);
+	document.getElementById("medium_total_cost").value=(medium_service_per_business_per_month).toFixed(1)+"/"+(medium_service_per_business_per_month*12).toFixed(1);
+	document.getElementById("large_total_cost").value=(large_service_per_business_per_month).toFixed(1)+"/"+(large_service_per_business_per_month*12).toFixed(1);
 } else if (Number(document.getElementById("option3").checked)==1) {
 	document.getElementById("title").value="Month/Year/Service (Mil)";
 	document.getElementById("small_total_cost").value=(small_service_total_monthly_cost/1000000).toFixed(1)+"/"+(small_service_total_yearly_cost/1000000).toFixed(1);
