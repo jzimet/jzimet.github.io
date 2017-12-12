@@ -1,3 +1,48 @@
+<style>
+input[type="number"] {
+   width:80px;
+   text-align: center;
+   font-size:8pt;
+}
+input[type="text"] {
+   width:80px;
+   text-align: center;
+   font-size:8pt;
+}
+input[type="label"] {
+   color: #B4886B;
+   text-align: center;
+   font-size:5pt;
+}
+input[readonly]
+{
+    border: none;
+    background: none;
+    font-size:8pt;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  width: 30%;
+  border-radius: 1px;
+  height: 1px;
+  border: 1px solid #bdc3c7;
+  background-color: #fff;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+table td {
+    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+}
+</style>
 
 <table>
 <tr>
@@ -169,7 +214,7 @@
 <tr>
 <td><canvas id="can" width="300" height="150" style="border:1px dashed #CCC;"></canvas></td>
 <td>
-<input type = "text" style="font-size: 20pt; color: blue;text-align:center" id = "summary_total_cost" readonly>
+<input type = "text" style="font-size: 20pt; width: 200px; color: blue;text-align:center" id = "summary_total_cost" readonly>
 </td>
 </tr>
 <tr>
@@ -234,7 +279,9 @@ Cost Of Living:
 <td></td>
 <td>
 <input type = "radio" id="option1" name="user_or_business_or_service" onchange="calculate()"> user
+</br>
 <input type = "radio" id="option2" name="user_or_business_or_service" onchange="calculate()"> business
+</br>
 <input type = "radio" id="option3" name="user_or_business_or_service" checked onchange="calculate()"> service
 </td>
 </tr>
@@ -519,7 +566,7 @@ discount=document.getElementById("discount").value;
 document.getElementById("small_title").value="("+small_number_of_employee+")";
 document.getElementById("medium_title").value="("+medium_number_of_employee+")";
 document.getElementById("large_title").value="("+large_number_of_employee+")";
-document.getElementById("cost_revenue_title").value=all_business_selected+" business selected in " + country_name[document.getElementById("country_selected").selectedIndex];
+document.getElementById("cost_revenue_title").value=" (Mil) for " + all_business_selected+" business selected in " + country_name[document.getElementById("country_selected").selectedIndex];
 
 //small router z1 395 hardware 50/year licence
 //medium router 595 hw + 300/year or 600/year or 945 + hw + 300/year or 600/year 
@@ -656,7 +703,7 @@ document.getElementById("medium_yearly_cost").value=(medium_service_total_yearly
 document.getElementById("large_yearly_cost").value=(large_service_total_yearly_cost/1000000).toFixed(1);
 
 small_medium_large_total_cost=(small_service_total_yearly_cost+medium_service_total_yearly_cost+large_service_total_yearly_cost);
-small_medium_large_total_revenue=small_service_total_yearly_cost*(1+small_service_partner_margin/100)+medium_service_total_yearly_cost*(1+medium_service_partner_margin/100)+large_service_total_yearly_cost*12*(1+large_service_partner_margin/100);
+small_medium_large_total_revenue=small_service_total_yearly_cost*(1+small_service_partner_margin/100)+medium_service_total_yearly_cost*(1+medium_service_partner_margin/100)+large_service_total_yearly_cost*(1+large_service_partner_margin/100);
 document.getElementById("summary_total_cost").value=(small_medium_large_total_cost/1000000).toFixed(1)+"/"+(small_medium_large_total_revenue/1000000).toFixed(1);
 
 year1_hardware=((small_service_per_user_per_month_1*12*small_number_of_employee*small_service_number_of_business_selected+medium_service_per_user_per_month_1*12*medium_number_of_employee*medium_service_number_of_business_selected+large_service_per_user_per_month_1*12*large_number_of_employee*large_service_number_of_business_selected));
