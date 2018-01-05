@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+http://form.guide/html-form/html5-input-type-range.html
+dd in head <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+table {
+    border-collapse:collapse;
+}
+table tr td {
+    border: 1px solid black;
+    padding:2px 15px 2px 15px;
+    width:220px;
+}
+#tabs ul li.drophover {
+    color:green;
+}
+#div1, #div2, #div3,#div4, #div5, #div6 {
+    float: left;
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+.sourcetarget {
+    display:block; 
+    float: left;
+    width: 160px;
+    height: 160px;
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+.sourcetarget img {
+    border:0;
+    margin:10px auto;
+    width:150px;
+    height:150px;
+}
+.sourcetarget div {
+    background:rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    position:relative;
+    bottom:69px;
+    color:#f3f3f3;
+    padding:5px 0;
+    display:none;
+}
+<!--
+.droptarget {
+    float: left;
+    width: 100px;
+    height: 35px;
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+-->
+
+.droptarget {
+    display:block;
+    float:left;
+    width:220px;
+    height:220px;
+    margin:10px;
+    border:1px solid #494949;
+    text-align:center;
+    text-decoration:none;
+    color: #000;
+    overflow:hidden;
+}
+.droptarget img {
+    border:0;
+    margin:10px auto;
+    width:60px;
+    height:60px;
+}
+.droptarget div {
+    background:rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    position:relative;
+    bottom:69px;
+    color:#f3f3f3;
+    padding:5px 0;
+    display:none;
+}
+
+input[type="number"] {
+   width:50px;
+   text-align: center;
+   font-size:8pt;
+}
+input[type="text"] {
+   width:50px;
+   text-align:left;
+   font-size:8pt;
+   border: none;
+   background: transparent;
+}
+input[type="range"] {
+  width:40px;
+}
+
+#products { 
+    float:left; 
+    list-style:none; 
+    width:65%; 
+    padding:0; 
+}
+#products li { 
+    display:inline; 
+}
+
+h1, h2 { text-align:center; } 
+h2 { 
+    position:absolute; 
+    bottom: 20px; 
+    color:#fff; 
+    text-shadow:0 0 10px rgba(0, 0, 0, 0.75); 
+    display:none; 
+} 
+p { margin:0; }
+
+
+.item { 
+    display:block; 
+    float:left; 
+    width:180px; 
+    height:180px; 
+    margin:10px; 
+    border:1px solid #494949; 
+    text-align:center; 
+    text-decoration:none; 
+    color: #000; 
+    overflow:hidden; 
+} 
+.item img { 
+    border:0; 
+    margin:10px auto; 
+    width:160px; 
+    height:160px; 
+} 
+.item div { 
+    background:rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5); 
+    position:relative; 
+    bottom:69px; 
+    color:#f3f3f3; 
+    padding:5px 0; 
+    display:none; 
+}
+
+#cart { 
+    float:right; 
+    background-color:#ccc; 
+    width:25%; 
+    padding:0 5%; 
+    height:100%; 
+} 
+#cart ul { 
+    padding:0; 
+} 
+#cart li { 
+    list-style:none; 
+    border-bottom:1px solid #494949; 
+    padding:5px; 
+} 
+#cart .quantity { 
+    font-weight:bold; 
+    padding-right:10px; 
+    margin-right:10px; 
+    border-right:1px solid #494949; 
+    display:inline-block; 
+    width:15px; 
+    text-align:right; 
+} 
+#cart .price { 
+    float:right; 
+} 
+#total { 
+    float:right; 
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Chicago')" id="defaultOpen">Chicago</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+</div>
+
+<div id="Chicago" class="tabcontent">
+<table>
+<tr>
+<td>
+<div id = "Portoroz"></div>
+<div id = "Tivat"></div>
+</td>
+</tr>
+<tr>
+<td>
+        Discount:<input type="range" id = "discount" min = "0" max = "100" value="0" class="slider" onchange="set_profile()"><span class="slider_label"></span> %
+        Years:<input type="range" id = "years" min = "1" max = "10" value="1" class="slider" onchange="set_profile()"><span class="slider_label"></span> years
+        Number of Profiles:<input type="range" id = "number_of_profiles" min = "1" max = "10" value="3" class="slider" onchange="build_profile()"><span class="slider_label"></span> profiles
+	</br>
+        <input type="text" style="width:250px; text-align:right;" id="title_for_total_capex" readonly><input type="text" style="text-align:left;"id="total_capex" readonly>
+        <input type="text" style="width:250px; text-align:right;" id="title_for_total_opex" readonly><input type="text" style="text-align:left;" id="total_opex" readonly>
+
+<div id="Rijeka"></div>
+
+</td>
+</tr>
+</table>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+
+<div id = "Beograd"></div>
+<div id="cart" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+    <h1>Shopping Cart</h1> 
+    <ul id="shopping_cart_list"></ul> 
+    <p id="total_shopping_cart"><strong>Total:</strong>$<span id="span_total_shopping_cart"></span></p> 
+    <hr /><h1 class="droptarget" id="drop_here">Drop here to add to cart</h1> 
+</div>
+
+<div id="London" class="tabcontent"></div>
+
+<script>
+
+//############### Build Tab menu
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+
+//############ dragndrop
+//https://code.tutsplus.com/tutorials/implementing-html5-drag-and-drop--net-10824
+
+var pictures = ["superman.png","batman.png", "bazinga.png", "lantern.png", "captainamerica.png","fantasticfour.png","flash.png","spiderman.png","thor.png","wanderwoman.png","dardewill.png","hulk.png","silver.png","robin.png","catwoman.png"];
+var products = [["MerakiZ1",395,50,1],["MerakiMX",945,600,1],["Viptela",895,1500,1],["ISR1100",2495,1900,1],["cloudutd",0,44,1],["easyprotect",0,200,1],["mssp",0,23,1],["websecurity",0,19,1],["emailsecurity",0,19,1],["amp",0,78,1],["3pcc-phone",195,76,1],["spark-c1",0,237,1],["spark-c2",0,237,1],["spark-c3",0,237,1],["sparkboard",9990,2388,1]];
+catalog="";
+catalog+="<ul id='products'>";
+        for (i=0;i<pictures.length;i++){
+                catalog+="<li id='products_li"+i+"'><a href='#' class='item' id='href"+i+"'>";
+                catalog+="<img src='"+pictures[i]+"' id='whattodrag"+i+ "' draggable='true' ondragstart='drag(event)' onclick='foo.call(this);' width='50' height='50'>";
+                catalog+="<div><p>"+products[i][0]+"</p><p>Price: <span>"+products[i][1]+"</span></p><p>Quantity:<span>"+products[i][2]+"</span></p></div>";
+                catalog+= "</a></li>";
+        }
+catalog+="</ul>";
+        output_catalog = document.getElementById("Beograd");
+        output_catalog.innerHTML = catalog;
+
+
+$('.item')
+//    .bind('dragstart', function (evt) {
+//        evt.dataTransfer.setData('text', this.id);
+//        $('h2').fadeIn('fast');
+//    })
+    .hover(
+        function () { $('div', this).fadeIn(); },
+        function () { $('div', this).fadeOut(); }
+    );
+
+var foo = function()
+{
+	console.log('id of this:'+this.id+'parent node' + this.parentNode.getAttribute('id'));
+	if (this.parentNode.getAttribute('id')==null) {
+			console.log('im in null');
+			this.parentNode.removeChild(this);
+	} else if(this.parentNode.getAttribute('id')=="cart" || this.parentNode.getAttribute('id')=="drop_here") {
+			console.log('im in cart and node id is'+this.id);
+			console.log('im in cart and node id of parent'+this.parentNode.getAttribute('id'));
+			// find index of ul (child) in cart (parent)
+			var index =  Array.prototype.indexOf.call(this.parentNode.children, this)
+			console.log('im in cart and index is'+index);
+			//adjust total
+			whattoslice=this.id;
+			sliced=whattoslice.slice(10);
+        		document.getElementById("span_total_shopping_cart").innerHTML=Number(document.getElementById("span_total_shopping_cart").innerHTML)-products[sliced][1]-products[sliced][2];
+			this.parentNode.removeChild(this);
+			// remove ul (child) in cart (parent)
+			var list = document.getElementById("shopping_cart_list");
+			list.removeChild(list.childNodes[index]);
+	}
+};
+
+
+//############ drag and drop
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+   
+        ev.dataTransfer.effectsAllowed = "copy";
+        ev.dataTransfer.setData("text", ev.target.id);
+        //ev.target.style.border = "3px dotted red";
+        console.log("im in drag and this is what to drag: "+event.target.id);
+        console.log("im in drag and this is from where to drag: "+event.target.parentNode.id);
+}
+
+function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        //move original
+        //ev.target.appendChild(document.getElementById(data));
+        //copy original
+        //ev.target.appendChild(document.getElementById(data).cloneNode(true))
+        if (!ev.target.id) {
+                console.log("im in drop and this is where to drag - not able to drag"+ ev.target.id)
+        } else if (ev.target.id=="total_shopping_cart" || ev.target.id=="span_total_shopping_cart" || ev.target.id=="cart") {
+                console.log("im in drop and this is where to drag - not allowed to drag in shopping cart or span"+ ev.target.id)
+        } else {
+                console.log('im in drop and preparing to add this is what to slice '+ ev.dataTransfer.getData("text"));
+                var stringtoslice=ev.dataTransfer.getData("text");
+                var result=stringtoslice.slice(10);
+                document.getElementById("span_total_shopping_cart").innerHTML=Number(document.getElementById("span_total_shopping_cart").innerHTML)+products[result][1]+products[result][2];
+                ev.target.appendChild(document.getElementById(data).cloneNode(true))
+        //ev.target.style.border = "4px solid blue";
+        console.log("im in drop and this is where to drag"+ ev.target.id)
+        console.log("im in drop and this is get data texthtml"+ev.dataTransfer.getData("text/html"));
+        console.log("im in drop and this is get data text"+ev.dataTransfer.getData("text"));
+
+  var ul = document.getElementById("shopping_cart_list");
+  var li = document.createElement("li");
+  li_text=products[result][0]+": $"+products[result][1]+"capex, $"+products[result][2]+"opex/year";
+  li.appendChild(document.createTextNode(li_text));
+  ul.appendChild(li);
+
+
+        }
+}
+
+
+//########### Build Country List for TAM
+
+country_name=["Austria","Romania","Slovakia","Czecz","Slovenia","Poland","Bulgaria","Serbia","Croatia","Hungary"];
+var tam=[["Austria",5454, 35734, 286302,8500000],["Romania",8624,48054,455560,18700000],["Slovkia",4112,18766,425995,5415949],["Czecz",10847,42588,1062697,10513800],["Slovenia",2002,7081,182454,2061963],["Poland",29280,148002,4055946,38502396],["Bulgaria",4201,22432,298559,7282041],["Serbia",2084,9127,74448,7181506],["Croatia",1433,11099,196667,3791622],["Hungary",4773,29104,645370,9906000]];
+
+var tam_to_be_addressed=[["Austria",10,0,0],["Romania",0,0,0],["Slovakia",0,0,0],["Czecz",0,0,0],["Slovenia",0,0,0],["Poland",0,0,0],["Bulgaria",0,0,0],["Serbia",0,0,0],["Croatia",0,0,0],["Hungary",0,0,0]];
+var through_sp=[["Austria",0,0,0],["Romania",0,0,0],["Slovakia",0,0,0],["Czecz",0,0,0],["Slovenia",0,0,0],["Poland",0,0,0],["Bulgaria",0,0,0],["Serbia",0,0,0],["Croatia",0,0,0],["Hungary",0,0,0]];
+var over_period_of_years=[["Austria",0,0,0],["Romania",0,0,0],["Slovakia",0,0,0],["Czecz",0,0,0],["Slovenia",0,0,0],["Poland",0,0,0],["Bulgaria",0,0,0],["Serbia",0,0,0],["Croatia",0,0,0],["Hungary",0,0,0]];
+var addressable_tam=[["Austria",0,0,0],["Romania",0,0,0],["Slovakia",0,0,0],["Czecz",0,0,0],["Slovenia",0,0,0],["Poland",0,0,0],["Bulgaria",0,0,0],["Serbia",0,0,0],["Croatia",0,0,0],["Hungary",0,0,0]];
+
+var catalog = [["MerakiZ1",395,50,1],["MerakiMX",945,600,1],["Viptela",895,1500,1],["ISR1100",2495,1900,1],["cloudutd",0,44,1],["easyprotect",0,200,1],["mssp",0,23,1],["websecurity",0,19,1],["emailsecurity",0,19,1],["amp",0,78,1],["3pcc-phone",195,76,1],["spark-c1",0,237,1],["spark-c2",0,237,1],["spark-c3",0,237,1],["sparkboard",9990,2388,1]];
+
+country_list="";
+country_list+="<select id='country_list' multiple size='"+country_name.length+"'  onclick='draw_my_tam()'>";
+                for (i=0;i<country_name.length; i++){
+			if (i==0) {
+                        	country_list += "<option selected>" + country_name[i] + "</option>";
+                        } else {
+                        	country_list += "<option>" + country_name[i] + "</option>";
+			}
+                }
+country_list += "</select>";
+
+output_country_list = document.getElementById("Portoroz");
+output_country_list.innerHTML = country_list;
+
+
+//############# Draw TAM
+
+function draw_my_tam() {
+	small_total_tam=0;
+	medium_total_tam=0;
+	large_total_tam=0;
+	my_tam_table="";
+	my_tam_table+="<table><tr><td>Country</td>";
+	for (i=0;i<country_name.length;i++){
+		if (document.getElementById("country_list")[i].selected == true) {
+			my_tam_table += "<td>" + tam[i][0]+"</td>";
+		}
+	}
+	my_tam_table += "<td>Total TAM</td>";
+	my_tam_table += " </tr><tr><td>Small</td>";
+	for (i=0;i<country_name.length;i++){
+                if (document.getElementById("country_list")[i].selected == true) {
+			my_tam_table += "<td><input type='text' style='width:50px' id = '"+ tam[i][0] + "-small-total-tam'>";
+			my_tam_table += "<input type = 'text' style='width:50px' id = '"+ tam[i][0] + "-small-tam' readonly></br>";
+			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-small-p-of-tam' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
+			my_tam_table += "<input type= 'text' style='width:100px' id= '"+ tam[i][0] + "-small-p-of-tam-span' readonly></br>";
+			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-small-t-sp' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
+			my_tam_table += "<input type='text' style='width:100px' id='"+ tam[i][0] + "-small-t-sp-span' readonly></br>";
+			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-small-years' min='1' max='10' value='1' class='slider' onchange='set_my_tam()'>";
+			my_tam_table += "<input type='text' style='width:120px' id= '"+ tam[i][0] + "-small-years-span' readonly>";
+			my_tam_table += "</td>";
+			small_total_tam+=tam[i][1];
+			
+                }
+        }
+	my_tam_table += "<td><input type = 'text' style='width:90px' id = 'small-total-tam' readonly></td>";
+        my_tam_table += " </tr><tr><td>Medium</td>";
+        for (i=0;i<country_name.length;i++){
+                if (document.getElementById("country_list")[i].selected == true) {
+			my_tam_table += "<td><input type='text' style='width:50px' id = '"+ tam[i][0] + "-medium-total-tam'>";
+			my_tam_table += "<input type = 'text' style='width:50px' id = '"+ tam[i][0] + "-medium-tam' readonly></br>";
+			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-medium-p-of-tam' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
+			my_tam_table += "<input type= 'text' style='width:100px' id= '"+ tam[i][0] + "-medium-p-of-tam-span' readonly></br>";
+			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-medium-t-sp' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
+			my_tam_table += "<input type='text' style='width:100px' id='"+ tam[i][0] + "-medium-t-sp-span' readonly></br>";
+			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-medium-years' min='1' max='10' value='1' class='slider' onchange='set_my_tam()'>";
+			my_tam_table += "<input type='text' style='width:120px' id= '"+ tam[i][0] + "-medium-years-span' readonly>";
+			my_tam_table += "</td>";
+			medium_total_tam+=tam[i][2];
+                }
+        }
+	my_tam_table += "<td><input type = 'text' style='width:90px' id = 'medium-total-tam' readonly></td>";
+        my_tam_table += " </tr><tr><td>Large</td>";
+        for (i=0;i<country_name.length;i++){
+                if (document.getElementById("country_list")[i].selected == true) {
+			my_tam_table += "<td><input type='text' style='width:50px' id = '"+ tam[i][0] + "-large-total-tam'>";
+			my_tam_table += "<input type = 'text' style='width:50px' id = '"+ tam[i][0] + "-large-tam' readonly></br>";
+			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-large-p-of-tam' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
+			my_tam_table += "<input type= 'text' style='width:100px' id= '"+ tam[i][0] + "-large-p-of-tam-span' readonly></br>";
+			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-large-t-sp' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
+			my_tam_table += "<input type='text' style='width:100px' id='"+ tam[i][0] + "-large-t-sp-span' readonly></br>";
+			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-large-years' min='1' max='10' value='1' class='slider' onchange='set_my_tam()'>";
+			my_tam_table += "<input type='text' style='width:120px' id= '"+ tam[i][0] + "-large-years-span' readonly>";
+			my_tam_table += "</td>";
+			large_total_tam+=tam[i][3];
+                }
+        }
+	my_tam_table += "<td><input type = 'text' style='width:90px' id = 'large-total-tam' readonly></td>";
+	my_tam_table+="</tr></table>";
+	
+	output_draw_my_tam = document.getElementById("Tivat");
+	output_draw_my_tam.innerHTML = my_tam_table;
+	
+	set_my_tam();
+
+}
+
+
+//############# Set TAM
+
+function set_my_tam(){
+	small_percentage_of_tam=0;
+	medium_percentage_of_tam=0;
+	large_percentage_of_tam=0;
+	small_tam=0;
+	medium_tam=0;
+	large_tam=0;
+	for (i=0;i<country_name.length;i++){
+		if (document.getElementById("country_list")[i].selected == true) {
+			string1= tam[i][0] + "-small-total-tam";
+			string2= tam[i][0] + "-small-tam";
+			string3=tam[i][0] + "-small-p-of-tam";
+		string4=tam[i][0] + "-small-t-sp";
+		string5=tam[i][0] + "-small-years";
+		string6=tam[i][0] + "-small-p-of-tam-span";
+                string7=tam[i][0] + "-small-t-sp-span";
+                string8=tam[i][0] + "-small-years-span";
+		document.getElementById(string1).value=tam[i][1]+"-->";
+		document.getElementById(string6).value=document.getElementById(string3).value+"% of tam";
+		document.getElementById(string7).value=document.getElementById(string4).value+"% through sp";
+		document.getElementById(string8).value="over period of " + document.getElementById(string5).value+" years";
+		small_percentage_of_tam = (((tam[i][1]*document.getElementById(string3).value/100)*document.getElementById(string4).value/100)/document.getElementById(string5).value).toFixed(0);
+                document.getElementById(string2).value=small_percentage_of_tam;
+		small_tam+=Number(small_percentage_of_tam);
+	
+		string1= tam[i][0] + "-medium-total-tam";
+                string2= tam[i][0] + "-medium-tam";
+                string3=tam[i][0] + "-medium-p-of-tam";
+                string4=tam[i][0] + "-medium-t-sp";
+                string5=tam[i][0] + "-medium-years";
+                string6=tam[i][0] + "-medium-p-of-tam-span";
+                string7=tam[i][0] + "-medium-t-sp-span";
+                string8=tam[i][0] + "-medium-years-span";
+		document.getElementById(string1).value=tam[i][2]+"-->";
+                document.getElementById(string6).value=document.getElementById(string3).value+"% of tam";
+                document.getElementById(string7).value=document.getElementById(string4).value+"% through sp";
+                document.getElementById(string8).value="over period of " + document.getElementById(string5).value+" years";
+                medium_percentage_of_tam = (((tam[i][2]*document.getElementById(string3).value/100)*document.getElementById(string4).value/100)/document.getElementById(string5).value).toFixed(0);
+                document.getElementById(string2).value=medium_percentage_of_tam;
+		medium_tam+=Number(medium_percentage_of_tam);
+
+		string1= tam[i][0] + "-large-total-tam";
+                string2= tam[i][0] + "-large-tam";
+                string3=tam[i][0] + "-large-p-of-tam";
+                string4=tam[i][0] + "-large-t-sp";
+                string5=tam[i][0] + "-large-years";
+                string6=tam[i][0] + "-large-p-of-tam-span";
+                string7=tam[i][0] + "-large-t-sp-span";
+                string8=tam[i][0] + "-large-years-span";
+		document.getElementById(string1).value=tam[i][3]+"-->";
+                document.getElementById(string6).value=document.getElementById(string3).value+"% of tam";
+                document.getElementById(string7).value=document.getElementById(string4).value+"% through sp";
+                document.getElementById(string8).value="over period of "+ document.getElementById(string5).value+" years";
+                large_percentage_of_tam = (((tam[i][3]*document.getElementById(string3).value/100)*document.getElementById(string4).value/100)/document.getElementById(string5).value).toFixed(0);
+                document.getElementById(string2).value=large_percentage_of_tam;
+		large_tam+=Number(large_percentage_of_tam);
+		}
+	}
+	document.getElementById("small-total-tam").value=small_total_tam +"-->" + small_tam;
+	document.getElementById("medium-total-tam").value=medium_total_tam +"-->" + medium_tam;
+	document.getElementById("large-total-tam").value=large_total_tam +"-->" + large_tam;
+
+	build_profile();
+
+}
+
+//############# Build Profile
+
+function build_profile(){
+	console.log('im in build profile');
+	
+	var catalog_list="";
+	var loop=Number(document.getElementById("number_of_profiles").value)+1;
+	
+	catalog_list+="<table><tr>";
+	for (j=1;j<loop;j++){
+        	catalog_list += "<td>";
+                catalog_list += "<input type='range' id = '"+j+ "fruits_routers'  min = '1' max = '10' value='1' class='slider' onchange='set_profile()'>";
+		catalog_list += "<input type='text' style='width:140px' id= '" +j+"fruits_routers_span' readonly></br>";
+                catalog_list += "<input type='range' id = '"+j+ "fruits_security_adoption'  min='0' max='100' step='10' value='20' class='slider' onchange='set_profile(()'>";
+		catalog_list += "<input type='text' style='width:140px' id= '" +j+"fruits_security_adoption_span' readonly></br>";
+                catalog_list += "<input type='range' id = '"+j+ "fruits_collaboration_adoption'  min='0' max='100' step='10' value='20' class='slider' onchange='set_profile(()'>";
+		catalog_list += "<input type='text' style='width:140px' id= '" +j+"fruits_collaboration_adoption_span' readonly></br>";
+        	catalog_list +="<input type='text' style='width:170px' id='"+j+"fruits_capex' readonly></br>";
+        	catalog_list +="<input type='text' style='width:170px' id='"+j+"fruits_opex' readonly></br>";
+        	catalog_list += "<select id='"+j+"fruits_size' onchange='set_profile()'>";
+		if (j==1) {
+			catalog_list += "<option selected>small</option><option>medium</option><option>large</option>";
+		} else if (j==2) {
+			catalog_list += "<option>small</option><option selected>medium</option><option>large</option>";
+		} else {
+			catalog_list += "<option>small</option><option>medium</option><option selected>large</option>";
+		}
+		catalog_list += "</select>";
+                catalog_list += "<input type='range' id = '"+j+ "fruits_number_of_companies_percentage' min='10' max='100' step='10' class='slider' value='100' onchange='set_profile(()'>";
+		catalog_list += "<input type='text' style='width:40px' id= '" +j+"fruits_number_of_companies_percentage_span' readonly></br>";
+		catalog_list+="<input type='text' style='width:170px' id='"+j+"fruits_total_capex' readonly></br>";
+        	catalog_list+="<input type='text' style='width:170px' id='"+j+"fruits_total_opex' readonly></br>";
+        	catalog_list+="<select id='"+j+"fruits' multiple size='"+catalog.length+"' onclick='set_profile()'>";
+        	for (i=0;i<catalog.length; i++){
+                	if (i==0) {
+				catalog_list += " <option selected>" + catalog[i][0] + "</option>";
+			} else {
+				catalog_list += " <option>" + catalog[i][0] + "</option>";
+			}
+        	}
+        	catalog_list+="</select>";
+        	catalog_list+="</td>";
+	}
+	catalog_list+="</tr></table>";
+	
+	output_select = document.getElementById("Rijeka");
+	output_select.innerHTML = catalog_list;
+		
+	set_profile();
+}
+
+//############# Set  Profile
+
+function set_profile(){
+	console.log('im in set profile');
+	var loop=Number(document.getElementById("number_of_profiles").value)+1;
+	sml_capex=0;
+	sml_opex=0;	
+	for (j=1;j<loop;j++){
+		capex=0;
+		opex=0;
+		total_capex=0;
+		total_opex=0;
+		total_small=small_tam;
+		total_medium=medium_tam;
+		total_large=large_tam;
+		var number_of_companies_small_medium_large = [small_tam,medium_tam,large_tam];
+		string0=j+"fruits_size";
+		number_of_companies=number_of_companies_small_medium_large[document.getElementById(string0).selectedIndex];
+		string1=j+"fruits";
+		string2=j+"fruits_capex";
+		string3=j+"fruits_opex";
+		string4=j+"fruits_routers";
+		string5=j+"fruits_security_adoption";
+		string6=j+"fruits_collaboration_adoption";
+		string8=j+"fruits_total_capex";
+		string9=j+"fruits_total_opex";
+		string12=j+"fruits_routers_span";
+		string13=j+"fruits_security_adoption_span";
+		string14=j+"fruits_collaboration_adoption_span";
+		string15=j+"fruits_number_of_companies_percentage";
+		string16=j+"fruits_number_of_companies_percentage_span";
+		document.getElementById(string12).value=Number(document.getElementById(string4).value)+" router/company";
+		document.getElementById(string13).value=Number(document.getElementById(string5).value)+"% security adoption";
+		document.getElementById(string14).value=Number(document.getElementById(string6).value)+"% collaboration adoption";
+		for (i = 0; i < document.getElementById(string1).length; i++) {
+			if ( document.getElementById(string1)[i].selected == true) {
+				 if (i == 0 || i ==1 || i == 4 || i == 5) {
+					capex+=((catalog[document.getElementById(string1).selectedIndex][1])*(Number(document.getElementById(string4).value)))*(1-Number(document.getElementById("discount").value)/100);
+                                        opex+=((catalog[document.getElementById(string1).selectedIndex][2])*(Number(document.getElementById(string4).value)))*(1-Number(document.getElementById("discount").value)/100)*Number(document.getElementById("years").value);
+                                }
+				if (i == 7 || i ==8 || i == 9 || i == 10) {
+					capex+=catalog[document.getElementById(string1).selectedIndex][1]*(Number(document.getElementById(string5).value)/100)*(1-Number(document.getElementById("discount").value)/100);
+					opex+=(catalog[document.getElementById(string1).selectedIndex][2]*(Number(document.getElementById(string5).value)/100)*(1-Number(document.getElementById("discount").value)/100))*Number(document.getElementById("years").value);
+				}
+				if (i == 12 || i ==13 || i == 14 || i == 15) {
+                                        capex+=catalog[document.getElementById(string1).selectedIndex][1]*(Number(document.getElementById(string6).value)/100)*(1-Number(document.getElementById("discount").value)/100);
+                                        opex+=(catalog[document.getElementById(string1).selectedIndex][2]*(Number(document.getElementById(string6).value)/100)*(1-Number(document.getElementById("discount").value)/100))*Number(document.getElementById("years").value);
+                                }
+				if (i == 2 || i ==3 || i == 6 || i == 11 || i == 16) {
+					capex+=catalog[document.getElementById(string1).selectedIndex][1]*(1-Number(document.getElementById("discount").value)/100);
+					opex+=(catalog[document.getElementById(string1).selectedIndex][2]*(1-Number(document.getElementById("discount").value)/100))*Number(document.getElementById("years").value);
+				}
+				document.getElementById(string2).value="$"+Number(capex).toFixed(0)+" capex/company/year";
+				document.getElementById(string3).value="$"+Number(opex).toFixed(0)+" opex/company/year";
+				sml_capex += capex*number_of_companies*(document.getElementById(string15).value/100);
+				document.getElementById(string8).value="$"+(Number(capex)*Number(number_of_companies)*(Number(document.getElementById(string15).value)/100)).toFixed(0)+" capex/" + (number_of_companies*(Number(document.getElementById(string15).value)/100)).toFixed(0) + " companies/year";
+				sml_opex += opex*number_of_companies*(document.getElementById(string15).value/100);
+				document.getElementById(string9).value="$"+(Number(opex)*Number(number_of_companies)*(Number(document.getElementById(string15).value)/100)).toFixed(0)+" opex/"+ (number_of_companies*(Number(document.getElementById(string15).value)/100)).toFixed(0) + " companies/year";
+				document.getElementById(string16).value=Number(document.getElementById(string15).value) + "%";
+			}
+		}
+	}
+	document.getElementById("title_for_total_capex").value="capex for "+ document.getElementById("number_of_profiles").value + " profles, over period of " + document.getElementById("years").value + " years :$";
+	document.getElementById("total_capex").value=sml_capex;
+	document.getElementById("title_for_total_opex").value="opex for "+ document.getElementById("number_of_profiles").value + " profiles, over period of " + document.getElementById("years").value + " years :$";
+	document.getElementById("total_opex").value=sml_opex;
+}
+
+
+//#### sliders label
+$(function()
+{
+$('.slider').on('input change', function(){
+          $(this).next($('.slider_label')).html(this.value);
+        });
+      $('.slider_label').each(function(){
+          var value = $(this).prev().attr('value');
+          $(this).html(value);
+        });
+console.log("i'm in slider change");
+//change();
+})
+
+
+$(function() {
+    $('#fruits').change(function(e) {
+        //var selected = $(e.target).val();
+        //console.dir(selected);
+        var selectedItem = $("#fruits option:selected").last()
+        console.dir('price'+catalog[selectedItem.index()][1]);
+    });
+});
+
+//$(function() {
+//    $('#fruits').change(function() {
+//        console.log($(this).val());
+//    });
+//});
+
+//var MyControl = document.getElementById('fruits');
+//var newValue = MyControl[MyControl.selectedIndex].value;
+//console.log('new value'+newValue);
+
+//for (i = 0; i < fruits.selectedOptions.length; i++) {
+//  console.log('fruits'+fruits.selectedOptions[i].value);
+//}
+
+</script>
+
+</body>
+</html> 
