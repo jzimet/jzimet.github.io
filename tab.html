@@ -302,7 +302,7 @@ catalog+="<ul id='products'>";
         for (i=0;i<pictures.length;i++){
                 catalog+="<li id='products_li"+i+"'><a href='#' class='item' id='href"+i+"'>";
                 catalog+="<img src='"+pictures[i]+"' id='whattodrag"+i+ "' draggable='true' ondragstart='drag(event)' onclick='foo.call(this);' width='50' height='50'>";
-                catalog+="<div><p>"+products[i][0]+"</p><p>Price: <span>"+products[i][1]+"</span></p><p>Quantity:<span>"+products[i][2]+"</span></p></div>";
+                catalog+="<div><p>"+products[i][0]+"</p><p>Capex $: <span>"+products[i][1]+"</span></p><p>Opex $:<span>"+products[i][2]+"</span></p></div>";
                 catalog+= "</a></li>";
         }
 catalog+="</ul>";
