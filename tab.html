@@ -133,7 +133,7 @@ input[type="number"] {
    font-size:8pt;
 }
 input[type="text"] {
-   width:50px;
+   width:auto;
    text-align:left;
    font-size:8pt;
    border: none;
@@ -142,7 +142,12 @@ input[type="text"] {
 input[type="range"] {
   width:40px;
 }
-
+input[type="data-autosize-input"] {
+  width: 90px;
+  min-width: 90px;
+  max-width: 300px;
+  transition: width 0.25s;    
+}
 #products { 
     float:left; 
     list-style:none; 
@@ -228,13 +233,16 @@ p { margin:0; }
 </head>
 <body>
 
+
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Chicago')" id="defaultOpen">Chicago</button>
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
   <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
 </div>
 
-<div id="Chicago" class="tabcontent">
+<div id="London" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
 <table>
 <tr>
 <td>
@@ -249,35 +257,43 @@ p { margin:0; }
         Discount:<input type="range" id = "discount" min = "0" max = "100" value="0" class="slider" onchange="set_profile()"><span class="slider_label"></span> %
         Years:<input type="range" id = "years" min = "1" max = "10" value="1" class="slider" onchange="set_profile()"><span class="slider_label"></span> years
         Number of Profiles:<input type="range" id = "number_of_profiles" min = "1" max = "10" value="3" class="slider" onchange="build_profile()"><span class="slider_label"></span> profiles
-	</br>
-        <input type="text" style="width:250px; text-align:right;" id="title_for_total_capex" readonly><input type="text" style="text-align:left;"id="total_capex" readonly>
-        <input type="text" style="width:250px; text-align:right;" id="title_for_total_opex" readonly><input type="text" style="text-align:left;" id="total_opex" readonly>
+        </br>
+        <input type="text" style="width:auto text-align:right;" id="title_for_total_capex" readonly><input type="text" style="width:auto text-align:left;"id="total_capex" readonly>
+        <input type="text" style="width:auto text-align:right;" id="title_for_total_opex" readonly><input type="text" style="width:auto text-align:left;" id="total_opex" readonly>
 
 <div id="Rijeka"></div>
 
 </td>
 </tr>
 </table>
+
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+
+<div id = "Beograd"></div>
+<div id="cart" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h1>Shopping Cart</h1>
+    <ul id="shopping_cart_list"></ul>
+    <p id="total_shopping_cart"><strong>Total:</strong>$<span id="span_total_shopping_cart"></span></p>
+    <hr /><h1 class="droptarget" id="drop_here">Drop here to add to cart</h1>
+</div>
+
 </div>
 
 <div id="Tokyo" class="tabcontent">
-
-<div id = "Beograd"></div>
-<div id="cart" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-    <h1>Shopping Cart</h1> 
-    <ul id="shopping_cart_list"></ul> 
-    <p id="total_shopping_cart"><strong>Total:</strong>$<span id="span_total_shopping_cart"></span></p> 
-    <hr /><h1 class="droptarget" id="drop_here">Drop here to add to cart</h1> 
+<div id = "DugaResa"></div>
+<div id = "Karlovac"></div>
 </div>
 
-<div id="London" class="tabcontent"></div>
 
 <script>
 
 //############### Build Tab menu
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+
 
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
@@ -292,6 +308,9 @@ function openCity(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 
 
 //############ dragndrop
@@ -394,10 +413,92 @@ function drop(ev) {
 }
 
 
-//########### Build Country List for TAM
+//########### Build TOKYO
 
 country_name=["Austria","Romania","Slovakia","Czecz","Slovenia","Poland","Bulgaria","Serbia","Croatia","Hungary"];
+
 var tam=[["Austria",5454, 35734, 286302,8500000],["Romania",8624,48054,455560,18700000],["Slovkia",4112,18766,425995,5415949],["Czecz",10847,42588,1062697,10513800],["Slovenia",2002,7081,182454,2061963],["Poland",29280,148002,4055946,38502396],["Bulgaria",4201,22432,298559,7282041],["Serbia",2084,9127,74448,7181506],["Croatia",1433,11099,196667,3791622],["Hungary",4773,29104,645370,9906000]];
+
+var my_profile1=[["MerakiZ1","MerakiMX","Viptela","ISR1100","CloudUTD","EasyProtect","mssp","websecurity","emailsecurity","amp","3pccphone","spark-c1","spark-c2","spark-c3","sparkboard"],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+
+var my_services=[
+["MerakiZ1","MerakiMX","Viptela","ISR1100","CloudUTD","EasyProtect","mssp","websecurity","emailsecurity","amp","3pccphone","spark-c1","spark-c2","spark-c3","sparkboard"],
+[395,945,895,2495,0,0,0,0,0,0,195,0,0,0,9990],
+[50,600,1500,1900,44,200,23,19,19,78,76,237,237,237,2388]
+];
+
+var result_products=0;
+var result_services=0;
+var result_services=0;
+var result_products_and_services=0;
+for (j=1; j<11;j++) {
+	for( i=0; i<my_services.length; i++) {
+		result_products += my_profile1[j][i] * my_services[1][i];
+		result_services += my_profile1[j][i] * my_services[2][i];
+	}
+}
+result_products_and_services=result_products+result_services;
+console.log('result products='+result_products);
+console.log('result services='+result_services);
+console.log('result products and services='+result_products_and_services);
+
+var my_array=[
+["Country",
+"number of registered small companies",
+"number of registered medium companies",
+"number of registered large companies",
+"small % of tam to be addressed",
+"medium % of tam to be addressed",
+"large % of tam to be addressed",
+"small % of tam to be addressed through sp",
+"medium % of tam to be addressed through sp",
+"large % of tam to be addressed through",
+"over-period-of years for small", 
+"over-period-of years for medium",
+"over-period-of years for large",
+"number of small companies to address in 1st year",
+"number of medium companies to address in 1st year",
+"number of large companies to address in 1st year",
+"number-of employee in small companies",
+"number-of employee in medium companies",
+"number-of employee in large companies",
+"security-adoption % in small",
+"security-adoption % in medium",
+"security-adoption % in large",
+"collaboration-adoption % in small",
+"collaboration-adoption % in medium",
+"collaboration-adoption % in large",
+"number-of sites for small",
+"number-of sites for medium",
+"number-of sites for large",
+"number-of-security seats in small",
+"number-of-security seats in medium",
+"number-of-security seats in large",
+"number-of-collaboration seats in small",
+"number-of-collaboration seatsin medium",
+"number-of-collaboration seats in large",
+"profile1","profile2","profile3","profile4","profile5"],
+["Austria",5454, 35734, 286302,2,2,2,90,90,90,1,1,1,0,0,0,10,25,100,20,20,20,20,20,20,1,1,5,0,0,0,0,0,0,0,1,2,3,4],
+["Romania",8624,48054,455560,2,2,2,90,90,90,1,1,1,0,0,0,10,25,100,20,20,20,20,20,20,1,1,5,0,0,0,0,0,0,0,1,2,3,4],
+["Slovakia",4112,18766,425995,2,2,2,90,90,90,1,1,1,0,0,0,10,25,100,20,20,20,20,20,20,1,1,5,0,0,0,0,0,0,0,1,2,3,4],
+["Czech",10847,42588,1062697,2,2,2,90,90,90,1,1,1,0,0,0,10,25,100,20,20,20,20,20,20,1,1,5,0,0,0,0,0,0,0,1,2,3,4],
+["Slovenia",2002,7081,182454,2,2,2,90,90,90,1,1,1,0,0,0,10,25,100,20,20,20,20,20,20,1,1,5,0,0,0,0,0,0,0,1,2,3,4],
+["Poland",29280,148002,4055946,2,2,2,90,90,90,1,1,1,0,0,0,10,25,100,20,20,20,20,20,20,1,1,5,0,0,0,0,0,0,0,1,2,3,4],
+["Bulgaria",4201,22432,298559,2,2,2,90,90,90,1,1,1,0,0,0,10,25,100,20,20,20,20,20,20,1,1,5,0,0,0,0,0,0,0,1,2,3,4],
+["Serbia",2084,9127,74448,2,2,2,90,90,90,1,1,1,0,0,0,10,25,100,20,20,20,20,20,20,1,1,5,0,0,0,0,0,0,0,1,2,3,4],
+["Croatia",1433,11099,196667,2,2,2,90,90,90,1,1,1,0,0,0,10,25,100,20,20,20,20,20,20,1,1,5,0,0,0,0,0,0,0,1,2,3,4],
+["Hungary",4773,29104,645370,2,2,2,90,90,90,1,1,1,0,0,0,10,25,100,20,20,20,20,20,20,1,1,5,0,0,0,0,0,0,0,1,2,3,4]
+];
 
 var tam_to_be_addressed=[["Austria",10,0,0],["Romania",0,0,0],["Slovakia",0,0,0],["Czecz",0,0,0],["Slovenia",0,0,0],["Poland",0,0,0],["Bulgaria",0,0,0],["Serbia",0,0,0],["Croatia",0,0,0],["Hungary",0,0,0]];
 var through_sp=[["Austria",0,0,0],["Romania",0,0,0],["Slovakia",0,0,0],["Czecz",0,0,0],["Slovenia",0,0,0],["Poland",0,0,0],["Bulgaria",0,0,0],["Serbia",0,0,0],["Croatia",0,0,0],["Hungary",0,0,0]];
@@ -405,6 +506,290 @@ var over_period_of_years=[["Austria",0,0,0],["Romania",0,0,0],["Slovakia",0,0,0]
 var addressable_tam=[["Austria",0,0,0],["Romania",0,0,0],["Slovakia",0,0,0],["Czecz",0,0,0],["Slovenia",0,0,0],["Poland",0,0,0],["Bulgaria",0,0,0],["Serbia",0,0,0],["Croatia",0,0,0],["Hungary",0,0,0]];
 
 var catalog = [["MerakiZ1",395,50,1],["MerakiMX",945,600,1],["Viptela",895,1500,1],["ISR1100",2495,1900,1],["cloudutd",0,44,1],["easyprotect",0,200,1],["mssp",0,23,1],["websecurity",0,19,1],["emailsecurity",0,19,1],["amp",0,78,1],["3pcc-phone",195,76,1],["spark-c1",0,237,1],["spark-c2",0,237,1],["spark-c3",0,237,1],["sparkboard",9990,2388,1]];
+
+
+country_list_in_tokyo="";
+country_list_in_tokyo+="<select id='country_list_in_tokyo_1' multiple size='4'  onclick='initialize_variables_for_karlovac_table()'>";
+                for (i=0;i<my_array.length; i++){
+                                country_list_in_tokyo += "<option>" + my_array[i][0] + "</option>";
+                }
+country_list_in_tokyo += "</select></br>";
+//country_list_in_tokyo+="<select id='country_list_in_tokyo_2' multiple size='4'  onclick='draw_karlovac_table()'>";
+//                for (i=0;i<34; i++){
+//                                country_list_in_tokyo += "<option>" + my_array[0][i] + "</option>";
+//                }
+//country_list_in_tokyo += "</select></br>";
+country_list_in_tokyo+="Total Capex<input type = 'text' id = 'final_capex' readonly><input type = 'text' id = 'final_capex-label' readonly></br>";
+country_list_in_tokyo+="Total Opex<input type = 'text' id = 'final_opex' readonly><input type = 'text' id = 'final_opex-label' readonly></br>";
+country_list_in_tokyo+="Number of Profiles<p style='font-size:10px'><input type = 'range' id = 'number_of_prof' class='slider' min='1' max='5' value='3' onchange='draw_karlovac_table();'><span  style='font-size:10px' class='slider_label'></span></p> profiles";
+
+document.getElementById("DugaResa").innerHTML = country_list_in_tokyo;
+
+initialize_variables_for_karlovac_table ();
+update_karlovac_table();
+
+//######### initialize variables : number of companies to address, number of security and collaboration seats
+ 
+function initialize_variables_for_karlovac_table () {
+	console.log('im in initalize');
+	for (z=0;z<my_array.length; z++){
+		if (z != 0) {
+			//number of companies in 1st year
+			my_array[z][13]=(((my_array[z][1]*my_array[z][4]/100)*my_array[z][7]/100)/my_array[z][10]).toFixed(0);
+			my_array[z][14]=(((my_array[z][2]*my_array[z][5]/100)*my_array[z][8]/100)/my_array[z][11]).toFixed(0);
+			my_array[z][15]=(((my_array[z][3]*my_array[z][6]/100)*my_array[z][9]/100)/my_array[z][12]).toFixed(0);
+			//number of security seats
+			my_array[z][28]=(my_array[z][16]*my_array[z][19]/100).toFixed(0);
+			my_array[z][29]=(my_array[z][17]*my_array[z][20]/100).toFixed(0);
+			my_array[z][30]=(my_array[z][18]*my_array[z][21]/100).toFixed(0);
+			//number of collaboration seats
+			my_array[z][31]=(my_array[z][16]*my_array[z][22]/100).toFixed(0);
+			my_array[z][32]=(my_array[z][17]*my_array[z][23]/100).toFixed(0);
+			my_array[z][33]=(my_array[z][18]*my_array[z][24]/100).toFixed(0);
+		}
+	}
+	draw_karlovac_table ();
+}
+
+//######## create field id's and draw table with values from array
+
+function draw_karlovac_table () {
+	console.log('im in draw');
+	output_karlovac_table="";
+	karlovac_table="";
+	karlovac_table+="<table>";
+	//34+offset = number of profiles draw just profiles selected in slider for profile numbers
+	x=34+Number(document.getElementById("number_of_prof").value);
+	//j is row
+	for (j=0;j<x;j++) {
+		//i is column (country selected in select list)
+		for (i=0;i<my_array.length; i++){
+			//draw only selected country
+			if (i==0 || document.getElementById("country_list_in_tokyo_1")[i].selected ==true) {
+				//1st column and 1st row
+				if (i == 0 && j == 0) {
+                			karlovac_table+="<td><input type='text' id='my_array("+i+")("+j+")' style='width:auto' value='"+my_array[i][j]+"' readonly></td>";
+				//1st column
+				} else if (j==28 || j==29 || j== 30 || j==31 || j==32 || j==33) {
+					console.log('skip some rows');
+				} else if ( i==0 ) {
+                			karlovac_table+="<td><input type='text' id='my_array("+i+")("+j+")' style='width:auto;' value='"+my_array[i][j]+"' readonly></td>";
+                                //calculated tam for small - set color
+				} else if (j==13) {
+                                        karlovac_table+="<td bgcolor='#00FF00'><input type='text' id='my_array("+i+")("+j+")' style='width:auto;' value='"+my_array[i][j]+"' readonly></td>";
+                                //calculated tam for medium - set color
+				} else if (j== 14) {
+                                        karlovac_table+="<td bgcolor='#33FFF6'><input type='text' id='my_array("+i+")("+j+")' style='width:auto;' value='"+my_array[i][j]+"' readonly></td>";
+                                //calculated tam for large - set color
+				} else if (j==15) {
+                                        karlovac_table+="<td bgcolor='#FF4633'><input type='text' id='my_array("+i+")("+j+")' style='width:auto;' value='"+my_array[i][j]+"' readonly></td>";
+				//headers - country name and country flag
+				} else if (j == 0 && i != 0) {
+					karlovac_table+="<td><input type='text' id='my_array("+i+")("+j+")' value='"+my_array[i][j]+"' readonly><img src='"+my_array[i][j]+".png' width='30' height='20'></td>";
+					console.log('latest test'+karlovac_table);
+				//tam for small - set color
+				} else if (j == 1) {
+					karlovac_table+="<td bgcolor='#00FF00'><input type='text' id='my_array("+i+")("+j+")' style='width:auto;' value='"+my_array[i][j]+"' readonly></td>";
+                                //tam for medium - set color
+                                } else if (j== 2) { 
+                                        karlovac_table+="<td bgcolor='#33FFF6'><input type='text' id='my_array("+i+")("+j+")' style='width:auto;' value='"+my_array[i][j]+"' readonly></td>";
+                                //tam for large - set color
+                                } else if (j==3) { 
+                                        karlovac_table+="<td bgcolor='#FF4633'><input type='text' id='my_array("+i+")("+j+")' style='width:auto;' value='"+my_array[i][j]+"' readonly></td>";
+				//% of tam
+				} else if (j==4 || j==5 || j==6) {
+					string="my_array["+j+"]["+i+"]";
+                        		karlovac_table+="<td><p style='font-size:10px'><input type='range' id='my_array("+i+")("+j+")' class='slider' min='0' max='100' step='1' value='"+my_array[i][j]+"' onchange='jan.call(this);'><input type='text' id='my_array("+i+")("+j+")-label' style='width:auto;' value='"+my_array[i][j]+ my_array[0][j].split(" ")[1]+"' readonly><span  style='font-size:10px' class='slider_label' hidden></span></p></td>";
+				//through sp
+				} else if (j==7 || j== 8 || j ==9 ) {
+                        		karlovac_table+="<td><p style='font-size:10px'><input type='range' id='my_array("+i+")("+j+")' class='slider' min='0' max='100' step='1' value='"+my_array[i][j]+"' onchange='jan.call(this);'><input type='text' id='my_array("+i+")("+j+")-label' style='width:auto;' value='"+my_array[i][j]+my_array[0][j].split(" ")[1]+"' readonly><span  style='font-size:10px' class='slider_label' hidden></span></p></td>";
+                        	//number of sites
+				} else if (j==25 || j==26 || j==27) {
+ 					karlovac_table+="<td><p style='font-size:10px'><input type='range' id='my_array("+i+")("+j+")' class='slider' min='1' step='1' value='"+my_array[i][j]+"' onchange='jan.call(this);'><input type='text' id='my_array("+i+")("+j+")-label' style='width:auto;' value='"+my_array[i][j]+"-"+my_array[0][j].split(" ")[1]+"' readonly><span  style='font-size:10px' class='slider_label' hidden></span></p></td>";
+	                	//security adoption, collaboration adoption
+                                } else if ( j==19 || j==20 || j==21 || j==22 || j==23 || j==24) {
+                                        karlovac_table+="<td><p style='font-size:10px'><input type='range' id='my_array("+i+")("+j+")' class='slider' min='0' max='100' step='10' value='"+my_array[i][j]+"' onchange='jan.call(this);'><input type='text' id='my_array("+i+")("+j+")-label' style='width:auto;' value='"+my_array[i][j+9]+my_array[0][j].split(" ")[1]+" or (" +my_array[i][j+9] + " seats)' readonly><span  style='font-size:10px' class='slider_label' hidden></span></p></td>";
+				//over period of years
+				} else if (j==10 || j==11 || j==12) {
+        	        		karlovac_table+="<td><p style='font-size:10px'><input type='range' id='my_array("+i+")("+j+")' class='slider' min='1' max='10' step='1' value='"+my_array[i][j]+"' onchange='jan.call(this);'><input type='text' id='my_array("+i+")("+j+")-label' style='width:auto;' value='"+my_array[i][j]+"-"+my_array[0][j].split(" ")[1]+"' readonly><span  style='font-size:10px' class='slider_label' hidden></span></p></td>";
+				//number of employee
+				} else if (j==16 || j==17 || j==18) {
+					karlovac_table+="<td><p style='font-size:10px'><input type='range' id='my_array("+i+")("+j+")' class='slider' min='0' step='1' value='"+my_array[i][j]+"' onchange='jan.call(this);'><input type='text' id='my_array("+i+")("+j+")-label' style='width:auto;' value='"+my_array[i][j]+"-"+my_array[0][j].split(" ")[1]+"' readonly><span  style='font-size:10px' class='slider_label' hidden></span></p></td>";
+				//build profiles
+				} else if (j== 34 || j==35 || j==36 || j==37 || j== 38) {
+					//select small medium or large
+					karlovac_table+="<td>Size:<select id='country-"+i+"-sml-"+j+"' onchange='matilda.call(this);'><option>small</option><option>medium</option><option>large</option></select><input type='text' id='my_array("+i+")("+j+")-label-for-size' style='width:auto;' readonly></br>";
+					//for selected small medium or large set % to further lower number of companies
+					//karlovac_table+="<select id='country-"+i+"-adoption-"+j+"' onchange='matilda.call(this);'><option>adoption</option><option>20%</option><option>40%</option><option>60%</option><option>80%</option><option selected>100%</option></select></br>";
+					karlovac_table+="Adoption:<input type='range'  id='country-"+i+"-adoption-"+j+"' min='0' max='100' value='100' onchange='matilda.call(this);'><input type='text' id='my_array("+i+")("+j+")-label-for-adoption' style='width:auto;' readonly></br>";
+					//set disocunt per profile per country
+					//karlovac_table+="<select id='country-"+i+"-discount-"+j+"' onchange='matilda.call(this);'><option>discount</option><option>20%</option><option selected>40%</option><option>60%</option><option>80%</option><option>100%</option></select></br>";
+					karlovac_table+="Discount:<input type='range' id='country-"+i+"-discount-"+j+"' min='0' max='100' value='45' onchange='matilda.call(this);'><input type='text' id='my_array("+i+")("+j+")-label-for-discount' style='width:auto;' readonly></br>";
+					//set years to catch reccuring revenue
+					//karlovac_table+="<select id='country-"+i+"-years-"+j+"' onchange='matilda.call(this);'><option>years</option><option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></br>";
+					karlovac_table+="Years:<input type='range' id='country-"+i+"-years-"+j+"' min='1' max='5' value='1' onchange='matilda.call(this);'><input type='text' id='my_array("+i+")("+j+")-label-for-years' style='width:auto;' readonly></br>";
+					//build list of products and services for profile and country
+					karlovac_table+="<select id='country-"+i+"-profile-"+j+"' multiple size='4' onchange='matilda.call(this);'>";
+					for (s=0;s<15;s++) {
+						karlovac_table+="<option>"+my_profile1[0][s]+"</option>";
+					}
+					karlovac_table+="</select></br>";
+					//calculate capex and opex for 1 company
+					karlovac_table+="<input type='text' id='country-"+i+"-capex-"+j+"' style='width:auto;' readonly><input type='text' id='my_array("+i+")("+j+")-label-for-profile-capex' style='width:auto;' readonly>";
+					karlovac_table+="<input type='text' id='country-"+i+"-opex-"+j+"' style='width:auto;' readonly><input type='text' id='my_array("+i+")("+j+")-label-for-profile-opex' style='width:auto;' readonly>";
+                                       	//calculate capex and opex for tam
+					karlovac_table+="<input type='text' id='country-"+i+"-totalcapex-"+j+"' style='width:auto;' readonly><input type='text' id='my_array("+i+")("+j+")-label-for-total-profile-capex' style='width:auto;' readonly>";
+                                       	karlovac_table+="<input type='text' id='country-"+i+"-totalopex-"+j+"' style='width:auto;' readonly><input type='text' id='my_array("+i+")("+j+")-label-for-total-profile-opex' style='width:auto;' readonly></td>";
+				}
+			}
+		}
+        	karlovac_table+="</tr>";
+	}
+        karlovac_table+="</table>";
+	document.getElementById("Karlovac").innerHTML=karlovac_table;
+	//autosize labels 
+	for (j=0;j<34;j++) {
+		string="my_array("+0+")("+j+")";
+                if (document.getElementById(string) != null) {
+			document.getElementById(string).size=(my_array[0][j]).length;
+		}
+	}
+        //set initial profiles : profile 1 = small + merakiz1, profile 2 = medium + meraki mx, profile 3 = large + Viptela
+	for (s=0;s<document.getElementById("country_list_in_tokyo_1").options.length;s++) {
+			if (document.getElementById("country_list_in_tokyo_1").options[s].selected) {
+                                var t=Number(document.getElementById("number_of_prof").value);
+				for (u=0;u<t;u++) {
+					console.log('t='+t+ 'u='+u);
+					if (u==0 || u==1 || u==2) {
+						var d=34+Number(u);
+						string17="country-"+s+"-sml-"+ d;
+						console.log('string17='+string17);
+						//document.getElementById(string17).value=u;
+						//select small or medium or large
+						if (document.getElementById(string17) != null) {
+							document.getElementById(string17).options[u].selected=true;
+							console.log('what did I select'+ document.getElementById(string17).selectedIndex);
+						}
+						string18="country-"+s+"-profile-"+ d;
+						console.log('string18='+string18);
+						//document.getElementById(string18).value=u;
+						//select meraki z1 or meraki mx or viptela
+						if (document.getElementById(string18) != null) {
+							document.getElementById(string18).options[u].selected=true;
+							console.log('what did I select'+ document.getElementById(string18).selectedIndex);
+						}
+					}
+				} 
+                       }
+         }
+ 
+	
+}
+
+//update array and html table after slider change
+function update_karlovac_table () {
+	console.log('im in update and i='+i+'and j='+j);
+	//string="my_array("+i+")("+j+")-label";
+        //document.getElementById(string).value=my_array[i][j]+"%";
+	//change % of tam in 4, 5 and 6 recalculate 13, 14 and 15
+	if (j==4 || j== 5 || j==6) {
+		n=Number(j)+9;
+		k=Number(j)-3;
+		l=Number(j)+3;
+		m=Number(j)+6;
+		my_array[i][n]=(((my_array[i][k]*my_array[i][j]/100)*my_array[i][l]/100)/my_array[i][m]).toFixed(0);
+		string="my_array("+i+")("+n+")";
+		console.log('string='+string);
+		document.getElementById(string).style.width=(my_array[i][n]).length;
+                document.getElementById(string).value=my_array[i][n];
+ 	        string="my_array("+i+")("+j+")-label";
+		document.getElementById(string).style.width=(my_array[i][j]+my_array[0][j].split(" ")[1]).length;
+	        document.getElementById(string).value=my_array[i][j]+my_array[0][j].split(" ")[1];
+	//change % of tam through sp in 7, 8 and 9 recalculate 13, 14 and 15
+	} else if (j== 7 || j== 8 || j== 9) {
+                n=Number(j)+6;
+                k=Number(j)-6;
+                l=Number(j)-3;
+                m=Number(j)+3;
+                my_array[i][n]=(((my_array[i][k]*my_array[i][l]/100)*my_array[i][j]/100)/my_array[i][m]).toFixed(0);
+                string="my_array("+i+")("+n+")";
+		document.getElementById(string).style.width=(my_array[i][n]).length;
+                document.getElementById(string).value=my_array[i][n];
+                string="my_array("+i+")("+j+")-label";
+                string="my_array("+i+")("+j+")-label";
+		document.getElementById(string).style.width=(my_array[i][j]+my_array[0][j].split(" ")[1]).length;
+                document.getElementById(string).value=my_array[i][j]+my_array[0][j].split(" ")[1];
+	//change % of number of years in 10, 11 and 12 recalculate 13, 14 and 15
+	} else if (j== 10 || j==11 || j==12) {
+                n=Number(j)+3;
+                k=Number(j)-9;
+                l=Number(j)-6;
+                m=Number(j)-3;
+                my_array[i][n]=(((my_array[i][k]*my_array[i][l]/100)*my_array[i][m]/100)/my_array[i][j]).toFixed(0);
+                string="my_array("+i+")("+n+")";
+		document.getElementById(string).style.width=(my_array[i][n]).length;
+                document.getElementById(string).value=my_array[i][n];
+                string="my_array("+i+")("+j+")-label";
+                string="my_array("+i+")("+j+")-label";
+		document.getElementById(string).style.width=(my_array[i][j]+my_array[0][j].split(" ")[1]).length;
+                document.getElementById(string).value=my_array[i][j]+my_array[0][j].split(" ")[1];
+	//change % of number of employee in 16, 17 and 18 recalculate 25, 26, 27, 28, 29 and 30
+	} else if (j==16 || j==17 || j==18) {
+                k=Number(j)+12;
+                l=Number(j)+15;
+                m=Number(j)+3;
+                n=Number(j)+6;
+                my_array[i][k]=(my_array[i][m]*my_array[i][j]/100).toFixed(0);
+                my_array[i][l]=(my_array[i][m]*my_array[i][j]/100).toFixed(0);
+                string="my_array("+i+")("+k+")";
+		console.log('string='+string+'i='+i+'k='+k+'n='+n+'my_array[i][n]'+my_array[i][n]+'size of '+string+'='+document.getElementById(string).size+'length of (my_array[i][n])='+(my_array[i][n]).length+'content of my_array[i][n]='+my_array[i][n]);
+		document.getElementById(string).style.width=(my_array[i][n]).length;
+                document.getElementById(string).value=my_array[i][k];
+                string="my_array("+i+")("+l+")";
+		document.getElementById(string).style.width=(my_array[i][n]).length;
+                document.getElementById(string).value=my_array[i][l];
+                string="my_array("+i+")("+j+")-label";
+                string="my_array("+i+")("+j+")-label";
+		document.getElementById(string).style.width=(my_array[i][j]+my_array[0][j].split(" ")[1]).length;
+                document.getElementById(string).value=my_array[i][j]+my_array[0][j].split(" ")[1];
+	//change % of security adoption in 19, 20 and 21 recalculate 28, 29 and 30 (n) using number of employee in 16,17 and 18 (k)
+	} else if (j==19 || j==20 || j==21) {
+		//catch number of employee in small medium and large
+		k=Number(j)-3;
+		//catch number of security licences
+		n=Number(j)+9;
+		//update array
+		my_array[i][n]=(my_array[i][k]*my_array[i][j]/100).toFixed(0);
+                //set id of field to refresh
+		string="my_array("+i+")("+n+")";
+		//refresh html with value from array
+		//remove for test
+		//document.getElementById(string).style.width=(my_array[i][n]).length;
+                //document.getElementById(string).value=my_array[i][n];
+                //update html label of slider
+		string="my_array("+i+")("+j+")-label";
+		document.getElementById(string).style.width=(my_array[i][j]+my_array[0][j].split(" ")[1]+" or ("+my_array[i][n]+" seats)").length;
+                document.getElementById(string).value=my_array[i][j]+my_array[0][j].split(" ")[1]+" or ("+my_array[i][n]+" seats)";
+	//change % of collab adoption in 22, 23 and 24 recalculate 31, 32 and 33 (n) using number of employee in 16,17 and 18 (k)
+	} else if (j==22 || j==23 || j==24) {
+                n=Number(j)+9;
+                k=Number(j)-6;
+		//update array
+                my_array[i][n]=(my_array[i][k]*my_array[i][j]/100).toFixed(0);
+                string="my_array("+i+")("+n+")";
+                //update html
+		//remove for test
+		//document.getElementById(string).style.width=(my_array[i][n]).length;
+		//document.getElementById(string).value=my_array[i][n];
+                //update html label of slider
+		string="my_array("+i+")("+j+")-label";
+		document.getElementById(string).style.width=(my_array[i][j]+my_array[0][j].split(" ")[1]+" or ("+my_array[i][n]+" seats)").length;
+                document.getElementById(string).value=my_array[i][j]+my_array[0][j].split(" ")[1]+" or ("+my_array[i][n]+" seats)";
+	}
+	//draw_karlovac_table ();
+}
+
+//############ end of Tokyo
 
 country_list="";
 country_list+="<select id='country_list' multiple size='"+country_name.length+"'  onclick='draw_my_tam()'>";
@@ -419,7 +804,7 @@ country_list += "</select>";
 
 output_country_list = document.getElementById("Portoroz");
 output_country_list.innerHTML = country_list;
-
+console.log(output_country_list.innerHTML);
 
 //############# Draw TAM
 
@@ -438,52 +823,52 @@ function draw_my_tam() {
 	my_tam_table += " </tr><tr><td>Small</td>";
 	for (i=0;i<country_name.length;i++){
                 if (document.getElementById("country_list")[i].selected == true) {
-			my_tam_table += "<td><input type='text' style='width:50px' id = '"+ tam[i][0] + "-small-total-tam'>";
-			my_tam_table += "<input type = 'text' style='width:50px' id = '"+ tam[i][0] + "-small-tam' readonly></br>";
+			my_tam_table += "<td><input type='text' style='width:auto;' id = '"+ tam[i][0] + "-small-total-tam'>";
+			my_tam_table += "<input type = 'text' style='width:auto' id = '"+ tam[i][0] + "-small-tam' readonly></br>";
 			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-small-p-of-tam' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
-			my_tam_table += "<input type= 'text' style='width:100px' id= '"+ tam[i][0] + "-small-p-of-tam-span' readonly></br>";
+			my_tam_table += "<input type= 'text' style='width:auto;' id= '"+ tam[i][0] + "-small-p-of-tam-span' readonly></br>";
 			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-small-t-sp' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
-			my_tam_table += "<input type='text' style='width:100px' id='"+ tam[i][0] + "-small-t-sp-span' readonly></br>";
+			my_tam_table += "<input type='text' style='width:auto;' id='"+ tam[i][0] + "-small-t-sp-span' readonly></br>";
 			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-small-years' min='1' max='10' value='1' class='slider' onchange='set_my_tam()'>";
-			my_tam_table += "<input type='text' style='width:120px' id= '"+ tam[i][0] + "-small-years-span' readonly>";
+			my_tam_table += "<input type='text' style='width:auto;' id= '"+ tam[i][0] + "-small-years-span' readonly>";
 			my_tam_table += "</td>";
 			small_total_tam+=tam[i][1];
 			
                 }
         }
-	my_tam_table += "<td><input type = 'text' style='width:90px' id = 'small-total-tam' readonly></td>";
+	my_tam_table += "<td><input type = 'text' style='width:auto;' id = 'small-total-tam' readonly></td>";
         my_tam_table += " </tr><tr><td>Medium</td>";
         for (i=0;i<country_name.length;i++){
                 if (document.getElementById("country_list")[i].selected == true) {
-			my_tam_table += "<td><input type='text' style='width:50px' id = '"+ tam[i][0] + "-medium-total-tam'>";
-			my_tam_table += "<input type = 'text' style='width:50px' id = '"+ tam[i][0] + "-medium-tam' readonly></br>";
+			my_tam_table += "<td><input type='text' style='width:auto' id = '"+ tam[i][0] + "-medium-total-tam'>";
+			my_tam_table += "<input type = 'text' style='width:auto' id = '"+ tam[i][0] + "-medium-tam' readonly></br>";
 			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-medium-p-of-tam' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
-			my_tam_table += "<input type= 'text' style='width:100px' id= '"+ tam[i][0] + "-medium-p-of-tam-span' readonly></br>";
+			my_tam_table += "<input type= 'text' style='width:auto' id= '"+ tam[i][0] + "-medium-p-of-tam-span' readonly></br>";
 			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-medium-t-sp' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
-			my_tam_table += "<input type='text' style='width:100px' id='"+ tam[i][0] + "-medium-t-sp-span' readonly></br>";
+			my_tam_table += "<input type='text' style='width:auto' id='"+ tam[i][0] + "-medium-t-sp-span' readonly></br>";
 			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-medium-years' min='1' max='10' value='1' class='slider' onchange='set_my_tam()'>";
-			my_tam_table += "<input type='text' style='width:120px' id= '"+ tam[i][0] + "-medium-years-span' readonly>";
+			my_tam_table += "<input type='text' style='width:auto' id= '"+ tam[i][0] + "-medium-years-span' readonly>";
 			my_tam_table += "</td>";
 			medium_total_tam+=tam[i][2];
                 }
         }
-	my_tam_table += "<td><input type = 'text' style='width:90px' id = 'medium-total-tam' readonly></td>";
+	my_tam_table += "<td><input type = 'text' style='width:auto;' id = 'medium-total-tam' readonly></td>";
         my_tam_table += " </tr><tr><td>Large</td>";
         for (i=0;i<country_name.length;i++){
                 if (document.getElementById("country_list")[i].selected == true) {
-			my_tam_table += "<td><input type='text' style='width:50px' id = '"+ tam[i][0] + "-large-total-tam'>";
-			my_tam_table += "<input type = 'text' style='width:50px' id = '"+ tam[i][0] + "-large-tam' readonly></br>";
+			my_tam_table += "<td><input type='text' style='width:auto' id = '"+ tam[i][0] + "-large-total-tam'>";
+			my_tam_table += "<input type = 'text' style='width:auto' id = '"+ tam[i][0] + "-large-tam' readonly></br>";
 			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-large-p-of-tam' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
-			my_tam_table += "<input type= 'text' style='width:100px' id= '"+ tam[i][0] + "-large-p-of-tam-span' readonly></br>";
+			my_tam_table += "<input type= 'text' style='width:auto' id= '"+ tam[i][0] + "-large-p-of-tam-span' readonly></br>";
 			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-large-t-sp' min='0' max='100' value='10' class='slider' onchange='set_my_tam()'>";
-			my_tam_table += "<input type='text' style='width:100px' id='"+ tam[i][0] + "-large-t-sp-span' readonly></br>";
+			my_tam_table += "<input type='text' style='width:auto' id='"+ tam[i][0] + "-large-t-sp-span' readonly></br>";
 			my_tam_table += "<input type = 'range' id= '"+ tam[i][0] + "-large-years' min='1' max='10' value='1' class='slider' onchange='set_my_tam()'>";
-			my_tam_table += "<input type='text' style='width:120px' id= '"+ tam[i][0] + "-large-years-span' readonly>";
+			my_tam_table += "<input type='text' style='width:auto' id= '"+ tam[i][0] + "-large-years-span' readonly>";
 			my_tam_table += "</td>";
 			large_total_tam+=tam[i][3];
                 }
         }
-	my_tam_table += "<td><input type = 'text' style='width:90px' id = 'large-total-tam' readonly></td>";
+	my_tam_table += "<td><input type = 'text' style='width:auto' id = 'large-total-tam' readonly></td>";
 	my_tam_table+="</tr></table>";
 	
 	output_draw_my_tam = document.getElementById("Tivat");
@@ -574,13 +959,13 @@ function build_profile(){
 	for (j=1;j<loop;j++){
         	catalog_list += "<td>";
                 catalog_list += "<input type='range' id = '"+j+ "fruits_routers'  min = '1' max = '10' value='1' class='slider' onchange='set_profile()'>";
-		catalog_list += "<input type='text' style='width:140px' id= '" +j+"fruits_routers_span' readonly></br>";
+		catalog_list += "<input type='text' style='width:auto' id= '" +j+"fruits_routers_span' readonly></br>";
                 catalog_list += "<input type='range' id = '"+j+ "fruits_security_adoption'  min='0' max='100' step='10' value='20' class='slider' onchange='set_profile(()'>";
-		catalog_list += "<input type='text' style='width:140px' id= '" +j+"fruits_security_adoption_span' readonly></br>";
+		catalog_list += "<input type='text' style='width:auto' id= '" +j+"fruits_security_adoption_span' readonly></br>";
                 catalog_list += "<input type='range' id = '"+j+ "fruits_collaboration_adoption'  min='0' max='100' step='10' value='20' class='slider' onchange='set_profile(()'>";
-		catalog_list += "<input type='text' style='width:140px' id= '" +j+"fruits_collaboration_adoption_span' readonly></br>";
-        	catalog_list +="<input type='text' style='width:170px' id='"+j+"fruits_capex' readonly></br>";
-        	catalog_list +="<input type='text' style='width:170px' id='"+j+"fruits_opex' readonly></br>";
+		catalog_list += "<input type='text' style='width:auto' id= '" +j+"fruits_collaboration_adoption_span' readonly></br>";
+        	catalog_list +="<input type='text' style='width:auto' id='"+j+"fruits_capex' readonly></br>";
+        	catalog_list +="<input type='text' style='width:auto' id='"+j+"fruits_opex' readonly></br>";
         	catalog_list += "<select id='"+j+"fruits_size' onchange='set_profile()'>";
 		if (j==1) {
 			catalog_list += "<option selected>small</option><option>medium</option><option>large</option>";
@@ -591,9 +976,9 @@ function build_profile(){
 		}
 		catalog_list += "</select>";
                 catalog_list += "<input type='range' id = '"+j+ "fruits_number_of_companies_percentage' min='10' max='100' step='10' class='slider' value='100' onchange='set_profile(()'>";
-		catalog_list += "<input type='text' style='width:40px' id= '" +j+"fruits_number_of_companies_percentage_span' readonly></br>";
-		catalog_list+="<input type='text' style='width:170px' id='"+j+"fruits_total_capex' readonly></br>";
-        	catalog_list+="<input type='text' style='width:170px' id='"+j+"fruits_total_opex' readonly></br>";
+		catalog_list += "<input type='text' style='width:auto' id= '" +j+"fruits_number_of_companies_percentage_span' readonly></br>";
+		catalog_list+="<input type='text' style='width:auto' id='"+j+"fruits_total_capex' readonly></br>";
+        	catalog_list+="<input type='text' style='width:auto' id='"+j+"fruits_total_opex' readonly></br>";
         	catalog_list+="<select id='"+j+"fruits' multiple size='"+catalog.length+"' onclick='set_profile()'>";
         	for (i=0;i<catalog.length; i++){
                 	if (i==0) {
@@ -675,26 +1060,165 @@ function set_profile(){
 			}
 		}
 	}
-	document.getElementById("title_for_total_capex").value="capex for "+ document.getElementById("number_of_profiles").value + " profles, over period of " + document.getElementById("years").value + " years :$";
+	document.getElementById("title_for_total_capex").value="capex for "+ document.getElementById("number_of_profiles").value + " profiles, over period of " + document.getElementById("years").value + " years :$";
 	document.getElementById("total_capex").value=sml_capex;
 	document.getElementById("title_for_total_opex").value="opex for "+ document.getElementById("number_of_profiles").value + " profiles, over period of " + document.getElementById("years").value + " years :$";
 	document.getElementById("total_opex").value=sml_opex;
 }
 
+//on change slider catch id of slider and update array with new value and go to update table
+var jan = function()
+{
+	console.log('im in jan and id is'+this.id);
+        i=this.id.split(/[()]/)[1];
+        j=this.id.split(/[()]/)[3];
+        console.log('im in jan  and i ='+i+'j='+j);
+        my_array[this.id.split(/[()]/)[1]][this.id.split(/[()]/)[3]]=this.value;
+        update_karlovac_table();
+ 
+};
 
-//#### sliders label
+var matilda = function() {
+        console.log('im in matilda and  id is'+this.id);
+	console.log('what product has been selected'+my_profile1[0][document.getElementById(this.id).selectedIndex]);
+	console.log('what country has been selected'+my_array[this.id.split("-")[1]][0]);
+        // i is country
+	i=this.id.split("-")[1];
+	//j is profile
+        j=this.id.split("-")[3];
+	
+		z14="country-"+i+"-years-"+j;
+		z15="my_array("+i+")("+j+")-label-for-years";
+		document.getElementById(z15).value=document.getElementById(z14).value+" years";
+
+                z15="my_array("+i+")("+j+")-label-for-discount";
+		z14="country-"+i+"-discount-"+j;
+                document.getElementById(z15).value=document.getElementById(z14).value+"%";
+
+	
+                z15="my_array("+i+")("+j+")-label-for-adoption";
+		z14="country-"+i+"-adoption-"+j;
+                document.getElementById(z15).value=document.getElementById(z14).value+"%";
+   
+                z15="my_array("+i+")("+j+")-label-for-size";
+                z14="country-"+i+"-adoption-"+j;
+                document.getElementById(z15).value="or " + (my_array[i][13+document.getElementById("country-"+i+"-sml-"+j).selectedIndex]*(document.getElementById("country-"+i+"-adoption-"+j).value/100)).toFixed(0);
+
+	if (this.id=="country-"+i+"-profile-"+j) {
+		for (l=0;l<document.getElementById(this.id).options.length;l++) {
+                        if (document.getElementById(this.id).options[l].selected) {
+                                //meraki z1, mx, viptela, isr
+                                if (l==0 || l==1 || l== 2 || l==3) {
+                                        my_profile1[i][l]=my_array[i][25+document.getElementById("country-"+i+"-sml-"+j).selectedIndex];
+                                } else if (l==6 || l==7 || l== 8 || l==9) {
+                                        my_profile1[i][l]=my_array[i][28+document.getElementById("country-"+i+"-sml-"+j).selectedIndex];
+                                } else if (l==10 || l==11 || l== 12 || l==13) {
+                                        my_profile1[i][l]=my_array[i][31+document.getElementById("country-"+i+"-sml-"+j).selectedIndex];
+                                } else if (l==4 || l==5 || l==14) {
+                                        my_profile1[i][l]=1;
+                                }
+                        } else {
+                                my_profile1[i][l]=0;
+                        }
+		}
+	}
+
+
+        var profile_capex=0;
+        var total_profile_capex=0;
+        var profile_opex=0;
+        var total_profile_opex=0;
+        // go through 11 country austria, romania ...
+        for (c=1; c<document.getElementById("country_list_in_tokyo_1").options.length;c++) {
+          if (document.getElementById("country_list_in_tokyo_1").options[c].selected) {
+
+                //go through 15 products z1, mx ...
+		z1="country-"+c+"-years-"+j;
+		console.log('c='+c+'j='+j+'z1='+z1);
+                for( d=0; d<15; d++) {
+                        //multiple two arrays quantity from profiles based on country (c) and product (d)  * price based on product price (1) or service price (2) and product (d)
+				profile_capex+=(my_profile1[c][d]*my_services[1][d])*(1-(document.getElementById("country-"+i+"-discount-"+j).value/100));
+				total_profile_capex+=(my_profile1[c][d]*my_services[1][d])*(1-(document.getElementById("country-"+i+"-discount-"+j).value/100))*(my_array[i][13+document.getElementById("country-"+i+"-sml-"+j).selectedIndex]*document.getElementById("country-"+i+"-adoption-"+j).value/100);
+				profile_opex+=(my_profile1[c][d]*my_services[2][d])*(1-(document.getElementById("country-"+i+"-discount-"+j).value/100))*document.getElementById(z1).value;
+				total_profile_opex+=(my_profile1[c][d]*my_services[2][d])*(1-(document.getElementById("country-"+i+"-discount-"+j).value/100))*document.getElementById(z1).value*(my_array[i][13+document.getElementById("country-"+i+"-sml-"+j).selectedIndex]*document.getElementById("country-"+i+"-adoption-"+j).value/100);
+				if (my_profile1[c][d]>0) {
+					console.log('c='+c+'d='+d+ 'my_profile1[0][d]'+my_profile1[0][d]+'my_profile1[c][d]'+my_profile1[c][d]+'my_services[0][d]'+my_services[0][d]+'my_services[1][d]'+my_services[1][d]+'my_services[2][d]'+my_services[2][d]+'discount'+(1-(document.getElementById("country-"+i+"-discount-"+j).value/100))+'years'+document.getElementById("country-"+i+"-years-"+j).value);
+				}
+                }
+           }
+	}
+document.getElementById("country-"+i+"-capex-"+j).value=(profile_capex).toFixed(0);
+document.getElementById("my_array("+i+")("+j+")-label-for-profile-capex").size=("capex/company for "+document.getElementById("country-"+i+"-years-"+j).value + " year").length;
+document.getElementById("my_array("+i+")("+j+")-label-for-profile-capex").value="capex/company for "+document.getElementById("country-"+i+"-years-"+j).value + " year";
+document.getElementById("country-"+i+"-opex-"+j).value=(profile_opex).toFixed(0);
+document.getElementById("my_array("+i+")("+j+")-label-for-profile-opex").size=("opex/company for "+document.getElementById("country-"+i+"-years-"+j).value + " year").length;
+document.getElementById("my_array("+i+")("+j+")-label-for-profile-opex").value= "opex/company for "+document.getElementById("country-"+i+"-years-"+j).value + " year";
+
+
+document.getElementById("country-"+i+"-totalcapex-"+j).value=(total_profile_capex).toFixed(0);
+document.getElementById("my_array("+i+")("+j+")-label-for-total-profile-capex").size=("capex/"+(my_array[i][13+document.getElementById("country-"+i+"-sml-"+j).selectedIndex]+"companies for "+document.getElementById("country-"+i+"-years-"+j).value)+" year").length;
+document.getElementById("my_array("+i+")("+j+")-label-for-total-profile-capex").value="capex/"+(my_array[i][13+document.getElementById("country-"+i+"-sml-"+j).selectedIndex]+"companies for "+document.getElementById("country-"+i+"-years-"+j).value)+" year";
+document.getElementById("country-"+i+"-totalopex-"+j).value=(total_profile_opex).toFixed(0);
+document.getElementById("my_array("+i+")("+j+")-label-for-total-profile-opex").size=("opex/"+(my_array[i][13+document.getElementById("country-"+i+"-sml-"+j).selectedIndex]+"companies for "+document.getElementById("country-"+i+"-years-"+j).value)+" year").length;
+document.getElementById("my_array("+i+")("+j+")-label-for-total-profile-opex").value= "opex/"+(my_array[i][13+document.getElementById("country-"+i+"-sml-"+j).selectedIndex]+"companies for "+document.getElementById("country-"+i+"-years-"+j).value)+" year";
+;
+console.log('capex'+profile_capex+'opex'+profile_opex);
+console.log('total capex'+total_profile_capex+'total opex'+total_profile_opex);
+
+
+        final_capex=0;
+        final_opex=0;
+        y=34+Number(document.getElementById("number_of_prof").value);
+        console.log('y='+y);
+        for (j=34;j<y;j++) {
+                console.log('im in final capex and opex and j='+j);
+                for (i=0;i<document.getElementById("country_list_in_tokyo_1").options.length;i++) {
+                        if (document.getElementById("country_list_in_tokyo_1").options[i].selected) {
+                                string11="country-"+i+"-totalcapex-"+j;
+                                string12="country-"+i+"-totalopex-"+j;
+                                if (document.getElementById(string11).value) {
+                                        final_capex+=Number(document.getElementById(string11).value);
+                                }
+                                if (document.getElementById(string12).value) {
+                                        final_opex+=Number(document.getElementById(string12).value);
+                                }
+                        }
+                }
+        }
+        console.log('final capex'+final_capex+'final opex'+final_opex);
+        document.getElementById("final_capex").value=final_capex;
+        document.getElementById("final_opex").value=final_opex;
+        profile_capex_and_opex=profile_capex+profile_opex;
+        console.log('result capex='+profile_capex);
+        console.log('result opex='+profile_opex);
+        console.log('result capex and opex='+profile_capex_and_opex);
+
+};
+
+
+//#### sliders label http://form.guide/html-form/html5-input-type-range.html
 $(function()
 {
 $('.slider').on('input change', function(){
           $(this).next($('.slider_label')).html(this.value);
+		
+		//https://stackoverflow.com/questions/14867835/get-substring-between-two-characters-using-javascript
+		//i=Number(this.id.split(/[()]/)[1]);
+		//j=Number(this.id.split(/[()]/)[3]);
+		//console.log('im in slider change and i ='+i+'j='+j);
+		//my_array[this.id.split(/[()]/)[1]][this.id.split(/[()]/)[3]]=this.value;
+		//update_karlovac_table();
+		//draw_karlovac_table ();
         });
       $('.slider_label').each(function(){
           var value = $(this).prev().attr('value');
           $(this).html(value);
-        });
-console.log("i'm in slider change");
-//change();
+        });  
+  
+  
 })
+
+
 
 
 $(function() {
@@ -719,6 +1243,21 @@ $(function() {
 //for (i = 0; i < fruits.selectedOptions.length; i++) {
 //  console.log('fruits'+fruits.selectedOptions[i].value);
 //}
+
+//https://exceptionshub.com/auto-scaling-inputtypetext-to-width-of-value.html
+
+//function resizeInput() {
+//    $(this).attr('size', $(this).val().length);
+//	console.log('write id'+this.id);
+//}
+
+//$('input[type="text"]')
+    // event handler
+//    .keyup(resizeInput)
+    // resize on page load
+//    .each(resizeInput);
+
+//$("selector").autosizeInput();
 
 </script>
 
