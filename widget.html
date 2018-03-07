@@ -1,5 +1,6 @@
-d>
-    <meta charset="utf8">
+<html>
+<head>
+<meta charset="utf8">
     <title>Space Widget Demo</title>
     <link rel="stylesheet" href="https://code.s4d.io/widget-space/production/main.css">
   </head>
@@ -7,15 +8,23 @@ d>
 <table>
 <tr>
 <td>
-	<input type="text" style="width:60px;text-align:right;color: #3CBC8D" id="mail">
+	<input type="text" style="width:60px;text-align:right;color: #3CBC8D" id="myText" value="jzimet@cisco.com">
+<p id="demo"></p>
 </td>
 </tr>
 <tr>
 <td>
+	<div id="main"></div>
+	<script type="text/javascript">
+		document.getElementById("main").innerHTML='data-toggle="ciscospark-space"';
+		document.getElementById("main").style.width="500px";
+		document.getElementById("main").style.height="500px";
+	</script>
+	
     <div style="width: 500px; height: 500px;"
         data-toggle="ciscospark-space"
         data-access-token="ODY4YTQ1NjItZWJkZS00NjZjLWIyNzUtNWIwYzIxODdmZjRhOWM4NTBmMDYtYTQw"
-	data-to-person-email="apavlovi@cisco.com"
+	data-to-person-email="jzimet@cisco.com";
      />
     <script src="https://code.s4d.io/widget-space/production/bundle.js"></script>
 </td>
@@ -23,5 +32,5 @@ d>
 </td>
 </tr>
 </table>
-  </body>
+</body>
 </html>
