@@ -1,0 +1,123 @@
+<html>
+<style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+#Home {background-color: red;}
+#News {background-color: green;}
+#Contact {background-color: blue;}
+#About {background-color: orange;}
+</style>
+
+<head>
+<script src='https://code.s4d.io/widget-space/production/bundle.js'></script>;
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<meta charset="utf8">
+<title>Space Widget Demo</title>
+<link rel="stylesheet" href="https://code.s4d.io/widget-space/production/main.css">
+</head>
+
+<body>
+
+<button class="tablink" onclick="openPage('Home', this, 'red')">Dashboard</button>
+<button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">TAM</button>
+
+<div id="Home" class="tabcontent">
+  <h3>Home</h3>
+  <p>Home is where the heart is..</p>
+</div>
+
+<div id="News" class="tabcontent">
+  <h3>News</h3>
+  <p>Some news this fine day!</p>
+ <select id="myselect" onchange="myFunction()"><option>apavlovi@cisco.com</option><option>hpinjo@cisco.com</option><option>samekic@cisco.com</option></select>
+  <div id="tam"></div>
+</div>
+
+<script>
+
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+//this is 1st gen widget start
+//string=document.getElementById("myselect").options[document.getElementById("myselect").selectedIndex].text;
+//string="apavlovi@cisco.com";
+
+//var draw="";
+//draw+="<div style='width: 500px; height: 500px;'";
+//draw+="data-toggle='ciscospark-space'";
+//draw+="data-access-token='ODY4YTQ1NjItZWJkZS00NjZjLWIyNzUtNWIwYzIxODdmZjRhOWM4NTBmMDYtYTQw'";
+//draw+="data-to-person-email='"+string+"'";
+//draw+="/>";
+
+//draw_spark = document.getElementById("tam");
+//draw_spark.innerHTML = draw;
+//this is first widget end
+
+function myFunction() {
+
+string=document.getElementById("myselect").options[document.getElementById("myselect").selectedIndex].text;
+var draw="";
+draw+="<div id='my-ciscospark-widget' style='width: 500px; height: 500px;'/>";
+draw_spark = document.getElementById("tam");
+draw_spark.innerHTML = draw;
+	var widgetEl = document.getElementById('my-ciscospark-widget');
+	ciscospark.widget(widgetEl).spaceWidget({
+		accessToken: 'ODY4YTQ1NjItZWJkZS00NjZjLWIyNzUtNWIwYzIxODdmZjRhOWM4NTBmMDYtYTQw',
+		//spaceId: 'SPACE_ID'
+		toPersonEmail: string
+	});
+
+}
+
+</script>
+
+</body>
+</html>
