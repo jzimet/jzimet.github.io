@@ -51,19 +51,19 @@ body, html {
 
 <body>
 
-<button class="tablink" onclick="openPage('Home', this, 'red')">Dashboard</button>
-<button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">TAM</button>
+<button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
+<button class="tablink" onclick="openPage('Spark', this, 'green')" id="defaultOpen">Spark</button>
 
 <div id="Home" class="tabcontent">
   <h3>Home</h3>
-  <p>Home is where the heart is..</p>
+  <p>Home ..</p>
 </div>
 
-<div id="News" class="tabcontent">
-  <h3>News</h3>
-  <p>Some news this fine day!</p>
+<div id="Spark" class="tabcontent">
+  <h3>Spark</h3>
+  <p>Select drop down ...</p>
  <select id="myselect" onchange="myFunction()"><option>apavlovi@cisco.com</option><option>hpinjo@cisco.com</option><option>samekic@cisco.com</option></select>
-  <div id="tam"></div>
+  <div id="myspark"></div>
 </div>
 
 <script>
@@ -86,27 +86,13 @@ function openPage(pageName,elmnt,color) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 
-//this is 1st gen widget start
-//string=document.getElementById("myselect").options[document.getElementById("myselect").selectedIndex].text;
-//string="apavlovi@cisco.com";
-
-//var draw="";
-//draw+="<div style='width: 500px; height: 500px;'";
-//draw+="data-toggle='ciscospark-space'";
-//draw+="data-access-token='ODY4YTQ1NjItZWJkZS00NjZjLWIyNzUtNWIwYzIxODdmZjRhOWM4NTBmMDYtYTQw'";
-//draw+="data-to-person-email='"+string+"'";
-//draw+="/>";
-
-//draw_spark = document.getElementById("tam");
-//draw_spark.innerHTML = draw;
-//this is first widget end
 
 function myFunction() {
 
 string=document.getElementById("myselect").options[document.getElementById("myselect").selectedIndex].text;
 var draw="";
 draw+="<div id='my-ciscospark-widget' style='width: 500px; height: 500px;'/>";
-draw_spark = document.getElementById("tam");
+draw_spark = document.getElementById("myspark");
 draw_spark.innerHTML = draw;
 	var widgetEl = document.getElementById('my-ciscospark-widget');
 	ciscospark.widget(widgetEl).spaceWidget({
